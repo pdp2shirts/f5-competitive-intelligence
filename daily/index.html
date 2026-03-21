@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F5 Daily Briefing Archive</title>
+<title>Daily Briefing Archive - F5 Competitive Intelligence</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -12,51 +12,45 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .header h1{font-size:28px;font-weight:700;margin-bottom:8px}
 .header h1 span{color:var(--accent)}
 .header p{color:var(--muted);font-size:14px}
-.back{display:inline-block;margin:24px 0 0;color:var(--accent);text-decoration:none;font-size:13px}
-.back:hover{text-decoration:underline}
-.content{max-width:700px;margin:0 auto;padding:32px 24px}
+.back-link{display:inline-block;margin:24px 0 0;color:var(--accent);text-decoration:none;font-size:13px}
+.back-link:hover{text-decoration:underline}
+.content{max-width:700px;margin:0 auto;padding:40px 20px}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
 .archive-list{display:flex;flex-direction:column;gap:8px}
-.archive-card{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s}
-.archive-card:hover{border-color:var(--accent);transform:translateX(4px)}
-.archive-date{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:700;color:var(--accent);min-width:60px;text-align:center}
-.archive-info{flex:1}
-.archive-title{font-size:15px;font-weight:600;margin-bottom:2px}
-.archive-sub{font-size:12px;color:var(--muted)}
-.archive-arrow{color:var(--accent);font-size:18px;opacity:0;transition:opacity .2s}
-.archive-card:hover .archive-arrow{opacity:1}
-.count{font-size:13px;color:var(--muted);margin-bottom:20px}
-.footer{text-align:center;padding:32px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
+.archive-item{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);transition:border-color .2s,transform .1s}
+.archive-item:hover{border-color:var(--accent);transform:translateX(4px)}
+.archive-date{font-size:15px;font-weight:500}
+.archive-arrow{color:var(--accent);font-size:16px;opacity:0;transition:opacity .2s}
+.archive-item:hover .archive-arrow{opacity:1}
+.footer{text-align:center;padding:40px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
 </style>
 </head>
 <body>
 <div class="header">
   <h1><span>F5</span> Daily Briefing Archive</h1>
   <p>Browse past daily competitive intelligence briefings. Archives are kept for 90 days.</p>
-  <a class="back" href="../index.html">&larr; Back to Dashboard</a>
+  <a class="back-link" href="../index.html">&larr; Back to Dashboard</a>
 </div>
 <div class="content">
-  <div class="count">2 briefings archived</div>
+  <div class="section-title">3 Briefings Available</div>
   <div class="archive-list">
-    <a class="archive-card" href="2026-03-19.html">
-      <div class="archive-date">Mar 19</div>
-      <div class="archive-info">
-        <div class="archive-title">Thursday, March 19, 2026</div>
-        <div class="archive-sub">Daily Competitive Briefing</div>
-      </div>
-      <span class="archive-arrow">&#8599;</span>
+    <a class="archive-item" href="2026-03-20.html">
+      <div class="archive-date">Friday, March 20, 2026</div>
+      <div class="archive-arrow">&#8599;</div>
     </a>
-    <a class="archive-card" href="2026-03-18.html">
-      <div class="archive-date">Mar 18</div>
-      <div class="archive-info">
-        <div class="archive-title">Wednesday, March 18, 2026</div>
-        <div class="archive-sub">Daily Competitive Briefing</div>
-      </div>
-      <span class="archive-arrow">&#8599;</span>
+    <a class="archive-item" href="2026-03-19.html">
+      <div class="archive-date">Thursday, March 19, 2026</div>
+      <div class="archive-arrow">&#8599;</div>
+    </a>
+    <a class="archive-item" href="2026-03-18.html">
+      <div class="archive-date">Wednesday, March 18, 2026</div>
+      <div class="archive-arrow">&#8599;</div>
     </a>
   </div>
 </div>
 <div class="footer">
-  F5 Competitive Intelligence &middot; Daily Archive &middot; 90-day retention<br>
+  F5 Competitive Intelligence &middot; Auto-updated daily at 4:00 AM PT &middot; 90 day retention<br>
   Powered by Gumloop
 </div>
 </body>
