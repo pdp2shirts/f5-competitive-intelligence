@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5 Daily Briefing - March 22, 2026</title>
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<style>
+:root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8;--danger:#ff4d6a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+.header-left h1{font-size:26px;font-weight:700;margin-bottom:6px}
+.header-left h1 span{color:var(--accent)}
+.header-left p{color:var(--muted);font-size:14px}
+.header-right{display:flex;gap:10px}
+.export-btn{background:var(--accent);color:#000;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+.export-btn:hover{opacity:.9}
+.stats-bar{display:flex;gap:20px;padding:20px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 24px;min-width:150px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s}
+.stat-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 16px rgba(118,185,0,.15)}
+.stat-card.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(118,185,0,.3)}
+.stat-card .num{font-size:32px;font-weight:700;color:var(--accent)}
+.stat-card .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.stat-card .hint{font-size:10px;color:var(--accent);margin-top:6px;opacity:0;transition:opacity .2s}
+.stat-card:hover .hint{opacity:1}
+.main{display:flex;gap:0;min-height:calc(100vh - 180px)}
+.charts-panel{flex:0 0 50%;padding:24px 20px 24px 40px;display:flex;flex-direction:column;gap:16px}
+.chart-container{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;flex:1;min-height:320px}
+.detail-panel{flex:1;padding:24px 40px 24px 20px;overflow-y:auto;max-height:calc(100vh - 180px)}
+.detail-panel h2{font-size:18px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.detail-panel h2 .badge{background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:13px;color:var(--muted)}
+.breadcrumb a{color:var(--accent);cursor:pointer;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb .sep{color:var(--border)}
+.ann-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:12px;transition:border-color .2s}
+.ann-card:hover{border-color:var(--accent)}
+.ann-card .ann-title{font-size:15px;font-weight:600;margin-bottom:8px}
+.ann-card .ann-type{display:inline-block;background:rgba(118,185,0,.15);color:var(--accent);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px}
+.ann-card .ann-comp-tag{display:inline-block;background:rgba(0,180,216,.15);color:var(--accent2);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px;margin-left:6px}
+.ann-card .ann-date-tag{display:inline-block;background:rgba(255,255,255,.06);color:var(--muted);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px;margin-left:6px}
+.ann-card .ann-summary{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.ann-card .source-link{display:inline-flex;align-items:center;gap:4px;color:var(--accent2);font-size:12px;text-decoration:none;font-weight:500}
+.ann-card .source-link:hover{text-decoration:underline}
+.comp-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,background .2s}
+.comp-card:hover{border-color:var(--accent);background:var(--card)}
+.comp-card .name{font-size:14px;font-weight:600}
+.comp-card .cat{font-size:11px;color:var(--muted);margin-top:2px}
+.comp-card .count{background:var(--accent);color:#000;font-size:12px;font-weight:700;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.comp-card .no-ann{color:var(--muted);font-size:11px;font-style:italic}
+.comp-card.inactive{opacity:.5;cursor:default}
+.comp-card.inactive:hover{border-color:var(--border);background:var(--surface)}
+.cat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,background .2s}
+.cat-card:hover{border-color:var(--accent);background:var(--card)}
+.cat-card .cat-name{font-size:14px;font-weight:600}
+.cat-card .cat-meta{font-size:11px;color:var(--muted);margin-top:2px}
+.cat-card .cat-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
+.pill{font-size:11px;padding:2px 10px;border-radius:12px;font-weight:600}
+.pill-ann{background:rgba(118,185,0,.15);color:var(--accent)}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin:20px 0 8px;font-weight:600}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px}
+.status-active{background:var(--accent)}.status-inactive{background:#444}
+.inactive-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.inactive-chip{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:12px;color:var(--muted)}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state .icon{font-size:48px;margin-bottom:12px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>F5 Daily Briefing &ndash; <span>Sunday, March 22, 2026</span></h1>
+    <p><a href="../index.html" style="color:var(--accent);text-decoration:none;font-weight:600">&larr; Back to Hub</a> &middot; Daily competitive intelligence covering 17 F5 competitors</p>
+  </div>
+  <div class="header-right">
+    <button class="export-btn" id="exportBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export CSV
+    </button>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-card" data-action="stat-tracked"><div class="num">17</div><div class="label">Competitors Tracked</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-ann"><div class="num">16</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
+  <div class="stat-card" data-action="stat-active"><div class="num">12</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-cats"><div class="num">6</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
+</div>
+<div class="main">
+  <div class="charts-panel">
+    <div class="chart-container" id="chart-competitor"></div>
+    <div class="chart-container" id="chart-category"></div>
+  </div>
+  <div class="detail-panel" id="detail-panel"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var DATA={"Akamai": {"category": "CDN / Edge / App Delivery", "announcements": [{"title": "Akamai AI Grid Intelligent Orchestration Coverage Continues", "summary": "Enterprise Times reported on March 22, 2026 that Akamai's AI Grid \u2014 the first global-scale implementation of NVIDIA AI Grid technology \u2014 is now live across its 4,400 edge locations, enabling distributed AI inference at a planetary scale. The platform utilizes intelligent workload orchestration to optimize costs, responsiveness, and throughput for real-time AI applications including video processing and physical AI. Powered by thousands of NVIDIA RTX PRO 6000 Blackwell GPUs, the AI Grid dynamically allocates resources to reduce inference costs while improving performance.", "type": "Product Launch", "date": "2026-03-22", "source_url": "https://enterprisetimes.in/latest-news/akamai-launches-ai-grid-for-distributed-inference-orchestration-across-4400-edge-locations/"}]}, "Cloudflare": {"category": "CDN / Edge / App Delivery", "announcements": [{"title": "Cloudflare Becomes First SASE Platform with Post-Quantum Encryption", "summary": "On March 22, 2026, Cloudflare announced it has become the first and only SASE platform to fully support modern post-quantum encryption standards. The update integrates post-quantum encryption across its entire Cloudflare One ecosystem, including IPsec, WAN-as-a-service, and the Cloudflare One Appliance, leveraging the NIST-standardized hybrid ML-KEM encryption mechanism. The move addresses urgent cybersecurity concerns related to quantum computing threats and 'harvest now, decrypt later' attacks, well ahead of the 2030 NIST cryptographic upgrade deadline.", "type": "Product Launch", "date": "2026-03-22", "source_url": "https://www.cloudflare.com/pl-pl/press/press-releases/2026/cloudflare-becomes-the-first-and-only-sase-platform-to-support-modern-post/"}]}, "Fastly": {"category": "CDN / Edge / App Delivery", "announcements": []}, "Citrix (NetScaler)": {"category": "ADC / Load Balancing", "announcements": []}, "A10 Networks": {"category": "ADC / Load Balancing", "announcements": []}, "Palo Alto Networks": {"category": "Network Security / Firewall", "announcements": [{"title": "Institutional Investors Increase Stakes in Palo Alto Networks", "summary": "On March 22, 2026, Procyon Advisors LLC significantly increased its stake in Palo Alto Networks (PANW) by 35.8% in Q4, acquiring an additional 10,190 shares to bring total holdings to 38,684 shares valued at approximately $7.13 million. Analysts maintain a 'Moderate Buy' rating with an average price target of $210.19, indicating significant potential upside from the current trading price near $163. Institutional investors now hold approximately 79.82% of the company, reflecting continued confidence in Palo Alto Networks' growth prospects.", "type": "Financial", "date": "2026-03-22", "source_url": "https://www.marketbeat.com/instant-alerts/filing-procyon-advisors-llc-boosts-stake-in-palo-alto-networks-inc-panw-2026-03-22/"}]}, "Fortinet": {"category": "Network Security / Firewall", "announcements": [{"title": "AI-Assisted Attack Campaign Breaches 600+ FortiGate Firewalls", "summary": "On March 22, 2026, reports emerged of a sophisticated AI-assisted attack campaign that compromised over 600 FortiGate firewalls across 55 countries between January and February 2026. The Russian-speaking, financially motivated threat actor exploited critical vulnerabilities CVE-2025-59718, CVE-2025-59719, and CVE-2026-24858 using AI automation to rapidly scan and gain administrative access. Targeted sectors included healthcare and government organizations, with attackers creating backdoors, extracting configuration files, and infiltrating Active Directory systems.", "type": "Security Incident", "date": "2026-03-22", "source_url": "https://www.gblock.app/articles/fortigate-ai-attacker-600-firewalls-breach"}, {"title": "Fortinet Releases Critical Patches for FortiGate Firewall Vulnerabilities", "summary": "On March 22, 2026, Fortinet announced the release of patches for critical vulnerabilities in FortiGate Firewalls with severity scores of 9.8/10 that had been actively exploited. The patches address CVE-2025-59718, CVE-2025-59719, and CVE-2026-24858, which allowed hackers to gain administrative access and establish persistence within enterprise networks. Fortinet responded by suspending FortiCloud SSO and urging organizations to rotate credentials, enforce strong access controls, and audit domain settings.", "type": "Security Advisory", "date": "2026-03-22", "source_url": "https://tech.yahoo.com/cybersecurity/articles/fortinet-patches-fortigate-firewall-vulnerabilities-123000592.html"}]}, "Check Point Software": {"category": "Network Security / Firewall", "announcements": []}, "Zscaler": {"category": "Zero Trust / Cloud Security", "announcements": [{"title": "Zscaler Expands AI-Powered Data Sovereignty Capabilities", "summary": "On March 22, 2026, Zscaler expanded its AI-powered data sovereignty capabilities within its Zero Trust Exchange platform, deploying region-specific control planes, in-region SSL inspection, malware analysis, and private service edges. The enhancements enable enterprises to maintain data sovereignty and retain control over encryption keys while ensuring high availability even during regional outages. The expansion supports compliance with regulations including GDPR, NIS2, and DoD IL5, with the initial rollout covering existing regions and an upcoming expansion to Canada.", "type": "Product Enhancement", "date": "2026-03-22", "source_url": "https://world.harianbasis.co/zscaler-expands-ai-data-sovereignty"}]}, "CrowdStrike": {"category": "Zero Trust / Cloud Security", "announcements": [{"title": "CrowdStrike Extends Agentic AI Alliance with NVIDIA at GTC 2026", "summary": "On March 22, 2026, CrowdStrike announced significant advancements in AI-driven cybersecurity at NVIDIA GTC 2026, expanding its managed detection and response (MDR) services with additional AI agents utilizing NVIDIA's Nemotron Nano and Nemotron Super AI models. The company demonstrated substantial improvements in investigation speed and accuracy during internal testing. CrowdStrike is also collaborating with NVIDIA to develop a Secure-by-Design AI Blueprint integrated into NVIDIA OpenShell to enhance security and governance of AI agents across platforms.", "type": "Partnership", "date": "2026-03-22", "source_url": "https://securityboulevard.com/2026/03/crowdstrike-extends-agentic-ai-alliance-with-nvidia/"}]}, "Cisco": {"category": "Networking Infrastructure", "announcements": [{"title": "Cisco Secure AI Factory Advances Core-to-Edge Agentic AI Capabilities", "summary": "On March 22, 2026, Cisco announced significant advancements in its Secure AI Factory partnership with NVIDIA, emphasizing enhanced core-to-edge capabilities for the agentic AI future. Key highlights include acceleration of AI deployment by unifying data-center workloads, software, and infrastructure, with exclusive use of Cisco Silicon One in NVIDIA-based systems. The update enables real-time distributed inferencing at the edge for applications like public safety and enterprise operations.", "type": "Product Enhancement", "date": "2026-03-22", "source_url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m03/five-ways-secure-ai-factory-supercharges-the-agentic-future.html"}, {"title": "Cisco Named Leader in ABI Research 2026 Enterprise WLAN Ranking", "summary": "On March 22, 2026, Cisco announced its recognition as the overall leader in ABI Research's 2026 Enterprise WLAN Infrastructure Vendors Competitive Ranking, highlighting innovation in AI-ready networking solutions. The company showcased advancements including the Cisco Deep Network Model, Wi-Fi 7 access points with Ultra-Reliable Wireless Backhaul, and AgenticOps for automated network management. The recognition underscores Cisco's position as a key enabler for organizations transitioning into the AI era with secure, scalable wireless infrastructure.", "type": "Industry Recognition", "date": "2026-03-22", "source_url": "https://blogs.cisco.com/networking/cisco-recognized-as-leader-in-abi-research-competitive-ranking-for-enterprise-wlan"}]}, "Arista Networks": {"category": "Networking Infrastructure", "announcements": [{"title": "Arista Networks Reports Strong AI Networking Growth Projections", "summary": "On March 22, 2026, analysis highlighted that Arista Networks is projecting nearly 30% of its FY2026 revenue from AI-related data center solutions, reflecting the company's strong positioning at the intersection of AI growth and networking infrastructure. The company reported robust Q4 2025 results with 28.9% revenue growth and a 47.5% non-GAAP operating margin. International expansion is accelerating with EMEA revenue up 80% year-over-year and APAC up 37%, reinforcing its role as a key player in AI-driven networking.", "type": "Financial", "date": "2026-03-22", "source_url": "https://finance.yahoo.com/sectors/technology/articles/arista-networks-anet-targets-ai-165313250.html"}]}, "HPE / Juniper Networks": {"category": "Networking Infrastructure", "announcements": [{"title": "HPE Strengthens Networking Portfolio with Juniper and Aruba Integration", "summary": "On March 22, 2026, reports confirmed HPE continues to deepen integration with Juniper Networks following their acquisition, rolling out unified AI-driven network management platforms combining Juniper's Mist Large Experience Model with Aruba's AI client profiling. The combined platform enables more autonomous, self-optimizing enterprise networks with new hardware solutions including high-performance routers and switches optimized for AI data centers. HPE's integration of Juniper's routing platforms into broader ecosystems such as NVIDIA's AI infrastructure consolidates its position as a leader in enterprise networking.", "type": "Product Enhancement", "date": "2026-03-22", "source_url": "https://themunicheye.com/hpe-juniper-aruba-enterprise-networking-integration-30168"}]}, "AWS": {"category": "Cloud Platform / Infrastructure", "announcements": [{"title": "AWS Updates S3 Bucket Naming to Account-Regional Namespace", "summary": "On March 22, 2026, AWS announced a significant update to Amazon S3 bucket naming conventions, shifting from globally unique bucket names to an account-regional namespace model. The new naming pattern includes a user-defined prefix, account ID, region, and reserved suffix, eliminating 'BucketAlreadyExists' errors and enabling multiple accounts to reuse the same prefix without conflicts. The feature is integrated into AWS tools including the console, CLI, and SDKs, with security policies available to enforce organizational consistency.", "type": "Product Enhancement", "date": "2026-03-22", "source_url": "https://arnabsaha1.medium.com/no-more-bucketalreadyexists-13cb8c9df758"}, {"title": "AWS Experiences Service Disruptions in Middle East (UAE) Region", "summary": "On March 22, 2026, the AWS Health Dashboard reported ongoing service disruptions in the Middle East (UAE) region affecting multiple services including Amazon S3 and DynamoDB. While PUT and LIST operations showed improvement, GET requests for pre-existing data continued experiencing increased error rates. AWS advised customers to consider migrating workloads to alternative regions and to activate disaster recovery plans while recovery efforts continued.", "type": "Service Incident", "date": "2026-03-22", "source_url": "https://health.aws.amazon.com/health/status"}, {"title": "Amazon CEO Projects AI Could Drive AWS Sales to $600 Billion by 2036", "summary": "On March 22, 2026, Amazon CEO Andy Jassy announced that artificial intelligence is expected to significantly boost AWS sales, potentially doubling previous projections to reach $600 billion annually by 2036. This optimistic outlook highlights AI's transformative impact on cloud computing and positions AWS for substantial growth driven by advancements in AI technology. The projection underscores Amazon's continued heavy investment in AI infrastructure and services across its cloud platform.", "type": "Financial", "date": "2026-03-22", "source_url": "https://ae.marketscreener.com/news/amazon-ceo-sees-ai-doubling-his-prior-aws-sales-projections-to-600-billion-by-2036-ce7e5ed8db88f027"}]}, "Radware": {"category": "WAF / DDoS Protection", "announcements": []}, "Barracuda Networks": {"category": "WAF / DDoS Protection", "announcements": [{"title": "Barracuda Unveils SOC Threat Radar for March 2026", "summary": "On March 22, 2026, Barracuda Networks published its SOC Threat Radar for March 2026, highlighting a surge in identity-based attacks including suspicious logins from Romania and PDF-related malware campaigns. The report details a significant supply chain attack involving compromised Notepad++ update mechanisms exploited by Chinese state-sponsored actors targeting Asia-Pacific organizations. Barracuda recommends deploying comprehensive security solutions like Managed XDR, implementing multi-factor authentication, and monitoring login anomalies to mitigate evolving cyber threats.", "type": "Threat Research", "date": "2026-03-22", "source_url": "https://cxotoday.com/media-coverage/barracuda-unveils-soc-threat-radar-march-2026/"}]}, "Imperva (Thales)": {"category": "WAF / DDoS Protection", "announcements": [{"title": "Imperva Schedules Cloud Security Console Maintenance Update", "summary": "On March 22, 2026, Imperva (Thales) performed a scheduled maintenance update to its Cloud Security Console from 14:00 to 17:00 UTC. During the maintenance window, users may have experienced delays in applying configuration changes, though all updates were implemented without data loss. The update affects management and analytics services, with some legacy categories being deprecated as part of Imperva's ongoing cybersecurity platform enhancements.", "type": "Maintenance", "date": "2026-03-22", "source_url": "https://status.imperva.com/incidents/2d84w2t33cr0"}]}};
+var catColors={"ADC / Load Balancing":"#636efa","CDN / Edge / App Delivery":"#ef553b","Network Security / Firewall":"#00cc96","Zero Trust / Cloud Security":"#ab63fa","Networking Infrastructure":"#ffa15a","Cloud Platform / Infrastructure":"#19d3f3","WAF / DDoS Protection":"#ff6692"};
+var cCL=["#76b900","#00b4d8","#ef553b","#ab63fa","#ffa15a","#19d3f3","#ff6692","#636efa","#00cc96","#b6e880","#ff97ff"];
+var ALL_ANN=[],names=Object.keys(DATA),compCounts={},catCounts={};
+for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],n=info.announcements.length;
+  if(n>0)compCounts[nm]=n;
+  if(!catCounts[info.category])catCounts[info.category]=0;
+  catCounts[info.category]+=n;
+  for(var j=0;j<n;j++){var a=info.announcements[j];ALL_ANN.push({title:a.title,summary:a.summary,source_url:a.source_url,type:a.type,date:a.date,competitor:nm,category:info.category});}}
+
+document.getElementById("exportBtn").addEventListener("click",function(){
+  var rows=["Date,Competitor,Category,Type,Title,Summary,Source URL"];
+  for(var i=0;i<ALL_ANN.length;i++){var a=ALL_ANN[i];rows.push([a.date,q(a.competitor),q(a.category),q(a.type),q(a.title),q(a.summary),a.source_url].join(","));}
+  var blob=new Blob([rows.join("\n")],{type:"text/csv"});var lnk=document.createElement("a");lnk.href=URL.createObjectURL(blob);lnk.download="f5_daily_2026-03-22.csv";lnk.click();
+});
+function q(s){return '"'+String(s).replace(/"/g,'""')+'"';}
+
+var pL={paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{family:"Segoe UI,system-ui,sans-serif",color:"#e2e4ea",size:12},margin:{t:40,b:10,l:10,r:10},showlegend:true,legend:{font:{size:11},orientation:"v",x:1.02,y:0.5}};
+var cl=Object.keys(compCounts),cv=[];for(var i=0;i<cl.length;i++)cv.push(compCounts[cl[i]]);
+if(cl.length>0){
+  Plotly.newPlot("chart-competitor",[{type:"pie",labels:cl,values:cv,textinfo:"label+value",textposition:"inside",hoverinfo:"label+value+percent",marker:{colors:cCL.slice(0,cl.length),line:{color:"#0f1117",width:2}},hole:.35,sort:false}],Object.assign({},pL,{title:{text:"Announcements by Competitor",font:{size:15,color:"#e2e4ea"},x:.01}}),{responsive:true,displayModeBar:false});
+  document.getElementById("chart-competitor").on("plotly_click",function(d){showCompetitor(d.points[0].label);});
+}else{document.getElementById("chart-competitor").innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8b8fa3">No competitor announcements today</div>';}
+
+var catL=[],catV=[],catC=[];var ck=Object.keys(catCounts);
+for(var i=0;i<ck.length;i++){if(catCounts[ck[i]]>0){catL.push(ck[i]);catV.push(catCounts[ck[i]]);catC.push(catColors[ck[i]]||"#888");}}
+if(catL.length>0){
+  Plotly.newPlot("chart-category",[{type:"pie",labels:catL,values:catV,textinfo:"label+value",textposition:"inside",hoverinfo:"label+value+percent",marker:{colors:catC,line:{color:"#0f1117",width:2}},hole:.35,sort:false}],Object.assign({},pL,{title:{text:"Announcements by Category",font:{size:15,color:"#e2e4ea"},x:.01}}),{responsive:true,displayModeBar:false});
+  document.getElementById("chart-category").on("plotly_click",function(d){showCategory(d.points[0].label);});
+}else{document.getElementById("chart-category").innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8b8fa3">No category data today</div>';}
+
+var panel=document.getElementById("detail-panel");
+function clearStatActive(){document.querySelectorAll(".stat-card").forEach(function(e){e.classList.remove("active");});}
+function fmtDate(d){var dt=new Date(d+"T12:00:00");return dt.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"});}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+function annCardHTML(a,showComp){
+  var t='<span class="ann-type">'+esc(a.type)+'</span>';
+  if(showComp)t+='<span class="ann-comp-tag">'+esc(a.competitor)+'</span>';
+  t+='<span class="ann-date-tag">'+fmtDate(a.date)+'</span>';
+  return '<div class="ann-card"><div>'+t+'</div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';
+}
+
+document.querySelectorAll(".stat-card").forEach(function(el){el.addEventListener("click",function(){var a=this.dataset.action;if(a==="stat-tracked")showStatTracked();else if(a==="stat-ann")showStatAnn();else if(a==="stat-active")showStatActive();else if(a==="stat-cats")showStatCats();});});
+panel.addEventListener("click",function(e){
+  var c=e.target.closest(".comp-card:not(.inactive)");if(c&&c.dataset.comp){showCompetitor(c.dataset.comp);return;}
+  var cc=e.target.closest(".cat-card");if(cc&&cc.dataset.cat){showCategory(cc.dataset.cat);return;}
+  var cl2=e.target.closest("[data-showcomp]");if(cl2){showCompetitor(cl2.dataset.showcomp);return;}
+  var bc=e.target.closest("[data-nav]");if(bc){if(bc.dataset.nav==="overview")showOverview();else if(bc.dataset.nav==="categories")showStatCats();}
+});
+
+function showOverview(){clearStatActive();
+  var h='<h2>Daily Briefing <span class="badge">'+ALL_ANN.length+' announcements</span></h2>';
+  h+='<div class="section-label">Competitors with News Today</div>';
+  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length>0)h+='<div class="comp-card" data-comp="'+esc(nm)+'"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="count">'+info.announcements.length+'</div></div>';}
+  h+='<div class="section-label">No News Today</div>';
+  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length===0)h+='<div class="comp-card inactive"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="no-ann">none</div></div>';}
+  panel.innerHTML=h;
+}
+
+function showStatTracked(){clearStatActive();document.querySelector("[data-action=stat-tracked]").classList.add("active");
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Competitors</span></div><h2>Competitors Tracked <span class="badge">'+names.length+'</span></h2>';
+  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],cls=info.announcements.length>0?"comp-card":"comp-card inactive";
+    h+='<div class="'+cls+'" data-comp="'+esc(nm)+'"><div><div class="name"><span class="status-dot '+(info.announcements.length>0?"status-active":"status-inactive")+'"></span>'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div>'+(info.announcements.length>0?'<div class="count">'+info.announcements.length+'</div>':'<div class="no-ann">0</div>')+'</div>';}
+  panel.innerHTML=h;
+}
+
+function showStatAnn(){clearStatActive();document.querySelector("[data-action=stat-ann]").classList.add("active");
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Announcements</span></div><h2>All Announcements <span class="badge">'+ALL_ANN.length+'</span></h2>';
+  for(var i=0;i<ALL_ANN.length;i++)h+=annCardHTML(ALL_ANN[i],true);
+  if(ALL_ANN.length===0)h+='<div class="empty-state"><div class="icon">&#128240;</div><p>No competitor announcements found today.</p></div>';
+  panel.innerHTML=h;
+}
+
+function showStatActive(){clearStatActive();document.querySelector("[data-action=stat-active]").classList.add("active");
+  var sorted=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length>0)sorted.push([names[i],DATA[names[i]]]);}
+  sorted.sort(function(a,b){return b[1].announcements.length-a[1].announcements.length;});
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Active Today</span></div><h2>Active Today <span class="badge">'+sorted.length+'</span></h2>';
+  for(var i=0;i<sorted.length;i++)h+='<div class="comp-card" data-comp="'+esc(sorted[i][0])+'"><div><div class="name"><span class="status-dot status-active"></span>'+esc(sorted[i][0])+'</div><div class="cat">'+esc(sorted[i][1].category)+'</div></div><div class="count">'+sorted[i][1].announcements.length+'</div></div>';
+  h+='<div class="section-label" style="margin-top:24px">No News Today</div><div class="inactive-chips">';
+  for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length===0)h+='<span class="inactive-chip">'+esc(names[i])+'</span>';}
+  h+='</div>';panel.innerHTML=h;
+}
+
+function showStatCats(){clearStatActive();document.querySelector("[data-action=stat-cats]").classList.add("active");
+  var allCats={};for(var i=0;i<names.length;i++){var cat=DATA[names[i]].category;if(!allCats[cat])allCats[cat]={comps:[],ann:0};allCats[cat].comps.push(names[i]);allCats[cat].ann+=DATA[names[i]].announcements.length;}
+  var co=Object.keys(allCats).sort(function(a,b){return allCats[b].ann-allCats[a].ann;});
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Categories</span></div><h2>Categories <span class="badge">'+co.length+'</span></h2>';
+  for(var ci=0;ci<co.length;ci++){var cat=co[ci],d=allCats[cat],color=catColors[cat]||"#888";
+    h+='<div class="cat-card" data-cat="'+esc(cat)+'"><div><div class="cat-name"><span class="cat-dot" style="background:'+color+'"></span>'+esc(cat)+'</div><div class="cat-meta">'+d.comps.length+' competitors &middot; '+d.ann+' announcements</div></div><div><span class="pill pill-ann">'+d.ann+'</span></div></div>';}
+  panel.innerHTML=h;
+}
+
+function showCompetitor(name){clearStatActive();var info=DATA[name];if(!info)return;
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>'+esc(name)+'</span></div>';
+  h+='<h2>'+esc(name)+' <span class="badge">'+info.announcements.length+' announcement'+(info.announcements.length!==1?"s":"")+'</span></h2>';
+  h+='<p style="color:var(--muted);font-size:13px;margin-bottom:18px">Category: <strong style="color:var(--text)">'+esc(info.category)+'</strong></p>';
+  if(info.announcements.length===0){h+='<div class="empty-state"><div class="icon">&#128236;</div><p>No announcements from this competitor today.</p></div>';}
+  else{for(var i=0;i<info.announcements.length;i++){var a=info.announcements[i];
+    h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
+  panel.innerHTML=h;
+}
+
+function showCategory(category){clearStatActive();
+  var comps=[],active=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].category===category){comps.push([names[i],DATA[names[i]]]);if(DATA[names[i]].announcements.length>0)active.push([names[i],DATA[names[i]]]);}}
+  var total=0;for(var i=0;i<comps.length;i++)total+=comps[i][1].announcements.length;
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><a data-nav="categories">Categories</a><span class="sep">&rsaquo;</span><span>'+esc(category)+'</span></div>';
+  h+='<h2>'+esc(category)+' <span class="badge">'+total+' announcement'+(total!==1?"s":"")+'</span></h2>';
+  for(var i=0;i<active.length;i++){var nm=active[i][0],inf=active[i][1];
+    h+='<div class="section-label" style="margin-top:24px;cursor:pointer;color:var(--accent)" data-showcomp="'+esc(nm)+'">'+esc(nm)+' ('+inf.announcements.length+') &#8599;</div>';
+    for(var j=0;j<inf.announcements.length;j++){var a=inf.announcements[j];
+      h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
+  var inact=comps.filter(function(c){return c[1].announcements.length===0;});
+  if(inact.length>0){h+='<div class="section-label" style="margin-top:20px">No News Today</div><div class="inactive-chips">';for(var i=0;i<inact.length;i++)h+='<span class="inactive-chip">'+esc(inact[i][0])+'</span>';h+='</div>';}
+  panel.innerHTML=h;
+}
+
+showOverview();
+})();
+</script>
+</body>
+</html>
