@@ -3,142 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Briefings Archive &middot; F5 Competitive Intelligence</title>
+<title>Daily Briefing Archive | F5 Competitive Intelligence</title>
 <style>
-:root{--bg:#0f1117;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900}
+:root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:40px;text-align:center}
-.header h1{font-size:28px;font-weight:700;margin-bottom:8px}
+.header h1{font-size:30px;font-weight:700;margin-bottom:8px}
 .header h1 span{color:var(--accent)}
 .header p{color:var(--muted);font-size:14px}
-.header a{color:var(--accent);text-decoration:none;font-weight:600}
-.content{max-width:900px;margin:0 auto;padding:40px}
-.archive-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.archive-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--text);display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,transform .15s}
+.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:13px;margin-bottom:20px}
+.back:hover{text-decoration:underline}
+.content{max-width:900px;margin:0 auto;padding:32px 24px}
+.archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.archive-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;color:var(--text);position:relative;transition:border-color .2s,transform .15s}
 .archive-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.archive-date{font-size:14px;font-weight:600}
-.archive-iso{font-size:11px;color:var(--muted)}
-.archive-arrow{color:var(--accent);margin-left:12px}
-.footer{text-align:center;padding:30px;color:var(--muted);font-size:11px;border-top:1px solid var(--border)}
+.archive-date{font-size:15px;font-weight:600;margin-bottom:8px}
+.archive-meta{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted)}
+.pdf-link-inline{font-family:monospace;font-size:10px;word-break:break-all}
+.arrow{position:absolute;top:20px;right:16px;color:var(--accent);font-size:16px;opacity:.7}
+.footer{text-align:center;padding:32px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
 </style>
 </head>
 <body>
 <div class="header">
-  <h1><span>F5</span> Daily Briefings Archive</h1>
-  <p><a href="../index.html">&larr; Back to Hub</a> &middot; 22 briefings &middot; 90 day retention</p>
+  <h1><span>F5</span> Daily Briefing Archive</h1>
+  <p>Past daily competitive intelligence briefings (90-day retention)</p>
 </div>
 <div class="content">
-  <div class="archive-list">
+  <a href="../index.html" class="back">&larr; Back to Hub</a>
+  <div class="archive-grid">
+    <a class="archive-card" href="2026-04-21.html">
+      <div class="archive-date">Tuesday, April 21, 2026</div>
+      <div class="archive-meta"><span>2026-04-21</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260421-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
+    </a>
     <a class="archive-card" href="2026-04-20.html">
       <div class="archive-date">Monday, April 20, 2026</div>
-      <div class="archive-iso">2026-04-20</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-20</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260420-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-16.html">
       <div class="archive-date">Thursday, April 16, 2026</div>
-      <div class="archive-iso">2026-04-16</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-16</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260416-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-15.html">
       <div class="archive-date">Wednesday, April 15, 2026</div>
-      <div class="archive-iso">2026-04-15</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-15</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260415-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-14.html">
       <div class="archive-date">Tuesday, April 14, 2026</div>
-      <div class="archive-iso">2026-04-14</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-14</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260414-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-13.html">
       <div class="archive-date">Monday, April 13, 2026</div>
-      <div class="archive-iso">2026-04-13</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-13</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260413-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-09.html">
       <div class="archive-date">Thursday, April 09, 2026</div>
-      <div class="archive-iso">2026-04-09</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-09</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260409-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-08.html">
       <div class="archive-date">Wednesday, April 08, 2026</div>
-      <div class="archive-iso">2026-04-08</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-08</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260408-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-07.html">
       <div class="archive-date">Tuesday, April 07, 2026</div>
-      <div class="archive-iso">2026-04-07</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-07</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260407-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-06.html">
       <div class="archive-date">Monday, April 06, 2026</div>
-      <div class="archive-iso">2026-04-06</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-06</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260406-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-02.html">
       <div class="archive-date">Thursday, April 02, 2026</div>
-      <div class="archive-iso">2026-04-02</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-02</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260402-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-04-01.html">
       <div class="archive-date">Wednesday, April 01, 2026</div>
-      <div class="archive-iso">2026-04-01</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-04-01</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260401-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-31.html">
       <div class="archive-date">Tuesday, March 31, 2026</div>
-      <div class="archive-iso">2026-03-31</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-31</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260331-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-30.html">
       <div class="archive-date">Monday, March 30, 2026</div>
-      <div class="archive-iso">2026-03-30</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-30</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260330-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-26.html">
       <div class="archive-date">Thursday, March 26, 2026</div>
-      <div class="archive-iso">2026-03-26</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-26</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260326-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-25.html">
       <div class="archive-date">Wednesday, March 25, 2026</div>
-      <div class="archive-iso">2026-03-25</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-25</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260325-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-24.html">
       <div class="archive-date">Tuesday, March 24, 2026</div>
-      <div class="archive-iso">2026-03-24</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-24</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260324-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-23.html">
       <div class="archive-date">Monday, March 23, 2026</div>
-      <div class="archive-iso">2026-03-23</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-23</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260323-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-22.html">
       <div class="archive-date">Sunday, March 22, 2026</div>
-      <div class="archive-iso">2026-03-22</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-22</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260322-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-21.html">
       <div class="archive-date">Saturday, March 21, 2026</div>
-      <div class="archive-iso">2026-03-21</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-21</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260321-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-20.html">
       <div class="archive-date">Friday, March 20, 2026</div>
-      <div class="archive-iso">2026-03-20</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-20</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260320-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-19.html">
       <div class="archive-date">Thursday, March 19, 2026</div>
-      <div class="archive-iso">2026-03-19</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-19</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260319-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
     <a class="archive-card" href="2026-03-18.html">
       <div class="archive-date">Wednesday, March 18, 2026</div>
-      <div class="archive-iso">2026-03-18</div>
-      <span class="archive-arrow">&rarr;</span>
+      <div class="archive-meta"><span>2026-03-18</span><span class="pdf-link-inline">PDF: ../daily_pdf/20260318-F5_Dailiy_Competitive_Briefing.pdf</span></div>
+      <span class="arrow">&#8599;</span>
     </a>
   </div>
 </div>
