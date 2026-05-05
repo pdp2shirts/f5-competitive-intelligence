@@ -1,222 +1,191 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>F5 Daily Briefing Archive</title>
 <style>
-:root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8}
+:root{--bg:#0f1117;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:40px;text-align:center}
-.header h1{font-size:30px;font-weight:700;margin-bottom:8px}
+.header h1{font-size:30px;margin-bottom:8px}
 .header h1 span{color:var(--accent)}
 .header p{color:var(--muted);font-size:14px}
-.back{display:inline-block;color:var(--accent);text-decoration:none;margin-top:14px;font-size:13px}
+.back{display:inline-block;color:var(--accent);text-decoration:none;font-size:13px;margin-bottom:16px}
 .back:hover{text-decoration:underline}
-.content{max-width:1100px;margin:0 auto;padding:40px}
-.section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.content{max-width:900px;margin:0 auto;padding:40px}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.dash-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;text-decoration:none;color:var(--text);display:block;position:relative;transition:border-color .2s,transform .15s}
-.dash-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.dash-card .card-badge{position:absolute;top:14px;right:14px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;background:rgba(118,185,0,.2);color:var(--accent)}
-.badge-live{background:rgba(118,185,0,.2);color:var(--accent)}
-.dash-card h3{font-size:16px;font-weight:600;margin-bottom:6px}
-.dash-card .desc{font-size:12px;color:var(--muted);line-height:1.5}
-.dash-card .arrow{position:absolute;bottom:14px;right:16px;color:var(--accent);font-size:18px;opacity:0;transition:opacity .2s}
-.dash-card:hover .arrow{opacity:1}
-.footer{text-align:center;padding:32px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
-</style></head>
+.date-row{display:flex;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:8px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .1s}
+.date-row:hover{border-color:var(--accent);transform:translateX(3px)}
+.date-display{flex:1;font-weight:600}
+.date-iso{color:var(--muted);font-size:13px;margin-right:14px;font-family:monospace}
+.arrow{color:var(--accent);font-size:18px}
+.footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+</style>
+</head>
 <body>
 <div class="header">
   <h1><span>F5</span> Daily Briefing Archive</h1>
-  <p>Past daily competitive briefings &middot; 90-day retention</p>
-  <a class="back" href="../index.html">&larr; Back to Hub</a>
+  <p>Past competitive intelligence briefings &middot; 90-day retention</p>
 </div>
 <div class="content">
+  <a class="back" href="../index.html">&larr; Back to Hub</a>
   <div class="section-title">All Briefings (30)</div>
-  <div class="cards">
-    <a class="dash-card" href="2026-05-04.html">
-      <span class="card-badge badge-live">&#9679; Today</span>
-      <h3>May 04, 2026</h3>
-      <div class="desc">Monday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+  <a class="date-row" href="2026-05-04.html">
+      <span class="date-display">Monday, May 04, 2026</span>
+      <span class="date-iso">2026-05-04</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-30.html">
-      
-      <h3>April 30, 2026</h3>
-      <div class="desc">Thursday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-30.html">
+      <span class="date-display">Thursday, April 30, 2026</span>
+      <span class="date-iso">2026-04-30</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-29.html">
-      
-      <h3>April 29, 2026</h3>
-      <div class="desc">Wednesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-29.html">
+      <span class="date-display">Wednesday, April 29, 2026</span>
+      <span class="date-iso">2026-04-29</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-28.html">
-      
-      <h3>April 28, 2026</h3>
-      <div class="desc">Tuesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-28.html">
+      <span class="date-display">Tuesday, April 28, 2026</span>
+      <span class="date-iso">2026-04-28</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-27.html">
-      
-      <h3>April 27, 2026</h3>
-      <div class="desc">Monday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-27.html">
+      <span class="date-display">Monday, April 27, 2026</span>
+      <span class="date-iso">2026-04-27</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-23.html">
-      
-      <h3>April 23, 2026</h3>
-      <div class="desc">Thursday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-23.html">
+      <span class="date-display">Thursday, April 23, 2026</span>
+      <span class="date-iso">2026-04-23</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-22.html">
-      
-      <h3>April 22, 2026</h3>
-      <div class="desc">Wednesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-22.html">
+      <span class="date-display">Wednesday, April 22, 2026</span>
+      <span class="date-iso">2026-04-22</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-21.html">
-      
-      <h3>April 21, 2026</h3>
-      <div class="desc">Tuesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-21.html">
+      <span class="date-display">Tuesday, April 21, 2026</span>
+      <span class="date-iso">2026-04-21</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-20.html">
-      
-      <h3>April 20, 2026</h3>
-      <div class="desc">Monday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-20.html">
+      <span class="date-display">Monday, April 20, 2026</span>
+      <span class="date-iso">2026-04-20</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-16.html">
-      
-      <h3>April 16, 2026</h3>
-      <div class="desc">Thursday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-16.html">
+      <span class="date-display">Thursday, April 16, 2026</span>
+      <span class="date-iso">2026-04-16</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-15.html">
-      
-      <h3>April 15, 2026</h3>
-      <div class="desc">Wednesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-15.html">
+      <span class="date-display">Wednesday, April 15, 2026</span>
+      <span class="date-iso">2026-04-15</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-14.html">
-      
-      <h3>April 14, 2026</h3>
-      <div class="desc">Tuesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-14.html">
+      <span class="date-display">Tuesday, April 14, 2026</span>
+      <span class="date-iso">2026-04-14</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-13.html">
-      
-      <h3>April 13, 2026</h3>
-      <div class="desc">Monday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-13.html">
+      <span class="date-display">Monday, April 13, 2026</span>
+      <span class="date-iso">2026-04-13</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-09.html">
-      
-      <h3>April 09, 2026</h3>
-      <div class="desc">Thursday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-09.html">
+      <span class="date-display">Thursday, April 09, 2026</span>
+      <span class="date-iso">2026-04-09</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-08.html">
-      
-      <h3>April 08, 2026</h3>
-      <div class="desc">Wednesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-08.html">
+      <span class="date-display">Wednesday, April 08, 2026</span>
+      <span class="date-iso">2026-04-08</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-07.html">
-      
-      <h3>April 07, 2026</h3>
-      <div class="desc">Tuesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-07.html">
+      <span class="date-display">Tuesday, April 07, 2026</span>
+      <span class="date-iso">2026-04-07</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-06.html">
-      
-      <h3>April 06, 2026</h3>
-      <div class="desc">Monday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-06.html">
+      <span class="date-display">Monday, April 06, 2026</span>
+      <span class="date-iso">2026-04-06</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-02.html">
-      
-      <h3>April 02, 2026</h3>
-      <div class="desc">Thursday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-02.html">
+      <span class="date-display">Thursday, April 02, 2026</span>
+      <span class="date-iso">2026-04-02</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-04-01.html">
-      
-      <h3>April 01, 2026</h3>
-      <div class="desc">Wednesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-04-01.html">
+      <span class="date-display">Wednesday, April 01, 2026</span>
+      <span class="date-iso">2026-04-01</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-31.html">
-      
-      <h3>March 31, 2026</h3>
-      <div class="desc">Tuesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-31.html">
+      <span class="date-display">Tuesday, March 31, 2026</span>
+      <span class="date-iso">2026-03-31</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-30.html">
-      
-      <h3>March 30, 2026</h3>
-      <div class="desc">Monday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-30.html">
+      <span class="date-display">Monday, March 30, 2026</span>
+      <span class="date-iso">2026-03-30</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-26.html">
-      
-      <h3>March 26, 2026</h3>
-      <div class="desc">Thursday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-26.html">
+      <span class="date-display">Thursday, March 26, 2026</span>
+      <span class="date-iso">2026-03-26</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-25.html">
-      
-      <h3>March 25, 2026</h3>
-      <div class="desc">Wednesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-25.html">
+      <span class="date-display">Wednesday, March 25, 2026</span>
+      <span class="date-iso">2026-03-25</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-24.html">
-      
-      <h3>March 24, 2026</h3>
-      <div class="desc">Tuesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-24.html">
+      <span class="date-display">Tuesday, March 24, 2026</span>
+      <span class="date-iso">2026-03-24</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-23.html">
-      
-      <h3>March 23, 2026</h3>
-      <div class="desc">Monday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-23.html">
+      <span class="date-display">Monday, March 23, 2026</span>
+      <span class="date-iso">2026-03-23</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-22.html">
-      
-      <h3>March 22, 2026</h3>
-      <div class="desc">Sunday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-22.html">
+      <span class="date-display">Sunday, March 22, 2026</span>
+      <span class="date-iso">2026-03-22</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-21.html">
-      
-      <h3>March 21, 2026</h3>
-      <div class="desc">Saturday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-21.html">
+      <span class="date-display">Saturday, March 21, 2026</span>
+      <span class="date-iso">2026-03-21</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-20.html">
-      
-      <h3>March 20, 2026</h3>
-      <div class="desc">Friday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-20.html">
+      <span class="date-display">Friday, March 20, 2026</span>
+      <span class="date-iso">2026-03-20</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-19.html">
-      
-      <h3>March 19, 2026</h3>
-      <div class="desc">Thursday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-19.html">
+      <span class="date-display">Thursday, March 19, 2026</span>
+      <span class="date-iso">2026-03-19</span>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="dash-card" href="2026-03-18.html">
-      
-      <h3>March 18, 2026</h3>
-      <div class="desc">Wednesday daily briefing &mdash; F5 competitive intelligence across 22 competitors.</div>
+<a class="date-row" href="2026-03-18.html">
+      <span class="date-display">Wednesday, March 18, 2026</span>
+      <span class="date-iso">2026-03-18</span>
       <span class="arrow">&#8599;</span>
     </a>
-  </div>
 </div>
 <div class="footer">
-  F5 Competitive Intelligence &middot; 22 competitors &middot; 5 categories<br>Powered by Gumloop
+  F5 Competitive Intelligence &middot; 22 competitors &middot; 5 categories &middot; Powered by Gumloop
 </div>
-</body></html>
+</body>
+</html>
