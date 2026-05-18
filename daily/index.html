@@ -1,69 +1,42 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Briefing Archive · F5 Competitive Intelligence</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5 Daily Briefing Archive</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:36px 40px 30px;text-align:center}
-.header h1{font-size:28px;font-weight:700;margin-bottom:8px}
+.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:48px 40px;text-align:center}
+.header h1{font-size:32px;font-weight:700;margin-bottom:10px}
 .header h1 span{color:var(--accent)}
 .header p{color:var(--muted);font-size:14px}
-.back{display:inline-block;margin-top:12px;color:var(--accent);text-decoration:none;font-size:13px}
+.back{display:inline-block;margin-bottom:16px;color:var(--accent);text-decoration:none;font-size:13px}
 .content{max-width:900px;margin:0 auto;padding:40px}
-.archive-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.archive-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:4px;transition:border-color .2s,transform .15s}
+.archive-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.archive-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-decoration:none;color:var(--text);position:relative;transition:border-color .2s,transform .15s}
 .archive-item:hover{border-color:var(--accent);transform:translateY(-2px)}
-.archive-date{font-size:14px;font-weight:600}
-.archive-iso{font-size:11px;color:var(--muted)}
-.footer{text-align:center;padding:30px;color:var(--muted);font-size:11px;border-top:1px solid var(--border);margin-top:40px}
-</style></head>
+.archive-date{font-size:14px;font-weight:600;margin-bottom:4px}
+.archive-iso{font-size:11px;color:var(--muted);letter-spacing:1px}
+.archive-arrow{position:absolute;top:18px;right:18px;color:var(--accent);font-size:16px;opacity:0;transition:opacity .2s}
+.archive-item:hover .archive-arrow{opacity:1}
+.footer{text-align:center;padding:32px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+</style>
+</head>
 <body>
 <div class="header">
   <h1><span>F5</span> Daily Briefing Archive</h1>
-  <p>37 daily briefings · 90-day retention</p>
-  <a class="back" href="../index.html">&larr; Back to Hub</a>
+  <p>Browse the last 90 days of daily competitive briefings</p>
 </div>
 <div class="content">
+  <a class="back" href="../index.html">&larr; Back to Hub</a>
   <div class="archive-list">
-    <a class="archive-item" href="2026-05-14.html"><span class="archive-date">Thursday, May 14, 2026</span><span class="archive-iso">2026-05-14</span></a>
-<a class="archive-item" href="2026-05-13.html"><span class="archive-date">Wednesday, May 13, 2026</span><span class="archive-iso">2026-05-13</span></a>
-<a class="archive-item" href="2026-05-12.html"><span class="archive-date">Tuesday, May 12, 2026</span><span class="archive-iso">2026-05-12</span></a>
-<a class="archive-item" href="2026-05-11.html"><span class="archive-date">Monday, May 11, 2026</span><span class="archive-iso">2026-05-11</span></a>
-<a class="archive-item" href="2026-05-07.html"><span class="archive-date">Thursday, May 07, 2026</span><span class="archive-iso">2026-05-07</span></a>
-<a class="archive-item" href="2026-05-06.html"><span class="archive-date">Wednesday, May 06, 2026</span><span class="archive-iso">2026-05-06</span></a>
-<a class="archive-item" href="2026-05-05.html"><span class="archive-date">Tuesday, May 05, 2026</span><span class="archive-iso">2026-05-05</span></a>
-<a class="archive-item" href="2026-05-04.html"><span class="archive-date">Monday, May 04, 2026</span><span class="archive-iso">2026-05-04</span></a>
-<a class="archive-item" href="2026-04-30.html"><span class="archive-date">Thursday, April 30, 2026</span><span class="archive-iso">2026-04-30</span></a>
-<a class="archive-item" href="2026-04-29.html"><span class="archive-date">Wednesday, April 29, 2026</span><span class="archive-iso">2026-04-29</span></a>
-<a class="archive-item" href="2026-04-28.html"><span class="archive-date">Tuesday, April 28, 2026</span><span class="archive-iso">2026-04-28</span></a>
-<a class="archive-item" href="2026-04-27.html"><span class="archive-date">Monday, April 27, 2026</span><span class="archive-iso">2026-04-27</span></a>
-<a class="archive-item" href="2026-04-23.html"><span class="archive-date">Thursday, April 23, 2026</span><span class="archive-iso">2026-04-23</span></a>
-<a class="archive-item" href="2026-04-22.html"><span class="archive-date">Wednesday, April 22, 2026</span><span class="archive-iso">2026-04-22</span></a>
-<a class="archive-item" href="2026-04-21.html"><span class="archive-date">Tuesday, April 21, 2026</span><span class="archive-iso">2026-04-21</span></a>
-<a class="archive-item" href="2026-04-20.html"><span class="archive-date">Monday, April 20, 2026</span><span class="archive-iso">2026-04-20</span></a>
-<a class="archive-item" href="2026-04-16.html"><span class="archive-date">Thursday, April 16, 2026</span><span class="archive-iso">2026-04-16</span></a>
-<a class="archive-item" href="2026-04-15.html"><span class="archive-date">Wednesday, April 15, 2026</span><span class="archive-iso">2026-04-15</span></a>
-<a class="archive-item" href="2026-04-14.html"><span class="archive-date">Tuesday, April 14, 2026</span><span class="archive-iso">2026-04-14</span></a>
-<a class="archive-item" href="2026-04-13.html"><span class="archive-date">Monday, April 13, 2026</span><span class="archive-iso">2026-04-13</span></a>
-<a class="archive-item" href="2026-04-09.html"><span class="archive-date">Thursday, April 09, 2026</span><span class="archive-iso">2026-04-09</span></a>
-<a class="archive-item" href="2026-04-08.html"><span class="archive-date">Wednesday, April 08, 2026</span><span class="archive-iso">2026-04-08</span></a>
-<a class="archive-item" href="2026-04-07.html"><span class="archive-date">Tuesday, April 07, 2026</span><span class="archive-iso">2026-04-07</span></a>
-<a class="archive-item" href="2026-04-06.html"><span class="archive-date">Monday, April 06, 2026</span><span class="archive-iso">2026-04-06</span></a>
-<a class="archive-item" href="2026-04-02.html"><span class="archive-date">Thursday, April 02, 2026</span><span class="archive-iso">2026-04-02</span></a>
-<a class="archive-item" href="2026-04-01.html"><span class="archive-date">Wednesday, April 01, 2026</span><span class="archive-iso">2026-04-01</span></a>
-<a class="archive-item" href="2026-03-31.html"><span class="archive-date">Tuesday, March 31, 2026</span><span class="archive-iso">2026-03-31</span></a>
-<a class="archive-item" href="2026-03-30.html"><span class="archive-date">Monday, March 30, 2026</span><span class="archive-iso">2026-03-30</span></a>
-<a class="archive-item" href="2026-03-26.html"><span class="archive-date">Thursday, March 26, 2026</span><span class="archive-iso">2026-03-26</span></a>
-<a class="archive-item" href="2026-03-25.html"><span class="archive-date">Wednesday, March 25, 2026</span><span class="archive-iso">2026-03-25</span></a>
-<a class="archive-item" href="2026-03-24.html"><span class="archive-date">Tuesday, March 24, 2026</span><span class="archive-iso">2026-03-24</span></a>
-<a class="archive-item" href="2026-03-23.html"><span class="archive-date">Monday, March 23, 2026</span><span class="archive-iso">2026-03-23</span></a>
-<a class="archive-item" href="2026-03-22.html"><span class="archive-date">Sunday, March 22, 2026</span><span class="archive-iso">2026-03-22</span></a>
-<a class="archive-item" href="2026-03-21.html"><span class="archive-date">Saturday, March 21, 2026</span><span class="archive-iso">2026-03-21</span></a>
-<a class="archive-item" href="2026-03-20.html"><span class="archive-date">Friday, March 20, 2026</span><span class="archive-iso">2026-03-20</span></a>
-<a class="archive-item" href="2026-03-19.html"><span class="archive-date">Thursday, March 19, 2026</span><span class="archive-iso">2026-03-19</span></a>
-<a class="archive-item" href="2026-03-18.html"><span class="archive-date">Wednesday, March 18, 2026</span><span class="archive-iso">2026-03-18</span></a>
+    <a class="archive-item" href="2026-05-18.html"><div class="archive-date">Monday, May 18, 2026</div><div class="archive-iso">2026-05-18</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-14.html"><div class="archive-date">Thursday, May 14, 2026</div><div class="archive-iso">2026-05-14</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-13.html"><div class="archive-date">Wednesday, May 13, 2026</div><div class="archive-iso">2026-05-13</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-12.html"><div class="archive-date">Tuesday, May 12, 2026</div><div class="archive-iso">2026-05-12</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-11.html"><div class="archive-date">Monday, May 11, 2026</div><div class="archive-iso">2026-05-11</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-07.html"><div class="archive-date">Thursday, May 07, 2026</div><div class="archive-iso">2026-05-07</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-06.html"><div class="archive-date">Wednesday, May 06, 2026</div><div class="archive-iso">2026-05-06</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-05.html"><div class="archive-date">Tuesday, May 05, 2026</div><div class="archive-iso">2026-05-05</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-05-04.html"><div class="archive-date">Monday, May 04, 2026</div><div class="archive-iso">2026-05-04</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-30.html"><div class="archive-date">Thursday, April 30, 2026</div><div class="archive-iso">2026-04-30</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-29.html"><div class="archive-date">Wednesday, April 29, 2026</div><div class="archive-iso">2026-04-29</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-28.html"><div class="archive-date">Tuesday, April 28, 2026</div><div class="archive-iso">2026-04-28</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-27.html"><div class="archive-date">Monday, April 27, 2026</div><div class="archive-iso">2026-04-27</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-23.html"><div class="archive-date">Thursday, April 23, 2026</div><div class="archive-iso">2026-04-23</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-22.html"><div class="archive-date">Wednesday, April 22, 2026</div><div class="archive-iso">2026-04-22</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-21.html"><div class="archive-date">Tuesday, April 21, 2026</div><div class="archive-iso">2026-04-21</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-20.html"><div class="archive-date">Monday, April 20, 2026</div><div class="archive-iso">2026-04-20</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-16.html"><div class="archive-date">Thursday, April 16, 2026</div><div class="archive-iso">2026-04-16</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-15.html"><div class="archive-date">Wednesday, April 15, 2026</div><div class="archive-iso">2026-04-15</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-14.html"><div class="archive-date">Tuesday, April 14, 2026</div><div class="archive-iso">2026-04-14</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-13.html"><div class="archive-date">Monday, April 13, 2026</div><div class="archive-iso">2026-04-13</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-09.html"><div class="archive-date">Thursday, April 09, 2026</div><div class="archive-iso">2026-04-09</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-08.html"><div class="archive-date">Wednesday, April 08, 2026</div><div class="archive-iso">2026-04-08</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-07.html"><div class="archive-date">Tuesday, April 07, 2026</div><div class="archive-iso">2026-04-07</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-06.html"><div class="archive-date">Monday, April 06, 2026</div><div class="archive-iso">2026-04-06</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-02.html"><div class="archive-date">Thursday, April 02, 2026</div><div class="archive-iso">2026-04-02</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-04-01.html"><div class="archive-date">Wednesday, April 01, 2026</div><div class="archive-iso">2026-04-01</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-31.html"><div class="archive-date">Tuesday, March 31, 2026</div><div class="archive-iso">2026-03-31</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-30.html"><div class="archive-date">Monday, March 30, 2026</div><div class="archive-iso">2026-03-30</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-26.html"><div class="archive-date">Thursday, March 26, 2026</div><div class="archive-iso">2026-03-26</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-25.html"><div class="archive-date">Wednesday, March 25, 2026</div><div class="archive-iso">2026-03-25</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-24.html"><div class="archive-date">Tuesday, March 24, 2026</div><div class="archive-iso">2026-03-24</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-23.html"><div class="archive-date">Monday, March 23, 2026</div><div class="archive-iso">2026-03-23</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-22.html"><div class="archive-date">Sunday, March 22, 2026</div><div class="archive-iso">2026-03-22</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-21.html"><div class="archive-date">Saturday, March 21, 2026</div><div class="archive-iso">2026-03-21</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-20.html"><div class="archive-date">Friday, March 20, 2026</div><div class="archive-iso">2026-03-20</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-19.html"><div class="archive-date">Thursday, March 19, 2026</div><div class="archive-iso">2026-03-19</div><span class="archive-arrow">&#8599;</span></a><a class="archive-item" href="2026-03-18.html"><div class="archive-date">Wednesday, March 18, 2026</div><div class="archive-iso">2026-03-18</div><span class="archive-arrow">&#8599;</span></a>
   </div>
 </div>
-<div class="footer">F5 Competitive Intelligence · 22 competitors · 5 categories · Powered by Gumloop</div>
-</body></html>
+<div class="footer">
+  F5 Competitive Intelligence &middot; 22 competitors &middot; 5 categories &middot; Powered by Gumloop
+</div>
+</body>
+</html>
