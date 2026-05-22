@@ -3,243 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F5 Daily Briefing Archive</title>
+<title>Daily Briefing Archive &middot; F5 Competitive Intelligence</title>
 <style>
-:root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8}
+:root{--bg:#0f1117;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:40px;text-align:center}
-.header h1{font-size:30px;font-weight:700;margin-bottom:8px}
+.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:40px 40px;text-align:center}
+.header h1{font-size:32px;font-weight:700;margin-bottom:8px}
 .header h1 span{color:var(--accent)}
 .header p{color:var(--muted);font-size:14px}
-.back{display:inline-block;margin-top:14px;color:var(--accent2);text-decoration:none;font-size:13px}
-.back:hover{text-decoration:underline}
-.content{max-width:1000px;margin:0 auto;padding:32px 40px}
-.section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.count{color:var(--muted);font-size:13px;margin-bottom:22px}
-.archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.archive-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;color:var(--text);text-decoration:none;position:relative;transition:border-color .15s,transform .15s,box-shadow .2s;display:block}
-.archive-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 18px rgba(118,185,0,.1)}
-.archive-date{font-size:14px;font-weight:600;margin-bottom:4px}
-.archive-iso{font-size:12px;color:var(--muted);font-family:monospace}
-.archive-card .arrow{position:absolute;top:18px;right:16px;color:var(--accent);font-size:18px;opacity:0;transition:opacity .15s}
-.archive-card:hover .arrow{opacity:1}
-.footer{text-align:center;padding:32px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:32px}
+.back-link{display:inline-block;margin-top:14px;color:var(--accent);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px}
+.back-link:hover{text-decoration:underline}
+.content{max-width:1100px;margin:0 auto;padding:40px}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.dash-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;text-decoration:none;color:var(--text);position:relative;transition:border-color .2s,transform .15s}
+.dash-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.dash-card h3{font-size:16px;font-weight:600;margin-bottom:6px}
+.dash-card .desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+.dash-card .meta{font-size:11px;color:var(--muted)}
+.dash-card .meta .stat{display:inline-block}
+.dash-card .arrow{position:absolute;bottom:16px;right:16px;color:var(--accent);opacity:0;transition:opacity .2s}
+.dash-card:hover .arrow{opacity:1}
+.footer{text-align:center;padding:30px;color:var(--muted);font-size:11px;border-top:1px solid var(--border);margin-top:40px}
 </style></head>
 <body>
 <div class="header">
   <h1><span>F5</span> Daily Briefing Archive</h1>
-  <p>Historical daily competitive briefings across 22 F5 competitors. 90-day retention.</p>
-  <a class="back" href="../index.html">&larr; Back to Hub</a>
+  <p>Browse past daily competitive briefings. 90-day retention.</p>
+  <a class="back-link" href="../index.html">&larr; Back to Hub</a>
 </div>
 <div class="content">
-  <div class="section-title">All Briefings</div>
-  <div class="count">40 briefings &middot; Updated weekdays at 6:30 AM PT</div>
-  <div class="archive-grid">
-    <a class="archive-card" href="2026-05-20.html">
-      <div class="archive-date">Wednesday, May 20, 2026</div>
-      <div class="archive-iso">2026-05-20</div>
+  <div class="section-title">41 briefings</div>
+  <div class="cards">
+
+    <a class="dash-card" href="2026-05-21.html">
+      <h3>Thursday, May 21, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-21</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-19.html">
-      <div class="archive-date">Tuesday, May 19, 2026</div>
-      <div class="archive-iso">2026-05-19</div>
+    <a class="dash-card" href="2026-05-20.html">
+      <h3>Wednesday, May 20, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-20</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-18.html">
-      <div class="archive-date">Monday, May 18, 2026</div>
-      <div class="archive-iso">2026-05-18</div>
+    <a class="dash-card" href="2026-05-19.html">
+      <h3>Tuesday, May 19, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-19</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-14.html">
-      <div class="archive-date">Thursday, May 14, 2026</div>
-      <div class="archive-iso">2026-05-14</div>
+    <a class="dash-card" href="2026-05-18.html">
+      <h3>Monday, May 18, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-18</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-13.html">
-      <div class="archive-date">Wednesday, May 13, 2026</div>
-      <div class="archive-iso">2026-05-13</div>
+    <a class="dash-card" href="2026-05-14.html">
+      <h3>Thursday, May 14, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-14</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-12.html">
-      <div class="archive-date">Tuesday, May 12, 2026</div>
-      <div class="archive-iso">2026-05-12</div>
+    <a class="dash-card" href="2026-05-13.html">
+      <h3>Wednesday, May 13, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-13</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-11.html">
-      <div class="archive-date">Monday, May 11, 2026</div>
-      <div class="archive-iso">2026-05-11</div>
+    <a class="dash-card" href="2026-05-12.html">
+      <h3>Tuesday, May 12, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-12</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-07.html">
-      <div class="archive-date">Thursday, May 07, 2026</div>
-      <div class="archive-iso">2026-05-07</div>
+    <a class="dash-card" href="2026-05-11.html">
+      <h3>Monday, May 11, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-11</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-06.html">
-      <div class="archive-date">Wednesday, May 06, 2026</div>
-      <div class="archive-iso">2026-05-06</div>
+    <a class="dash-card" href="2026-05-07.html">
+      <h3>Thursday, May 07, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-07</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-05.html">
-      <div class="archive-date">Tuesday, May 05, 2026</div>
-      <div class="archive-iso">2026-05-05</div>
+    <a class="dash-card" href="2026-05-06.html">
+      <h3>Wednesday, May 06, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-06</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-05-04.html">
-      <div class="archive-date">Monday, May 04, 2026</div>
-      <div class="archive-iso">2026-05-04</div>
+    <a class="dash-card" href="2026-05-05.html">
+      <h3>Tuesday, May 05, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-05</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-30.html">
-      <div class="archive-date">Thursday, April 30, 2026</div>
-      <div class="archive-iso">2026-04-30</div>
+    <a class="dash-card" href="2026-05-04.html">
+      <h3>Monday, May 04, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-05-04</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-29.html">
-      <div class="archive-date">Wednesday, April 29, 2026</div>
-      <div class="archive-iso">2026-04-29</div>
+    <a class="dash-card" href="2026-04-30.html">
+      <h3>Thursday, April 30, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-30</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-28.html">
-      <div class="archive-date">Tuesday, April 28, 2026</div>
-      <div class="archive-iso">2026-04-28</div>
+    <a class="dash-card" href="2026-04-29.html">
+      <h3>Wednesday, April 29, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-29</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-27.html">
-      <div class="archive-date">Monday, April 27, 2026</div>
-      <div class="archive-iso">2026-04-27</div>
+    <a class="dash-card" href="2026-04-28.html">
+      <h3>Tuesday, April 28, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-28</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-23.html">
-      <div class="archive-date">Thursday, April 23, 2026</div>
-      <div class="archive-iso">2026-04-23</div>
+    <a class="dash-card" href="2026-04-27.html">
+      <h3>Monday, April 27, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-27</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-22.html">
-      <div class="archive-date">Wednesday, April 22, 2026</div>
-      <div class="archive-iso">2026-04-22</div>
+    <a class="dash-card" href="2026-04-23.html">
+      <h3>Thursday, April 23, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-23</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-21.html">
-      <div class="archive-date">Tuesday, April 21, 2026</div>
-      <div class="archive-iso">2026-04-21</div>
+    <a class="dash-card" href="2026-04-22.html">
+      <h3>Wednesday, April 22, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-22</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-20.html">
-      <div class="archive-date">Monday, April 20, 2026</div>
-      <div class="archive-iso">2026-04-20</div>
+    <a class="dash-card" href="2026-04-21.html">
+      <h3>Tuesday, April 21, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-21</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-16.html">
-      <div class="archive-date">Thursday, April 16, 2026</div>
-      <div class="archive-iso">2026-04-16</div>
+    <a class="dash-card" href="2026-04-20.html">
+      <h3>Monday, April 20, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-20</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-15.html">
-      <div class="archive-date">Wednesday, April 15, 2026</div>
-      <div class="archive-iso">2026-04-15</div>
+    <a class="dash-card" href="2026-04-16.html">
+      <h3>Thursday, April 16, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-16</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-14.html">
-      <div class="archive-date">Tuesday, April 14, 2026</div>
-      <div class="archive-iso">2026-04-14</div>
+    <a class="dash-card" href="2026-04-15.html">
+      <h3>Wednesday, April 15, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-15</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-13.html">
-      <div class="archive-date">Monday, April 13, 2026</div>
-      <div class="archive-iso">2026-04-13</div>
+    <a class="dash-card" href="2026-04-14.html">
+      <h3>Tuesday, April 14, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-14</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-09.html">
-      <div class="archive-date">Thursday, April 09, 2026</div>
-      <div class="archive-iso">2026-04-09</div>
+    <a class="dash-card" href="2026-04-13.html">
+      <h3>Monday, April 13, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-13</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-08.html">
-      <div class="archive-date">Wednesday, April 08, 2026</div>
-      <div class="archive-iso">2026-04-08</div>
+    <a class="dash-card" href="2026-04-09.html">
+      <h3>Thursday, April 09, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-09</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-07.html">
-      <div class="archive-date">Tuesday, April 07, 2026</div>
-      <div class="archive-iso">2026-04-07</div>
+    <a class="dash-card" href="2026-04-08.html">
+      <h3>Wednesday, April 08, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-08</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-06.html">
-      <div class="archive-date">Monday, April 06, 2026</div>
-      <div class="archive-iso">2026-04-06</div>
+    <a class="dash-card" href="2026-04-07.html">
+      <h3>Tuesday, April 07, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-07</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-02.html">
-      <div class="archive-date">Thursday, April 02, 2026</div>
-      <div class="archive-iso">2026-04-02</div>
+    <a class="dash-card" href="2026-04-06.html">
+      <h3>Monday, April 06, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-06</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-04-01.html">
-      <div class="archive-date">Wednesday, April 01, 2026</div>
-      <div class="archive-iso">2026-04-01</div>
+    <a class="dash-card" href="2026-04-02.html">
+      <h3>Thursday, April 02, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-02</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-31.html">
-      <div class="archive-date">Tuesday, March 31, 2026</div>
-      <div class="archive-iso">2026-03-31</div>
+    <a class="dash-card" href="2026-04-01.html">
+      <h3>Wednesday, April 01, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-04-01</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-30.html">
-      <div class="archive-date">Monday, March 30, 2026</div>
-      <div class="archive-iso">2026-03-30</div>
+    <a class="dash-card" href="2026-03-31.html">
+      <h3>Tuesday, March 31, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-31</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-26.html">
-      <div class="archive-date">Thursday, March 26, 2026</div>
-      <div class="archive-iso">2026-03-26</div>
+    <a class="dash-card" href="2026-03-30.html">
+      <h3>Monday, March 30, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-30</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-25.html">
-      <div class="archive-date">Wednesday, March 25, 2026</div>
-      <div class="archive-iso">2026-03-25</div>
+    <a class="dash-card" href="2026-03-26.html">
+      <h3>Thursday, March 26, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-26</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-24.html">
-      <div class="archive-date">Tuesday, March 24, 2026</div>
-      <div class="archive-iso">2026-03-24</div>
+    <a class="dash-card" href="2026-03-25.html">
+      <h3>Wednesday, March 25, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-25</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-23.html">
-      <div class="archive-date">Monday, March 23, 2026</div>
-      <div class="archive-iso">2026-03-23</div>
+    <a class="dash-card" href="2026-03-24.html">
+      <h3>Tuesday, March 24, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-24</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-22.html">
-      <div class="archive-date">Sunday, March 22, 2026</div>
-      <div class="archive-iso">2026-03-22</div>
+    <a class="dash-card" href="2026-03-23.html">
+      <h3>Monday, March 23, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-23</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-21.html">
-      <div class="archive-date">Saturday, March 21, 2026</div>
-      <div class="archive-iso">2026-03-21</div>
+    <a class="dash-card" href="2026-03-22.html">
+      <h3>Sunday, March 22, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-22</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-20.html">
-      <div class="archive-date">Friday, March 20, 2026</div>
-      <div class="archive-iso">2026-03-20</div>
+    <a class="dash-card" href="2026-03-21.html">
+      <h3>Saturday, March 21, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-21</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-19.html">
-      <div class="archive-date">Thursday, March 19, 2026</div>
-      <div class="archive-iso">2026-03-19</div>
+    <a class="dash-card" href="2026-03-20.html">
+      <h3>Friday, March 20, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-20</div></div>
       <span class="arrow">&#8599;</span>
     </a>
-    <a class="archive-card" href="2026-03-18.html">
-      <div class="archive-date">Wednesday, March 18, 2026</div>
-      <div class="archive-iso">2026-03-18</div>
+    <a class="dash-card" href="2026-03-19.html">
+      <h3>Thursday, March 19, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-19</div></div>
+      <span class="arrow">&#8599;</span>
+    </a>
+    <a class="dash-card" href="2026-03-18.html">
+      <h3>Wednesday, March 18, 2026</h3>
+      <div class="desc">Daily competitive briefing covering F5 competitors. Click to view all announcements, drill-downs, and source links.</div>
+      <div class="meta"><div class="stat">2026-03-18</div></div>
       <span class="arrow">&#8599;</span>
     </a>
   </div>
 </div>
-<div class="footer">
-  F5 Competitive Intelligence &middot; 22 competitors &middot; 5 categories &middot; Powered by Gumloop
-</div>
+<div class="footer">F5 Competitive Intelligence &middot; 22 competitors &middot; 5 categories &middot; Powered by Gumloop</div>
 </body></html>
