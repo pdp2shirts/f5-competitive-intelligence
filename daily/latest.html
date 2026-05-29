@@ -272,6 +272,9 @@ showOverview();
     "Application Delivery": 4, "Application Security": 5
   };
 
+  var mo = null;
+  var injecting = false;
+
   function buildAnalysis(title, obj){
     var wrap = document.createElement("div");
     wrap.className = "f5-analysis f5-injected";
@@ -300,28 +303,41 @@ showOverview();
     det.className = "f5-detail";
     det.innerHTML = obj.d;
     wrap.appendChild(det);
-
     return wrap;
   }
 
-  function injectF5(){
-    var cards = document.querySelectorAll(".ann-card");
-    cards.forEach(function(card){
-      if (card.querySelector(".f5-injected")) return;
-      var tEl = card.querySelector(".ann-title");
-      if (!tEl) return;
-      var t = tEl.textContent.trim();
-      var obj = F5D[t];
-      if (!obj) return;
-      card.appendChild(buildAnalysis(t, obj));
-    });
+  function doInject(){
+    if (injecting) return;
+    injecting = true;
+    if (mo) mo.disconnect();
     try {
+      var cards = document.querySelectorAll(".ann-card");
+      var anyAdded = false;
+      cards.forEach(function(card){
+        if (card.querySelector(".f5-injected")) return;
+        var tEl = card.querySelector(".ann-title");
+        if (!tEl) return;
+        var t = tEl.textContent.trim();
+        var obj = F5D[t];
+        if (!obj) return;
+        card.appendChild(buildAnalysis(t, obj));
+        anyAdded = true;
+      });
+      // Sort each card container ONCE
       var containers = new Set();
       document.querySelectorAll(".ann-card").forEach(function(c){
         if (c.parentElement) containers.add(c.parentElement);
       });
       containers.forEach(function(parent){
+        if (parent.getAttribute("data-f5-sorted") === "1") return;
         var kids = Array.from(parent.querySelectorAll(":scope > .ann-card"));
+        if (kids.length === 0) return;
+        // Only sort if every card has F5D data
+        var allHaveData = kids.every(function(k){
+          var tt = (k.querySelector(".ann-title")||{}).textContent || "";
+          return !!F5D[tt.trim()];
+        });
+        if (!allHaveData) return;
         kids.sort(function(a,b){
           var ta = (a.querySelector(".ann-title")||{}).textContent || "";
           var tb = (b.querySelector(".ann-title")||{}).textContent || "";
@@ -329,14 +345,33 @@ showOverview();
           var pb = CATPRIORITY[(F5D[tb.trim()]||{}).c] || 99;
           return pa - pb;
         });
-        kids.forEach(function(k){ parent.appendChild(k); });
+        var frag = document.createDocumentFragment();
+        kids.forEach(function(k){ frag.appendChild(k); });
+        parent.appendChild(frag);
+        parent.setAttribute("data-f5-sorted","1");
       });
-    } catch(e){}
+    } catch(e){
+      try { console.error("F5 inject error:", e); } catch(_){}
+    } finally {
+      injecting = false;
+      if (mo) mo.observe(document.body, {childList:true, subtree:true});
+    }
+  }
+
+  // Debounced wrapper for MutationObserver
+  var pending = null;
+  function schedule(){
+    if (pending) return;
+    pending = setTimeout(function(){
+      pending = null;
+      doInject();
+    }, 200);
   }
 
   document.addEventListener("click", function(ev){
     var t = ev.target;
     if (t && t.getAttribute && t.getAttribute("data-f5-toggle") === "1") {
+      ev.stopPropagation();
       var det = t.parentElement.querySelector(".f5-detail");
       if (det) {
         det.classList.toggle("open");
@@ -345,15 +380,31 @@ showOverview();
     }
   });
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function(){ setTimeout(injectF5, 300); });
-  } else {
-    setTimeout(injectF5, 300);
+  function start(){
+    doInject();
+    mo = new MutationObserver(function(muts){
+      // If a tab switch re-rendered cards, the sorted attribute on the new parent will be missing.
+      // Schedule a single debounced re-inject.
+      // Bail if the only mutations are our own injected nodes.
+      var meaningful = muts.some(function(m){
+        if (m.type !== "childList") return false;
+        for (var i=0; i<m.addedNodes.length; i++){
+          var n = m.addedNodes[i];
+          if (n.nodeType === 1 && (n.classList && n.classList.contains("f5-injected"))) continue;
+          return true;
+        }
+        return false;
+      });
+      if (meaningful) schedule();
+    });
+    mo.observe(document.body, {childList:true, subtree:true});
   }
-  setTimeout(injectF5, 1200);
 
-  var mo = new MutationObserver(function(){ injectF5(); });
-  mo.observe(document.body, {childList:true, subtree:true});
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function(){ setTimeout(start, 300); });
+  } else {
+    setTimeout(start, 300);
+  }
 })();
 </script>
 
