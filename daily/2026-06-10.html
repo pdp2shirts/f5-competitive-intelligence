@@ -220,5 +220,85 @@ function showCategory(category){clearStatActive();
 showOverview();
 })();
 </script>
+
+<style>
+.f5-badge{display:inline-block;background:#ff2828;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle;letter-spacing:.5px}
+.f5-wrap{margin-top:12px;border-top:1px solid #333a47;padding-top:12px}
+.f5-cat-pill{display:inline-block;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;letter-spacing:.3px}
+.f5-summary{font-size:13px;color:#d7dae1;line-height:1.6;margin-bottom:8px}
+.f5-detail{display:none;margin-top:10px;background:#20242e;border:1px solid #333a47;border-radius:8px;padding:14px}
+.f5-detail.open{display:block}
+.f5-detail h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#ff5a63;margin-bottom:6px;margin-top:10px}
+.f5-detail h4:first-child{margin-top:0}
+.f5-detail p{font-size:13px;color:#d7dae1;line-height:1.6;margin:0}
+.f5-detail strong{color:#fff}
+.f5-toggle{background:none;border:1px solid #444;color:#aaa;font-size:11px;padding:3px 10px;border-radius:4px;cursor:pointer;margin-top:6px}
+.f5-toggle:hover{border-color:#ff5a63;color:#ff5a63}
+.f5-footer{background:#1a1d27;border-top:2px solid #ff2828;padding:16px 40px;margin-top:24px;font-size:12px;color:#8b8fa3}
+.f5-footer strong{color:#ff5a63}
+.f5-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.f5-legend-item{display:flex;align-items:center;gap:5px;font-size:11px}
+.f5-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+</style>
+<script>
+(function(){
+var F5D={"Palo Alto Networks & Deutsche Telekom Launch 'Sovereign Cortex with T Security' for Europe": {"s": "Palo Alto Networks' partnership with Deutsche Telekom introduces an AI-driven security service for Europe's regulated sectors, emphasizing data sovereignty. This could challenge F5's position in AI security for regulated industries, particularly in Europe.", "d": "Emphasize F5's AI security capabilities and existing partnerships with telcos. Highlight F5's expertise in securing distributed organizations and regulated sectors. Leverage case studies like Telefónica Tech to showcase F5's successful deployments and data sovereignty solutions.", "c": "AI Security"}, "Fortinet Launches FortiGate 3500G and 400G Next-Gen Firewalls for AI Workloads": {"s": "Fortinet's launch of AI-focused next-gen firewalls enhances their position in AI workload security, challenging F5's AI infrastructure solutions. This move highlights the growing demand for AI-specific security measures in data centers, potentially impacting F5's market share in AI security.", "d": "Emphasize F5's comprehensive AI infrastructure solutions and highlight unique capabilities in AI workload protection. Educate customers on F5's strengths in securing AI environments and consider partnerships or enhancements to address encrypted traffic and hybrid network security.", "c": "Application Security"}, "Fortinet Opens Singapore FortiNDR Cloud PoP to Boost ASEAN Threat Detection": {"s": "Fortinet's new Singapore FortiNDR Cloud PoP enhances threat detection in ASEAN, potentially challenging F5's position in regional security solutions. This move emphasizes Fortinet's focus on improving network visibility and reducing threat response times, aligning with regional compliance needs.", "d": "Highlight F5's comprehensive security offerings, including NGINXaaS for OT environments and robust DDoS protection. Emphasize F5's established presence and expertise in cloud security, particularly in Singapore's Smart Nation initiatives, to reassure customers of F5's superior capabilities.", "c": "Application Security"}, "Fortinet Reaches 1 Million People Trained in Cybersecurity Ahead of Schedule": {"s": "Fortinet's achievement in training over one million people highlights its commitment to cybersecurity education, potentially strengthening its platform appeal. This could increase competitive pressure on F5's platform offerings by enhancing Fortinet's brand and customer loyalty.", "d": "F5 should emphasize its own educational initiatives and partnerships, like the cybersecurity summer camp, to showcase commitment to developing cybersecurity skills. Highlight F5's comprehensive security solutions and customer success stories to differentiate from Fortinet's platform approach.", "c": "Application Security"}, "CrowdStrike Joins OpenID Foundation and IDPro to Advance Risk-Aware Identity Security": {"s": "CrowdStrike's move to join OpenID Foundation and IDPro enhances its platform capabilities in identity security, potentially impacting F5's positioning in identity and access management. This could pressure F5 to strengthen its platform offerings to remain competitive.", "d": "F5 sellers should emphasize our comprehensive platform solutions that integrate seamlessly with existing security infrastructures. Highlight our commitment to evolving identity security to meet emerging threats, ensuring customers that F5 remains a leader in secure, scalable, and adaptable platform solutions.", "c": "Platforms"}, "CrowdStrike Warns China-Nexus Actors Escalating AI-Focused Attacks on U.S. Tech": {"s": "CrowdStrike's warning highlights the growing threat of AI-focused cyberattacks, particularly from China-nexus actors targeting U.S. tech firms. This underscores the importance of securing AI workloads and intellectual property, areas where F5 can enhance its offerings and market positioning.", "d": "Emphasize F5's AI security capabilities to customers, highlighting our solutions for protecting AI workloads and intellectual property. Collaborate with partners to strengthen AI security offerings and address emerging threats, positioning F5 as a leader in securing AI environments.", "c": "AI Security"}, "Zscaler Unveils ZAgent Framework to Automate Zero-Trust SASE Operations": {"s": "Zscaler's ZAgent Framework enhances its zero-trust SASE platform with automation and natural-language prompts, potentially increasing its appeal to enterprises seeking streamlined operations. This move could pressure F5 to enhance its zero-trust solutions to remain competitive.", "d": "Emphasize F5's robust zero-trust architecture and integration capabilities. Highlight F5's commitment to innovation and customer-centric solutions. Consider developing similar automation features to match or exceed Zscaler's offerings, ensuring F5 remains a leader in zero-trust solutions.", "c": "Platforms"}, "Zscaler Launches Zero-Trust Tools to Secure Agentic AI": {"s": "Zscaler's launch of zero-trust tools for AI agents highlights the growing focus on securing AI workloads. This move could challenge F5's position in AI security, emphasizing the need for comprehensive solutions to protect AI environments.", "d": "Emphasize F5's expertise in zero-trust and AI security to reassure customers. Highlight F5's unique capabilities in securing AI workloads, and consider enhancing F5's AI security offerings to address emerging threats and maintain competitive edge.", "c": "AI Security"}, "Check Point Joins OpenAI's Trusted Access for Cyber Program and Daybreak Initiative": {"s": "Check Point's integration with OpenAI's cybersecurity initiatives enhances its AI-driven threat detection capabilities, potentially elevating its competitive edge in AI security. This move could challenge F5's position by offering advanced AI security solutions to a broad customer base.", "d": "Emphasize F5's AI security strengths, highlighting unique features like Agentic Signature Attack Packs and CalypsoAI partnerships. Develop targeted campaigns showcasing F5's superior AI security capabilities to retain and attract customers seeking advanced AI-driven protection.", "c": "AI Security"}, "Check Point Advances Secure AI Transformation for MSPs with New Platform and Unified Bundles": {"s": "Check Point's expanded MSP platform with unified security bundles may challenge F5's platform consolidation efforts. The integration of AI security and multi-tenant management could appeal to MSPs seeking streamlined solutions, potentially impacting F5's market share.", "d": "Emphasize F5's comprehensive platform capabilities and integration with existing MSP tools. Highlight F5's AI security advancements and scalability to counter Check Point's offerings. Strengthen partnerships with MSPs by showcasing F5's unique value proposition and competitive edge in platform consolidation.", "c": "Platforms"}, "Cloudflare Log Explorer Reaches General Availability": {"s": "Cloudflare's Log Explorer enhances its platform by integrating observability directly into its dashboard, reducing the need for external tools. This strengthens Cloudflare's position as a one-stop solution for security and performance monitoring, potentially challenging F5's offerings in integrated platform capabilities.", "d": "Emphasize F5's comprehensive platform capabilities and highlight our advanced log aggregation solutions. Showcase how F5's platform can seamlessly integrate with existing infrastructures, offering superior flexibility and customization compared to Cloudflare's more rigid, single-vendor approach.", "c": "Application Delivery"}, "AWS Launches AWS Startup Advisor Built on 350,000 Startups' Experience": {"s": "AWS Startup Advisor enhances AWS's platform appeal by providing AI-driven guidance for startups, potentially reducing reliance on third-party solutions. This could challenge F5's position in the startup ecosystem, especially for cloud-native security and optimization solutions.", "d": "Emphasize F5's comprehensive security and optimization offerings tailored for startups. Highlight integration capabilities with AWS to ensure seamless cloud-native deployments, and promote F5's expertise in securing and optimizing AI applications to maintain competitive advantage.", "c": "Application Delivery"}, "AWS Graviton5-Powered EC2 M9g and M9gd Instances Now Generally Available": {"s": "AWS's launch of Graviton5-powered EC2 instances enhances AI data delivery capabilities, offering higher performance for AI workloads. This could shift customer preferences towards AWS for AI infrastructure, impacting F5's positioning in AI data delivery solutions.", "d": "Emphasize F5's unique strengths in AI data delivery, such as integration with Kubernetes and AWS EKS. Highlight F5's capabilities in optimizing AI workloads and security, ensuring customers understand the value of F5's comprehensive solutions in AI infrastructure.", "c": "AI Data Delivery"}, "Akamai Bets on Edge AI Inference After $1 Billion APAC Revenue Milestone": {"s": "Akamai's focus on edge AI inference in APAC, leveraging GPU-powered computing, poses a competitive challenge in AI traffic optimization and model serving infrastructure. This move could enhance their real-time application capabilities and secure infrastructure, potentially attracting customers seeking advanced AI solutions.", "d": "Emphasize F5's strengths in AI data delivery and edge computing to counter Akamai's advancements. Highlight F5's robust infrastructure and AI optimization capabilities to reassure customers of our competitive edge in delivering secure and efficient AI solutions.", "c": "AI Data Delivery"}, "Fastly and Skyfire Partner to Enable Trusted Agentic Commerce at the Edge": {"s": "Fastly's partnership with Skyfire enhances its edge cloud with AI agent verification, posing a competitive threat to F5's application security solutions by offering real-time identity-based policies without infrastructure changes.", "d": "Emphasize F5's robust application security offerings and integration capabilities with AWS and Adobe Commerce. Highlight F5's comprehensive security measures for financial transactions and digital experiences, positioning them as superior to Fastly's new solution in terms of depth and reliability.", "c": "AI Security"}, "Akamai Earns Microsoft Certified Software Designation for API Security": {"s": "Akamai's Microsoft certification for API Security strengthens its position in cloud-native application protection on Azure, potentially challenging F5's API security offerings. This may influence customers prioritizing Azure compatibility.", "d": "Emphasize F5's robust API security solutions and multicloud capabilities, highlighting our AWS integration and comprehensive security checklist. Engage Azure-focused clients with tailored solutions, showcasing our expertise in securing APIs across diverse cloud environments.", "c": "Application Security"}, "Barracuda: Why Secure Internet Access Starts at the Browser": {"s": "Barracuda's focus on browser-based security highlights a potential gap in F5's application security offerings. Enhancing browser-level defenses could strengthen F5's position in comprehensive cyber resilience solutions.", "d": "Emphasize F5's robust application security suite, highlighting capabilities in web app and API protection. Consider developing or partnering for browser-based security features to address emerging customer needs and counter Barracuda's narrative.", "c": "Application Security"}};
+var CAT_COLORS={"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
+function injectF5(){
+  var cards=document.querySelectorAll('.ann-card');
+  cards.forEach(function(card){
+    if(card.querySelector('.f5-wrap'))return;
+    var titleEl=card.querySelector('.ann-title');
+    if(!titleEl)return;
+    var title=titleEl.textContent.trim();
+    var entry=F5D[title];
+    if(!entry)return;
+    var cat=entry.c||'Application Security';
+    var color=CAT_COLORS[cat]||'#C62828';
+    var wrap=document.createElement('div');
+    wrap.className='f5-wrap';
+    var pill=document.createElement('span');
+    pill.className='f5-cat-pill';
+    pill.style.background=color;
+    pill.textContent=cat;
+    var badge=document.createElement('span');
+    badge.className='f5-badge';
+    badge.textContent='WHY F5 CARES';
+    var sumEl=document.createElement('p');
+    sumEl.className='f5-summary';
+    sumEl.textContent=entry.s||'';
+    var btn=document.createElement('button');
+    btn.className='f5-toggle';
+    btn.textContent='+ Show F5 Analysis';
+    var detail=document.createElement('div');
+    detail.className='f5-detail';
+    detail.innerHTML='<h4>What this means for F5</h4><p>'+entry.s+'</p><h4>What you should do about this news</h4><p>'+entry.d+'</p>';
+    btn.addEventListener('click',function(){
+      var open=detail.classList.toggle('open');
+      btn.textContent=open?'- Hide F5 Analysis':'+ Show F5 Analysis';
+    });
+    wrap.appendChild(pill);
+    wrap.appendChild(badge);
+    wrap.appendChild(sumEl);
+    wrap.appendChild(btn);
+    wrap.appendChild(detail);
+    card.appendChild(wrap);
+  });
+}
+var _obs=new MutationObserver(function(){injectF5();});
+_obs.observe(document.body,{childList:true,subtree:true});
+document.addEventListener('DOMContentLoaded',function(){
+  injectF5();
+  setTimeout(injectF5,500);
+  setTimeout(injectF5,1500);
+});
+setTimeout(injectF5,200);
+setTimeout(injectF5,800);
+})();
+</script>
+<div class="f5-footer">
+<strong>F5 Competitive Intelligence</strong> — Enhanced with F5 strategic analysis (17 announcements)<br>
+<div class="f5-legend"><div class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6"></span><span>Platforms (3)</span></div><div class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE"></span><span>AI Security (5)</span></div><div class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B"></span><span>AI Data Delivery (2)</span></div><div class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100"></span><span>Application Delivery (2)</span></div><div class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828"></span><span>Application Security (5)</span></div></div>
+</div>
 </body>
 </html>
