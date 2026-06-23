@@ -3,374 +3,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F5 Competitive Intelligence &middot; Daily Archive</title>
+<title>Daily Briefing Archive &middot; F5 Competitive Intelligence</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:48px 40px 40px;text-align:center}
-.header h1{font-size:32px;font-weight:700;margin-bottom:10px}
+.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:40px;text-align:center}
+.header h1{font-size:30px;font-weight:700;margin-bottom:8px}
 .header h1 span{color:var(--accent)}
-.header p{color:var(--muted);font-size:15px;max-width:640px;margin:0 auto}
-.back{display:inline-block;margin-top:18px;color:var(--accent2);text-decoration:none;font-size:13px}
+.header p{color:var(--muted);font-size:14px}
+.content{max-width:820px;margin:0 auto;padding:36px 24px}
+.back{display:inline-block;color:var(--accent2);text-decoration:none;font-size:13px;margin-bottom:20px}
 .back:hover{text-decoration:underline}
-.content{max-width:1000px;margin:0 auto;padding:40px}
-.month-label{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:28px 0 14px;display:flex;align-items:center;gap:10px}
-.month-label::after{content:'';flex:1;height:1px;background:var(--border)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-bottom:20px}
-.dash-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s;text-decoration:none;color:var(--text);display:block;position:relative;overflow:hidden}
-.dash-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(118,185,0,.12)}
-.dash-card .card-badge{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;padding:3px 9px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px}
-.badge-live{background:rgba(118,185,0,.2);color:var(--accent)}
-.dash-card h3{font-size:16px;font-weight:600;margin-bottom:6px}
-.dash-card .desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
-.pdf-row{font-size:12px}
-.pdf-link{color:var(--accent2);text-decoration:none;font-weight:600}
-.pdf-link:hover{text-decoration:underline}
-.dash-card .arrow{position:absolute;bottom:16px;right:16px;color:var(--accent);font-size:18px;opacity:0;transition:opacity .2s}
-.dash-card:hover .arrow{opacity:1}
-.footer{text-align:center;padding:40px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:16px}
+.row{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:10px;text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s}
+.row:hover{border-color:var(--accent);transform:translateY(-2px)}
+.row-date{font-size:15px;font-weight:600}
+.row-meta{display:flex;align-items:center;gap:14px}
+.pdf{font-size:11px;font-weight:700;color:var(--accent2);border:1px solid var(--accent2);border-radius:8px;padding:3px 10px}
+.pdf:hover{background:rgba(0,180,216,.15)}
+.arrow{color:var(--accent);font-size:18px}
+.footer{text-align:center;padding:36px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:24px}
 </style>
 </head>
 <body>
 <div class="header">
   <h1><span>F5</span> Daily Briefing Archive</h1>
-  <p>Browse past daily competitive briefings across 22 competitors in 5 market categories. Archives are retained for 90 days with full drill-down and source links preserved.</p>
-  <a class="back" href="../index.html">&#8592; Back to Hub</a>
+  <p>Past daily competitive intelligence briefings &middot; 90-day retention</p>
 </div>
 <div class="content">
-<div class="month-label">June 2026</div>
-<div class="cards">
-  <a class="dash-card" href="2026-06-22.html"><span class="card-badge badge-live">&#9679; Latest</span>
-    <h3>Monday, Jun 22</h3>
-    <div class="desc">Daily competitive briefing for June 22, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260622-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-18.html">
-    <h3>Thursday, Jun 18</h3>
-    <div class="desc">Daily competitive briefing for June 18, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260618-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-17.html">
-    <h3>Wednesday, Jun 17</h3>
-    <div class="desc">Daily competitive briefing for June 17, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260617-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-16.html">
-    <h3>Tuesday, Jun 16</h3>
-    <div class="desc">Daily competitive briefing for June 16, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260616-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-15.html">
-    <h3>Monday, Jun 15</h3>
-    <div class="desc">Daily competitive briefing for June 15, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260615-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-11.html">
-    <h3>Thursday, Jun 11</h3>
-    <div class="desc">Daily competitive briefing for June 11, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260611-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-10.html">
-    <h3>Wednesday, Jun 10</h3>
-    <div class="desc">Daily competitive briefing for June 10, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260610-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-09.html">
-    <h3>Tuesday, Jun 09</h3>
-    <div class="desc">Daily competitive briefing for June 09, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260609-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-08.html">
-    <h3>Monday, Jun 08</h3>
-    <div class="desc">Daily competitive briefing for June 08, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260608-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-04.html">
-    <h3>Thursday, Jun 04</h3>
-    <div class="desc">Daily competitive briefing for June 04, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260604-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-03.html">
-    <h3>Wednesday, Jun 03</h3>
-    <div class="desc">Daily competitive briefing for June 03, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260603-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-02.html">
-    <h3>Tuesday, Jun 02</h3>
-    <div class="desc">Daily competitive briefing for June 02, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260602-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-06-01.html">
-    <h3>Monday, Jun 01</h3>
-    <div class="desc">Daily competitive briefing for June 01, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260601-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-</div>
-<div class="month-label">May 2026</div>
-<div class="cards">
-  <a class="dash-card" href="2026-05-28.html">
-    <h3>Thursday, May 28</h3>
-    <div class="desc">Daily competitive briefing for May 28, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260528-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-27.html">
-    <h3>Wednesday, May 27</h3>
-    <div class="desc">Daily competitive briefing for May 27, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260527-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-26.html">
-    <h3>Tuesday, May 26</h3>
-    <div class="desc">Daily competitive briefing for May 26, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260526-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-25.html">
-    <h3>Monday, May 25</h3>
-    <div class="desc">Daily competitive briefing for May 25, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260525-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-21.html">
-    <h3>Thursday, May 21</h3>
-    <div class="desc">Daily competitive briefing for May 21, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260521-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-20.html">
-    <h3>Wednesday, May 20</h3>
-    <div class="desc">Daily competitive briefing for May 20, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260520-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-19.html">
-    <h3>Tuesday, May 19</h3>
-    <div class="desc">Daily competitive briefing for May 19, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260519-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-18.html">
-    <h3>Monday, May 18</h3>
-    <div class="desc">Daily competitive briefing for May 18, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260518-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-14.html">
-    <h3>Thursday, May 14</h3>
-    <div class="desc">Daily competitive briefing for May 14, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260514-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-13.html">
-    <h3>Wednesday, May 13</h3>
-    <div class="desc">Daily competitive briefing for May 13, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260513-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-12.html">
-    <h3>Tuesday, May 12</h3>
-    <div class="desc">Daily competitive briefing for May 12, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260512-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-11.html">
-    <h3>Monday, May 11</h3>
-    <div class="desc">Daily competitive briefing for May 11, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260511-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-07.html">
-    <h3>Thursday, May 07</h3>
-    <div class="desc">Daily competitive briefing for May 07, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260507-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-06.html">
-    <h3>Wednesday, May 06</h3>
-    <div class="desc">Daily competitive briefing for May 06, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260506-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-05.html">
-    <h3>Tuesday, May 05</h3>
-    <div class="desc">Daily competitive briefing for May 05, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260505-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-05-04.html">
-    <h3>Monday, May 04</h3>
-    <div class="desc">Daily competitive briefing for May 04, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260504-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-</div>
-<div class="month-label">April 2026</div>
-<div class="cards">
-  <a class="dash-card" href="2026-04-30.html">
-    <h3>Thursday, Apr 30</h3>
-    <div class="desc">Daily competitive briefing for April 30, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260430-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-29.html">
-    <h3>Wednesday, Apr 29</h3>
-    <div class="desc">Daily competitive briefing for April 29, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260429-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-28.html">
-    <h3>Tuesday, Apr 28</h3>
-    <div class="desc">Daily competitive briefing for April 28, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260428-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-27.html">
-    <h3>Monday, Apr 27</h3>
-    <div class="desc">Daily competitive briefing for April 27, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260427-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-23.html">
-    <h3>Thursday, Apr 23</h3>
-    <div class="desc">Daily competitive briefing for April 23, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260423-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-22.html">
-    <h3>Wednesday, Apr 22</h3>
-    <div class="desc">Daily competitive briefing for April 22, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260422-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-21.html">
-    <h3>Tuesday, Apr 21</h3>
-    <div class="desc">Daily competitive briefing for April 21, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260421-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-20.html">
-    <h3>Monday, Apr 20</h3>
-    <div class="desc">Daily competitive briefing for April 20, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260420-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-16.html">
-    <h3>Thursday, Apr 16</h3>
-    <div class="desc">Daily competitive briefing for April 16, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260416-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-15.html">
-    <h3>Wednesday, Apr 15</h3>
-    <div class="desc">Daily competitive briefing for April 15, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260415-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-14.html">
-    <h3>Tuesday, Apr 14</h3>
-    <div class="desc">Daily competitive briefing for April 14, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260414-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-13.html">
-    <h3>Monday, Apr 13</h3>
-    <div class="desc">Daily competitive briefing for April 13, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260413-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-09.html">
-    <h3>Thursday, Apr 09</h3>
-    <div class="desc">Daily competitive briefing for April 09, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260409-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-08.html">
-    <h3>Wednesday, Apr 08</h3>
-    <div class="desc">Daily competitive briefing for April 08, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260408-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-07.html">
-    <h3>Tuesday, Apr 07</h3>
-    <div class="desc">Daily competitive briefing for April 07, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260407-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-06.html">
-    <h3>Monday, Apr 06</h3>
-    <div class="desc">Daily competitive briefing for April 06, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260406-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-02.html">
-    <h3>Thursday, Apr 02</h3>
-    <div class="desc">Daily competitive briefing for April 02, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260402-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-04-01.html">
-    <h3>Wednesday, Apr 01</h3>
-    <div class="desc">Daily competitive briefing for April 01, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260401-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-</div>
-<div class="month-label">March 2026</div>
-<div class="cards">
-  <a class="dash-card" href="2026-03-31.html">
-    <h3>Tuesday, Mar 31</h3>
-    <div class="desc">Daily competitive briefing for March 31, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260331-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-03-30.html">
-    <h3>Monday, Mar 30</h3>
-    <div class="desc">Daily competitive briefing for March 30, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260330-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-03-26.html">
-    <h3>Thursday, Mar 26</h3>
-    <div class="desc">Daily competitive briefing for March 26, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260326-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-03-25.html">
-    <h3>Wednesday, Mar 25</h3>
-    <div class="desc">Daily competitive briefing for March 25, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260325-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-  <a class="dash-card" href="2026-03-24.html">
-    <h3>Tuesday, Mar 24</h3>
-    <div class="desc">Daily competitive briefing for March 24, 2026.</div>
-    <div class="pdf-row"><a class="pdf-link" href="../daily_pdf/20260324-F5_Dailiy_Competitive_Briefing.pdf" target="_blank">&#128196; PDF</a></div>
-    <span class="arrow">&#8599;</span>
-  </a></div>
-    <span class="arrow">&#8599;</span>
-  </a></div>
-    <span class="arrow">&#8599;</span>
-  </a></div>
-    <span class="arrow">&#8599;</span>
-  </a></div>
-    <span class="arrow">&#8599;</span>
-  </a>
-</div>
+  <a class="back" href="../index.html">&#8592; Back to Hub</a>
+  <div class="section-title">All Briefings (51)</div>
+    <a class="row" href="2026-06-22.html">
+      <div class="row-date">Monday, June 22, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260622-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-18.html">
+      <div class="row-date">Thursday, June 18, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260618-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-17.html">
+      <div class="row-date">Wednesday, June 17, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260617-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-16.html">
+      <div class="row-date">Tuesday, June 16, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260616-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-15.html">
+      <div class="row-date">Monday, June 15, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260615-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-11.html">
+      <div class="row-date">Thursday, June 11, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260611-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-10.html">
+      <div class="row-date">Wednesday, June 10, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260610-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-09.html">
+      <div class="row-date">Tuesday, June 09, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260609-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-08.html">
+      <div class="row-date">Monday, June 08, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260608-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-04.html">
+      <div class="row-date">Thursday, June 04, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260604-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-03.html">
+      <div class="row-date">Wednesday, June 03, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260603-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-02.html">
+      <div class="row-date">Tuesday, June 02, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260602-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-06-01.html">
+      <div class="row-date">Monday, June 01, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260601-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-28.html">
+      <div class="row-date">Thursday, May 28, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260528-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-27.html">
+      <div class="row-date">Wednesday, May 27, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260527-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-26.html">
+      <div class="row-date">Tuesday, May 26, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260526-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-25.html">
+      <div class="row-date">Monday, May 25, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260525-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-21.html">
+      <div class="row-date">Thursday, May 21, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260521-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-20.html">
+      <div class="row-date">Wednesday, May 20, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260520-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-19.html">
+      <div class="row-date">Tuesday, May 19, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260519-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-18.html">
+      <div class="row-date">Monday, May 18, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260518-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-14.html">
+      <div class="row-date">Thursday, May 14, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260514-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-13.html">
+      <div class="row-date">Wednesday, May 13, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260513-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-12.html">
+      <div class="row-date">Tuesday, May 12, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260512-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-11.html">
+      <div class="row-date">Monday, May 11, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260511-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-07.html">
+      <div class="row-date">Thursday, May 07, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260507-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-06.html">
+      <div class="row-date">Wednesday, May 06, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260506-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-05.html">
+      <div class="row-date">Tuesday, May 05, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260505-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-05-04.html">
+      <div class="row-date">Monday, May 04, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260504-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-30.html">
+      <div class="row-date">Thursday, April 30, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260430-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-29.html">
+      <div class="row-date">Wednesday, April 29, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260429-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-28.html">
+      <div class="row-date">Tuesday, April 28, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260428-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-27.html">
+      <div class="row-date">Monday, April 27, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260427-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-23.html">
+      <div class="row-date">Thursday, April 23, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260423-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-22.html">
+      <div class="row-date">Wednesday, April 22, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260422-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-21.html">
+      <div class="row-date">Tuesday, April 21, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260421-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-20.html">
+      <div class="row-date">Monday, April 20, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260420-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-16.html">
+      <div class="row-date">Thursday, April 16, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260416-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-15.html">
+      <div class="row-date">Wednesday, April 15, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260415-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-14.html">
+      <div class="row-date">Tuesday, April 14, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260414-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-13.html">
+      <div class="row-date">Monday, April 13, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260413-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-09.html">
+      <div class="row-date">Thursday, April 09, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260409-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-08.html">
+      <div class="row-date">Wednesday, April 08, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260408-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-07.html">
+      <div class="row-date">Tuesday, April 07, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260407-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-06.html">
+      <div class="row-date">Monday, April 06, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260406-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-02.html">
+      <div class="row-date">Thursday, April 02, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260402-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-04-01.html">
+      <div class="row-date">Wednesday, April 01, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260401-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-03-31.html">
+      <div class="row-date">Tuesday, March 31, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260331-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-03-30.html">
+      <div class="row-date">Monday, March 30, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260330-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-03-26.html">
+      <div class="row-date">Thursday, March 26, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260326-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
+    <a class="row" href="2026-03-25.html">
+      <div class="row-date">Wednesday, March 25, 2026</div>
+      <div class="row-meta"><span class="pdf" onclick="event.preventDefault();event.stopPropagation();window.location.href='../daily_pdf/20260325-F5_Dailiy_Competitive_Briefing.pdf'">PDF</span><span class="arrow">&#8599;</span></div>
+    </a>
 </div>
 <div class="footer">
   F5 Competitive Intelligence &middot; Auto-updated weekdays at 6:30 AM PT &middot; 22 competitors &middot; 5 categories<br>
