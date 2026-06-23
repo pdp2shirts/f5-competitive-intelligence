@@ -15,6 +15,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .header-left p{color:var(--muted);font-size:14px}
 .header-right{display:flex;gap:10px}
 .export-btn{background:var(--accent);color:#000;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+.pdf-btn{background:var(--card);color:var(--text);border:1px solid var(--border);padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit;text-decoration:none;margin-right:10px}
+.pdf-btn:hover{border-color:var(--accent);color:var(--accent)}
 .export-btn:hover{opacity:.9}
 .stats-bar{display:flex;gap:20px;padding:20px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 24px;min-width:150px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s}
@@ -74,8 +76,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
     <p><a href="../index.html" style="color:var(--accent);text-decoration:none;font-weight:600">&larr; Back to Hub</a> &middot; Daily competitive intelligence covering 22 F5 competitors</p>
   </div>
   <div class="header-right">
-    <a class="pdf-btn" href="../daily_pdf/20260622-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(118,185,0,.13);border:1px solid var(--accent);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;margin-right:8px;transition:background .2s">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <a class="pdf-btn" href="../daily_pdf/20260622-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       View as PDF
     </a>
     <button class="export-btn" id="exportBtn">
@@ -88,7 +90,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
   <div class="stat-card" data-action="stat-tracked"><div class="num">22</div><div class="label">Competitors Tracked</div><div class="hint">&#9654; Click to view</div></div>
   <div class="stat-card" data-action="stat-ann"><div class="num">6</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
   <div class="stat-card" data-action="stat-active"><div class="num">4</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
-  <div class="stat-card" data-action="stat-cats"><div class="num">3</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-cats"><div class="num">4</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
 </div>
 <div class="main">
   <div class="charts-panel">
@@ -100,8 +102,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 <script>
 (function(){
 "use strict";
-var DATA={"Palo Alto Networks": {"category": "Platforms", "announcements": [{"title": "Unit 42 Warns of Large-Scale FortiBleed Credential Attack Campaign", "summary": "Palo Alto Networks' Unit 42 published a June 19 threat brief on a large-scale credential-attack campaign, dubbed FortiBleed, primarily targeting Fortinet devices, with MSSQL and Sophos systems also observed. The report details password-spraying using credential lists sourced from prior breaches and dark-web postings, noting an initial access broker claimed responsibility. Unit 42 provides defensive guidance: enforce MFA for remote access, adopt Zero Trust and ZTNA, rotate default credentials, disable unused accounts, and patch promptly. Findings were shared with Cyber Threat Alliance members for rapid protection deployment.", "type": "Threat Research", "date": "2026-06-19", "source_url": "https://unit42.paloaltonetworks.com/large-scale-credential-attacks/"}]}, "Palo Alto Networks ~AI": {"category": "AI Security", "announcements": [{"title": "Prisma AIRS Adds Local Cloud Region in Japan", "summary": "Palo Alto Networks announced on June 19 the expansion of Prisma AIRS with a new local cloud location in Japan, enabling domestic data residency and low-latency processing. Prisma AIRS 3.0 is positioned as a comprehensive AI security platform that scans models, agents, and artifacts before deployment, protects runtime behavior, and provides unified posture management across models, applications, agents, and datasets. The new region gives Japanese organizations high-performance, in-country access to AI security capabilities, supporting secure adoption of generative and agentic AI for large-scale digital transformation initiatives.", "type": "Product Expansion", "date": "2026-06-19", "source_url": "https://www.paloaltonetworks.com/blog/2026/06/prisma-airs-launch-japan/"}]}, "Fortinet": {"category": "Platforms", "announcements": [{"title": "Fortinet Responds to FortiBleed FortiGate Credential Compromise", "summary": "Fortinet's June 19 PSIRT analysis addresses FortiBleed, a credential-harvesting campaign against FortiGate devices that reuses credentials from prior incidents and brute-forces weak passwords lacking MFA. Fortinet stresses this is not a new vulnerability or advisory, says it has identified potentially affected systems, is notifying impacted customers, and is cooperating with government agencies. Recommended actions include resetting credentials, enabling MFA, upgrading to FortiOS 7.4/7.6/8.0 with PBKDF2 hashing, and restricting external management. By June 21, evidence of active underground credential trading emerged alongside CISA and UK NCSC advisories.", "type": "Security Advisory", "date": "2026-06-19", "source_url": "https://www.fortinet.com/blog/psirt-blogs/analysis-of-reported-credential-compromise-of-fortigate-devices"}]}, "Cloudflare": {"category": "Platforms", "announcements": [{"title": "Agents Week: Zero Trust and Non-Human Identity Controls for AI Agents", "summary": "During Agents Week (June 19), Cloudflare unveiled security tooling to make agents secure by default. The Cloudflare One stack lets an agent plan, deploy, and manage a Zero Trust environment; Managed OAuth for Access enables one-click, RFC 9728-based agent authentication to internal apps without insecure service accounts. New non-human identity controls add scannable API tokens, resource-scoped permissions (GA), and improved OAuth visibility. Cloudflare also shipped an enterprise MCP governance reference architecture with Shadow MCP detection in Gateway and Code Mode to cut token costs, extending its platform to govern autonomous agent access.", "type": "Product Launch", "date": "2026-06-19", "source_url": "https://blog.cloudflare.com/agents-week-in-review/"}]}, "Cloudflare ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "Cloudflare Mesh and Temporary Accounts Power the Agentic Cloud", "summary": "Cloudflare's Agents Week (June 19) introduced infrastructure to deploy and run AI agents at Internet scale, framed as 'Cloud 2.0.' Cloudflare Mesh delivers secure private networking with Workers VPC, giving agents scoped access to private databases and APIs without manual tunnels. Temporary Cloudflare Accounts let an agent deploy a live Worker instantly via 'wrangler deploy --temporary' in claimable 60-minute sessions. New agent compute environments offer full OS-style and millisecond-start options plus a Git-compatible agent workspace, alongside an Agent Toolbox of inference, search, memory, voice, email, and browser primitives.", "type": "Product Launch", "date": "2026-06-19", "source_url": "https://blog.cloudflare.com/temporary-accounts/"}]}, "HPE / Juniper Networks": {"category": "AI Data Delivery", "announcements": [{"title": "HPE Juniper QFX5252 Switch Powers AMD Helios AI Rack", "summary": "Coverage emerging June 19 from HPE Discover 2026 detailed the HPE Juniper QFX5252 scale-up switch tray built for AMD's Helios AI rack. Each tray packs dual Broadcom Tomahawk 6 chips for 204.8 Tbps of switching capacity and runs UALink-over-Ethernet on SONiC with AI-native operations, enabling open-standard scale-up to 1,024 accelerators per pod without NVLink lock-in. The liquid-cooled design, plus the QFX5140 inference switch and Marvis AI across Aruba Central, positions Juniper networking as core to HPE's AI Data Center stack and its bet that the network determines AI scale.", "type": "Product Launch", "date": "2026-06-19", "source_url": "https://www.eenewseurope.com/en/hpe-expands-ai-networking-with-self-driving-operations/"}]}, "Cisco": {"category": "Platforms", "announcements": []}, "CrowdStrike": {"category": "Platforms", "announcements": []}, "Zscaler": {"category": "Platforms", "announcements": []}, "Check Point Software": {"category": "Platforms", "announcements": []}, "AWS": {"category": "Platforms", "announcements": []}, "HiddenLayer": {"category": "AI Security", "announcements": []}, "Lasso Security": {"category": "AI Security", "announcements": []}, "Operant AI": {"category": "AI Security", "announcements": []}, "Pillar Security": {"category": "AI Security", "announcements": []}, "Mindgard": {"category": "AI Security", "announcements": []}, "Akamai": {"category": "Application Delivery (ADCs)", "announcements": []}, "Fastly": {"category": "Application Delivery (ADCs)", "announcements": []}, "Citrix (NetScaler)": {"category": "Application Delivery (ADCs)", "announcements": []}, "A10 Networks": {"category": "Application Delivery (ADCs)", "announcements": []}, "Arista Networks": {"category": "AI Data Delivery", "announcements": []}, "Radware": {"category": "Application Security", "announcements": []}, "Barracuda Networks": {"category": "Application Security", "announcements": []}, "Imperva (Thales)": {"category": "Application Security", "announcements": []}};
-var catColors={"Platforms":"#636efa","AI Security":"#ef553b","AI Data Delivery":"#00cc96","Application Delivery (ADCs)":"#ab63fa","Application Security":"#ffa15a"};
+var DATA={"Palo Alto Networks ~AI": {"category": "AI Security", "announcements": [{"title": "Palo Alto Networks Champions 'Secure AI by Design' for Malaysian Enterprises at Ignite on Tour KL", "summary": "At Ignite on Tour Kuala Lumpur on June 22, 2026, Palo Alto Networks urged Malaysian enterprises to embed security into AI from day one through a 'Secure AI by Design' approach built to counter machine-speed threats. Executives Nicole Quinn and Sarene Lee highlighted reducing tool sprawl\u2014enterprises average 83 security products from 29 vendors\u2014by adopting unified, AI-powered platforms. The message tied to Malaysia's AI Governance Bill and stressed integrated protection across users, apps, and AI environments to preserve trust and resilience as GenAI deployments accelerate.", "type": "Industry Insight", "date": "2026-06-22", "source_url": "https://enterpriseit.news/securing-the-ai-enterprise-palo-alto-networks-enables-malaysian-enterprises-to-innovate-securely/"}]}, "Check Point Software ~AI": {"category": "AI Security", "announcements": [{"title": "Check Point to Embed OpenAI Frontier Cyber Capabilities into Its Security Products", "summary": "Check Point announced on June 22, 2026 an expansion of its OpenAI partnership, joining the OpenAI Daybreak Cyber Partner Program to embed OpenAI frontier cyber capabilities directly into Check Point's security products, workflows, and managed services. The integration aims to strengthen threat prevention, accelerate remediation, and improve security operations. Check Point said the rollout will be gradual, beginning with controlled defensive uses and expanding as safeguards prove effective, emphasizing responsible use, abuse prevention, and measured enterprise deployment.", "type": "Partnership", "date": "2026-06-22", "source_url": "https://www.prnewswire.com/news-releases/check-point-to-embed-openai-frontier-cyber-capabilities-into-check-point-security-products-302806571.html"}]}, "Cloudflare": {"category": "Platforms", "announcements": [{"title": "Cloudflare Launches Cloudflare One Design Partner Designation", "summary": "On June 22, 2026, Cloudflare introduced the Cloudflare One Design partner designation, calling it its deepest channel co-investment to date. The program equips a select group of partners\u2014including Arctiq, Consortium, CMT, Presidio, and The Missing Link\u2014with training, financial runway, and a library of blueprint configurations and automated workflows to deploy Cloudflare One's SASE offering. Partners gain agent-ready workflows and decision-tree tooling for faster, higher-value migrations. Cloudflare aims to concentrate on fewer, elite partners while expanding services partnerships and revenue per partner.", "type": "Partner Program", "date": "2026-06-22", "source_url": "https://www.channeldive.com/news/cloudflare-one-design-partner-designation/823310/"}]}, "Cloudflare ~AS": {"category": "Application Security", "announcements": [{"title": "Cloudflare and Major Browsers Develop PACT to Replace CAPTCHAs", "summary": "Cloudflare announced on June 22, 2026 a collaboration with Mozilla, Google, Microsoft, and Shopify to develop Private Access Control Tokens (PACT), a privacy-first protocol for proving legitimate human and agent traffic without invasive tracking or CAPTCHAs. Building on the Privacy Pass framework (RFC 9576), PACT lets sites issue anonymous cryptographic tokens browsers can present to attest personhood, reducing friction while preserving privacy and extending coverage to AI-agent traffic. The effort seeks open-web standardization, though no formal standards body, timeline, or deployment schedule has been set.", "type": "Product Launch", "date": "2026-06-22", "source_url": "https://www.cloudflare.com/press/press-releases/2026/cloudflare-collaborates-with-leading-browsers-to-develop-a-privacy-first-protocol-for-the-global-internet/"}]}, "AWS": {"category": "Platforms", "announcements": [{"title": "AWS Introduces Lambda MicroVMs for Isolated Execution of User and AI-Generated Code", "summary": "AWS announced general availability of Lambda MicroVMs on June 22, 2026, a new serverless compute primitive offering VM-level isolation for running user- or AI-generated code. Built on Firecracker, each session runs in its own MicroVM with near-instant launch and resume, stateful execution for up to eight hours, and dedicated HTTPS URLs supporting HTTP/2, gRPC, and WebSockets. It targets multi-tenant scenarios needing strong per-user isolation. Availability spans US East (N. Virginia, Ohio), US West (Oregon), Asia Pacific (Tokyo), and Europe (Ireland), with up to 16 vCPUs per MicroVM.", "type": "Product Launch", "date": "2026-06-22", "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-lambda-microvms/"}]}, "AWS ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "AWS Adds Grok 4.3 to Amazon Bedrock", "summary": "As part of its June 22, 2026 updates, AWS made the Grok 4.3 model available in Amazon Bedrock, expanding its managed model-serving catalog. Grok 4.3 brings enhanced reasoning for agentic and enterprise workflows and an updated inference engine for improved price/performance, with support for tool calling, structured output, and response streaming. The addition strengthens Bedrock's role as a unified AI inference and model-delivery platform, giving enterprises more frontier-model choice for building production AI applications and agents on AWS infrastructure.", "type": "Product Launch", "date": "2026-06-22", "source_url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ny-summit-recap-local-zone-in-hanoi-grok-4-3-in-bedrock-price-reductions-and-more-june-22-2026/"}]}};
+var catColors={"ADC / Load Balancing":"#636efa","CDN / Edge / App Delivery":"#ef553b","Network Security / Firewall":"#00cc96","Zero Trust / Cloud Security":"#ab63fa","Networking Infrastructure":"#ffa15a","Cloud Platform / Infrastructure":"#19d3f3","WAF / DDoS Protection":"#ff6692"};
 var cCL=["#76b900","#00b4d8","#ef553b","#ab63fa","#ffa15a","#19d3f3","#ff6692","#636efa","#00cc96","#b6e880","#ff97ff"];
 var ALL_ANN=[],names=Object.keys(DATA),compCounts={},catCounts={};
 for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],n=info.announcements.length;
@@ -219,126 +221,6 @@ function showCategory(category){clearStatActive();
 
 showOverview();
 })();
-</script>
-<style>
-.f5-badge{display:inline-block;background:#c8102e;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-bottom:8px;letter-spacing:.5px}
-.f5-cat-badge{display:inline-block;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:6px;letter-spacing:.3px}
-.f5-wrap{margin-top:12px;padding:10px 14px;border-radius:6px;border-left:3px solid #c8102e;background:#20242e;border-top:1px solid #333a47;border-right:1px solid #333a47;border-bottom:1px solid #333a47}
-.f5-summary{font-size:13px;color:#d7dae1;line-height:1.5;margin:4px 0 8px 0}
-.f5-expand-btn{background:none;border:1px solid #555;color:#aaa;font-size:12px;padding:3px 10px;border-radius:4px;cursor:pointer;margin-top:4px}
-.f5-expand-btn:hover{background:#333;color:#fff}
-.f5-detail{display:none;margin-top:10px;padding:10px;background:#20242e;border-radius:4px;border:1px solid #333a47;color:#d7dae1;font-size:13px;line-height:1.6}
-.f5-detail h2{color:#ff5a63;font-size:14px;margin:12px 0 6px;font-weight:700}
-.f5-detail h3{color:#d7dae1;font-size:13px;margin:10px 0 4px;font-weight:600}
-.f5-detail p{margin:4px 0 8px;color:#d7dae1}
-.f5-detail ul,.f5-detail ol{margin:4px 0 8px 18px;color:#d7dae1}
-.f5-detail li{margin:2px 0}
-.f5-detail strong{color:#fff;font-weight:700}
-.f5-footer{background:#1a1d27;border-top:1px solid #333;padding:14px 24px;margin-top:20px;font-size:12px;color:#888}
-.f5-footer-title{font-weight:700;color:#c8102e;margin-bottom:6px}
-.f5-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.f5-legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#aaa}
-.f5-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-</style>
-<div class="f5-footer">
-  <div class="f5-footer-title">F5 Competitive Intelligence Analysis</div>
-  <div>Enriched by F5 Business Intelligence Agent · Priority: 1=Platforms 2=AI Security 3=AI Data Delivery 4=Application Delivery 5=Application Security</div>
-  <div class="f5-legend"><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6"></span>Platforms</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE"></span>AI Security</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B"></span>AI Data Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100"></span>Application Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828"></span>Application Security</span></div>
-</div>
-<script>
-var F5D = {"Unit 42 Warns of Large-Scale FortiBleed Credential Attack Campaign": {"c": "Platforms", "s": "FortiBleed underscores the fragility of credential-based defenses on competitor edge devices. F5 can position BIG-IP/Distributed Cloud identity-aware access, MFA enforcement, and Zero Trust as resilient alternatives, while Unit 42's threat-intel leadership pressures F5 to keep strengthening its own threat research and managed protection narrative.", "d": "<h2>Why F5 Should Care</h2><p>Palo Alto's Unit 42 is using a high-visibility, cross-vendor credential campaign to reinforce its position as an authoritative threat-intelligence and platform vendor. The brief doubles as marketing for Zero Trust, ZTNA, and MFA enforcement \u2014 all areas where F5 competes via BIG-IP Access Policy Manager and F5 Distributed Cloud.</p><h2>Competitive Implications</h2><ul><li>PAN reinforces a 'platform + intel' story that F5 must answer with its own application-access and identity controls.</li><li>The campaign targets edge/VPN credential weaknesses; F5 should highlight phishing-resistant MFA, session termination, and management-plane isolation in its ADC and access portfolio.</li><li>Opportunity: F5 SOC/threat-research content can ride the same news cycle to demonstrate protection for app and API access.</li></ul><h2>Recommended F5 Positioning</h2><p>Lead with Zero Trust application access and identity-aware proxy capabilities, and emphasize that credential hygiene must extend to the application and API layer where F5 operates.</p>"}, "Prisma AIRS Adds Local Cloud Region in Japan": {"c": "AI Security", "s": "Prisma AIRS' regional expansion directly pressures F5 AI Guardrails (CalypsoAI) on data residency and runtime AI protection. F5 should accelerate sovereign/regional AI security messaging and emphasize inline AI traffic inspection at the data path \u2014 a natural F5 strength competitors must bolt on.", "d": "<h2>Why F5 Should Care</h2><p>Prisma AIRS 3.0 is Palo Alto's flagship AI security platform and a direct competitor to F5's AI Guardrails and AI Red Team (from the CalypsoAI acquisition). Adding a Japan region signals PAN is racing to win sovereign-AI and data-residency deals globally.</p><h2>Competitive Implications</h2><ul><li>Data residency is becoming a buying criterion for AI security; F5 needs a clear regional/sovereign deployment story.</li><li>PAN scans models, agents, and artifacts pre-deployment plus runtime \u2014 F5 must show comparable lifecycle coverage.</li></ul><h2>Recommended F5 Positioning</h2><p>Differentiate on inline, data-path AI traffic inspection and guardrails delivered where applications already run, and articulate F5's regional deployment and sovereignty options for regulated markets.</p>"}, "Fortinet Responds to FortiBleed FortiGate Credential Compromise": {"c": "Platforms", "s": "A credential compromise hitting ~74,000 FortiGate firewalls is a competitive opening. F5 should contrast its application-and-API security posture, secure management-plane practices, and identity-aware access against the exposed edge-device attack surface, while reassuring customers about F5 device hardening.", "d": "<h2>Why F5 Should Care</h2><p>FortiBleed is one of the largest weekend security stories and directly damages a key platform competitor's trust narrative. Fortinet frames it as credential reuse rather than a new CVE, but the blast radius (tens of thousands of devices, CISA/NCSC advisories) is significant.</p><h2>Competitive Implications</h2><ul><li>Edge-device credential exposure validates F5 messaging on management-plane isolation, phishing-resistant MFA, and Zero Trust.</li><li>Customers reassessing Fortinet edge deployments are prime targets for F5 secure access and app-protection conversations.</li><li>Risk: F5 must proactively communicate its own credential-storage and hardening posture to avoid guilt-by-category.</li></ul><h2>Recommended F5 Positioning</h2><p>Run competitive displacement plays emphasizing secure-by-default management, strong credential hygiene, and layered application/API protection beyond the firewall edge.</p>"}, "Agents Week: Zero Trust and Non-Human Identity Controls for AI Agents": {"c": "Platforms", "s": "Cloudflare is extending Zero Trust to non-human/agent identities and MCP governance \u2014 territory adjacent to F5 access and API security. F5 should accelerate agent-identity, MCP, and API-security capabilities so it isn't out-positioned in the emerging agentic-access control plane.", "d": "<h2>Why F5 Should Care</h2><p>Cloudflare is aggressively defining the security control plane for autonomous agents: managed OAuth for agent access, scannable API tokens, resource-scoped permissions, and enterprise MCP governance with Shadow MCP detection. This overlaps F5's access-proxy and API-security ambitions.</p><h2>Competitive Implications</h2><ul><li>Non-human identity and least-privilege for agents is becoming a platform battleground; F5 needs a clear agent-identity and API-governance story.</li><li>MCP governance and Shadow MCP detection mirror shadow-AI discovery needs F5 must address.</li></ul><h2>Recommended F5 Positioning</h2><p>Tie F5 Distributed Cloud API security and identity-aware access to agentic workloads, emphasizing inline enforcement and governance of agent-to-application and agent-to-API traffic.</p>"}, "Cloudflare Mesh and Temporary Accounts Power the Agentic Cloud": {"c": "AI Data Delivery", "s": "Cloudflare's agent compute, Mesh networking, and Workers VPC target the AI inference/delivery fabric F5 wants to own. F5 should sharpen its AI data-delivery and inference-routing narrative (Distributed Cloud, AI gateway) before Cloudflare cements mindshare as the default agentic cloud.", "d": "<h2>Why F5 Should Care</h2><p>Agents Week positions Cloudflare as the infrastructure for running and connecting AI agents at scale \u2014 Mesh private networking, Workers VPC, instant temporary deployments, and an agent toolbox. This is squarely the AI data-delivery and connectivity layer F5 is targeting with Distributed Cloud and AI traffic management.</p><h2>Competitive Implications</h2><ul><li>Cloudflare is building default-on connectivity and compute for agents; F5 risks being seen as a point solution rather than the fabric.</li><li>Secure, scoped agent access to private APIs/databases overlaps F5's app-connect and API gateway value.</li></ul><h2>Recommended F5 Positioning</h2><p>Emphasize F5's strengths in high-performance traffic management, AI gateway/inference routing, and securing the data path between agents, models, and applications across hybrid and multicloud environments.</p>"}, "HPE Juniper QFX5252 Switch Powers AMD Helios AI Rack": {"c": "AI Data Delivery", "s": "HPE/Juniper's UALink-over-Ethernet AI fabric strengthens an open-standard alternative for AI back-end networking. F5 should ensure its AI data-delivery and inference-traffic story complements (not competes with) such fabrics, positioning at the application/inference layer above the switching tier.", "d": "<h2>Why F5 Should Care</h2><p>The QFX5252 for AMD Helios (dual Tomahawk 6, 204.8 Tbps, UALink-over-Ethernet, SONiC) advances open-standard scale-up AI fabrics that compete with NVIDIA NVLink lock-in. While F5 does not sell switches, the AI data-center networking stack defines where F5's AI traffic management and security must integrate.</p><h2>Competitive Implications</h2><ul><li>AI back-end fabric momentum (Arista, HPE/Juniper) shapes the inference-delivery layer F5 plays in.</li><li>F5 should align with open AI networking ecosystems rather than be abstracted away by them.</li></ul><h2>Recommended F5 Positioning</h2><p>Position F5 as the application-aware AI traffic management, inference routing, and security layer that sits above high-density AI fabrics, complementing HPE/Juniper and AMD infrastructure investments.</p>"}};
-var F5_CAT_COLORS = {"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
-
-function injectF5() {
-  var cards = document.querySelectorAll('.ann-card');
-  cards.forEach(function(card) {
-    if (card.querySelector('.f5-wrap')) return;
-    var titleEl = card.querySelector('.ann-title');
-    if (!titleEl) return;
-    var title = titleEl.textContent.trim();
-    var data = F5D[title];
-    if (!data) return;
-    
-    var cat = data.c || 'Application Security';
-    var color = F5_CAT_COLORS[cat] || '#555';
-    var uid = 'f5_' + Math.random().toString(36).substr(2,8);
-    
-    var wrap = document.createElement('div');
-    wrap.className = 'f5-wrap';
-    
-    var badge = document.createElement('span');
-    badge.className = 'f5-badge';
-    badge.textContent = 'Why F5 Cares';
-    
-    var catBadge = document.createElement('span');
-    catBadge.className = 'f5-cat-badge';
-    catBadge.style.background = color;
-    catBadge.textContent = cat;
-    
-    var summary = document.createElement('div');
-    summary.className = 'f5-summary';
-    summary.textContent = data.s;
-    
-    var btn = document.createElement('button');
-    btn.className = 'f5-expand-btn';
-    btn.setAttribute('data-f5id', uid);
-    btn.textContent = '▶ F5 Deep Dive';
-    
-    var detail = document.createElement('div');
-    detail.className = 'f5-detail';
-    detail.id = uid;
-    detail.innerHTML = data.d;
-    
-    wrap.appendChild(badge);
-    wrap.appendChild(catBadge);
-    wrap.appendChild(summary);
-    wrap.appendChild(btn);
-    wrap.appendChild(detail);
-    card.appendChild(wrap);
-  });
-}
-
-document.addEventListener('click', function(e) {
-  if (e.target && e.target.classList.contains('f5-expand-btn')) {
-    var id = e.target.getAttribute('data-f5id');
-    var detail = document.getElementById(id);
-    if (detail) {
-      if (detail.style.display === 'block') {
-        detail.style.display = 'none';
-        e.target.textContent = '▶ F5 Deep Dive';
-      } else {
-        detail.style.display = 'block';
-        e.target.textContent = '▼ Collapse';
-      }
-    }
-  }
-});
-
-var _f5Observer = null;
-function startF5Observer() {
-  if (_f5Observer) _f5Observer.disconnect();
-  _f5Observer = new MutationObserver(function(mutations) {
-    var needsInject = mutations.some(function(m) {
-      return Array.from(m.addedNodes).some(function(n) {
-        return n.nodeType === 1 && (n.classList && n.classList.contains('ann-card') || n.querySelector && n.querySelector('.ann-card'));
-      });
-    });
-    if (needsInject) setTimeout(injectF5, 100);
-  });
-  var target = document.querySelector('.announcements-container') || document.querySelector('.ann-list') || document.body;
-  _f5Observer.observe(target, {childList: true, subtree: true});
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(injectF5, 300);
-    startF5Observer();
-  });
-} else {
-  setTimeout(injectF5, 300);
-  startF5Observer();
-}
-setTimeout(injectF5, 800);
 </script>
 </body>
 </html>
