@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5 Daily Briefing - June 24, 2026</title>
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<style>
+:root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8;--danger:#ff4d6a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+.header-left h1{font-size:26px;font-weight:700;margin-bottom:6px}
+.header-left h1 span{color:var(--accent)}
+.header-left p{color:var(--muted);font-size:14px}
+.header-right{display:flex;gap:10px}
+.export-btn{background:var(--accent);color:#000;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+.export-btn:hover{opacity:.9}
+.stats-bar{display:flex;gap:20px;padding:20px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 24px;min-width:150px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s}
+.stat-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 16px rgba(118,185,0,.15)}
+.stat-card.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(118,185,0,.3)}
+.stat-card .num{font-size:32px;font-weight:700;color:var(--accent)}
+.stat-card .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.stat-card .hint{font-size:10px;color:var(--accent);margin-top:6px;opacity:0;transition:opacity .2s}
+.stat-card:hover .hint{opacity:1}
+.main{display:flex;gap:0;min-height:calc(100vh - 180px)}
+.charts-panel{flex:0 0 50%;padding:24px 20px 24px 40px;display:flex;flex-direction:column;gap:16px}
+.chart-container{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;flex:1;min-height:320px}
+.detail-panel{flex:1;padding:24px 40px 24px 20px;overflow-y:auto;max-height:calc(100vh - 180px)}
+.detail-panel h2{font-size:18px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.detail-panel h2 .badge{background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:13px;color:var(--muted)}
+.breadcrumb a{color:var(--accent);cursor:pointer;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb .sep{color:var(--border)}
+.ann-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:12px;transition:border-color .2s}
+.ann-card:hover{border-color:var(--accent)}
+.ann-card .ann-title{font-size:15px;font-weight:600;margin-bottom:8px}
+.ann-card .ann-type{display:inline-block;background:rgba(118,185,0,.15);color:var(--accent);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px}
+.ann-card .ann-comp-tag{display:inline-block;background:rgba(0,180,216,.15);color:var(--accent2);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px;margin-left:6px}
+.ann-card .ann-date-tag{display:inline-block;background:rgba(255,255,255,.06);color:var(--muted);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px;margin-left:6px}
+.ann-card .ann-summary{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.ann-card .source-link{display:inline-flex;align-items:center;gap:4px;color:var(--accent2);font-size:12px;text-decoration:none;font-weight:500}
+.ann-card .source-link:hover{text-decoration:underline}
+.comp-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,background .2s}
+.comp-card:hover{border-color:var(--accent);background:var(--card)}
+.comp-card .name{font-size:14px;font-weight:600}
+.comp-card .cat{font-size:11px;color:var(--muted);margin-top:2px}
+.comp-card .count{background:var(--accent);color:#000;font-size:12px;font-weight:700;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.comp-card .no-ann{color:var(--muted);font-size:11px;font-style:italic}
+.comp-card.inactive{opacity:.5;cursor:default}
+.comp-card.inactive:hover{border-color:var(--border);background:var(--surface)}
+.cat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,background .2s}
+.cat-card:hover{border-color:var(--accent);background:var(--card)}
+.cat-card .cat-name{font-size:14px;font-weight:600}
+.cat-card .cat-meta{font-size:11px;color:var(--muted);margin-top:2px}
+.cat-card .cat-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
+.pill{font-size:11px;padding:2px 10px;border-radius:12px;font-weight:600}
+.pill-ann{background:rgba(118,185,0,.15);color:var(--accent)}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin:20px 0 8px;font-weight:600}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px}
+.status-active{background:var(--accent)}.status-inactive{background:#444}
+.inactive-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.inactive-chip{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:12px;color:var(--muted)}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state .icon{font-size:48px;margin-bottom:12px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>F5 Daily Briefing &ndash; <span>Wednesday, June 24, 2026</span></h1>
+    <p><a href="../index.html" style="color:var(--accent);text-decoration:none;font-weight:600">&larr; Back to Hub</a> &middot; Daily competitive intelligence covering 22 F5 competitors</p>
+  </div>
+  <div class="header-right">
+    <a class="pdf-btn" href="../daily_pdf/20260624-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(118,185,0,.13);border:1px solid var(--accent);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;margin-right:8px;transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      View as PDF
+    </a>
+    <button class="export-btn" id="exportBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export CSV
+    </button>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-card" data-action="stat-tracked"><div class="num">22</div><div class="label">Competitors Tracked</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-ann"><div class="num">16</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
+  <div class="stat-card" data-action="stat-active"><div class="num">12</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-cats"><div class="num">5</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
+</div>
+<div class="main">
+  <div class="charts-panel">
+    <div class="chart-container" id="chart-competitor"></div>
+    <div class="chart-container" id="chart-category"></div>
+  </div>
+  <div class="detail-panel" id="detail-panel"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var DATA={"Palo Alto Networks": {"category": "Platforms", "announcements": [{"title": "IBM, Red Hat and Palo Alto Networks Expand Project Lightwell for Faster Vulnerability Response", "summary": "On June 24, 2026, Palo Alto Networks, IBM, and Red Hat expanded Project Lightwell, pairing Palo Alto's network-based virtual patching with Red Hat's open-source remediation. The collaboration delivers preemptive virtual patches ahead of official fixes and same-day network protection the moment a vulnerability is discovered, spanning open source, commercial apps, OT, and healthcare tech. It adds secure vulnerability information-sharing and anonymized exploitation telemetry across vendors, while IBM Security Services provides advisory and deployment support to prioritize and validate protections.", "type": "Partnership", "date": "2026-06-24", "source_url": "https://www.paloaltonetworks.com/company/press/2026/ibm-red-hat-and-palo-alto-networks-expand-project-lightwell-to-help-organizations-respond-to-software-vulnerabilities"}, {"title": "Wipro Partners with Palo Alto Networks to Deliver AI-Powered Cyber Defense", "summary": "Palo Alto Networks and Wipro expanded their partnership on June 24, 2026 to deliver AI-powered Managed Detection and Response services. The joint offering combines Palo Alto's Cortex XSIAM with Wipro's CyberShield and WEGA/WINGS AI platforms to accelerate threat detection and response from days to minutes. Services are delivered through eight Wipro Cyber Defense Centers using its SOC GURU framework, building on prior cloud, network, and security transformation work.", "type": "Partnership", "date": "2026-06-24", "source_url": "https://www.cxodigitalpulse.com/wipro-partners-with-palo-alto-networks-to-deliver-ai-powered-cyber-defense/"}]}, "Fortinet": {"category": "Platforms", "announcements": [{"title": "Fortinet Advances Its Security Operations Platform with Unified SOC, Agentic AI, and Expanded Endpoint Security", "summary": "At Accelerate 2026 on June 24, 2026, Fortinet advanced its Security Operations Platform with a unified, AI-powered architecture. New FortiSOC unifies FortiAnalyzer, FortiSIEM, FortiSOAR, and threat intelligence into a cloud-delivered SaaS console with elastic scale and simplified licensing. Agentic AI automates alert triage, investigation, and threat hunting, with execution continuity via Model Context Protocol. Fortinet Endpoint consolidates ZTNA, SASE, EPP, EDR, and DLP under a single agent, adding FortiAI-powered AI app visibility and control.", "type": "Product Launch", "date": "2026-06-24", "source_url": "https://www.fortinet.com/corporate/about-us/newsroom/press-releases/2026/fortinet-advances-its-security-operations-platform-with-unified-soc-agentic-ai-and-expanded-endpoint-security"}]}, "Cisco": {"category": "Platforms", "announcements": [{"title": "Cisco Unveils Cisco Devices for Zoom Rooms at InfoComm 2026", "summary": "At InfoComm 2026 on June 24, 2026, Cisco unveiled Cisco Devices for Zoom Rooms, delivering a native Zoom Rooms experience across Cisco hardware from Desk Pro G2 to Room Kit EQ. Cisco provides the hardware backbone, camera intelligence, ThousandEyes network diagnostics, and Workspace Advisor analytics while Zoom serves as the primary room experience. A new Agentic Director camera system uses edge AI to frame participants. Public beta begins June 2026 with general availability planned for September 2026.", "type": "Product Launch", "date": "2026-06-24", "source_url": "https://voip.review/2026/06/24/cisco-and-zoom-unite-rooms-ai-ready-hardware/"}]}, "CrowdStrike ~AI": {"category": "AI Security", "announcements": [{"title": "CrowdStrike: The Identity Problem Hiding in AI Agent Deployments", "summary": "In a June 24, 2026 analysis, 'The Identity Problem Hiding in AI Agent Deployments,' CrowdStrike warned that identity gaps let attackers impersonate or misuse autonomous AI agents, potentially enabling breaches and unauthorized actions. The post stresses robust identity assurance, credential hygiene, and continuous monitoring tied to AI agents, and offers best practices to mitigate these risks. It aligns with CrowdStrike's broader push to secure agentic enterprises through real-time, risk-based authorization for every agent action.", "type": "Report", "date": "2026-06-24", "source_url": "https://www.crowdstrike.com/en-us/blog/the-identity-problem-hiding-in-ai-agent-deployments/"}]}, "Zscaler ~AI": {"category": "AI Security", "announcements": [{"title": "Zscaler: Zero Trust Security Critical in the Frontier AI Era (Zenith Live 2026)", "summary": "At Zenith Live 2026 in Vienna (covered June 24, 2026), Zscaler leaders Jay Chaudhry and Deepen Desai argued zero-trust security is essential in the frontier AI era, warning advanced AI will both accelerate attacks and expose new vulnerabilities. Zscaler advocates continuous least-privilege verification for every user, device, workload, model, API, and AI agent without implicit trust, and emphasizes grounding AI models in secure environments and extending zero trust to browsers via its SquareX acquisition.", "type": "Event", "date": "2026-06-24", "source_url": "https://futureciso.tech/zero-trust-security-touted-as-critical-in-frontier-ai-era/"}]}, "Check Point Software ~AI": {"category": "AI Security", "announcements": [{"title": "Check Point to Embed OpenAI Frontier Cyber Capabilities into Its Security Products", "summary": "Check Point announced (reported June 24, 2026) it will embed OpenAI's frontier cyber models into its security products through OpenAI's Daybreak Cyber Partner Program, becoming one of the first vendors to deploy frontier AI in live customer defenses. Initial use cases include Agentic Network Security Orchestration and CTEM Agentic Exposure Validation. The rollout starts with controlled, defensive applications and expands with safety controls, abuse-prevention standards, and output limits, alongside a joint responsible-use framework with OpenAI.", "type": "Partnership", "date": "2026-06-24", "source_url": "https://securitybrief.asia/story/check-point-to-embed-openai-cyber-models-in-products"}]}, "Cloudflare": {"category": "Platforms", "announcements": [{"title": "Cloudflare Unlocks Its App Ecosystem with OAuth for All Customers", "summary": "On June 24, 2026, Cloudflare announced general availability of self-managed OAuth for all customers, letting any user create OAuth applications and authorize scoped access to the Cloudflare API. Building on prior self-managed OAuth testing and Hydra upgrades, the release simplifies building SaaS integrations, internal developer platforms, and agentic tools with clearer user consent and revocation controls. Users can create an OAuth app directly from the Cloudflare dashboard.", "type": "Product Launch", "date": "2026-06-24", "source_url": "https://blog.cloudflare.com/oauth-for-all/"}]}, "Cloudflare ~AS": {"category": "Application Security", "announcements": [{"title": "Cloudflare Partners with Chrome, Firefox, Edge and Shopify on Privacy-First PACT Protocol", "summary": "Cloudflare announced (covered June 24, 2026) a collaboration with Mozilla, Google Chrome, Microsoft Edge, and Shopify to develop and standardize Private Access Control Tokens (PACT), a privacy-first protocol for distinguishing legitimate human users and authorized AI agents from malicious automated traffic. PACT issues anonymous tokens proving 'personhood' without CAPTCHAs, forced logins, or invasive tracking, balancing security, privacy, and user experience. The open standard targets the agentic-AI era and will be submitted for standardization.", "type": "Partnership", "date": "2026-06-24", "source_url": "https://techafricanews.com/2026/06/24/cloudflare-partners-with-chrome-firefox-and-edge-on-new-privacy-focused-internet-protocol/"}]}, "AWS": {"category": "Platforms", "announcements": [{"title": "Amazon EC2 Announces AMI Watermarks for Improved AMI Governance", "summary": "On June 24, 2026, Amazon EC2 introduced AMI Watermarks to strengthen AMI governance. Watermarks embed custom identifiers in private AMIs that propagate to all derived images, whether copied across regions or created from running instances, and remain visible when shared across accounts. Each watermark carries metadata including AMI ID, owner ID, region, and timestamps for reliable provenance and cross-account filtering. Paired with Allowed AMIs, it restricts launches to approved images. The feature is free across all regions, including China and GovCloud.", "type": "Product Launch", "date": "2026-06-24", "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/06/ec2-image-watermarks-allowed-images/"}, {"title": "AWS IoT Core Introduces Direct Messaging for Server-to-Device Communication", "summary": "On June 24, 2026, AWS launched AWS IoT Core Direct Messaging for point-to-point server-to-device communication. It sends messages directly to a specific device or MQTT client ID, bypassing topic subscriptions and fan-out, with optional end-to-end delivery confirmation via PUBACK. The feature provides detailed HTTP response codes and CloudWatch Logs for observability, reduces per-message cost for one-to-one communication, works over existing MQTT connections with no firmware changes, and is available in all AWS IoT Core regions.", "type": "Product Launch", "date": "2026-06-24", "source_url": "https://aws.amazon.com/blogs/iot/introducing-aws-iot-cores-direct-messaging-lower-cost-server-to-device-communication-with-better-observability/"}]}, "AWS ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "AWS GenAIIC Partner Agent Factory: New AI Agents Now in AWS Marketplace", "summary": "On June 24, 2026, AWS expanded its GenAIIC Partner Agent Factory with new AI agent solutions in AWS Marketplace. Built on Amazon Bedrock, Strands Agents, and Bedrock AgentCore, the validated agents address multilingual document analysis, video intelligence, AI governance, customer service, financial services, retail optimization, and clinical documentation. Customers gain streamlined procurement, consolidated billing, and spend that counts toward AWS commitments, accelerating the path from proof of concept to production agentic AI deployments.", "type": "Product Launch", "date": "2026-06-24", "source_url": "https://aws.amazon.com/blogs/awsmarketplace/aws-genaiic-partner-agent-factory-new-ai-agents-now-in-aws-marketplace/"}]}, "Akamai ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "Akamai: Agentic Disconnect \u2014 The Latency Crisis Facing Modern AI Architecture", "summary": "In a June 24, 2026 analysis, 'Agentic Disconnect: The Latency Crisis Facing Modern AI Architecture,' Akamai argued centralized AI infrastructure creates a latency bottleneck for real-time autonomous agents. Per Akamai's State of AI Inference 2026, workflows with 50 sequential calls can push organizations past the 500ms production threshold. Akamai advocates distributed compute using physically dispersed GPU/CPU assets, dynamic tiered memory, and execution shards for use cases like personalization, real-time finance, and localized fraud detection, tied to its planned LayerX acquisition.", "type": "Report", "date": "2026-06-24", "source_url": "https://www.akamai.com/blog/ai/agentic-disconnect-latency-crisis-modern-ai-architecture"}]}, "Citrix (NetScaler)": {"category": "Application Delivery (ADCs)", "announcements": [{"title": "CISA Orders Federal Agencies to Patch Critical NetScaler Flaw CVE-2026-3055", "summary": "On June 24, 2026, CISA ordered U.S. federal agencies to urgently patch Citrix NetScaler appliances under Binding Operational Directive 22-01 due to CVE-2026-3055, an input-validation flaw that lets remote attackers exfiltrate admin session IDs and potentially seize full control of unpatched devices. The vulnerability is being actively exploited in the wild, with abuse continuing after patch release. Citrix has issued fixes and urged customers to patch immediately or discontinue use of affected NetScaler and Gateway appliances.", "type": "Security Advisory", "date": "2026-06-24", "source_url": "https://chbconline.org/article/urgent-patch-alert-cisa-orders-federal-agencies-to-fix-citrix-flaw-by-thursday"}]}, "HPE / Juniper Networks": {"category": "AI Data Delivery", "announcements": [{"title": "HPE Expands Self-Driving Networks and Juniper Integration for AI Data Centers (Discover 2026)", "summary": "At HPE Discover 2026 (covered June 24, 2026), HPE expanded its self-driving networks strategy, deepening Juniper Networks integration across AI data centers, campus, and edge. New HPE Juniper QFX switches, including the QFX5140 for AI inference and edge and a QFX5252 tray for AMD Helios rack-scale platforms, join the HPE AI Data Center Solution managed by Networking Data Center Director. Marvis AI and Mist autonomous remediation extend into Aruba Central, and an Agentic Mesh Framework unifies Aruba and Juniper AI capabilities for policy-driven, autonomous networking.", "type": "Product Launch", "date": "2026-06-24", "source_url": "https://www.techtarget.com/searchnetworking/opinion/Networking-takes-center-stage-at-HPE-Discover-2026"}]}, "Radware": {"category": "Application Security", "announcements": [{"title": "Radware Spotlights AI-Driven Bot Threats in 2026 E-Commerce Bot Threat Report", "summary": "In coverage dated June 24, 2026, Radware spotlighted AI-driven automated threats via its 2026 E-Commerce Bot Threat Report, which found malicious bots accounted for 43% of holiday e-commerce traffic in 2025, nearly matching human shoppers at 46% and up from 31% a year earlier. Roughly 70% of bad-bot traffic was low-sophistication, aided by AI tools, while AI crawlers and agents emerged as major new automated traffic sources. Radware also advanced its AI Xploit Shield virtual-patching service.", "type": "Report", "date": "2026-06-24", "source_url": "https://simplywall.st/stocks/us/software/nasdaq-rdwr/radware/news/radware-rdwr-launches-ai-xploit-shield-as-valuation-still-lo"}]}, "Fastly": {"category": "Application Delivery (ADCs)", "announcements": []}, "A10 Networks": {"category": "Application Delivery (ADCs)", "announcements": []}, "Arista Networks": {"category": "AI Data Delivery", "announcements": []}, "Barracuda Networks": {"category": "Application Security", "announcements": []}, "Imperva (Thales)": {"category": "Application Security", "announcements": []}, "HiddenLayer": {"category": "AI Security", "announcements": []}, "Lasso Security": {"category": "AI Security", "announcements": []}, "Operant AI": {"category": "AI Security", "announcements": []}, "Pillar Security": {"category": "AI Security", "announcements": []}, "Mindgard": {"category": "AI Security", "announcements": []}};
+var catColors={"Platforms":"#636efa","AI Security":"#ef553b","AI Data Delivery":"#00cc96","Application Delivery (ADCs)":"#ab63fa","Application Security":"#ffa15a"};
+var cCL=["#76b900","#00b4d8","#ef553b","#ab63fa","#ffa15a","#19d3f3","#ff6692","#636efa","#00cc96","#b6e880","#ff97ff"];
+var ALL_ANN=[],names=Object.keys(DATA),compCounts={},catCounts={};
+for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],n=info.announcements.length;
+  if(n>0)compCounts[nm]=n;
+  if(!catCounts[info.category])catCounts[info.category]=0;
+  catCounts[info.category]+=n;
+  for(var j=0;j<n;j++){var a=info.announcements[j];ALL_ANN.push({title:a.title,summary:a.summary,source_url:a.source_url,type:a.type,date:a.date,competitor:nm,category:info.category});}}
+
+document.getElementById("exportBtn").addEventListener("click",function(){
+  var rows=["Date,Competitor,Category,Type,Title,Summary,Source URL"];
+  for(var i=0;i<ALL_ANN.length;i++){var a=ALL_ANN[i];rows.push([a.date,q(a.competitor),q(a.category),q(a.type),q(a.title),q(a.summary),a.source_url].join(","));}
+  var blob=new Blob([rows.join("\n")],{type:"text/csv"});var lnk=document.createElement("a");lnk.href=URL.createObjectURL(blob);lnk.download="f5_daily_2026-06-24.csv";lnk.click();
+});
+function q(s){return '"'+String(s).replace(/"/g,'""')+'"';}
+
+var pL={paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{family:"Segoe UI,system-ui,sans-serif",color:"#e2e4ea",size:12},margin:{t:40,b:10,l:10,r:10},showlegend:true,legend:{font:{size:11},orientation:"v",x:1.02,y:0.5}};
+var cl=Object.keys(compCounts),cv=[];for(var i=0;i<cl.length;i++)cv.push(compCounts[cl[i]]);
+if(cl.length>0){
+  Plotly.newPlot("chart-competitor",[{type:"pie",labels:cl,values:cv,textinfo:"label+value",textposition:"inside",hoverinfo:"label+value+percent",marker:{colors:cCL.slice(0,cl.length),line:{color:"#0f1117",width:2}},hole:.35,sort:false}],Object.assign({},pL,{title:{text:"Announcements by Competitor",font:{size:15,color:"#e2e4ea"},x:.01}}),{responsive:true,displayModeBar:false});
+  document.getElementById("chart-competitor").on("plotly_click",function(d){showCompetitor(d.points[0].label);});
+}else{document.getElementById("chart-competitor").innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8b8fa3">No competitor announcements today</div>';}
+
+var catL=[],catV=[],catC=[];var ck=Object.keys(catCounts);
+for(var i=0;i<ck.length;i++){if(catCounts[ck[i]]>0){catL.push(ck[i]);catV.push(catCounts[ck[i]]);catC.push(catColors[ck[i]]||"#888");}}
+if(catL.length>0){
+  Plotly.newPlot("chart-category",[{type:"pie",labels:catL,values:catV,textinfo:"label+value",textposition:"inside",hoverinfo:"label+value+percent",marker:{colors:catC,line:{color:"#0f1117",width:2}},hole:.35,sort:false}],Object.assign({},pL,{title:{text:"Announcements by Category",font:{size:15,color:"#e2e4ea"},x:.01}}),{responsive:true,displayModeBar:false});
+  document.getElementById("chart-category").on("plotly_click",function(d){showCategory(d.points[0].label);});
+}else{document.getElementById("chart-category").innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8b8fa3">No category data today</div>';}
+
+var panel=document.getElementById("detail-panel");
+function clearStatActive(){document.querySelectorAll(".stat-card").forEach(function(e){e.classList.remove("active");});}
+function fmtDate(d){var dt=new Date(d+"T12:00:00");return dt.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"});}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+function annCardHTML(a,showComp){
+  var t='<span class="ann-type">'+esc(a.type)+'</span>';
+  if(showComp)t+='<span class="ann-comp-tag">'+esc(a.competitor)+'</span>';
+  t+='<span class="ann-date-tag">'+fmtDate(a.date)+'</span>';
+  return '<div class="ann-card"><div>'+t+'</div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';
+}
+
+document.querySelectorAll(".stat-card").forEach(function(el){el.addEventListener("click",function(){var a=this.dataset.action;if(a==="stat-tracked")showStatTracked();else if(a==="stat-ann")showStatAnn();else if(a==="stat-active")showStatActive();else if(a==="stat-cats")showStatCats();});});
+panel.addEventListener("click",function(e){
+  var c=e.target.closest(".comp-card:not(.inactive)");if(c&&c.dataset.comp){showCompetitor(c.dataset.comp);return;}
+  var cc=e.target.closest(".cat-card");if(cc&&cc.dataset.cat){showCategory(cc.dataset.cat);return;}
+  var cl2=e.target.closest("[data-showcomp]");if(cl2){showCompetitor(cl2.dataset.showcomp);return;}
+  var bc=e.target.closest("[data-nav]");if(bc){if(bc.dataset.nav==="overview")showOverview();else if(bc.dataset.nav==="categories")showStatCats();}
+});
+
+function showOverview(){clearStatActive();
+  var h='<h2>Daily Briefing <span class="badge">'+ALL_ANN.length+' announcements</span></h2>';
+  h+='<div class="section-label">Competitors with News Today</div>';
+  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length>0)h+='<div class="comp-card" data-comp="'+esc(nm)+'"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="count">'+info.announcements.length+'</div></div>';}
+  h+='<div class="section-label">No News Today</div>';
+  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length===0)h+='<div class="comp-card inactive"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="no-ann">none</div></div>';}
+  panel.innerHTML=h;
+}
+
+function showStatTracked(){clearStatActive();document.querySelector("[data-action=stat-tracked]").classList.add("active");
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Competitors</span></div><h2>Competitors Tracked <span class="badge">'+names.length+'</span></h2>';
+  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],cls=info.announcements.length>0?"comp-card":"comp-card inactive";
+    h+='<div class="'+cls+'" data-comp="'+esc(nm)+'"><div><div class="name"><span class="status-dot '+(info.announcements.length>0?"status-active":"status-inactive")+'"></span>'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div>'+(info.announcements.length>0?'<div class="count">'+info.announcements.length+'</div>':'<div class="no-ann">0</div>')+'</div>';}
+  panel.innerHTML=h;
+}
+
+function showStatAnn(){clearStatActive();document.querySelector("[data-action=stat-ann]").classList.add("active");
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Announcements</span></div><h2>All Announcements <span class="badge">'+ALL_ANN.length+'</span></h2>';
+  for(var i=0;i<ALL_ANN.length;i++)h+=annCardHTML(ALL_ANN[i],true);
+  if(ALL_ANN.length===0)h+='<div class="empty-state"><div class="icon">&#128240;</div><p>No competitor announcements found today.</p></div>';
+  panel.innerHTML=h;
+}
+
+function showStatActive(){clearStatActive();document.querySelector("[data-action=stat-active]").classList.add("active");
+  var sorted=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length>0)sorted.push([names[i],DATA[names[i]]]);}
+  sorted.sort(function(a,b){return b[1].announcements.length-a[1].announcements.length;});
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Active Today</span></div><h2>Active Today <span class="badge">'+sorted.length+'</span></h2>';
+  for(var i=0;i<sorted.length;i++)h+='<div class="comp-card" data-comp="'+esc(sorted[i][0])+'"><div><div class="name"><span class="status-dot status-active"></span>'+esc(sorted[i][0])+'</div><div class="cat">'+esc(sorted[i][1].category)+'</div></div><div class="count">'+sorted[i][1].announcements.length+'</div></div>';
+  h+='<div class="section-label" style="margin-top:24px">No News Today</div><div class="inactive-chips">';
+  for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length===0)h+='<span class="inactive-chip">'+esc(names[i])+'</span>';}
+  h+='</div>';panel.innerHTML=h;
+}
+
+function showStatCats(){clearStatActive();document.querySelector("[data-action=stat-cats]").classList.add("active");
+  var allCats={};for(var i=0;i<names.length;i++){var cat=DATA[names[i]].category;if(!allCats[cat])allCats[cat]={comps:[],ann:0};allCats[cat].comps.push(names[i]);allCats[cat].ann+=DATA[names[i]].announcements.length;}
+  var co=Object.keys(allCats).sort(function(a,b){return allCats[b].ann-allCats[a].ann;});
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Categories</span></div><h2>Categories <span class="badge">'+co.length+'</span></h2>';
+  for(var ci=0;ci<co.length;ci++){var cat=co[ci],d=allCats[cat],color=catColors[cat]||"#888";
+    h+='<div class="cat-card" data-cat="'+esc(cat)+'"><div><div class="cat-name"><span class="cat-dot" style="background:'+color+'"></span>'+esc(cat)+'</div><div class="cat-meta">'+d.comps.length+' competitors &middot; '+d.ann+' announcements</div></div><div><span class="pill pill-ann">'+d.ann+'</span></div></div>';}
+  panel.innerHTML=h;
+}
+
+function showCompetitor(name){clearStatActive();var info=DATA[name];if(!info)return;
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>'+esc(name)+'</span></div>';
+  h+='<h2>'+esc(name)+' <span class="badge">'+info.announcements.length+' announcement'+(info.announcements.length!==1?"s":"")+'</span></h2>';
+  h+='<p style="color:var(--muted);font-size:13px;margin-bottom:18px">Category: <strong style="color:var(--text)">'+esc(info.category)+'</strong></p>';
+  if(info.announcements.length===0){h+='<div class="empty-state"><div class="icon">&#128236;</div><p>No announcements from this competitor today.</p></div>';}
+  else{for(var i=0;i<info.announcements.length;i++){var a=info.announcements[i];
+    h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
+  panel.innerHTML=h;
+}
+
+function showCategory(category){clearStatActive();
+  var comps=[],active=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].category===category){comps.push([names[i],DATA[names[i]]]);if(DATA[names[i]].announcements.length>0)active.push([names[i],DATA[names[i]]]);}}
+  var total=0;for(var i=0;i<comps.length;i++)total+=comps[i][1].announcements.length;
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><a data-nav="categories">Categories</a><span class="sep">&rsaquo;</span><span>'+esc(category)+'</span></div>';
+  h+='<h2>'+esc(category)+' <span class="badge">'+total+' announcement'+(total!==1?"s":"")+'</span></h2>';
+  for(var i=0;i<active.length;i++){var nm=active[i][0],inf=active[i][1];
+    h+='<div class="section-label" style="margin-top:24px;cursor:pointer;color:var(--accent)" data-showcomp="'+esc(nm)+'">'+esc(nm)+' ('+inf.announcements.length+') &#8599;</div>';
+    for(var j=0;j<inf.announcements.length;j++){var a=inf.announcements[j];
+      h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
+  var inact=comps.filter(function(c){return c[1].announcements.length===0;});
+  if(inact.length>0){h+='<div class="section-label" style="margin-top:20px">No News Today</div><div class="inactive-chips">';for(var i=0;i<inact.length;i++)h+='<span class="inactive-chip">'+esc(inact[i][0])+'</span>';h+='</div>';}
+  panel.innerHTML=h;
+}
+
+showOverview();
+})();
+</script>
+</body>
+</html>
