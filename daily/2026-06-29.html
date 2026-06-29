@@ -220,5 +220,138 @@ function showCategory(category){clearStatActive();
 showOverview();
 })();
 </script>
+<style>
+/* F5 Competitive Intelligence Overlay — V4 Dark Theme */
+.f5-wrap { margin-top: 12px; border-top: 1px solid #333a47; padding-top: 10px; }
+.f5-summary { color: #d7dae1; font-size: 0.88em; line-height: 1.55; margin-bottom: 8px; }
+.f5-expand-btn {
+  background: #C62828; color: #fff; border: none; border-radius: 4px;
+  padding: 4px 12px; font-size: 0.8em; cursor: pointer; margin-top: 4px;
+}
+.f5-expand-btn:hover { background: #e53935; }
+.f5-detail {
+  display: none; margin-top: 10px; padding: 12px;
+  background: #20242e; border: 1px solid #333a47; border-radius: 6px;
+  color: #d7dae1;
+}
+.f5-detail.open { display: block; }
+.f5-detail-inner h3.f5-section-header {
+  color: #ff5a63; font-size: 0.95em; font-weight: 700;
+  margin: 14px 0 6px; border-bottom: 1px solid #333a47; padding-bottom: 4px;
+}
+.f5-detail-inner h4.f5-subsection-header { color: #90caf9; font-size: 0.88em; margin: 10px 0 4px; }
+.f5-detail-inner p { font-size: 0.85em; line-height: 1.6; margin: 6px 0; color: #d7dae1; }
+.f5-detail-inner strong { color: #fff; }
+.f5-detail-inner ul.f5-list { margin: 6px 0 10px 18px; padding: 0; }
+.f5-detail-inner ul.f5-list li { font-size: 0.84em; line-height: 1.55; margin-bottom: 4px; color: #d7dae1; }
+.f5-cat-badge {
+  display: inline-block; color: #fff; font-size: 0.75em; font-weight: 700;
+  padding: 2px 10px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.03em;
+}
+.f5-badge { font-size: 0.72em; color: #ff5a63; font-weight: 600; margin-bottom: 4px; }
+/* Footer */
+#f5-footer {
+  background: #1a1d27; border-top: 2px solid #C62828; color: #d7dae1;
+  padding: 16px 24px; margin-top: 32px; font-size: 0.82em;
+}
+#f5-footer .f5-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+#f5-footer .f5-leg-item { display: flex; align-items: center; gap: 6px; }
+#f5-footer .f5-leg-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+</style>
+<script>
+var F5D = {"Palo Alto Networks Named a Leader in 2026 IDC MarketScape for Worldwide SIEM": {"s": "Palo Alto Networks' recognition as a leader in the SIEM space with their Cortex XSIAM platform highlights a shift towards AI-driven security operations, challenging F5 to enhance its platform integration and AI capabilities in security operations.", "d": "<div class=\"f5-detail-inner\">\n<div class=\"f5-cat-badge\" style=\"background:#0072C6;\">Platforms<\/div>\n<h3 class=\"f5-section-header\">Why F5 Should Care<\/h3>\n<p>Palo Alto Networks' positioning as a leader in the SIEM market underscores a significant shift towards AI-driven security operations, which could influence customer expectations for integrated, automated security solutions. This development emphasizes the importance of F5's own platform capabilities and the need to enhance AI-driven security features to remain competitive.<\/p>\n\n<h3 class=\"f5-section-header\">F5 Products Impacted<\/h3>\n<p>F5's BIG-IP Advanced WAF and its integration with Azure Sentinel for threat visualization, alerting, and reporting are directly impacted. The competitive landscape for security operations platforms is evolving, and F5 must ensure its products offer comparable or superior automation and AI capabilities.<\/p>\n\n<h3 class=\"f5-section-header\">Recommended Response<\/h3>\n<p>F5 should consider accelerating the development of AI-driven features within its security products, particularly focusing on enhancing integration with existing platforms like Azure Sentinel. Additionally, F5 should strengthen its marketing efforts to highlight its leadership in web application and API protection, emphasizing the unique benefits of its platform in providing comprehensive security solutions.<\/p>\n<\/div>", "c": "Platforms"}, "Check Point Brings AI Security to Amazon Bedrock AgentCore": {"s": "Check Point's integration with Amazon Bedrock AgentCore enhances AI security, presenting competitive pressure on F5's AI security solutions, especially in AI agent workloads on AWS.", "d": "<div class=\"f5-detail-inner\">\n<div class=\"f5-cat-badge\" style=\"background:#7B2FBE;\">AI Security<\/div>\n<h3 class=\"f5-section-header\">Why F5 Should Care<\/h3>\n<p>Check Point's announcement signifies a strategic move to secure AI agent workloads on AWS, a space where F5 is also active. As enterprises increasingly adopt AI, the ability to secure these workloads becomes critical. Check Point's focus on AI behavioral monitoring and prompt injection defense directly competes with F5's AI security offerings, potentially impacting F5's market share and positioning in AI security.<\/p>\n\n<h3 class=\"f5-section-header\">F5 Products Impacted<\/h3>\n<p>F5's AI security solutions, particularly those related to AI agent security and integration with AWS, are directly impacted. This includes partnerships and solutions developed with CalypsoAI and AWS.<\/p>\n\n<h3 class=\"f5-section-header\">Recommended Response<\/h3>\n<p>F5 should enhance its AI security offerings by emphasizing unique capabilities and integrations that differentiate from Check Point. Strengthening partnerships with AWS and other cloud providers to offer comprehensive AI security solutions could mitigate competitive threats. Additionally, F5 should consider expanding its AI security features to include advanced behavioral monitoring and prompt injection defenses to match or exceed Check Point's capabilities.<\/p>\n<\/div>", "c": "AI Security"}};
+
+function injectF5() {
+  var cards = document.querySelectorAll('.ann-card');
+  cards.forEach(function(card) {
+    if (card.querySelector('.f5-wrap')) return;
+    var titleEl = card.querySelector('.ann-title');
+    if (!titleEl) return;
+    var title = titleEl.textContent.trim();
+    var d = F5D[title];
+    if (!d) return;
+
+    var catColors = {
+      "Platforms": "#0072C6",
+      "AI Security": "#7B2FBE",
+      "AI Data Delivery": "#00897B",
+      "Application Delivery": "#E65100",
+      "Application Security": "#C62828"
+    };
+    var catColor = catColors[d.c] || "#0072C6";
+
+    var wrap = document.createElement('div');
+    wrap.className = 'f5-wrap';
+
+    var badge = document.createElement('div');
+    badge.className = 'f5-badge';
+    badge.textContent = '▶ F5 Analysis';
+    wrap.appendChild(badge);
+
+    var catPill = document.createElement('span');
+    catPill.className = 'f5-cat-badge';
+    catPill.style.background = catColor;
+    catPill.textContent = d.c;
+    wrap.appendChild(catPill);
+
+    var summary = document.createElement('div');
+    summary.className = 'f5-summary';
+    summary.textContent = d.s;
+    wrap.appendChild(summary);
+
+    var btn = document.createElement('button');
+    btn.className = 'f5-expand-btn';
+    btn.textContent = 'Show F5 Analysis ▼';
+    btn.setAttribute('data-title', title);
+    wrap.appendChild(btn);
+
+    var detail = document.createElement('div');
+    detail.className = 'f5-detail';
+    detail.setAttribute('data-title', title);
+    detail.innerHTML = d.d;
+    wrap.appendChild(detail);
+
+    card.appendChild(wrap);
+  });
+}
+
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.classList.contains('f5-expand-btn')) {
+    var title = e.target.getAttribute('data-title');
+    var detail = document.querySelector('.f5-detail[data-title="' + CSS.escape(title) + '"]');
+    if (detail) {
+      detail.classList.toggle('open');
+      e.target.textContent = detail.classList.contains('open') ? 'Hide F5 Analysis ▲' : 'Show F5 Analysis ▼';
+    }
+  }
+});
+
+var f5Observer = new MutationObserver(function(mutations) {
+  var changed = mutations.some(function(m) {
+    return m.addedNodes.length > 0;
+  });
+  if (changed) { setTimeout(injectF5, 100); }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  injectF5();
+  setTimeout(injectF5, 300);
+  setTimeout(injectF5, 800);
+  var container = document.querySelector('.announcements-container') || document.body;
+  f5Observer.observe(container, { childList: true, subtree: true });
+});
+setTimeout(injectF5, 500);
+setTimeout(injectF5, 1500);
+</script>
+<div id="f5-footer">
+  <strong style="color:#ff5a63;">F5 Competitive Intelligence</strong> — Powered by F5 AI Analysis
+  <div class="f5-legend">
+    <div class="f5-leg-item"><div class="f5-leg-dot" style="background:#0072C6;"></div><span>Platforms (P1)</span></div>
+    <div class="f5-leg-item"><div class="f5-leg-dot" style="background:#7B2FBE;"></div><span>AI Security (P2)</span></div>
+    <div class="f5-leg-item"><div class="f5-leg-dot" style="background:#00897B;"></div><span>AI Data Delivery (P3)</span></div>
+    <div class="f5-leg-item"><div class="f5-leg-dot" style="background:#E65100;"></div><span>Application Delivery (P4)</span></div>
+    <div class="f5-leg-item"><div class="f5-leg-dot" style="background:#C62828;"></div><span>Application Security (P5)</span></div>
+  </div>
+</div>
 </body>
 </html>
