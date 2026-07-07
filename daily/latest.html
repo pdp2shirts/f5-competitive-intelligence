@@ -15,8 +15,6 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .header-left p{color:var(--muted);font-size:14px}
 .header-right{display:flex;gap:10px}
 .export-btn{background:var(--accent);color:#000;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
-.pdf-btn{background:var(--card);color:var(--text);border:1px solid var(--border);padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit;text-decoration:none;margin-right:10px}
-.pdf-btn:hover{border-color:var(--accent);color:var(--accent)}
 .export-btn:hover{opacity:.9}
 .stats-bar{display:flex;gap:20px;padding:20px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 24px;min-width:150px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s}
@@ -76,8 +74,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
     <p><a href="../index.html" style="color:var(--accent);text-decoration:none;font-weight:600">&larr; Back to Hub</a> &middot; Daily competitive intelligence covering 22 F5 competitors</p>
   </div>
   <div class="header-right">
-    <a class="pdf-btn" href="../daily_pdf/20260706-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    <a class="pdf-btn" href="../daily_pdf/20260706-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(118,185,0,.13);border:1px solid var(--accent);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;margin-right:8px;transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       View as PDF
     </a>
     <button class="export-btn" id="exportBtn">
@@ -88,9 +86,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 </div>
 <div class="stats-bar">
   <div class="stat-card" data-action="stat-tracked"><div class="num">22</div><div class="label">Competitors Tracked</div><div class="hint">&#9654; Click to view</div></div>
-  <div class="stat-card" data-action="stat-ann"><div class="num">6</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
-  <div class="stat-card" data-action="stat-active"><div class="num">5</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
-  <div class="stat-card" data-action="stat-cats"><div class="num">3</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-ann"><div class="num">11</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
+  <div class="stat-card" data-action="stat-active"><div class="num">8</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-cats"><div class="num">4</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
 </div>
 <div class="main">
   <div class="charts-panel">
@@ -102,15 +100,22 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 <script>
 (function(){
 "use strict";
-var DATA={"Palo Alto Networks": {"category": "Platforms", "announcements": [{"title": "Palo Alto Networks Launches Secure Agentless Access (SAA) for Any User on Any Device", "summary": "Palo Alto Networks launched Secure Agentless Access (SAA), a new Zero Trust access method in Prisma Access that rebrands and expands Privileged Remote Access. SAA lets employees, contractors, and third parties reach internal resources (RDP, SSH, VNC) and private web apps from any HTML5 browser on unmanaged or BYOD devices, with no software installation required. Traffic runs through an air-gapped cloud environment with granular data controls (no copy/paste, restricted uploads/downloads, render-only views), balancing strict Zero Trust enforcement with user productivity. Future integration with Remote Browser Isolation will extend controls to public SaaS workflows.", "type": "Product Launch", "date": "2026-07-03", "source_url": "https://www.sdxcentral.com/news/palo-alto-networks-opens-the-vault-to-unmanaged-devices-with-secure-agentless-access-launch/"}, {"title": "Palo Alto Networks and Koi Security Sued Over Alleged AI Error in Threat Report", "summary": "Palo Alto Networks and its acquired subsidiary Koi Security were named defendants in a civil lawsuit filed by MeetingTV in Southern California. MeetingTV alleges Koi's AI-powered 'DarkSpectre' threat report, generated by Koi's Wings AI system with insufficient human oversight, wrongly flagged it as part of Chinese-linked espionage infrastructure, causing widespread blocking and revenue loss. The suit questions Palo Alto's roughly $400M Koi acquisition, claiming AI 'hallucinations' inflated Koi's value. Palo Alto and Koi deny the allegations, citing safety-research protections for good-faith analytical errors, and have filed a motion to dismiss.", "type": "Legal", "date": "2026-07-05", "source_url": "https://www.calcalistech.com/ctechnews/article/bjkvcpvxzl"}]}, "Fortinet": {"category": "Platforms", "announcements": [{"title": "FortiBleed Credential-Harvesting Campaign Exposes 86,644 Fortinet Firewalls", "summary": "Security researchers detailed FortiBleed, a large-scale credential-harvesting campaign that exposed login credentials for 86,644 Fortinet FortiGate firewalls and SSL VPNs across 194 countries. Fortinet's PSIRT stressed there is no new Fortinet vulnerability; attackers reused credentials scraped from configuration files to enable credential-stuffing and unauthorized access. SOCRadar tied related activity to the INC Ransom and Lynx ransomware groups. CISA and the UK NCSC urged customers to reset all credentials, enforce phishing-resistant MFA, and upgrade to FortiOS versions with improved PBKDF2 password hashing.", "type": "Security Incident", "date": "2026-07-03", "source_url": "https://tech-insider.org/fortibleed-fortinet-firewall-breach-2026/"}]}, "Cisco": {"category": "Platforms", "announcements": [{"title": "Cisco Confirms Active Exploitation of Unified CM SSRF Flaw (CVE-2026-20230)", "summary": "Cisco confirmed active in-the-wild exploitation of CVE-2026-20230, a low-complexity server-side request forgery (SSRF) flaw in Cisco Unified Communications Manager (formerly CallManager). Attackers use crafted file:// payloads to create files on targeted devices, with exploitation observed after public proof-of-concept code appeared. Cisco's PSIRT advises upgrading to fixed releases (14SU6 or 15SU5) or disabling the vulnerable WebDialer service as mitigation. Shadowserver tracks more than 200 exposed Unified CM instances globally, concentrated in Asia and North America.", "type": "Security Vulnerability", "date": "2026-07-03", "source_url": "https://www.securityweek.com/cisco-confirms-in-the-wild-exploitation-of-unified-cm-vulnerability/"}]}, "CrowdStrike": {"category": "Platforms", "announcements": []}, "Zscaler": {"category": "Platforms", "announcements": []}, "Cloudflare": {"category": "Platforms", "announcements": []}, "AWS": {"category": "Platforms", "announcements": []}, "HiddenLayer": {"category": "AI Security", "announcements": []}, "Lasso Security": {"category": "AI Security", "announcements": []}, "Operant AI": {"category": "AI Security", "announcements": []}, "Pillar Security": {"category": "AI Security", "announcements": []}, "Mindgard": {"category": "AI Security", "announcements": []}, "Check Point Software ~AI": {"category": "AI Security", "announcements": [{"title": "Trend Micro and Check Point Expand Enterprise AI Security Integrations", "summary": "Trend Micro and Check Point Software announced an expansion of their enterprise AI security partnership to help organizations safely deploy AI across corporate environments. The collaboration aims to give security teams better tools to manage AI-driven risks and integrate AI security capabilities across their defenses for both US and international enterprise customers. The move reflects growing demand for governance and protection as enterprises adopt agentic AI, and complements Check Point's broader AI security strategy, including its Lakera-powered AI Defense capabilities.", "type": "Partnership", "date": "2026-07-03", "source_url": "https://www.digitimes.com/news/a20260703PD207/trend-micro-check-point-security-claude-cybersecurity.html"}]}, "Akamai": {"category": "Application Delivery (ADCs)", "announcements": []}, "Fastly": {"category": "Application Delivery (ADCs)", "announcements": []}, "Citrix (NetScaler)": {"category": "Application Delivery (ADCs)", "announcements": [{"title": "Citrix Patches CitrixBleed-Like NetScaler Flaw (CVE-2026-8451) Amid Exploit Attempts", "summary": "Citrix patched multiple NetScaler ADC and Gateway vulnerabilities, headlined by CVE-2026-8451, a CitrixBleed-like memory-overread flaw that has drawn early in-the-wild exploitation attempts. The bug leaks small amounts of memory from protected processes when an unauthenticated, malformed request targets a NetScaler configured as a SAML Identity Provider. Additional fixes address memory overflows, unauthenticated file reads, and an HTTP/2 denial-of-service issue requiring a manual configuration change. Honeypots observed exploitation attempts within 24 hours of the patch; Citrix urges customers to upgrade affected appliances immediately.", "type": "Security Vulnerability", "date": "2026-07-03", "source_url": "https://www.csoonline.com/article/4192741/new-citrixbleed-like-netscaler-flaw-sees-exploit-attempts-in-the-wild.html"}]}, "A10 Networks": {"category": "Application Delivery (ADCs)", "announcements": []}, "Arista Networks": {"category": "AI Data Delivery", "announcements": []}, "HPE / Juniper Networks": {"category": "AI Data Delivery", "announcements": []}, "Radware": {"category": "Application Security", "announcements": []}, "Barracuda Networks": {"category": "Application Security", "announcements": []}, "Imperva (Thales)": {"category": "Application Security", "announcements": []}};
+var DATA={"Palo Alto Networks": {"category": "Platforms", "announcements": [{"title": "Unit 42 Warns Cyberattacks Now Unfold in as Little as 72 Minutes", "summary": "At its Ignite on Tour event, Palo Alto Networks' Unit 42 warned that attacker breakout times have collapsed, with some compromises unfolding in as little as 72 minutes. VP Philippa Cogswell cited AI-driven threat amplification, identity weaknesses, software supply-chain vulnerabilities, and stealthy nation-state tactics across 750+ incidents in 50 countries. The firm urged AI-assisted detection, zero-trust security, and stronger identity protection, framing cybersecurity as a board-level business risk.", "type": "Threat Research", "date": "2026-07-06", "source_url": "https://newsbytes.ph/2026/07/06/cyberattacks-now-unfold-in-72-minutes-palo-alto-network-warns/"}]}, "Palo Alto Networks ~AI": {"category": "AI Security", "announcements": [{"title": "Palo Alto Networks Publishes Guidance on Building an AI Governance Model", "summary": "Palo Alto Networks published a point-of-view piece urging organizations to adopt prudent AI governance that fosters innovation while mitigating risk. Featuring Haider Pasha, VP & Chief Security Officer for EMEA, the article outlines practical actions to avoid dangerous AI practices and build a governance model that balances speed with safety. It reinforces the company's AI security positioning amid rapid enterprise AI adoption.", "type": "Thought Leadership", "date": "2026-07-06", "source_url": "https://www.paloaltonetworks.com/blog/2026/07/it-might-feel-like-weve-been-here-before-but-we-havent/"}]}, "Check Point Software": {"category": "Platforms", "announcements": [{"title": "Check Point Releases 2026 Exposure Gap Report", "summary": "Check Point Software released 'Under Pressure: The 2026 Exposure Gap Report,' finding that critical vulnerability exposures more than doubled year-over-year to 42.6% of all critical exposures, up from 18.7%. Yet fewer than 1 in 12 alerts warranted urgent action after exploitability validation, and phishing exposures rose to 10.5%. The report stresses that evidence-based prioritization enables rapid remediation, with 85.9% of recommended fixes implemented across industries.", "type": "Report", "date": "2026-07-06", "source_url": "https://www.prnewswire.com/news-releases/as-ai-floods-security-teams-with-alerts-new-check-point-exposure-management-research-finds-critical-vulnerabilities-have-doubled-yet-fewer-than-1-in-12-demand-urgent-action-302816720.html"}]}, "Cloudflare ~AD": {"category": "Application Delivery (ADCs)", "announcements": [{"title": "Cloudflare Launches Workers Cache, a Tiered Cache in Front of Every Worker", "summary": "Cloudflare introduced Workers Cache, a tiered cache that sits in front of every Worker entrypoint and is enabled with a single Wrangler config line. On cache hits it serves responses directly from Cloudflare's network, bypassing Worker execution and CPU cost; on misses the Worker runs and cacheable responses are stored. Features include stale-while-revalidate, Vary support, per-entrypoint cache control, programmatic purges, and multi-tenant safe cache keys. It is available today to all Workers on any plan.", "type": "Product Launch", "date": "2026-07-06", "source_url": "https://blog.cloudflare.com/workers-cache/"}]}, "AWS ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "Anthropic's Claude Sonnet 5 Now Available on AWS", "summary": "AWS announced that Anthropic's Claude Sonnet 5 is now available via Amazon Bedrock and the Claude Platform on AWS. The model targets advanced coding, agentic tasks, and professional work, offering strong stateful agent performance while balancing capability, cost, and speed. It expands AWS's generative AI model lineup, giving customers more foundation-model choice for conversational AI, content generation, coding assistance, and business process automation.", "type": "Product Launch", "date": "2026-07-06", "source_url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/"}, {"title": "Amazon SageMaker Studio Adds One-Click Hugging Face Model Deployment", "summary": "AWS announced that Amazon SageMaker Studio now integrates with Hugging Face for one-click model deployment and customization. The flow automatically provisions a Studio environment with the necessary IAM permissions and default GPU quotas (G5, G6, G4dn), supporting serverless fine-tuning, evaluation, and endpoint deployment without manual quota requests. The integration is available across all commercial AWS regions.", "type": "Product Update", "date": "2026-07-06", "source_url": "https://www.changes.watch/updates/aws-2026-07-06-amazon-sagemaker-studio-now-integrates-with-hugging-face-for-one-click-model-depl"}, {"title": "Amazon WorkSpaces for AI Agents Becomes Generally Available", "summary": "AWS made Amazon WorkSpaces for AI agents generally available, enabling AI agents to securely access and operate desktop applications in managed WorkSpaces without app modernization. AWS also highlighted up to 2x faster SageMaker generative inference scale-out via container image caching. The updates deepen AWS's focus on agentic AI infrastructure and operational tooling.", "type": "Product Launch", "date": "2026-07-06", "source_url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/"}]}, "Radware ~AI": {"category": "AI Security", "announcements": [{"title": "Radware Expands Agentic AI Protection with Governance and Compliance", "summary": "Radware announced enhancements to its Agentic AI Protection, adding AI governance and compliance capabilities. New audit-ready reporting aligns with ISO 42001, the EU AI Act, and the NIST AI Risk Management Framework, while expanded visibility maps AI agent ecosystems, interactions, and dependencies across SaaS and developer-hosted environments. The update extends protection to developer-hosted agents, including Anthropic Claude Code, helping teams govern, audit, and secure AI agents at scale.", "type": "Product Update", "date": "2026-07-07", "source_url": "https://www.helpnetsecurity.com/2026/07/07/radware-agentic-ai-protection-enhancements/"}]}, "CrowdStrike ~AI": {"category": "AI Security", "announcements": [{"title": "CrowdStrike Names Ex-NVIDIA Leader as Chief AI and Autonomous Systems Officer", "summary": "CrowdStrike appointed Dr. Bartley Richardson, formerly of NVIDIA, as Chief AI and Autonomous Systems Officer. He will lead CrowdStrike's AI initiatives, including the Charlotte AI platform, autonomous security operations, and AI-powered detection and response. The company aims for 'level 5 autonomy' in SOC operations, leveraging its Falcon data to train models on real-time telemetry and threat intelligence as a step toward autonomous, cybersecurity-focused AI.", "type": "Executive Appointment", "date": "2026-07-07", "source_url": "https://bitrss.com/crowdstrike-crwd-stock-ex-nvidia-ai-leader-named-chief-ai-officer-217331"}]}, "Barracuda Networks ~P": {"category": "Platforms", "announcements": [{"title": "Barracuda Acquires Evo Security to Expand MSP Identity Protection", "summary": "Barracuda Networks announced the acquisition of Evo Security to broaden identity protection for MSPs. The deal integrates Evo's privileged access management, identity protection, access control, and identity threat detection and response into the BarracudaONE platform. Barracuda aims to deliver an integrated cyber-resilience platform spanning identity, email, and network data rather than a collection of point products, while letting Evo partners continue with minimal disruption. Terms were not disclosed.", "type": "Acquisition", "date": "2026-07-07", "source_url": "https://www.crn.com/news/security/2026/barracuda-acquires-evo-security-to-expand-identity-protection-for-msps-exclusive"}]}, "Zscaler ~AI": {"category": "AI Security", "announcements": [{"title": "Zscaler Research Finds Autonomous AI Agents Vulnerable to Indirect Prompt Injection", "summary": "Zscaler's ThreatLabz warned that autonomous AI agents can be tricked by indirect prompt injection (IPI) traps embedded in web content. In internal tests across 26 LLMs, several models were vulnerable to IPI schemes while others resisted, showing commercial LLMs are not inherently secure against agentic attacks. As AI agents become common web interfaces, the attack surface widens, presenting new insider-threat-like risks for enterprise deployments.", "type": "Threat Research", "date": "2026-07-06", "source_url": "https://www.infoworld.com/article/4193403/zscaler-finds-autonomous-agents-succumb-to-ipi-traps.html"}]}, "Fortinet": {"category": "Platforms", "announcements": []}, "Cisco": {"category": "Platforms", "announcements": []}, "Akamai": {"category": "Application Delivery (ADCs)", "announcements": []}, "Fastly": {"category": "Application Delivery (ADCs)", "announcements": []}, "Citrix (NetScaler)": {"category": "Application Delivery (ADCs)", "announcements": []}, "A10 Networks": {"category": "Application Delivery (ADCs)", "announcements": []}, "Arista Networks": {"category": "AI Data Delivery", "announcements": []}, "HPE / Juniper Networks": {"category": "AI Data Delivery", "announcements": []}, "Imperva (Thales)": {"category": "Application Security", "announcements": []}, "HiddenLayer": {"category": "AI Security", "announcements": []}, "Lasso Security": {"category": "AI Security", "announcements": []}, "Operant AI": {"category": "AI Security", "announcements": []}, "Pillar Security": {"category": "AI Security", "announcements": []}, "Mindgard": {"category": "AI Security", "announcements": []}};
 var catColors={"Platforms":"#636efa","AI Security":"#ef553b","AI Data Delivery":"#00cc96","Application Delivery (ADCs)":"#ab63fa","Application Security":"#ffa15a"};
 var cCL=["#76b900","#00b4d8","#ef553b","#ab63fa","#ffa15a","#19d3f3","#ff6692","#636efa","#00cc96","#b6e880","#ff97ff"];
+function baseName(s){return s.replace(/ ~(AI|AID|AD|AS|P)$/,"");}
 var ALL_ANN=[],names=Object.keys(DATA),compCounts={},catCounts={};
-for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],n=info.announcements.length;
-  if(n>0)compCounts[nm]=n;
+var baseSet={},baseActive={},baseCatMap={};
+for(var i=0;i<names.length;i++){var nm=names[i],bn=baseName(nm),info=DATA[nm],n=info.announcements.length;
+  baseSet[bn]=1;
+  if(!baseCatMap[bn])baseCatMap[bn]=[];
+  if(baseCatMap[bn].indexOf(info.category)<0)baseCatMap[bn].push(info.category);
+  if(n>0){compCounts[bn]=(compCounts[bn]||0)+n;baseActive[bn]=1;}
   if(!catCounts[info.category])catCounts[info.category]=0;
   catCounts[info.category]+=n;
-  for(var j=0;j<n;j++){var a=info.announcements[j];ALL_ANN.push({title:a.title,summary:a.summary,source_url:a.source_url,type:a.type,date:a.date,competitor:nm,category:info.category});}}
+  for(var j=0;j<n;j++){var a=info.announcements[j];ALL_ANN.push({title:a.title,summary:a.summary,source_url:a.source_url,type:a.type,date:a.date,competitor:bn,category:info.category});}}
+var baseNames=Object.keys(baseSet);
+ALL_ANN.sort(function(a,b){if(a.date<b.date)return 1;if(a.date>b.date)return -1;return 0;});
 
 document.getElementById("exportBtn").addEventListener("click",function(){
   var rows=["Date,Competitor,Category,Type,Title,Summary,Source URL"];
@@ -153,19 +158,21 @@ panel.addEventListener("click",function(e){
   var bc=e.target.closest("[data-nav]");if(bc){if(bc.dataset.nav==="overview")showOverview();else if(bc.dataset.nav==="categories")showStatCats();}
 });
 
+function annsForBase(bn){var arr=[];for(var k=0;k<names.length;k++){if(baseName(names[k])===bn){var inf=DATA[names[k]];for(var m=0;m<inf.announcements.length;m++)arr.push(inf.announcements[m]);}}return arr;}
+
 function showOverview(){clearStatActive();
   var h='<h2>Daily Briefing <span class="badge">'+ALL_ANN.length+' announcements</span></h2>';
   h+='<div class="section-label">Competitors with News Today</div>';
-  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length>0)h+='<div class="comp-card" data-comp="'+esc(nm)+'"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="count">'+info.announcements.length+'</div></div>';}
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i];if(baseActive[bn]){h+='<div class="comp-card" data-comp="'+esc(bn)+'"><div><div class="name">'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div><div class="count">'+compCounts[bn]+'</div></div>';}}
   h+='<div class="section-label">No News Today</div>';
-  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length===0)h+='<div class="comp-card inactive"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="no-ann">none</div></div>';}
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i];if(!baseActive[bn]){h+='<div class="comp-card inactive"><div><div class="name">'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div><div class="no-ann">none</div></div>';}}
   panel.innerHTML=h;
 }
 
 function showStatTracked(){clearStatActive();document.querySelector("[data-action=stat-tracked]").classList.add("active");
-  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Competitors</span></div><h2>Competitors Tracked <span class="badge">'+names.length+'</span></h2>';
-  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],cls=info.announcements.length>0?"comp-card":"comp-card inactive";
-    h+='<div class="'+cls+'" data-comp="'+esc(nm)+'"><div><div class="name"><span class="status-dot '+(info.announcements.length>0?"status-active":"status-inactive")+'"></span>'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div>'+(info.announcements.length>0?'<div class="count">'+info.announcements.length+'</div>':'<div class="no-ann">0</div>')+'</div>';}
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Competitors</span></div><h2>Competitors Tracked <span class="badge">'+baseNames.length+'</span></h2>';
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i],act=!!baseActive[bn],cnt=compCounts[bn]||0,cls=act?"comp-card":"comp-card inactive";
+    h+='<div class="'+cls+'" data-comp="'+esc(bn)+'"><div><div class="name"><span class="status-dot '+(act?"status-active":"status-inactive")+'"></span>'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div>'+(act?'<div class="count">'+cnt+'</div>':'<div class="no-ann">0</div>')+'</div>';}
   panel.innerHTML=h;
 }
 
@@ -177,186 +184,51 @@ function showStatAnn(){clearStatActive();document.querySelector("[data-action=st
 }
 
 function showStatActive(){clearStatActive();document.querySelector("[data-action=stat-active]").classList.add("active");
-  var sorted=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length>0)sorted.push([names[i],DATA[names[i]]]);}
-  sorted.sort(function(a,b){return b[1].announcements.length-a[1].announcements.length;});
+  var sorted=[];for(var i=0;i<baseNames.length;i++){if(baseActive[baseNames[i]])sorted.push([baseNames[i],compCounts[baseNames[i]]]);}
+  sorted.sort(function(a,b){return b[1]-a[1];});
   var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Active Today</span></div><h2>Active Today <span class="badge">'+sorted.length+'</span></h2>';
-  for(var i=0;i<sorted.length;i++)h+='<div class="comp-card" data-comp="'+esc(sorted[i][0])+'"><div><div class="name"><span class="status-dot status-active"></span>'+esc(sorted[i][0])+'</div><div class="cat">'+esc(sorted[i][1].category)+'</div></div><div class="count">'+sorted[i][1].announcements.length+'</div></div>';
+  for(var i=0;i<sorted.length;i++)h+='<div class="comp-card" data-comp="'+esc(sorted[i][0])+'"><div><div class="name"><span class="status-dot status-active"></span>'+esc(sorted[i][0])+'</div><div class="cat">'+esc(baseCatMap[sorted[i][0]].join(", "))+'</div></div><div class="count">'+sorted[i][1]+'</div></div>';
   h+='<div class="section-label" style="margin-top:24px">No News Today</div><div class="inactive-chips">';
-  for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length===0)h+='<span class="inactive-chip">'+esc(names[i])+'</span>';}
+  for(var i=0;i<baseNames.length;i++){if(!baseActive[baseNames[i]])h+='<span class="inactive-chip">'+esc(baseNames[i])+'</span>';}
   h+='</div>';panel.innerHTML=h;
 }
 
 function showStatCats(){clearStatActive();document.querySelector("[data-action=stat-cats]").classList.add("active");
-  var allCats={};for(var i=0;i<names.length;i++){var cat=DATA[names[i]].category;if(!allCats[cat])allCats[cat]={comps:[],ann:0};allCats[cat].comps.push(names[i]);allCats[cat].ann+=DATA[names[i]].announcements.length;}
+  var allCats={};for(var i=0;i<names.length;i++){var cat=DATA[names[i]].category,bn=baseName(names[i]);if(!allCats[cat])allCats[cat]={comps:{},ann:0};if(DATA[names[i]].announcements.length>0)allCats[cat].comps[bn]=1;allCats[cat].ann+=DATA[names[i]].announcements.length;}
   var co=Object.keys(allCats).sort(function(a,b){return allCats[b].ann-allCats[a].ann;});
   var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Categories</span></div><h2>Categories <span class="badge">'+co.length+'</span></h2>';
-  for(var ci=0;ci<co.length;ci++){var cat=co[ci],d=allCats[cat],color=catColors[cat]||"#888";
-    h+='<div class="cat-card" data-cat="'+esc(cat)+'"><div><div class="cat-name"><span class="cat-dot" style="background:'+color+'"></span>'+esc(cat)+'</div><div class="cat-meta">'+d.comps.length+' competitors &middot; '+d.ann+' announcements</div></div><div><span class="pill pill-ann">'+d.ann+'</span></div></div>';}
+  for(var ci=0;ci<co.length;ci++){var cat=co[ci],d=allCats[cat],color=catColors[cat]||"#888",ncomp=Object.keys(d.comps).length;
+    h+='<div class="cat-card" data-cat="'+esc(cat)+'"><div><div class="cat-name"><span class="cat-dot" style="background:'+color+'"></span>'+esc(cat)+'</div><div class="cat-meta">'+ncomp+' competitors &middot; '+d.ann+' announcements</div></div><div><span class="pill pill-ann">'+d.ann+'</span></div></div>';}
   panel.innerHTML=h;
 }
 
-function showCompetitor(name){clearStatActive();var info=DATA[name];if(!info)return;
-  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>'+esc(name)+'</span></div>';
-  h+='<h2>'+esc(name)+' <span class="badge">'+info.announcements.length+' announcement'+(info.announcements.length!==1?"s":"")+'</span></h2>';
-  h+='<p style="color:var(--muted);font-size:13px;margin-bottom:18px">Category: <strong style="color:var(--text)">'+esc(info.category)+'</strong></p>';
-  if(info.announcements.length===0){h+='<div class="empty-state"><div class="icon">&#128236;</div><p>No announcements from this competitor today.</p></div>';}
-  else{for(var i=0;i<info.announcements.length;i++){var a=info.announcements[i];
+function showCompetitor(name){clearStatActive();var bn=baseName(name);if(baseSet[bn]!==1)return;
+  var anns=annsForBase(bn),cats=baseCatMap[bn]||[];
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>'+esc(bn)+'</span></div>';
+  h+='<h2>'+esc(bn)+' <span class="badge">'+anns.length+' announcement'+(anns.length!==1?"s":"")+'</span></h2>';
+  h+='<p style="color:var(--muted);font-size:13px;margin-bottom:18px">Category: <strong style="color:var(--text)">'+esc(cats.join(", "))+'</strong></p>';
+  if(anns.length===0){h+='<div class="empty-state"><div class="icon">&#128236;</div><p>No announcements from this competitor today.</p></div>';}
+  else{for(var i=0;i<anns.length;i++){var a=anns[i];
     h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
   panel.innerHTML=h;
 }
 
 function showCategory(category){clearStatActive();
-  var comps=[],active=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].category===category){comps.push([names[i],DATA[names[i]]]);if(DATA[names[i]].announcements.length>0)active.push([names[i],DATA[names[i]]]);}}
-  var total=0;for(var i=0;i<comps.length;i++)total+=comps[i][1].announcements.length;
+  var actMap={},inactMap={};
+  for(var i=0;i<names.length;i++){if(DATA[names[i]].category===category){var bn=baseName(names[i]);if(DATA[names[i]].announcements.length>0){if(!actMap[bn])actMap[bn]=[];for(var m=0;m<DATA[names[i]].announcements.length;m++)actMap[bn].push(DATA[names[i]].announcements[m]);}else{inactMap[bn]=1;}}}
+  var actKeys=Object.keys(actMap);var total=0;for(var i=0;i<actKeys.length;i++)total+=actMap[actKeys[i]].length;
   var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><a data-nav="categories">Categories</a><span class="sep">&rsaquo;</span><span>'+esc(category)+'</span></div>';
   h+='<h2>'+esc(category)+' <span class="badge">'+total+' announcement'+(total!==1?"s":"")+'</span></h2>';
-  for(var i=0;i<active.length;i++){var nm=active[i][0],inf=active[i][1];
-    h+='<div class="section-label" style="margin-top:24px;cursor:pointer;color:var(--accent)" data-showcomp="'+esc(nm)+'">'+esc(nm)+' ('+inf.announcements.length+') &#8599;</div>';
-    for(var j=0;j<inf.announcements.length;j++){var a=inf.announcements[j];
+  for(var i=0;i<actKeys.length;i++){var bn=actKeys[i],list=actMap[bn];
+    h+='<div class="section-label" style="margin-top:24px;cursor:pointer;color:var(--accent)" data-showcomp="'+esc(bn)+'">'+esc(bn)+' ('+list.length+') &#8599;</div>';
+    for(var j=0;j<list.length;j++){var a=list[j];
       h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
-  var inact=comps.filter(function(c){return c[1].announcements.length===0;});
-  if(inact.length>0){h+='<div class="section-label" style="margin-top:20px">No News Today</div><div class="inactive-chips">';for(var i=0;i<inact.length;i++)h+='<span class="inactive-chip">'+esc(inact[i][0])+'</span>';h+='</div>';}
+  var inactKeys=Object.keys(inactMap);
+  if(inactKeys.length>0){h+='<div class="section-label" style="margin-top:20px">No News Today</div><div class="inactive-chips">';for(var i=0;i<inactKeys.length;i++)h+='<span class="inactive-chip">'+esc(inactKeys[i])+'</span>';h+='</div>';}
   panel.innerHTML=h;
 }
-
 showOverview();
 })();
 </script>
-
-<style id="f5-injected-style">
-.f5-wrap{margin-top:10px;padding:10px 12px;background:#20242e;border:1px solid #333a47;border-radius:6px;font-size:13px;line-height:1.5;color:#d7dae1;}
-.f5-badge{display:inline-block;background:#c62828;color:#fff;font-weight:700;font-size:11px;letter-spacing:.03em;padding:3px 8px;border-radius:4px;cursor:pointer;margin-right:6px;}
-.f5-cat-pill{display:inline-block;font-weight:700;font-size:10px;letter-spacing:.03em;padding:3px 8px;border-radius:12px;color:#fff;margin-right:6px;text-transform:uppercase;}
-.f5-cat-platforms{background:#0072C6;}
-.f5-cat-aisecurity{background:#7B2FBE;}
-.f5-cat-aidatadelivery{background:#00897B;}
-.f5-cat-appdelivery{background:#E65100;}
-.f5-cat-appsecurity{background:#C62828;}
-.f5-summary{margin-top:8px;color:#d7dae1;}
-.f5-full-link{display:inline-block;margin-top:8px;background:none;border:1px solid #ff5a63;color:#ff5a63;font-size:12px;font-weight:600;padding:4px 10px;border-radius:4px;cursor:pointer;}
-.f5-full-link:hover{background:#ff5a63;color:#fff;}
-.f5-detail{display:none;margin-top:10px;padding-top:10px;border-top:1px solid #333a47;color:#d7dae1;}
-.f5-detail h2{font-size:14px;color:#ff5a63;margin:12px 0 6px;}
-.f5-detail p{margin:6px 0;color:#d7dae1;}
-.f5-detail strong{color:#fff;}
-.f5-detail ul{margin:6px 0 6px 18px;}
-#f5-footer{margin:24px 10px;padding:14px 16px;background:#1a1d27;border:1px solid #333a47;border-radius:6px;font-size:12px;color:#9aa0ad;}
-#f5-footer .f5-legend-item{display:inline-block;margin-right:14px;}
-#f5-footer .f5-legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle;}
-</style>
-
-<div id="f5-footer">
-<strong style="color:#fff;">F5 Competitive Intelligence \u2014 Category Legend</strong><br/><br/>
-<span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6;"></span>Platforms (P1)</span>
-<span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE;"></span>AI Security (P2)</span>
-<span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B;"></span>AI Data Delivery (P3)</span>
-<span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100;"></span>Application Delivery (P4)</span>
-<span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828;"></span>Application Security (P5)</span>
-</div>
-
-<script id="f5-injected-script">
-(function(){
-var F5D = {"Palo Alto Networks Launches Secure Agentless Access (SAA) for Any User on Any Device": {"s": "Palo Alto Networks has introduced Secure Agentless Access (SAA) within Prisma Access, enhancing Zero Trust access by enabling users to access internal resources and private web apps from any HTML5 browser without software installation. This development is significant for F5 as it intensifies competition in the Zero Trust space, particularly impacting F5's BIG-IP Zero Trust Access offerings.", "d": "<h2>Why F5 Should Care<\/h2>\n<p>Palo Alto Networks' launch of Secure Agentless Access (SAA) represents a strategic enhancement to their Zero Trust capabilities, directly competing with F5's offerings in the same domain. By allowing access to internal resources and private web applications from any HTML5 browser on unmanaged or BYOD devices without the need for software installation, Palo Alto Networks is addressing a critical market demand for flexibility and security in remote access solutions. This move could attract enterprises looking for seamless and secure remote access solutions, potentially impacting F5's market share in the Zero Trust space. The integration of granular data controls and future plans to incorporate Remote Browser Isolation further strengthens Palo Alto Networks' position, offering a comprehensive solution that balances security with user productivity.<\/p>\n<h2>F5 Products Impacted<\/h2>\n<p>The primary F5 product impacted by this announcement is the BIG-IP Zero Trust Access. This product is designed to provide secure access solutions that align with Zero Trust principles, similar to the capabilities now offered by Palo Alto Networks' SAA. The introduction of agentless access by Palo Alto Networks could challenge F5's competitive edge in providing clientless remote access solutions. Additionally, F5's solutions around Zero Trust Architecture might also face increased competition as Palo Alto Networks expands its capabilities to include more comprehensive data controls and future integration with Remote Browser Isolation.<\/p>\n<h2>Recommended Response<\/h2>\n<p>F5 should emphasize the unique strengths of its BIG-IP Zero Trust Access, particularly its integration capabilities and robust security features. Additionally, F5 should consider enhancing its clientless access solutions to maintain competitive parity and explore partnerships or developments in Remote Browser Isolation technologies to match Palo Alto Networks' future offerings.<\/p>", "c": "Platforms"}, "Palo Alto Networks and Koi Security Sued Over Alleged AI Error in Threat Report": {"s": "Palo Alto Networks and its subsidiary Koi Security are facing a lawsuit over an AI-generated threat report that allegedly misidentified MeetingTV as part of espionage activities, leading to financial losses. This raises concerns about AI reliability and the valuation of AI-driven acquisitions. F5 should care as this highlights the importance of robust AI security measures and the potential risks of AI errors in cybersecurity solutions.", "d": "<h2>Why F5 Should Care<\/h2>\n<p>The lawsuit against Palo Alto Networks and Koi Security underscores the critical importance of AI accuracy and oversight in cybersecurity. As AI becomes more integrated into security solutions, the potential for errors, such as AI 'hallucinations,' poses significant risks. This incident highlights the need for robust AI security frameworks and human oversight to prevent similar issues. F5, with its focus on AI security, must ensure its solutions are resilient against such errors to maintain trust and reliability.<\/p>\n<p>Furthermore, the lawsuit questions the valuation of AI-driven acquisitions, which could impact market perceptions and investment strategies in the cybersecurity sector. F5 should monitor these developments closely, as they may influence competitive dynamics and customer expectations regarding AI capabilities in security products.<\/p>\n<h2>F5 Products Impacted<\/h2>\n<p>F5's portfolio, particularly its AI security offerings, could be impacted by this development. Products such as AI-powered threat detection and fraud prevention solutions must be scrutinized to ensure they are not susceptible to similar errors. The incident also emphasizes the importance of F5's ongoing efforts in AI security research and development, as outlined in its various blogs and knowledge base articles.<\/p>\n<p>Additionally, F5's application security products, including WAF and API security solutions, should be evaluated for their integration with AI technologies. Ensuring these products are equipped with safeguards against AI errors will be crucial in maintaining customer confidence and competitive advantage.<\/p>\n<h2>Recommended Response<\/h2>\n<p>F5 should reinforce its commitment to AI security by enhancing transparency and oversight in its AI-driven solutions. Emphasizing the robustness and reliability of F5's AI security measures in marketing and customer communications will help differentiate its offerings from competitors facing AI-related challenges.<\/p>", "c": "AI Security"}, "FortiBleed Credential-Harvesting Campaign Exposes 86,644 Fortinet Firewalls": {"s": "Fortinet's FortiBleed campaign exposed login credentials for 86,644 FortiGate firewalls across 194 countries, highlighting the risk of credential-stuffing attacks. Although no new vulnerabilities were found, attackers exploited reused credentials, prompting security agencies to recommend credential resets and MFA. F5 should care as this incident underscores the importance of robust application security and credential protection, areas where F5's solutions can provide significant value.", "d": "<h2>Why F5 Should Care<\/h2>\n<p>The FortiBleed incident is a stark reminder of the vulnerabilities associated with credential reuse and the potential for large-scale credential-stuffing attacks. As a leader in application security, F5 has a vested interest in understanding these threats to better protect its customers. This incident underscores the need for enhanced security measures, such as multi-factor authentication (MFA) and advanced credential protection, which are areas where F5 can demonstrate its strengths. Moreover, the involvement of ransomware groups like INC Ransom and Lynx highlights the evolving threat landscape, necessitating continuous innovation in security solutions.<\/p>\n<h2>F5 Products Impacted<\/h2>\n<p>F5's portfolio, particularly its Web Application Firewall (WAF), bot management, and API security solutions, is directly relevant to the issues highlighted by the FortiBleed campaign. The BIG-IP and Distributed Cloud Services can provide robust defenses against credential-stuffing attacks by implementing advanced bot detection and mitigation strategies. Additionally, F5's emphasis on securing API traffic and enforcing strong authentication mechanisms aligns with the recommended security practices following this breach. The incident also presents an opportunity for F5 to reinforce the importance of its security solutions in protecting against similar threats.<\/p>\n<h2>Recommended Response<\/h2>\n<p>F5 should emphasize the importance of its credential protection and bot management solutions in marketing and sales efforts. Highlighting case studies and success stories where F5 solutions have mitigated similar threats could be beneficial. Additionally, engaging with customers to ensure they are aware of and implementing best practices in credential security will reinforce F5's role as a trusted security partner.<\/p>", "c": "Application Security"}, "Cisco Confirms Active Exploitation of Unified CM SSRF Flaw (CVE-2026-20230)": {"s": "Cisco has confirmed active exploitation of a server-side request forgery (SSRF) flaw (CVE-2026-20230) in its Unified Communications Manager, affecting over 200 instances globally. This vulnerability allows attackers to create files on targeted devices, posing a significant security risk. F5 should care as this incident highlights the importance of robust security measures in communication platforms, an area where F5's security solutions can provide value.", "d": "<h2>Why F5 Should Care<\/h2>\n<p>The active exploitation of the SSRF flaw in Cisco's Unified Communications Manager underscores the critical importance of securing communication platforms against vulnerabilities. As a leader in application security and delivery, F5 should be vigilant about similar vulnerabilities in its own products and services. This incident serves as a reminder of the potential risks associated with server-side request forgery, which can lead to unauthorized access and data breaches. F5's expertise in web application firewalls (WAF) and API security positions it well to address such threats, offering customers enhanced protection against similar exploits.<\/p>\n<p>Furthermore, the widespread impact of this vulnerability, particularly in Asia and North America, highlights the global nature of cybersecurity threats and the need for comprehensive security solutions. F5 can leverage this opportunity to reinforce the importance of its security offerings, particularly in regions heavily affected by the Cisco flaw. By demonstrating the effectiveness of F5's security measures, such as advanced threat detection and mitigation capabilities, F5 can differentiate itself from competitors and reassure customers of their security posture.<\/p>\n<h2>F5 Products Impacted<\/h2>\n<p>While the specific SSRF flaw in Cisco's Unified Communications Manager does not directly impact F5 products, it serves as a critical reminder of the potential vulnerabilities that can exist in communication and application delivery platforms. F5's BIG-IP and Distributed Cloud Services, which include advanced security features like WAF and API protection, are crucial in preventing similar exploits. Additionally, F5's NGINX and application delivery controllers (ADCs) can play a vital role in ensuring secure and reliable communication across networks.<\/p>\n<p>F5 should evaluate its current security measures and ensure that its products are fortified against SSRF vulnerabilities. This includes regular security assessments, updates, and patches to address potential weaknesses. By maintaining a proactive security posture, F5 can protect its customers from similar threats and reinforce its reputation as a leader in application security.<\/p>\n<h2>Recommended Response<\/h2>\n<p>F5 should emphasize its security capabilities in marketing and sales efforts, particularly in regions affected by the Cisco flaw. Additionally, F5 should offer guidance on mitigating SSRF vulnerabilities and highlight its WAF and API security solutions as effective defenses against such threats.<\/p>", "c": "Application Security"}, "Trend Micro and Check Point Expand Enterprise AI Security Integrations": {"s": "Trend Micro and Check Point Software have expanded their enterprise AI security partnership to enhance AI deployment safety across corporate environments. This collaboration aims to provide better tools for managing AI-driven risks, reflecting increasing demand for AI governance and protection. F5 should care as this development highlights the competitive landscape in AI security, an area where F5 has existing solutions.", "d": "<h2>Why F5 Should Care<\/h2>\n<p>The expansion of the partnership between Trend Micro and Check Point Software in the realm of AI security underscores the growing importance of securing AI deployments within enterprise environments. As organizations increasingly integrate AI into their operations, the demand for robust security measures to manage AI-driven risks is escalating. This partnership not only strengthens Check Point's position in the AI security market but also reflects a broader industry trend towards comprehensive AI security solutions. For F5, which already offers AI security solutions, this development is a reminder of the competitive landscape and the need to continuously innovate and enhance its offerings to maintain leadership in this space.<\/p>\n<p>Check Point's collaboration with Trend Micro, particularly with the integration of Lakera-powered AI Defense capabilities, suggests a strategic move to offer a more holistic approach to AI security. This could potentially attract enterprise customers looking for integrated solutions that address both AI governance and protection. F5 must be vigilant about such partnerships as they could influence market dynamics and customer preferences.<\/p>\n<h2>F5 Products Impacted<\/h2>\n<p>F5's existing AI security solutions, such as those highlighted in the F5 AI Security Solutions page, could be directly impacted by this announcement. The partnership between Trend Micro and Check Point may lead to enhanced AI security offerings that could compete with F5's solutions. Specifically, products related to AI threat detection and AI penetration testing, as discussed in F5's glossary and solution pages, might face increased competition. Additionally, F5's collaboration with CalypsoAI for AI security in the application suite could be affected as enterprises evaluate different vendors for their AI security needs.<\/p>\n<h2>Recommended Response<\/h2>\n<p>F5 should emphasize the unique strengths of its AI security solutions and continue to innovate in this area. Strengthening partnerships and enhancing product capabilities will be crucial to maintaining a competitive edge. F5 sellers should highlight the comprehensive nature of F5's AI security offerings to differentiate from competitors.<\/p>", "c": "AI Security"}, "Citrix Patches CitrixBleed-Like NetScaler Flaw (CVE-2026-8451) Amid Exploit Attempts": {"s": "Citrix has patched several vulnerabilities in its NetScaler ADC and Gateway products, notably CVE-2026-8451, a CitrixBleed-like flaw that allows memory overread via unauthenticated requests. This vulnerability has already seen exploitation attempts, prompting Citrix to urge immediate upgrades. F5 should care as this impacts the competitive landscape in application delivery and highlights security challenges in ADCs.", "d": "<h2>Why F5 Should Care<\/h2>\n<p>The recent vulnerabilities patched by Citrix in their NetScaler ADC and Gateway products underscore the ongoing security challenges in the application delivery space. The CVE-2026-8451 flaw, reminiscent of the earlier CitrixBleed vulnerability, highlights potential risks associated with memory overread issues, which can lead to data leaks from protected processes. Given that these vulnerabilities have already seen attempts at exploitation, it is crucial for F5 to be aware of the competitive implications and the potential for increased scrutiny on ADC security. As a leader in multicloud application security and delivery, F5 must ensure that its products are perceived as secure and reliable, particularly in comparison to competitors like Citrix.<\/p>\n<h2>F5 Products Impacted<\/h2>\n<p>While the vulnerabilities directly affect Citrix's NetScaler ADC and Gateway products, the broader implications touch on the competitive positioning of F5's own application delivery solutions. Products such as BIG-IP, which provide similar ADC functionalities, could be scrutinized by customers concerned about security. Additionally, F5's Distributed Cloud Services, which offer comprehensive security and delivery solutions, may need to emphasize their robustness against similar vulnerabilities. The focus should be on highlighting the security measures F5 has in place to prevent such issues, thereby reassuring existing and potential customers of the reliability of F5's offerings.<\/p>\n<h2>Recommended Response<\/h2>\n<p>F5 should issue a communication highlighting the security features of its ADC products and reassure customers of their resilience against similar vulnerabilities. Additionally, F5 should monitor the situation closely and update threat intelligence resources to reflect any new developments.<\/p>", "c": "Application Security"}};
-var CAT_ORDER = {"Platforms":1,"AI Security":2,"AI Data Delivery":3,"Application Delivery":4,"Application Security":5};
-var CAT_CLASS = {"Platforms":"f5-cat-platforms","AI Security":"f5-cat-aisecurity","AI Data Delivery":"f5-cat-aidatadelivery","Application Delivery":"f5-cat-appdelivery","Application Security":"f5-cat-appsecurity"};
-var injecting = false;
-
-function sortCards(container, cards){
-  var desired = cards.slice().sort(function(a,b){
-    var ta = (a.querySelector('.ann-title')||{}).textContent || '';
-    var tb = (b.querySelector('.ann-title')||{}).textContent || '';
-    var ca = (F5D[ta.trim()]||{}).c; var cb = (F5D[tb.trim()]||{}).c;
-    var pa = CAT_ORDER[ca] || 99; var pb = CAT_ORDER[cb] || 99;
-    if(pa !== pb) return pa - pb;
-    return 0;
-  });
-  var alreadySorted = true;
-  for(var i=0;i<desired.length;i++){
-    if(cards[i] !== desired[i]){ alreadySorted = false; break; }
-  }
-  if(alreadySorted) return;
-  desired.forEach(function(el){ container.appendChild(el); });
-}
-
-function injectF5(){
-  if(injecting) return;
-  injecting = true;
-  try{
-    var cards = Array.prototype.slice.call(document.querySelectorAll('.ann-card'));
-    if(cards.length === 0){ injecting = false; return; }
-    var container = cards[0].parentElement;
-    cards.forEach(function(card){
-      var titleEl = card.querySelector('.ann-title');
-      if(!titleEl) return;
-      var title = titleEl.textContent.trim();
-      var entry = F5D[title];
-      if(!entry) return;
-      if(card.querySelector('.f5-wrap')) return; // already injected
-
-      var wrap = document.createElement('div');
-      wrap.className = 'f5-wrap';
-
-      var badge = document.createElement('span');
-      badge.className = 'f5-badge';
-      badge.textContent = '\u26A0 Why F5 Cares';
-      wrap.appendChild(badge);
-
-      var pill = document.createElement('span');
-      pill.className = 'f5-cat-pill ' + (CAT_CLASS[entry.c] || '');
-      pill.textContent = entry.c || '';
-      wrap.appendChild(pill);
-
-      var summary = document.createElement('div');
-      summary.className = 'f5-summary';
-      summary.textContent = entry.s || '';
-      wrap.appendChild(summary);
-
-      var link = document.createElement('button');
-      link.className = 'f5-full-link';
-      link.type = 'button';
-      link.textContent = 'Read Full Analysis \u2192';
-      wrap.appendChild(link);
-
-      var detail = document.createElement('div');
-      detail.className = 'f5-detail';
-      detail.innerHTML = entry.d || '';
-      wrap.appendChild(detail);
-
-      card.appendChild(wrap);
-    });
-
-    if(container){ sortCards(container, Array.prototype.slice.call(document.querySelectorAll('.ann-card'))); }
-  } finally {
-    setTimeout(function(){ injecting = false; }, 0);
-  }
-}
-
-document.addEventListener('click', function(e){
-  var btn = e.target.closest && e.target.closest('.f5-badge, .f5-full-link');
-  if(!btn) return;
-  var wrap = btn.closest('.f5-wrap');
-  if(!wrap) return;
-  var detail = wrap.querySelector('.f5-detail');
-  var linkBtn = wrap.querySelector('.f5-full-link');
-  if(!detail) return;
-  var showing = detail.style.display === 'block';
-  detail.style.display = showing ? 'none' : 'block';
-  if(linkBtn) linkBtn.textContent = showing ? 'Read Full Analysis \u2192' : 'Hide Full Analysis';
-});
-
-var observer = new MutationObserver(function(){
-  if(injecting) return;
-  injectF5();
-});
-observer.observe(document.body, {childList:true, subtree:true});
-
-if(document.readyState === 'loading'){
-  document.addEventListener('DOMContentLoaded', function(){ setTimeout(injectF5, 300); });
-} else {
-  setTimeout(injectF5, 300);
-}
-})();
-</script>
-
 </body>
 </html>
