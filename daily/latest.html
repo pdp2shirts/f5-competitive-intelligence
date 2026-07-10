@@ -230,5 +230,168 @@ function showCategory(category){clearStatActive();
 showOverview();
 })();
 </script>
+
+<style id="f5-style">
+.f5-wrap { margin-top: 10px; border-top: 1px solid #333a47; padding-top: 10px; font-family: inherit; }
+.f5-badge { display: inline-flex; align-items: center; gap: 6px; background: #3a1414; color: #ff8a8f; border: 1px solid #C62828; border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 600; cursor: pointer; user-select: none; }
+.f5-badge:hover { background: #4a1a1a; }
+.f5-cat-pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; color: #fff; margin-left: 8px; letter-spacing: 0.2px; }
+.f5-full-link { display: inline-flex; align-items: center; gap: 4px; background: transparent; color: #6ab7ff; border: 1px solid #2c5a86; border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 600; cursor: pointer; user-select: none; margin-left: 8px; }
+.f5-full-link:hover { background: #16233a; }
+.f5-detail { display: none; margin-top: 10px; background: #20242e; border: 1px solid #333a47; border-radius: 8px; padding: 14px 16px; color: #d7dae1; font-size: 13px; line-height: 1.55; }
+.f5-detail.open { display: block; }
+.f5-detail h4 { color: #ff5a63; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; margin: 14px 0 6px; }
+.f5-detail h4:first-child { margin-top: 0; }
+.f5-detail p { margin: 0 0 8px; color: #d7dae1; }
+.f5-detail ul { margin: 0 0 8px; padding-left: 20px; color: #d7dae1; }
+.f5-detail li { margin-bottom: 4px; }
+.f5-detail strong { color: #fff; }
+.f5-summary-line { color: #d7dae1; font-size: 13px; margin-top: 6px; line-height: 1.5; }
+#f5-footer { background: #1a1d27; border-top: 1px solid #333a47; color: #9aa0ab; font-size: 12px; padding: 16px 20px; margin-top: 24px; }
+#f5-footer .f5-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+#f5-footer .f5-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+#f5-footer .f5-legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+</style>
+
+<script id="f5-inject">
+(function() {
+  var F5D = {"Palo Alto Networks Patches 13 Vulnerabilities Across PAN-OS and Prisma": {"s": "Palo Alto Networks' patching of 13 vulnerabilities across PAN-OS and Prisma highlights ongoing security challenges in application security, emphasizing the need for robust WAF and API security solutions. This is crucial for F5 as it underscores the importance of maintaining strong security postures in competitive environments.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Palo Alto Networks' recent security advisory underscores the critical importance of application security in today's threat landscape. This announcement highlights vulnerabilities that could lead to severe consequences like denial-of-service or arbitrary code execution, which are key areas where F5's security solutions can provide value.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>WAF<\/li>\n<li>API Security<\/li>\n<li>BIG-IP<\/li>\n<li>F5 Distributed Cloud<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize the robustness of its application security offerings, particularly WAF and API security, in marketing and sales engagements. Highlighting F5's proactive security measures and rapid response capabilities can reassure customers of their safety against similar vulnerabilities.<\/p>", "c": "Application Security"}, "Palo Alto Networks Named 'Company to Beat' in AI Security for Second Consecutive Year": {"s": "Palo Alto Networks' recognition as the 'Company to Beat' in AI Security underscores the competitive landscape in AI security solutions, challenging F5's positioning in this space. Their strategic acquisitions and integrated AI security platform highlight the need for F5 to emphasize its own AI security capabilities and innovations.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Palo Alto Networks being named the 'Company to Beat' in AI Security highlights the competitive pressure on F5 in the AI security domain. Their integrated platform and strategic acquisitions position them strongly, necessitating F5 to reinforce its AI security offerings.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 AI Gateway<\/li>\n<li>F5 Distributed Cloud<\/li>\n<li>WAF<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should leverage its leadership in AI security, as recognized by KuppingerCole, to counter Palo Alto's narrative. Emphasize F5's comprehensive AI security solutions and recent advancements to reassure customers of F5's competitive edge in securing AI workloads.<\/p>", "c": "AI Security"}, "Fortinet Expands FortiGate G Series to Secure AI from Data Center to Enterprise Edge": {"s": "Fortinet's launch of the FortiGate G-Series appliances enhances their platform strategy by integrating AI security and management across data centers and enterprise edges. This positions Fortinet as a strong competitor in the hybrid multicloud space, challenging F5's platform consolidation efforts.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Fortinet's new FortiGate G-Series appliances strengthen their platform play by integrating AI security and management capabilities across data centers and enterprise edges. This move directly challenges F5's hybrid multicloud platform strategy, potentially impacting F5's market share and competitive positioning.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>BIG-IP<\/li>\n<li>NGINX<\/li>\n<li>F5 AI Gateway<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its comprehensive hybrid multicloud platform capabilities, highlighting the integration of AI security and data delivery solutions. Additionally, F5 should reinforce partnerships, such as with NVIDIA, to showcase its edge innovations and maintain competitive differentiation.<\/p>", "c": "AI Security"}, "The R&A and Cisco Announce Multi-Year Network Infrastructure Partnership": {"s": "Cisco's partnership with The R&A highlights their focus on integrated, AI-ready network infrastructure, challenging F5's hybrid multicloud platform strategy. This deal underscores Cisco's commitment to secure, resilient connectivity, potentially impacting F5's positioning in similar large-scale, multi-product deployments.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cisco's partnership with The R&A to provide AI-ready, secure network infrastructure showcases their strategic push into integrated platforms, directly competing with F5's hybrid multicloud strategy. This move could influence market perceptions and customer preferences in large-scale, multi-product deployments.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>BIG-IP<\/li>\n<li>NGINX<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its strengths in application delivery and security within hybrid multicloud environments. Highlighting successful case studies and integrations, like those with Cisco ACI, can reinforce F5's value proposition and differentiate its offerings in the face of Cisco's platform-centric approach.<\/p>", "c": "Application Delivery"}, "Coforge Launches AI-Powered SecureEdge2Cloud Built on Zscaler Zero Trust Exchange": {"s": "Zscaler's partnership with Coforge to launch SecureEdge2Cloud, an AI-powered Zero Trust solution, highlights their strategic push into integrated security platforms. This move could challenge F5's hybrid multicloud platform strategy by expanding Zscaler's ecosystem reach and enhancing AI-driven security capabilities.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Zscaler's new partnership with Coforge to launch SecureEdge2Cloud underscores their commitment to expanding their platform capabilities, potentially challenging F5's hybrid multicloud strategy. This move highlights the competitive landscape in integrated security solutions, especially with AI-driven enhancements.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>BIG-IP<\/li>\n<li>NGINX<\/li>\n<li>WAF<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its comprehensive hybrid multicloud platform capabilities, highlighting the integration of security and application delivery. Strengthening partnerships and showcasing AI-driven innovations in security and data delivery will be crucial to counter Zscaler's expanding ecosystem and platform reach.<\/p>", "c": "Platforms"}, "Check Point Reports June Cyberattacks Jumped 17% Year-on-Year": {"s": "Check Point's report on the rise in cyberattacks and GenAI data-leakage risks highlights the evolving threat landscape, emphasizing the need for robust application security solutions like F5's WAF and API security offerings.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Check Point's report underscores the increasing frequency and sophistication of cyberattacks, including ransomware and GenAI data-leakage risks. This highlights the critical importance of F5's application security solutions in protecting enterprises against evolving threats.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>WAF<\/li>\n<li>API Security<\/li>\n<li>F5 Distributed Cloud<\/li>\n<li>BIG-IP<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its comprehensive security portfolio, focusing on WAF and API security capabilities, to address the rising cyber threats highlighted by Check Point. Engaging customers with insights on protecting against ransomware and data-leakage risks will reinforce F5's leadership in application security.<\/p>", "c": "Application Security"}, "Cloudflare Ships Authentication Fix for Post-Quantum IPsec Downgrade Attack": {"s": "Cloudflare's new IKE_SA_INIT_FULL_TRANSCRIPT_AUTH feature addresses a post-quantum IPsec vulnerability, enhancing security for Cloudflare WAN and Magic Transit. This aligns with federal cryptographic guidance and poses a competitive challenge to F5's hybrid multicloud platform strategy.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cloudflare's enhancement in post-quantum IPsec security strengthens its platform offerings, potentially positioning it as a more secure option for customers concerned with quantum threats. This move aligns with federal cryptographic standards, challenging F5's hybrid multicloud strategy.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>BIG-IP<\/li>\n<li>F5 AI Gateway<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its own advancements in post-quantum cryptography and highlight the comprehensive security features of its hybrid multicloud platform. Engaging with customers on the importance of integrated security solutions will be crucial to counter Cloudflare's narrative.<\/p>", "c": "Application Security"}, "Cloudflare Announces Research Pilot with OpenAI for Real-Time AI Search Signals": {"s": "Cloudflare's partnership with OpenAI to enhance AI search using real-time network signals highlights the growing importance of AI data delivery. This initiative could influence F5's strategy in AI inference networking and traffic optimization, areas where F5 aims to strengthen its offerings.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cloudflare's collaboration with OpenAI on AI search signals underscores the critical role of data delivery in AI applications. This partnership could set new standards for AI data pipelines, challenging F5's position in AI data delivery.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 AI Gateway<\/li>\n<li>BIG-IP<\/li>\n<li>NGINX<\/li>\n<li>F5 Distributed Cloud<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its capabilities in AI data delivery, particularly in optimizing AI traffic and inference networking. Engaging with AI partners to showcase F5's strengths in these areas will be crucial to maintaining competitive advantage.<\/p>", "c": "AI Data Delivery"}, "AWS Introduces Loom, a Platform to Securely Build and Operate AI Agents at Scale": {"s": "AWS's launch of Loom, a platform for securely building and operating AI agents, highlights the growing importance of AI security and governance. This move underscores the need for robust security measures in AI deployments, a space where F5 is actively expanding its capabilities.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>AWS's introduction of Loom emphasizes the critical role of security and governance in AI deployments, aligning with F5's strategic focus on AI Security. This development highlights the competitive landscape and the necessity for F5 to enhance its offerings in securing AI workloads.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 AI Gateway<\/li>\n<li>F5 Distributed Cloud<\/li>\n<li>WAF<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should accelerate its AI Security initiatives, focusing on enhancing AI workload protection and governance capabilities. Engaging with AWS to explore potential integrations or partnerships could also be beneficial to leverage mutual strengths in AI security.<\/p>", "c": "Platforms"}, "Akamai Recognized in 2026 Gartner Peer Insights Voice of the Customer for Edge Distribution Platforms": {"s": "Akamai's recognition as a top Edge Distribution Platform by Gartner highlights its strong position in edge-focused delivery architectures, challenging F5's offerings in this space. This recognition underscores the importance of enhancing F5's edge capabilities to remain competitive.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Akamai's recognition by Gartner as a leading Edge Distribution Platform underscores its competitive edge in edge-focused delivery architectures. This could influence enterprise customers' perceptions and purchasing decisions, potentially impacting F5's market share in application delivery.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>NGINX<\/li>\n<li>BIG-IP<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its own edge capabilities and customer success stories to counter Akamai's recognition. Highlighting F5's unique value propositions and innovations in edge computing can help differentiate its offerings and retain customer interest.<\/p>", "c": "Application Delivery"}, "Akamai Selected as Strategic Security Partner for WWT's ARMOR AI Security Framework": {"s": "Akamai's partnership with WWT for the ARMOR AI Security Framework highlights the growing focus on AI security, a key area for F5. This collaboration underscores the importance of securing AI workloads and data, areas where F5's AI security solutions can provide competitive differentiation.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Akamai's partnership with WWT for the ARMOR AI Security Framework emphasizes the strategic importance of AI security. As AI workloads become more prevalent, securing these environments is critical. This partnership showcases the need for robust AI security solutions, an area where F5 can leverage its expertise to compete effectively.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 AI Gateway<\/li>\n<li>BIG-IP<\/li>\n<li>F5 Distributed Cloud<\/li>\n<li>WAF<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should highlight its AI security capabilities, emphasizing the comprehensive protection offered by F5 AI Gateway and BIG-IP. Engaging with partners to showcase F5's AI security solutions in action will be crucial to countering Akamai's positioning and capturing market share in this growing segment.<\/p>", "c": "AI Security"}, "Fastly Named 2026 Gartner Peer Insights Customers' Choice for Edge Distribution Platforms": {"s": "Fastly's recognition as a Gartner Peer Insights Customers' Choice for Edge Distribution Platforms highlights its strong customer satisfaction and competitive positioning in edge delivery, a key area for F5's application delivery strategy.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Fastly's recognition underscores its strength in edge distribution, an area critical to F5's application delivery strategy. This could influence customer perceptions and impact F5's market share in edge solutions.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>NGINX<\/li>\n<li>BIG-IP<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its comprehensive edge distribution capabilities and highlight unique differentiators like integrated security features. Engaging with customers to showcase successful deployments and gathering feedback to enhance offerings will be crucial.<\/p>", "c": "Application Delivery"}, "Fastly and Skyfire Partner to Enable Trusted Agentic Commerce with Verified Identity at the Edge": {"s": "Fastly's partnership with Skyfire to enable verified identity at the edge for agentic AI commerce highlights the growing importance of AI data delivery in secure transactions. This move positions Fastly as a key player in AI-driven commerce, challenging F5's capabilities in AI data delivery and edge computing.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Fastly's partnership with Skyfire to enhance identity verification at the edge for AI-driven commerce underscores the increasing demand for secure AI data delivery solutions. This development could impact F5's positioning in AI data delivery and edge computing, areas where F5 aims to expand its influence.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>F5 AI Gateway<\/li>\n<li>NGINX<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its AI data delivery capabilities and edge computing solutions to counter Fastly's advancements. Highlighting the robustness of F5's AI Gateway and Distributed Cloud offerings in secure AI transactions can reinforce F5's competitive edge in this evolving market.<\/p>", "c": "AI Security"}, "Citrix Launches NetScaler MCP Gateway to Govern LLM and Agentic AI Traffic": {"s": "Citrix's launch of the NetScaler MCP Gateway enhances their AI data delivery capabilities, directly challenging F5's AI inference networking and traffic optimization solutions. This move underscores the competitive landscape in AI-aware load balancing and model routing, areas where F5's AI Gateway and Distributed Cloud offerings must differentiate to maintain market leadership.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Citrix's introduction of the NetScaler MCP Gateway highlights their strategic focus on AI data delivery, particularly in managing and optimizing AI traffic. This development directly competes with F5's AI Gateway and Distributed Cloud solutions, emphasizing the need for F5 to reinforce its position in AI inference networking and traffic optimization.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 AI Gateway<\/li>\n<li>F5 Distributed Cloud<\/li>\n<li>BIG-IP<\/li>\n<li>NGINX<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize the unique capabilities of its AI Gateway and Distributed Cloud solutions, particularly in AI traffic optimization and model serving. Highlighting the integration and performance benefits of F5's offerings can help differentiate from Citrix's new capabilities. Engaging with key customers to showcase successful deployments and use cases will be crucial.<\/p>", "c": "AI Data Delivery"}, "Arista Launches 7060XE7 Series 1.6 Tbps AI Networking Switch": {"s": "Arista Networks' launch of the 7060XE7 Series AI networking switch highlights the increasing demand for high-capacity AI data delivery solutions. This development underscores the competitive landscape in AI networking, where F5's capabilities in AI inference networking and AI-aware load balancing are crucial. Arista's success with major tech companies like Meta and Microsoft indicates a growing market trend that F5 must address to maintain its leadership in AI data delivery.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Arista's new 7060XE7 Series switch emphasizes the growing demand for high-capacity AI networking solutions, a critical area for F5's AI data delivery strategy. As major players like Meta and Microsoft adopt these technologies, F5 must ensure its offerings remain competitive.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 AI Gateway<\/li>\n<li>F5 Distributed Cloud<\/li>\n<li>NGINX<\/li>\n<li>BIG-IP<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should highlight its AI data delivery capabilities, focusing on AI-aware load balancing and inference networking. Engaging with key customers to showcase these strengths and exploring partnerships or enhancements in AI networking will be crucial to counter Arista's advancements.<\/p>", "c": "AI Data Delivery"}, "HPE's Juniper-Fueled AI Infrastructure Drives Backlog Near $6 Billion": {"s": "HPE's integration of Juniper Networks positions it as a formidable competitor in the AI infrastructure space, emphasizing a consolidated platform approach that challenges F5's hybrid multicloud strategy. This move highlights the growing demand for integrated compute, networking, and storage solutions, which could impact F5's market share in AI data delivery and platform consolidation.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>HPE's acquisition of Juniper Networks and its focus on AI infrastructure underscore a strategic shift towards integrated platform solutions, directly competing with F5's hybrid multicloud strategy. This development highlights the increasing enterprise demand for comprehensive, on-premises AI deployments.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 Distributed Cloud<\/li>\n<li>NGINX<\/li>\n<li>BIG-IP<\/li>\n<li>F5 AI Gateway<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its strengths in hybrid multicloud environments and highlight the flexibility and security of its platform offerings. Engaging with enterprises on the benefits of F5's comprehensive application delivery and security solutions will be crucial in countering HPE's integrated stack appeal.<\/p>", "c": "AI Data Delivery"}, "Radware Enhances Agentic AI Protection with Compliance Reporting and Endpoint Protection": {"s": "Radware's update to its Agentic AI Protection product enhances AI governance and compliance capabilities, directly competing with F5's AI security offerings. This move underscores the importance of AI compliance and endpoint protection, areas where F5's AI Guardrails can provide competitive differentiation.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Radware's enhancement of its AI Protection product with compliance and endpoint protection features highlights the growing importance of AI governance and security. This development directly challenges F5's AI security initiatives, particularly in compliance and endpoint protection.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 AI Guardrails<\/li>\n<li>F5 Distributed Cloud<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize the strengths of its AI Guardrails in compliance and governance, highlighting its alignment with industry standards. Additionally, F5 should consider expanding endpoint protection capabilities to better compete with Radware's offerings.<\/p>", "c": "AI Security"}};
+  var CAT_COLORS = {"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
+  var CAT_PRIORITY = {"Platforms": 1, "AI Security": 2, "AI Data Delivery": 3, "Application Delivery": 4, "Application Security": 5};
+  var injecting = false;
+
+  function catColor(cat) { return CAT_COLORS[cat] || "#555"; }
+  function catPriority(cat) { return CAT_PRIORITY[cat] !== undefined ? CAT_PRIORITY[cat] : 99; }
+
+  function buildF5Wrap(title, data) {
+    var wrap = document.createElement("div");
+    wrap.className = "f5-wrap";
+
+    var badge = document.createElement("span");
+    badge.className = "f5-badge";
+    badge.setAttribute("data-f5-toggle", "1");
+    badge.textContent = "\u26A0 Why F5 Cares";
+
+    var pill = document.createElement("span");
+    pill.className = "f5-cat-pill";
+    pill.style.background = catColor(data.c);
+    pill.textContent = data.c;
+
+    var fullLink = document.createElement("span");
+    fullLink.className = "f5-full-link";
+    fullLink.setAttribute("data-f5-toggle", "1");
+    fullLink.textContent = "Read Full Analysis \u2192";
+
+    var summaryLine = document.createElement("div");
+    summaryLine.className = "f5-summary-line";
+    summaryLine.textContent = data.s;
+
+    var detail = document.createElement("div");
+    detail.className = "f5-detail";
+    detail.innerHTML = data.d;
+
+    var catBadgeInDetail = document.createElement("div");
+    catBadgeInDetail.className = "f5-cat-pill";
+    catBadgeInDetail.style.background = catColor(data.c);
+    catBadgeInDetail.style.marginLeft = "0";
+    catBadgeInDetail.style.marginBottom = "8px";
+    catBadgeInDetail.textContent = data.c;
+    detail.insertBefore(catBadgeInDetail, detail.firstChild);
+
+    function toggle() {
+      var isOpen = detail.classList.contains("open");
+      if (isOpen) {
+        detail.classList.remove("open");
+        fullLink.textContent = "Read Full Analysis \u2192";
+      } else {
+        detail.classList.add("open");
+        fullLink.textContent = "Hide Full Analysis \u2190";
+      }
+    }
+    badge.onclick = toggle;
+    fullLink.onclick = toggle;
+
+    wrap.appendChild(badge);
+    wrap.appendChild(pill);
+    wrap.appendChild(fullLink);
+    wrap.appendChild(summaryLine);
+    wrap.appendChild(detail);
+    return wrap;
+  }
+
+  function injectF5() {
+    if (injecting) return;
+    injecting = true;
+    try {
+      var cards = document.querySelectorAll(".ann-card");
+      if (!cards || cards.length === 0) { injecting = false; return; }
+
+      cards.forEach(function(card) {
+        if (card.querySelector(".f5-wrap")) return;
+        var titleEl = card.querySelector(".ann-title");
+        if (!titleEl) return;
+        var title = titleEl.textContent.trim();
+        var data = F5D[title];
+        if (!data) return;
+        var wrap = buildF5Wrap(title, data);
+        card.appendChild(wrap);
+      });
+
+      var container = null;
+      var firstCard = cards[0];
+      if (firstCard && firstCard.parentElement) container = firstCard.parentElement;
+
+      if (container) {
+        var currentCards = Array.prototype.slice.call(container.querySelectorAll(".ann-card"));
+        var withPriority = currentCards.map(function(el, idx) {
+          var titleEl = el.querySelector(".ann-title");
+          var title = titleEl ? titleEl.textContent.trim() : "";
+          var data = F5D[title];
+          var pr = data ? catPriority(data.c) : 99;
+          return { el: el, pr: pr, idx: idx };
+        });
+        var sorted = withPriority.slice().sort(function(a, b) {
+          if (a.pr !== b.pr) return a.pr - b.pr;
+          return a.idx - b.idx;
+        });
+        var alreadySorted = true;
+        for (var i = 0; i < sorted.length; i++) {
+          if (sorted[i].el !== currentCards[i]) { alreadySorted = false; break; }
+        }
+        if (!alreadySorted) {
+          sorted.forEach(function(item) { container.appendChild(item.el); });
+        }
+      }
+    } finally {
+      setTimeout(function() { injecting = false; }, 0);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(injectF5, 300);
+  });
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    setTimeout(injectF5, 300);
+  }
+
+  var observer = new MutationObserver(function(mutations) {
+    if (injecting) return;
+    setTimeout(injectF5, 50);
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script>
+
+<div id="f5-footer">
+  <div><strong style="color:#d7dae1;">F5 Competitive Intelligence</strong> — "Why F5 Cares" analysis generated for each announcement, categorized by F5 strategic priority.</div>
+  <div class="f5-legend">
+    <span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6;"></span>1. Platforms</span>
+    <span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE;"></span>2. AI Security</span>
+    <span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B;"></span>3. AI Data Delivery</span>
+    <span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100;"></span>4. Application Delivery</span>
+    <span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828;"></span>5. Application Security</span>
+  </div>
+</div>
+
 </body>
 </html>
