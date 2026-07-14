@@ -230,5 +230,156 @@ function showCategory(category){clearStatActive();
 showOverview();
 })();
 </script>
+
+<style>
+.f5-wrap{margin-top:14px;padding-top:12px;border-top:1px dashed #333a47}
+.f5-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(198,40,40,.18);color:#ff5a63;font-size:12px;font-weight:700;padding:4px 12px;border-radius:12px;cursor:pointer;border:1px solid rgba(198,40,40,.35);user-select:none}
+.f5-badge:hover{background:rgba(198,40,40,.28)}
+.f5-cat-pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;margin-left:8px;color:#fff;vertical-align:middle}
+.f5-full-link{display:inline-flex;align-items:center;gap:4px;margin-left:10px;font-size:12px;font-weight:600;color:#4fc3f7;text-decoration:none;cursor:pointer;background:none;border:none;padding:0}
+.f5-full-link:hover{text-decoration:underline}
+.f5-summary{margin-top:8px;color:#d7dae1;font-size:13px;line-height:1.6}
+.f5-detail{display:none;margin-top:10px;padding:14px 16px;background:#20242e;border:1px solid #333a47;border-radius:8px;color:#d7dae1;font-size:13px;line-height:1.65}
+.f5-detail.f5-open{display:block}
+.f5-detail h4{color:#ff5a63;font-size:13px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.03em}
+.f5-detail h4:first-child{margin-top:0}
+.f5-detail p{margin:6px 0}
+.f5-detail ul{margin:6px 0 10px 18px;padding:0}
+.f5-detail li{margin-bottom:4px}
+.f5-detail strong{color:#fff}
+#f5-footer{margin-top:24px;padding:16px 20px;background:#1a1d27;border-top:1px solid #333a47;border-radius:8px;font-size:12px;color:#9aa0ab}
+#f5-footer .f5-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+#f5-footer .f5-legend-item{display:inline-flex;align-items:center;gap:6px}
+#f5-footer .f5-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+</style>
+
+<div id="f5-footer"><strong style="color:#d7dae1">F5 Competitive Intelligence — Strategic Category Legend</strong><div class="f5-legend"><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6"></span>Platforms</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE"></span>AI Security</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B"></span>AI Data Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100"></span>Application Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828"></span>Application Security</span></div></div>
+
+<script>
+(function(){
+"use strict";
+var F5D = {"Lumen Expands Managed Detection & Response for Palo Alto Cortex XSIAM": {"s": "Lumen has expanded its Managed Detection and Response service using Palo Alto Networks' Cortex XSIAM, integrating AI-driven automation and network-level threat intelligence. This partnership aims to enhance threat detection and response capabilities, addressing alert fatigue and supporting SOC models to help enterprises manage security operations amidst skill shortages. This development is relevant to F5 as it highlights the growing trend of integrating AI and network intelligence in security solutions, which could impact F5's positioning in the security market.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>The expansion of Lumen's Managed Detection and Response service using Palo Alto's Cortex XSIAM underscores a significant trend towards integrating AI-driven automation with network-level threat intelligence. This trend could influence market expectations and customer demands for security solutions, potentially impacting F5's competitive positioning in the security landscape.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>F5's BIG-IP Advanced Firewall Manager and other security-focused offerings could be impacted by this development. As the market shifts towards AI-enhanced security solutions, F5 may need to evaluate how its products can incorporate similar capabilities to remain competitive and meet evolving customer needs.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider enhancing its AI capabilities in its security products, possibly through partnerships or acquisitions, to match the advanced features offered by competitors like Palo Alto Networks. Additionally, F5 could emphasize its existing strengths in application delivery and security to differentiate its offerings in the market.<\/p>", "c": "AI Security"}, "Cisco Files WARN Notices Cutting 471 California Jobs": {"s": "Cisco has announced a workforce reduction impacting 471 employees across three California locations, effective July 13, 2026. This move is part of a larger restructuring effort involving approximately 6,370 workers nationwide, as Cisco refocuses on AI and software priorities. This development is significant for F5 as it highlights Cisco's strategic pivot towards AI, potentially affecting competitive dynamics in the networking and security sectors where F5 operates.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cisco's restructuring and focus on AI and software indicate a strategic shift that could impact competitive dynamics in the networking and security sectors. As Cisco reallocates resources towards AI, F5 should be vigilant about potential advancements in AI-driven networking solutions that could challenge F5's offerings. This restructuring might also lead to changes in Cisco's product strategies, affecting market competition.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The restructuring could impact F5's Platforms category, as Cisco's focus on AI and software might lead to integrated solutions that compete with F5's multi-product platform consolidation efforts. Additionally, Cisco's pivot could affect F5's Application Delivery and Security products if Cisco enhances its AI capabilities in these areas, potentially offering more integrated and advanced solutions.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should monitor Cisco's strategic shifts closely, particularly in AI and software development. Investing in AI-driven innovations and enhancing F5's integrated platform offerings could counteract Cisco's competitive moves. F5 should also consider strategic partnerships or acquisitions to bolster its AI capabilities and ensure its product offerings remain competitive in the evolving market landscape.<\/p>", "c": "Platforms"}, "Dicker Data Launches Consumption-Based CrowdStrike Falcon for MSSPs": {"s": "Dicker Data has launched a consumption-based model for CrowdStrike Falcon, enabling MSPs and MSSPs in Australia and New Zealand to offer cybersecurity services on a flexible monthly basis. This initiative aims to lower entry barriers for managed cybersecurity services, targeting SMB and mid-market customers with enterprise-grade protection. The partnership expands CrowdStrike's channel reach and strengthens its presence in the region, potentially impacting competitors like F5 in the cybersecurity market.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>F5 should care about this announcement because it signifies a strategic expansion by CrowdStrike into the managed security services market through a flexible consumption model. This approach could attract a significant number of SMB and mid-market customers, which are also key targets for F5's security and cloud services. The expansion of CrowdStrike's channel reach in Australia and New Zealand could lead to increased competition for F5 in these regions.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The F5 Distributed Cloud Services and its security offerings, such as DDoS mitigation and application security solutions, could be impacted by this announcement. As CrowdStrike expands its presence in the managed security services space, F5's offerings in these areas might face increased competition, especially in the SMB and mid-market segments where flexible consumption models are appealing.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider enhancing its channel partnerships and exploring flexible consumption-based models to remain competitive. Additionally, F5 could emphasize its integrated security and application delivery solutions, highlighting the benefits of a unified platform approach. Strengthening relationships with existing partners and expanding its presence in the Australia and New Zealand markets could also help mitigate competitive pressures from CrowdStrike's expansion.<\/p>", "c": "Application Security"}, "Westcon-Comstor to Distribute Zscaler Zero Trust Exchange in Hong Kong and Taiwan": {"s": "Zscaler has partnered with Westcon-Comstor to distribute its Zero Trust Exchange platform in Hong Kong and Taiwan, expanding its reach beyond EMEA, ASEAN, and ANZ. This partnership aims to enhance regional channel support and enable enterprises to adopt Zero Trust architectures for secure digital transformation, remote access, and multi-cloud connectivity. The move is significant for F5 as it highlights the growing demand for integrated security solutions in these regions, potentially impacting F5's market presence and competitive positioning in Zero Trust security offerings.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>F5 should care about this announcement because it underscores the increasing adoption of Zero Trust architectures, a key area where F5 has been developing solutions. The expansion of Zscaler's distribution network into Hong Kong and Taiwan could influence market dynamics and customer preferences in these regions, potentially affecting F5's competitive positioning.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The announcement primarily impacts F5's Zero Trust security solutions, as detailed in F5's Zero Trust Architecture solutions and glossary. F5's efforts in providing secure application delivery and multi-cloud connectivity could face increased competition from Zscaler's cloud-native Zero Trust Exchange platform.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should enhance its Zero Trust offerings by strengthening partnerships and expanding its distribution network in Asia-Pacific regions. Additionally, F5 could focus on highlighting the unique integration capabilities of its Zero Trust solutions with its broader application delivery and security portfolio to differentiate from Zscaler's offerings.<\/p>", "c": "Application Security"}, "AWS Security Hub Adds Cross-Cloud Network Scanning": {"s": "AWS has launched a new Network Scanning feature in its Security Hub, enabling detection of exposed ports and services across AWS and Azure, enhancing cross-cloud security management for enterprises. This feature integrates seamlessly into Security Hub's workflow and is available at no extra cost, promoting a unified security posture in multi-cloud environments. This development is significant for F5 as it highlights AWS's push towards integrated multi-cloud security solutions, potentially impacting F5's positioning in the multi-cloud security space.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>AWS's introduction of cross-cloud network scanning in Security Hub represents a strategic move towards consolidating security management across multiple cloud environments. This aligns with the growing trend of enterprises adopting multi-cloud strategies, which is a key area of focus for F5. As AWS enhances its multi-cloud security capabilities, F5 must evaluate its competitive positioning and ensure its solutions remain compelling in this evolving landscape.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The F5 products most impacted by this AWS announcement are those related to multi-cloud security and integration, such as the F5 WAF and F5 Distributed Cloud services. These products are crucial for providing security and connectivity across diverse cloud environments. AWS's advancements in cross-cloud security management could influence customer preferences and expectations, potentially affecting F5's market share in this domain.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider strengthening its multi-cloud security offerings by enhancing integration capabilities with major cloud providers like AWS and Azure. Developing partnerships or collaborations to improve interoperability and visibility across cloud environments could be beneficial. Additionally, F5 should emphasize the unique value propositions of its solutions, such as advanced threat protection and centralized security management, to differentiate from AWS's offerings and maintain competitive advantage.<\/p>", "c": "Application Security"}, "OpenAI GPT-5.6 Sol, Terra, and Luna Now Generally Available on Amazon Bedrock": {"s": "AWS has announced the general availability of OpenAI's GPT-5.6 models—Sol, Terra, and Luna—on Amazon Bedrock, expanding their AI data delivery capabilities. These models are available in various US regions and are integrated into AWS's high-performance, secure inference engine. This launch positions AWS as a strong competitor in AI infrastructure, with pricing aligned to OpenAI's rates and usage contributing to existing AWS commitments. This development is relevant to F5 as it underscores the growing importance of AI data delivery solutions and the need for secure, efficient AI infrastructure.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>AWS's launch of OpenAI's GPT-5.6 models on Amazon Bedrock highlights the increasing demand for robust AI data delivery solutions. As AI workloads become more prevalent, the need for secure, efficient infrastructure to support these models grows. F5 should be attentive to this trend, as it aligns with its strategic focus on AI data delivery and security, providing opportunities to enhance its offerings in this space.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>This announcement impacts F5's AI Data Delivery and Application Security products. F5's solutions like BIG-IP and F5 Distributed Cloud can play a crucial role in optimizing AI traffic and securing AI workloads. The emphasis on secure inference engines by AWS suggests a growing market for F5's security solutions, particularly in protecting AI APIs and ensuring efficient data flow.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider strengthening its AI data delivery capabilities by enhancing integration with AI platforms like AWS Bedrock. Developing partnerships or interoperability with such platforms can position F5 as a key player in AI infrastructure. Additionally, F5 should continue to innovate in AI security, ensuring its solutions address the unique challenges of AI workloads, such as prompt injection and API security, to maintain competitiveness in this evolving market.<\/p>", "c": "AI Data Delivery"}, "Akamai Named Strategic Security Partner for WWT's ARMOR AI Framework": {"s": "Akamai has been named the strategic security partner for World Wide Technology's ARMOR AI Framework, integrating its Guardicore segmentation with NVIDIA BlueField DPUs to enhance security in AI factory environments. This partnership focuses on offloading security to BlueField for efficient isolation, securing AI data lakes and API access, and providing comprehensive defense against volumetric attacks, all while maintaining AI performance. This development is relevant to F5 as it highlights a competitive move in AI data delivery and security, areas where F5 is also actively developing solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>F5 should care about this announcement because it underscores a significant competitive move by Akamai in the AI data delivery and security space, which is a strategic area for F5. Akamai's integration with NVIDIA BlueField DPUs for AI factory environments represents a direct challenge to F5's offerings in AI infrastructure delivery and security. This partnership could influence market dynamics and customer expectations regarding AI security and performance.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The announcement potentially impacts F5's AI security and data delivery solutions, particularly those involving AI inference networking and API security. F5's BIG-IP and Distributed Cloud services, which focus on securing and optimizing AI workloads, may face increased competition from Akamai's enhanced capabilities in AI data lake security and volumetric attack defense. This could affect F5's positioning in the AI infrastructure market.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should enhance its AI security and data delivery offerings by emphasizing the unique capabilities of its BIG-IP and Distributed Cloud solutions. F5 could consider partnerships or integrations with leading hardware providers like NVIDIA to strengthen its position in AI factory environments. Additionally, F5 should highlight its comprehensive approach to AI security, focusing on its ability to secure AI workloads without compromising performance, to differentiate from Akamai's offerings.<\/p>", "c": "AI Security"}, "Check Point Research: AI Has Crossed from Assistant to Operator": {"s": "Check Point Software's 2026 AI Security Report highlights a significant shift in AI's role from assisting to autonomously executing cyberattacks, as evidenced by a breach of nine Mexican government agencies. The report notes a fivefold increase in malicious prompt-injection payloads and a reduced vulnerability window, urging the need for rapid AI security measures. This development is highly relevant to F5's focus on AI security solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>The Check Point report underscores the growing threat of AI-driven cyberattacks, a domain where F5 is actively developing solutions. As AI systems become more autonomous, the need for robust AI security measures becomes critical. F5's expertise in application security and AI governance positions it to address these emerging threats effectively.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>F5's AI security offerings, including NGINX and F5 WAF, are directly impacted by the rise in AI-driven cyber threats. These products must evolve to address the increasing sophistication of AI attacks, such as prompt injection and autonomous execution, to maintain their competitive edge in the market.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should enhance its AI security capabilities by integrating advanced threat detection and response features into its existing products. Collaborating with AI research entities and expanding its AI governance frameworks will help F5 stay ahead of emerging threats. Additionally, F5 should emphasize its AI security solutions in marketing efforts to capitalize on growing market demand.<\/p>", "c": "AI Security"}, "Lasso Releases Open-Source MCP Gateway for Securing Agentic Workflows": {"s": "Lasso Security has launched an open-source MCP Gateway, a security proxy and orchestrator for the Model Context Protocol, aimed at securing agentic workflows in the GenAI ecosystem. This enterprise-ready solution offers guardrails, tracking, and visibility across MCP integrations, with real-time policy enforcement to prevent data exposure and injection attacks. Available on GitHub, it seeks to promote secure MCP adoption as its usage grows in enterprises, posing a competitive challenge to F5's AI security offerings.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Lasso Security's release of the MCP Gateway directly targets the AI security domain, an area where F5 is actively expanding its capabilities. This product introduces a new layer of competition in securing AI workloads, particularly in the GenAI space, which is a growing market. As enterprises increasingly adopt AI technologies, the demand for robust security solutions like the MCP Gateway will rise, potentially impacting F5's market share and positioning.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The announcement primarily impacts F5's AI Security offerings, including solutions related to securing AI workloads and API security. Products such as the F5 WAF and NGINX, which are part of F5's broader security suite, may face increased competition from Lasso's new offering. Additionally, F5's efforts in AI governance and prompt injection defense could be directly challenged by the capabilities of the MCP Gateway.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider enhancing its AI security portfolio by integrating similar open-source capabilities to provide flexibility and transparency to its customers. Collaborating with or acquiring companies that specialize in MCP-related security could strengthen F5's position. Additionally, F5 should emphasize the unique strengths of its existing solutions, such as comprehensive security coverage and integration with other F5 products, to differentiate from Lasso's offerings.<\/p>", "c": "AI Security"}, "Cloudflare Launches Precursor: One-Click Behavioral Bot Defense": {"s": "Cloudflare has launched Precursor, a behavioral bot defense solution that analyzes browser sessions in real time to detect and mitigate automated bot activity. This edge-based solution replaces traditional CAPTCHAs with session-level analysis and requires only a single script injection to deploy. With privacy in mind, it logs aggregate behavioral patterns rather than individual keystrokes. This launch is significant as automated bot traffic now constitutes 57% of web requests, posing a challenge to web security. This development is relevant to F5's application security offerings, particularly in bot management.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cloudflare's launch of Precursor underscores the growing importance of advanced bot management solutions in application security. As automated bot traffic surpasses human activity, F5 must ensure its bot defense capabilities remain competitive. Cloudflare's focus on privacy and ease of deployment highlights trends that F5 should consider integrating into its own offerings to maintain market relevance and address evolving customer needs.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>F5's bot management and application security products, such as F5 WAF and Advanced Bot Protection, are directly impacted by Cloudflare's Precursor. These products must evolve to incorporate similar real-time behavioral analysis and privacy-focused features to effectively compete. Additionally, F5's Distributed Cloud Services could benefit from enhanced bot defense capabilities to strengthen its multi-cloud security posture.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should prioritize enhancing its bot management solutions by incorporating real-time behavioral analysis and privacy-centric features. Investing in R&D to develop a comparable solution that can be easily deployed without code changes would be advantageous. Furthermore, F5 should leverage its existing research, such as the \"2025 Advanced Persistent Bots Report,\" to inform product development and marketing strategies, emphasizing its expertise in combating sophisticated bot threats.<\/p>", "c": "Application Security"}, "Barracuda Earns 2026 CRN Tech Innovator and MES Midmarket 100 Recognition": {"s": "Barracuda Networks has been recognized in the 2026 CRN Tech Innovator Awards for its AI-powered email security solution and named to the 2026 MES Midmarket 100. These accolades highlight Barracuda's innovation in providing accessible security solutions to midsize businesses, reinforcing its position in the application security market. This recognition is relevant to F5 as it underscores the competitive landscape in application security, particularly in AI-driven threat detection and prevention solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Barracuda's recognition in the application security space, particularly for its AI-powered email protection, highlights the competitive pressure in the market where F5 also operates. As F5 continues to innovate in application security, understanding competitors' advancements and market positioning is crucial. This announcement emphasizes the importance of AI in security solutions, an area where F5 is also investing.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>F5's application security products, such as the F5 WAF and API security solutions, are directly impacted by Barracuda's advancements. The emphasis on AI-powered threat detection aligns with F5's strategic focus on integrating AI into its security offerings. This recognition of Barracuda's capabilities could influence customer perceptions and market dynamics.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should highlight its own AI-driven security innovations and successes, leveraging its recent accolades in AI and application security. Engaging in targeted marketing campaigns that emphasize the unique strengths and comprehensive nature of F5's security solutions can help differentiate from competitors like Barracuda. Additionally, F5 should continue to invest in AI capabilities to maintain a competitive edge.<\/p>", "c": "Application Security"}};
+var F5_CAT_COLORS = {"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
+var F5_CAT_PRIORITY = {"Platforms": 1, "AI Security": 2, "AI Data Delivery": 3, "Application Delivery": 4, "Application Security": 5};
+var injecting = false;
+
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
+
+function toggleDetail(wrap){
+  var detail = wrap.querySelector('.f5-detail');
+  var link = wrap.querySelector('.f5-full-link');
+  var badge = wrap.querySelector('.f5-badge');
+  if(!detail) return;
+  var open = detail.classList.toggle('f5-open');
+  if(link) link.textContent = open ? 'Hide Full Analysis' : 'Read Full Analysis \u2192';
+  if(badge) badge.setAttribute('data-open', open ? '1' : '0');
+}
+
+function buildF5Wrap(entry){
+  var wrap = document.createElement('div');
+  wrap.className = 'f5-wrap';
+  var color = F5_CAT_COLORS[entry.c] || '#555';
+  var badge = document.createElement('span');
+  badge.className = 'f5-badge';
+  badge.textContent = '\u26A0 Why F5 Cares';
+  badge.setAttribute('data-open', '0');
+
+  var pill = document.createElement('span');
+  pill.className = 'f5-cat-pill';
+  pill.style.background = color;
+  pill.textContent = entry.c || '';
+
+  var link = document.createElement('button');
+  link.type = 'button';
+  link.className = 'f5-full-link';
+  link.textContent = 'Read Full Analysis \u2192';
+
+  var summary = document.createElement('div');
+  summary.className = 'f5-summary';
+  summary.textContent = entry.s || '';
+
+  var detail = document.createElement('div');
+  detail.className = 'f5-detail';
+  detail.innerHTML = entry.d || '';
+
+  wrap.appendChild(badge);
+  wrap.appendChild(pill);
+  wrap.appendChild(link);
+  wrap.appendChild(summary);
+  wrap.appendChild(detail);
+
+  badge.addEventListener('click', function(){ toggleDetail(wrap); });
+  link.addEventListener('click', function(){ toggleDetail(wrap); });
+
+  return wrap;
+}
+
+function desiredOrderIndex(card){
+  var titleEl = card.querySelector('.ann-title');
+  var title = titleEl ? titleEl.textContent.trim() : '';
+  var entry = F5D[title];
+  var cat = entry ? entry.c : null;
+  var pri = cat && F5_CAT_PRIORITY[cat] ? F5_CAT_PRIORITY[cat] : 99;
+  return pri;
+}
+
+function injectF5(){
+  if(injecting) return;
+  injecting = true;
+  try{
+    var cards = document.querySelectorAll('.ann-card');
+    if(!cards || cards.length === 0){ return; }
+
+    // Inject F5 analysis wrap into each card missing one.
+    for(var i=0;i<cards.length;i++){
+      var card = cards[i];
+      if(card.querySelector('.f5-wrap')) continue;
+      var titleEl = card.querySelector('.ann-title');
+      if(!titleEl) continue;
+      var title = titleEl.textContent.trim();
+      var entry = F5D[title];
+      if(!entry) continue;
+      var wrap = buildF5Wrap(entry);
+      card.appendChild(wrap);
+    }
+
+    // Re-sort cards by category priority, but ONLY if the order actually
+    // needs to change -- appendChild on an already-correctly-positioned
+    // node still emits a mutation, which would re-trigger this function
+    // via the MutationObserver below and freeze the page (2026-07-02 bug).
+    var container = cards[0] ? cards[0].parentElement : null;
+    if(container){
+      var cardArr = Array.prototype.slice.call(container.querySelectorAll('.ann-card'));
+      var sorted = cardArr.slice().sort(function(a,b){
+        return desiredOrderIndex(a) - desiredOrderIndex(b);
+      });
+      var alreadySorted = true;
+      for(var k=0;k<cardArr.length;k++){
+        if(cardArr[k] !== sorted[k]){ alreadySorted = false; break; }
+      }
+      if(!alreadySorted){
+        for(var j=0;j<sorted.length;j++){
+          container.appendChild(sorted[j]);
+        }
+      }
+    }
+  } finally {
+    setTimeout(function(){ injecting = false; }, 0);
+  }
+}
+
+var mo = new MutationObserver(function(){
+  injectF5();
+});
+mo.observe(document.body, {childList:true, subtree:true});
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(injectF5, 300); });
+} else {
+  setTimeout(injectF5, 300);
+}
+})();
+</script>
+
 </body>
 </html>
