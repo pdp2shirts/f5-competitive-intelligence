@@ -15,8 +15,6 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .header-left p{color:var(--muted);font-size:14px}
 .header-right{display:flex;gap:10px}
 .export-btn{background:var(--accent);color:#000;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
-.pdf-btn{background:var(--card);color:var(--text);border:1px solid var(--border);padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit;text-decoration:none;margin-right:10px}
-.pdf-btn:hover{border-color:var(--accent);color:var(--accent)}
 .export-btn:hover{opacity:.9}
 .stats-bar{display:flex;gap:20px;padding:20px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 24px;min-width:150px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s}
@@ -76,8 +74,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
     <p><a href="../index.html" style="color:var(--accent);text-decoration:none;font-weight:600">&larr; Back to Hub</a> &middot; Daily competitive intelligence covering 22 F5 competitors</p>
   </div>
   <div class="header-right">
-    <a class="pdf-btn" href="../daily_pdf/20260713-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    <a class="pdf-btn" href="../daily_pdf/20260713-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(118,185,0,.13);border:1px solid var(--accent);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;margin-right:8px;transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       View as PDF
     </a>
     <button class="export-btn" id="exportBtn">
@@ -88,9 +86,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 </div>
 <div class="stats-bar">
   <div class="stat-card" data-action="stat-tracked"><div class="num">22</div><div class="label">Competitors Tracked</div><div class="hint">&#9654; Click to view</div></div>
-  <div class="stat-card" data-action="stat-ann"><div class="num">4</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
-  <div class="stat-card" data-action="stat-active"><div class="num">4</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
-  <div class="stat-card" data-action="stat-cats"><div class="num">3</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-ann"><div class="num">11</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
+  <div class="stat-card" data-action="stat-active"><div class="num">10</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-cats"><div class="num">4</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
 </div>
 <div class="main">
   <div class="charts-panel">
@@ -102,15 +100,22 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 <script>
 (function(){
 "use strict";
-var DATA={"Palo Alto Networks": {"category": "Platforms", "announcements": []}, "Fortinet": {"category": "Platforms", "announcements": []}, "Cisco": {"category": "Platforms", "announcements": []}, "CrowdStrike": {"category": "Platforms", "announcements": []}, "Zscaler": {"category": "Platforms", "announcements": [{"title": "Zscaler and NVIDIA Partner to Deliver Gen AI-Powered Zero Trust", "summary": "Zscaler announced a collaboration with NVIDIA to accelerate AI-powered Zero Trust, using NVIDIA NeMo Guardrails, Morpheus, and NIM inference microservices to enhance its ZDX Copilot digital-experience assistant. The integration adds real-time threat detection and streamlined IT operations across network, device, and application performance, with Morpheus processing high-volume streaming security data and NIM enabling scalable local LLM deployment. The partnership aims to strengthen proactive defenses and simplify network operations for enterprises.", "type": "Partnership", "date": "2026-07-10", "source_url": "https://www.sipoch.com/en/article/300330018979527"}]}, "Check Point Software": {"category": "Platforms", "announcements": []}, "Cloudflare": {"category": "Application Security", "announcements": [{"title": "Cloudflare Introduces Precursor: One-Click Behavioral Bot Defense", "summary": "Cloudflare launched Precursor, a next-generation behavioral bot defense that runs continuously at Cloudflare's edge and inside browsers to analyze user sessions in real time. Instead of per-request CAPTCHAs, Precursor validates human plausibility across an entire session using signals like typing cadence, mouse movement, and scrolling rhythm, without recording exact inputs. It offers one-click, zero-code setup via an injected script and complements Bot Management and Turnstile. Cloudflare notes bots now generate roughly 57% of web traffic, making static checks increasingly ineffective.", "type": "Product Launch", "date": "2026-07-13", "source_url": "https://www.cloudflare.com/press/press-releases/2026/cloudflare-introduces-precursor-one-click-behavioral-defense-against-modern-bots/"}]}, "AWS": {"category": "Platforms", "announcements": []}, "HiddenLayer": {"category": "AI Security", "announcements": []}, "Lasso Security": {"category": "AI Security", "announcements": []}, "Operant AI": {"category": "AI Security", "announcements": []}, "Pillar Security": {"category": "AI Security", "announcements": []}, "Mindgard": {"category": "AI Security", "announcements": []}, "Akamai": {"category": "Application Delivery (ADCs)", "announcements": []}, "Fastly": {"category": "Application Delivery (ADCs)", "announcements": []}, "Citrix (NetScaler)": {"category": "AI Data Delivery", "announcements": [{"title": "Citrix Adds MCP Gateway to NetScaler for Unified AI Traffic Governance", "summary": "Citrix expanded NetScaler with MCP Gateway capabilities to securely route, govern, and observe enterprise AI agent traffic to backend Model Context Protocol servers from a single platform. Enhanced NetScaler AI Gateway features add content-switching-based model routing and token-level usage tracking for LLM traffic, giving visibility into input/output tokens by team, user, or application. A single-pass architecture handles authentication, routing, security, rate limiting, and observability in one data-path pass to reduce latency. The enhancements are included at no extra cost for Citrix Platform License and Universal Hybrid Multi-Cloud customers.", "type": "Product Update", "date": "2026-07-10", "source_url": "https://www.citrix.com/news/announcements/july-2026/citrix-brings-unified-governance-to-llm-and-agentic-ai-traffic-with-netscaler-mcp-gateway-capabilities.html"}]}, "A10 Networks": {"category": "Application Delivery (ADCs)", "announcements": []}, "Arista Networks": {"category": "AI Data Delivery", "announcements": []}, "HPE / Juniper Networks": {"category": "AI Data Delivery", "announcements": []}, "Radware": {"category": "Application Security", "announcements": []}, "Barracuda Networks": {"category": "Application Security", "announcements": []}, "Imperva (Thales)": {"category": "Application Security", "announcements": [{"title": "Imperva Cloud Application Security July Release Adds AI Monitoring Dashboard", "summary": "Imperva's July 12 Cloud Application Security release introduced a new AI Application Security Monitoring Dashboard providing high-level threat visibility, token usage, and policy enforcement. The update also adds Cloud WAF wildcard domain reuse across sites in an account, the ability to export top traffic analytics in DDoS event notifications, ASN organization names in the Account Takeover dashboard, and API Security changes that exclude OPTIONS and HEAD requests from Schema Protection by default. A new Imperva Terraform Provider (v3.39.0) and several recently mitigated CVEs round out the release.", "type": "Product Update", "date": "2026-07-12", "source_url": "https://docs-cybersec.thalesgroup.com/bundle/cloud-application-security/page/release-notes/2026-07-12.htm"}]}};
-var catColors={"Platforms":"#76b900","AI Security":"#ab63fa","AI Data Delivery":"#00b4d8","Application Delivery (ADCs)":"#636efa","Application Security":"#ff6692","ADC / Load Balancing":"#636efa","CDN / Edge / App Delivery":"#ef553b","Network Security / Firewall":"#00cc96","Zero Trust / Cloud Security":"#ab63fa","Networking Infrastructure":"#ffa15a","Cloud Platform / Infrastructure":"#19d3f3","WAF / DDoS Protection":"#ff6692"};
+var DATA={"Palo Alto Networks": {"category": "Platforms", "announcements": [{"title": "Lumen Expands Managed Detection & Response for Palo Alto Cortex XSIAM", "summary": "Lumen expanded its Lumen Defender Advanced Managed Detection and Response (AMDR) service built on Palo Alto Networks Cortex XSIAM. The offering fuses Black Lotus Labs network-level threat intelligence with XSIAM's AI-driven automation, SmartGrouping alert clustering, and agentic investigation workflows. It aims to move the first line of defense back to the network, reduce alert fatigue, and speed threat detection and response, supporting both co-managed and fully managed SOC models to help enterprises scale operations despite security skills shortages.", "type": "Partnership", "date": "2026-07-13", "source_url": "https://ir.lumen.com/news/news-details/2026/Lumen-Expands-Managed-Detection-and-Response-Services-for-Palo-Alto-Networks-to-Strengthen-Cyber-Defense/default.aspx"}]}, "Cisco": {"category": "Platforms", "announcements": [{"title": "Cisco Files WARN Notices Cutting 471 California Jobs", "summary": "Cisco moved forward with a workforce reduction affecting 471 employees across three California locations effective July 13, 2026, with WARN notices filed in June. Cuts span San Jose (236), Milpitas (154), and San Francisco (81). The reduction is part of Cisco's broader restructuring activity totaling roughly 6,370 workers nationwide across 21 WARN notices, signaling continued cost discipline as the networking giant reshapes its organization around AI and software priorities.", "type": "Corporate News", "date": "2026-07-13", "source_url": "https://www.warntracker.com/layoff/cisco-2026-07-13"}]}, "CrowdStrike": {"category": "Platforms", "announcements": [{"title": "Dicker Data Launches Consumption-Based CrowdStrike Falcon for MSSPs", "summary": "Dicker Data expanded its CrowdStrike partnership with a distributor-led MSSP aggregation model across Australia and New Zealand, letting MSPs and MSSPs offer CrowdStrike Falcon on a flexible monthly consumption basis. The program lowers entry barriers to managed cybersecurity services while letting partners retain customer relationships. It targets SMB and mid-market customers with unified, enterprise-grade protection delivered as a service, extending CrowdStrike's channel reach in the region.", "type": "Partnership", "date": "2026-07-13", "source_url": "https://www.techpartner.news/news/dicker-data-offers-mssps-consumption-based-crowdstrike-falcon-services-627325"}]}, "Zscaler": {"category": "Platforms", "announcements": [{"title": "Westcon-Comstor to Distribute Zscaler Zero Trust Exchange in Hong Kong and Taiwan", "summary": "Zscaler announced a regional distribution partnership with Westcon-Comstor to deliver its Zero Trust Exchange platform across Hong Kong and Taiwan. The agreement extends Westcon's Zscaler distribution role beyond EMEA, ASEAN, and ANZ, enabling partners to provide cloud-native Zero Trust security for secure digital transformation, remote access, data protection, and multi-cloud connectivity. The move strengthens regional channel enablement and support for enterprises adopting Zero Trust architectures.", "type": "Partnership", "date": "2026-07-13", "source_url": "https://www.crnasia.com/news/2026/distributor/westcon-comstor-to-distribute-zscaler-zero-trust-security-so"}]}, "AWS": {"category": "Platforms", "announcements": [{"title": "AWS Security Hub Adds Cross-Cloud Network Scanning", "summary": "AWS introduced Network Scanning in Security Hub to detect resources reachable from the public internet, identifying exposed ports and services across both AWS and Azure. Findings integrate into Security Hub's workflow and can be enabled per account, per region, or organization-wide, with new customers getting it by default at no extra cost under Security Hub Essentials. The Azure integration expands unified, cross-cloud security posture management for enterprises operating in multi-cloud environments.", "type": "Product Launch", "date": "2026-07-13", "source_url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-at-one-year-network-scanning-in-security-hub-loom-for-aws-and-more-july-13-2026/"}]}, "AWS ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "OpenAI GPT-5.6 Sol, Terra, and Luna Now Generally Available on Amazon Bedrock", "summary": "AWS announced general availability of OpenAI's GPT-5.6 Sol, Terra, and Luna models on Amazon Bedrock. GPT-5.6 Sol is available in US East (N. Virginia, Ohio), while Terra and Luna add US West (Oregon). AWS positions Bedrock as a high-performance, secure inference engine offering improved intelligence and efficiency, with pricing matching OpenAI first-party rates and usage counting toward existing AWS commitments. Models are accessible via the Bedrock Console or Responses API.", "type": "Product Launch", "date": "2026-07-13", "source_url": "https://aws.amazon.com/blogs/machine-learning/openai-gpt-5-6-sol-terra-and-luna-are-now-generally-available-on-amazon-bedrock/"}]}, "Akamai ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "Akamai Named Strategic Security Partner for WWT's ARMOR AI Framework", "summary": "Akamai was named a strategic security partner for World Wide Technology's AI Readiness Model for Operational Resilience (ARMOR), integrating its software intelligence and Guardicore segmentation with NVIDIA BlueField DPUs to secure AI factory environments. Akamai's role spans three pillars: offloading security to BlueField for efficient isolation and faster ransomware containment, securing AI data lakes and API access, and delivering end-to-end defense against volumetric attacks, all without sacrificing AI training and inference performance.", "type": "Partnership", "date": "2026-07-13", "source_url": "https://www.channelinsider.com/ai/building-channel-revenue/akamai-chosen-as-wwt-security-partner/"}]}, "Check Point Software ~AI": {"category": "AI Security", "announcements": [{"title": "Check Point Research: AI Has Crossed from Assistant to Operator", "summary": "Check Point published its AI Security Report 2026, warning that AI has shifted from assisting attackers to autonomously executing cyberattacks. Researchers documented a breach of nine Mexican government agencies where AI tools generated 5,317 commands across 34 sessions. Malicious prompt-injection payloads surged roughly fivefold between March and May 2026, and the vulnerability window has collapsed from days to hours. The report urges defenders to govern AI usage, secure AI systems, and defend at machine speed.", "type": "Research Report", "date": "2026-07-13", "source_url": "https://www.checkpoint.com/press-releases/check-point-research-ai-has-crossed-from-assistant-to-operator-rewriting-the-rules-of-autonomous-ai-cyber-attack-and-defense/"}]}, "Lasso Security": {"category": "AI Security", "announcements": [{"title": "Lasso Releases Open-Source MCP Gateway for Securing Agentic Workflows", "summary": "Lasso Security unveiled an open-source MCP Gateway, a security-focused proxy and orchestrator for the Model Context Protocol designed to secure agentic workflows in the GenAI ecosystem. The enterprise-ready gateway provides agnostic guardrails, advanced tracking, and unified visibility across MCP integrations, with real-time policy enforcement to prevent sensitive data exposure, prompt injection, and command injection/RCE. Available on GitHub, it aims to accelerate secure adoption of MCP as usage expands across enterprises.", "type": "Product Launch", "date": "2026-07-13", "source_url": "https://www.globalsecuritymag.com/lasso-releases-open-source-security-gateway-for-mcp.html"}]}, "Cloudflare ~AS": {"category": "Application Security", "announcements": [{"title": "Cloudflare Launches Precursor: One-Click Behavioral Bot Defense", "summary": "Cloudflare announced general availability of Precursor, an edge-based behavioral defense for bot management that continuously analyzes browser sessions to detect automated activity in real time. It replaces static CAPTCHAs with ongoing, session-level analysis, deploying via a single script injection with no code changes. Privacy-focused, it logs aggregate behavioral patterns like timing and rhythm rather than keystrokes. Cloudflare notes automated bot traffic now exceeds human activity at roughly 57% of web requests, targeting advanced agentic bots.", "type": "Product Launch", "date": "2026-07-13", "source_url": "https://www.cloudflare.com/press/press-releases/2026/cloudflare-introduces-precursor-one-click-behavioral-defense-against-modern-bots/"}]}, "Barracuda Networks": {"category": "Application Security", "announcements": [{"title": "Barracuda Earns 2026 CRN Tech Innovator and MES Midmarket 100 Recognition", "summary": "Barracuda Networks received dual industry recognition: Barracuda Email Protection was named a finalist in the 2026 CRN Tech Innovator Awards (Email and Web Security) for its AI-powered approach to detecting, preventing, and remediating advanced email threats, and Barracuda was named to the 2026 MES Midmarket 100. The company framed the honors as validation of its ongoing innovation helping midsize businesses strengthen cyber resilience with accessible security solutions across its partner and channel ecosystem.", "type": "Award", "date": "2026-07-13", "source_url": "https://blog.barracuda.com/2026/07/13/barracuda-crn-tech-innovator-mes-midmarket-100"}]}, "Fortinet": {"category": "Platforms", "announcements": []}, "HiddenLayer": {"category": "AI Security", "announcements": []}, "Operant AI": {"category": "AI Security", "announcements": []}, "Pillar Security": {"category": "AI Security", "announcements": []}, "Mindgard": {"category": "AI Security", "announcements": []}, "Fastly": {"category": "Application Delivery (ADCs)", "announcements": []}, "Citrix (NetScaler)": {"category": "Application Delivery (ADCs)", "announcements": []}, "A10 Networks": {"category": "Application Delivery (ADCs)", "announcements": []}, "Arista Networks": {"category": "AI Data Delivery", "announcements": []}, "HPE / Juniper Networks": {"category": "AI Data Delivery", "announcements": []}, "Radware": {"category": "Application Security", "announcements": []}, "Imperva (Thales)": {"category": "Application Security", "announcements": []}};
+var catColors={"Platforms":"#636efa","AI Security":"#ef553b","AI Data Delivery":"#00cc96","Application Delivery (ADCs)":"#ab63fa","Application Security":"#ffa15a"};
 var cCL=["#76b900","#00b4d8","#ef553b","#ab63fa","#ffa15a","#19d3f3","#ff6692","#636efa","#00cc96","#b6e880","#ff97ff"];
+function baseName(s){return s.replace(/ ~(AI|AID|AD|AS|P)$/,"");}
 var ALL_ANN=[],names=Object.keys(DATA),compCounts={},catCounts={};
-for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],n=info.announcements.length;
-  if(n>0)compCounts[nm]=n;
+var baseSet={},baseActive={},baseCatMap={};
+for(var i=0;i<names.length;i++){var nm=names[i],bn=baseName(nm),info=DATA[nm],n=info.announcements.length;
+  baseSet[bn]=1;
+  if(!baseCatMap[bn])baseCatMap[bn]=[];
+  if(baseCatMap[bn].indexOf(info.category)<0)baseCatMap[bn].push(info.category);
+  if(n>0){compCounts[bn]=(compCounts[bn]||0)+n;baseActive[bn]=1;}
   if(!catCounts[info.category])catCounts[info.category]=0;
   catCounts[info.category]+=n;
-  for(var j=0;j<n;j++){var a=info.announcements[j];ALL_ANN.push({title:a.title,summary:a.summary,source_url:a.source_url,type:a.type,date:a.date,competitor:nm,category:info.category});}}
+  for(var j=0;j<n;j++){var a=info.announcements[j];ALL_ANN.push({title:a.title,summary:a.summary,source_url:a.source_url,type:a.type,date:a.date,competitor:bn,category:info.category});}}
+var baseNames=Object.keys(baseSet);
+ALL_ANN.sort(function(a,b){if(a.date<b.date)return 1;if(a.date>b.date)return -1;return 0;});
 
 document.getElementById("exportBtn").addEventListener("click",function(){
   var rows=["Date,Competitor,Category,Type,Title,Summary,Source URL"];
@@ -153,19 +158,21 @@ panel.addEventListener("click",function(e){
   var bc=e.target.closest("[data-nav]");if(bc){if(bc.dataset.nav==="overview")showOverview();else if(bc.dataset.nav==="categories")showStatCats();}
 });
 
+function annsForBase(bn){var arr=[];for(var k=0;k<names.length;k++){if(baseName(names[k])===bn){var inf=DATA[names[k]];for(var m=0;m<inf.announcements.length;m++)arr.push(inf.announcements[m]);}}return arr;}
+
 function showOverview(){clearStatActive();
   var h='<h2>Daily Briefing <span class="badge">'+ALL_ANN.length+' announcements</span></h2>';
   h+='<div class="section-label">Competitors with News Today</div>';
-  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length>0)h+='<div class="comp-card" data-comp="'+esc(nm)+'"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="count">'+info.announcements.length+'</div></div>';}
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i];if(baseActive[bn]){h+='<div class="comp-card" data-comp="'+esc(bn)+'"><div><div class="name">'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div><div class="count">'+compCounts[bn]+'</div></div>';}}
   h+='<div class="section-label">No News Today</div>';
-  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm];if(info.announcements.length===0)h+='<div class="comp-card inactive"><div><div class="name">'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div><div class="no-ann">none</div></div>';}
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i];if(!baseActive[bn]){h+='<div class="comp-card inactive"><div><div class="name">'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div><div class="no-ann">none</div></div>';}}
   panel.innerHTML=h;
 }
 
 function showStatTracked(){clearStatActive();document.querySelector("[data-action=stat-tracked]").classList.add("active");
-  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Competitors</span></div><h2>Competitors Tracked <span class="badge">'+names.length+'</span></h2>';
-  for(var i=0;i<names.length;i++){var nm=names[i],info=DATA[nm],cls=info.announcements.length>0?"comp-card":"comp-card inactive";
-    h+='<div class="'+cls+'" data-comp="'+esc(nm)+'"><div><div class="name"><span class="status-dot '+(info.announcements.length>0?"status-active":"status-inactive")+'"></span>'+esc(nm)+'</div><div class="cat">'+esc(info.category)+'</div></div>'+(info.announcements.length>0?'<div class="count">'+info.announcements.length+'</div>':'<div class="no-ann">0</div>')+'</div>';}
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Competitors</span></div><h2>Competitors Tracked <span class="badge">'+baseNames.length+'</span></h2>';
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i],act=!!baseActive[bn],cnt=compCounts[bn]||0,cls=act?"comp-card":"comp-card inactive";
+    h+='<div class="'+cls+'" data-comp="'+esc(bn)+'"><div><div class="name"><span class="status-dot '+(act?"status-active":"status-inactive")+'"></span>'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div>'+(act?'<div class="count">'+cnt+'</div>':'<div class="no-ann">0</div>')+'</div>';}
   panel.innerHTML=h;
 }
 
@@ -177,201 +184,51 @@ function showStatAnn(){clearStatActive();document.querySelector("[data-action=st
 }
 
 function showStatActive(){clearStatActive();document.querySelector("[data-action=stat-active]").classList.add("active");
-  var sorted=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length>0)sorted.push([names[i],DATA[names[i]]]);}
-  sorted.sort(function(a,b){return b[1].announcements.length-a[1].announcements.length;});
+  var sorted=[];for(var i=0;i<baseNames.length;i++){if(baseActive[baseNames[i]])sorted.push([baseNames[i],compCounts[baseNames[i]]]);}
+  sorted.sort(function(a,b){return b[1]-a[1];});
   var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Active Today</span></div><h2>Active Today <span class="badge">'+sorted.length+'</span></h2>';
-  for(var i=0;i<sorted.length;i++)h+='<div class="comp-card" data-comp="'+esc(sorted[i][0])+'"><div><div class="name"><span class="status-dot status-active"></span>'+esc(sorted[i][0])+'</div><div class="cat">'+esc(sorted[i][1].category)+'</div></div><div class="count">'+sorted[i][1].announcements.length+'</div></div>';
+  for(var i=0;i<sorted.length;i++)h+='<div class="comp-card" data-comp="'+esc(sorted[i][0])+'"><div><div class="name"><span class="status-dot status-active"></span>'+esc(sorted[i][0])+'</div><div class="cat">'+esc(baseCatMap[sorted[i][0]].join(", "))+'</div></div><div class="count">'+sorted[i][1]+'</div></div>';
   h+='<div class="section-label" style="margin-top:24px">No News Today</div><div class="inactive-chips">';
-  for(var i=0;i<names.length;i++){if(DATA[names[i]].announcements.length===0)h+='<span class="inactive-chip">'+esc(names[i])+'</span>';}
+  for(var i=0;i<baseNames.length;i++){if(!baseActive[baseNames[i]])h+='<span class="inactive-chip">'+esc(baseNames[i])+'</span>';}
   h+='</div>';panel.innerHTML=h;
 }
 
 function showStatCats(){clearStatActive();document.querySelector("[data-action=stat-cats]").classList.add("active");
-  var allCats={};for(var i=0;i<names.length;i++){var cat=DATA[names[i]].category;if(!allCats[cat])allCats[cat]={comps:[],ann:0};allCats[cat].comps.push(names[i]);allCats[cat].ann+=DATA[names[i]].announcements.length;}
+  var allCats={};for(var i=0;i<names.length;i++){var cat=DATA[names[i]].category,bn=baseName(names[i]);if(!allCats[cat])allCats[cat]={comps:{},ann:0};if(DATA[names[i]].announcements.length>0)allCats[cat].comps[bn]=1;allCats[cat].ann+=DATA[names[i]].announcements.length;}
   var co=Object.keys(allCats).sort(function(a,b){return allCats[b].ann-allCats[a].ann;});
   var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Categories</span></div><h2>Categories <span class="badge">'+co.length+'</span></h2>';
-  for(var ci=0;ci<co.length;ci++){var cat=co[ci],d=allCats[cat],color=catColors[cat]||"#888";
-    h+='<div class="cat-card" data-cat="'+esc(cat)+'"><div><div class="cat-name"><span class="cat-dot" style="background:'+color+'"></span>'+esc(cat)+'</div><div class="cat-meta">'+d.comps.length+' competitors &middot; '+d.ann+' announcements</div></div><div><span class="pill pill-ann">'+d.ann+'</span></div></div>';}
+  for(var ci=0;ci<co.length;ci++){var cat=co[ci],d=allCats[cat],color=catColors[cat]||"#888",ncomp=Object.keys(d.comps).length;
+    h+='<div class="cat-card" data-cat="'+esc(cat)+'"><div><div class="cat-name"><span class="cat-dot" style="background:'+color+'"></span>'+esc(cat)+'</div><div class="cat-meta">'+ncomp+' competitors &middot; '+d.ann+' announcements</div></div><div><span class="pill pill-ann">'+d.ann+'</span></div></div>';}
   panel.innerHTML=h;
 }
 
-function showCompetitor(name){clearStatActive();var info=DATA[name];if(!info)return;
-  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>'+esc(name)+'</span></div>';
-  h+='<h2>'+esc(name)+' <span class="badge">'+info.announcements.length+' announcement'+(info.announcements.length!==1?"s":"")+'</span></h2>';
-  h+='<p style="color:var(--muted);font-size:13px;margin-bottom:18px">Category: <strong style="color:var(--text)">'+esc(info.category)+'</strong></p>';
-  if(info.announcements.length===0){h+='<div class="empty-state"><div class="icon">&#128236;</div><p>No announcements from this competitor today.</p></div>';}
-  else{for(var i=0;i<info.announcements.length;i++){var a=info.announcements[i];
+function showCompetitor(name){clearStatActive();var bn=baseName(name);if(baseSet[bn]!==1)return;
+  var anns=annsForBase(bn),cats=baseCatMap[bn]||[];
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>'+esc(bn)+'</span></div>';
+  h+='<h2>'+esc(bn)+' <span class="badge">'+anns.length+' announcement'+(anns.length!==1?"s":"")+'</span></h2>';
+  h+='<p style="color:var(--muted);font-size:13px;margin-bottom:18px">Category: <strong style="color:var(--text)">'+esc(cats.join(", "))+'</strong></p>';
+  if(anns.length===0){h+='<div class="empty-state"><div class="icon">&#128236;</div><p>No announcements from this competitor today.</p></div>';}
+  else{for(var i=0;i<anns.length;i++){var a=anns[i];
     h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
   panel.innerHTML=h;
 }
 
 function showCategory(category){clearStatActive();
-  var comps=[],active=[];for(var i=0;i<names.length;i++){if(DATA[names[i]].category===category){comps.push([names[i],DATA[names[i]]]);if(DATA[names[i]].announcements.length>0)active.push([names[i],DATA[names[i]]]);}}
-  var total=0;for(var i=0;i<comps.length;i++)total+=comps[i][1].announcements.length;
+  var actMap={},inactMap={};
+  for(var i=0;i<names.length;i++){if(DATA[names[i]].category===category){var bn=baseName(names[i]);if(DATA[names[i]].announcements.length>0){if(!actMap[bn])actMap[bn]=[];for(var m=0;m<DATA[names[i]].announcements.length;m++)actMap[bn].push(DATA[names[i]].announcements[m]);}else{inactMap[bn]=1;}}}
+  var actKeys=Object.keys(actMap);var total=0;for(var i=0;i<actKeys.length;i++)total+=actMap[actKeys[i]].length;
   var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><a data-nav="categories">Categories</a><span class="sep">&rsaquo;</span><span>'+esc(category)+'</span></div>';
   h+='<h2>'+esc(category)+' <span class="badge">'+total+' announcement'+(total!==1?"s":"")+'</span></h2>';
-  for(var i=0;i<active.length;i++){var nm=active[i][0],inf=active[i][1];
-    h+='<div class="section-label" style="margin-top:24px;cursor:pointer;color:var(--accent)" data-showcomp="'+esc(nm)+'">'+esc(nm)+' ('+inf.announcements.length+') &#8599;</div>';
-    for(var j=0;j<inf.announcements.length;j++){var a=inf.announcements[j];
+  for(var i=0;i<actKeys.length;i++){var bn=actKeys[i],list=actMap[bn];
+    h+='<div class="section-label" style="margin-top:24px;cursor:pointer;color:var(--accent)" data-showcomp="'+esc(bn)+'">'+esc(bn)+' ('+list.length+') &#8599;</div>';
+    for(var j=0;j<list.length;j++){var a=list[j];
       h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
-  var inact=comps.filter(function(c){return c[1].announcements.length===0;});
-  if(inact.length>0){h+='<div class="section-label" style="margin-top:20px">No News Today</div><div class="inactive-chips">';for(var i=0;i<inact.length;i++)h+='<span class="inactive-chip">'+esc(inact[i][0])+'</span>';h+='</div>';}
+  var inactKeys=Object.keys(inactMap);
+  if(inactKeys.length>0){h+='<div class="section-label" style="margin-top:20px">No News Today</div><div class="inactive-chips">';for(var i=0;i<inactKeys.length;i++)h+='<span class="inactive-chip">'+esc(inactKeys[i])+'</span>';h+='</div>';}
   panel.innerHTML=h;
 }
-
 showOverview();
 })();
 </script>
-
-<style>
-.f5-wrap{margin-top:14px;padding-top:12px;border-top:1px dashed #333a47}
-.f5-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(198,40,40,.18);color:#ff5a63;font-size:12px;font-weight:700;padding:4px 12px;border-radius:12px;cursor:pointer;border:1px solid rgba(198,40,40,.35);user-select:none}
-.f5-badge:hover{background:rgba(198,40,40,.28)}
-.f5-cat-pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;margin-left:8px;color:#fff;vertical-align:middle}
-.f5-full-link{display:inline-flex;align-items:center;gap:4px;margin-left:10px;font-size:12px;font-weight:600;color:#4fc3f7;text-decoration:none;cursor:pointer;background:none;border:none;padding:0}
-.f5-full-link:hover{text-decoration:underline}
-.f5-summary{margin-top:8px;color:#d7dae1;font-size:13px;line-height:1.6}
-.f5-detail{display:none;margin-top:10px;padding:14px 16px;background:#20242e;border:1px solid #333a47;border-radius:8px;color:#d7dae1;font-size:13px;line-height:1.65}
-.f5-detail.f5-open{display:block}
-.f5-detail h4{color:#ff5a63;font-size:13px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.03em}
-.f5-detail h4:first-child{margin-top:0}
-.f5-detail p{margin:6px 0}
-.f5-detail ul{margin:6px 0 10px 18px;padding:0}
-.f5-detail li{margin-bottom:4px}
-.f5-detail strong{color:#fff}
-#f5-footer{margin-top:24px;padding:16px 20px;background:#1a1d27;border-top:1px solid #333a47;border-radius:8px;font-size:12px;color:#9aa0ab}
-#f5-footer .f5-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
-#f5-footer .f5-legend-item{display:inline-flex;align-items:center;gap:6px}
-#f5-footer .f5-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-</style>
-
-<div id="f5-footer"><strong style="color:#d7dae1">F5 Competitive Intelligence — Strategic Category Legend</strong><div class="f5-legend"><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6"></span>Platforms</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE"></span>AI Security</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B"></span>AI Data Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100"></span>Application Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828"></span>Application Security</span></div></div>
-
-<script>
-(function(){
-"use strict";
-var F5D = {"Zscaler and NVIDIA Partner to Deliver Gen AI-Powered Zero Trust": {"s": "Zscaler has partnered with NVIDIA to enhance its AI-powered Zero Trust capabilities. This collaboration integrates NVIDIA's NeMo Guardrails, Morpheus, and NIM inference microservices into Zscaler's ZDX Copilot digital-experience assistant. The integration aims to provide real-time threat detection and improve IT operations by processing high-volume security data and enabling scalable local LLM deployment. The partnership seeks to bolster proactive defenses and simplify network operations for enterprises.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Zscaler's partnership with NVIDIA highlights the strategic importance of AI in enhancing Zero Trust architectures, a domain where F5 is also actively engaged. This development underscores the competitive landscape in AI-driven security solutions, emphasizing the need for F5 to continue innovating in AI security and Zero Trust offerings.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 Distributed Cloud Services<\/strong>: Potential competition in AI-enhanced security and Zero Trust capabilities.<\/li>\n<li><strong>F5 BIG-IP<\/strong>: May face competitive pressure from integrated AI solutions in application delivery and security.<\/li>\n<li><strong>F5 NGINX<\/strong>: Could be impacted by advancements in AI-driven traffic management and security.<\/li>\n<li><strong>F5 Silverline<\/strong>: Needs to address AI-driven threat detection and response capabilities.<\/li>\n<li><strong>F5 Zero Trust Solutions<\/strong>: Directly relevant to F5's Zero Trust architecture offerings.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its own AI and Zero Trust capabilities, highlighting unique features and benefits. Consider partnerships or enhancements that leverage AI for security and operational efficiency. Engage with customers to reinforce the value of F5's integrated solutions in the context of Zero Trust and AI advancements.<\/p>", "c": "AI Security"}, "Cloudflare Introduces Precursor: One-Click Behavioral Bot Defense": {"s": "Cloudflare has launched Precursor, a behavioral bot defense solution that operates at the edge and within browsers to analyze user sessions in real-time. It replaces traditional CAPTCHAs with session-wide human plausibility checks using signals like typing cadence and mouse movement. Precursor offers a one-click, zero-code setup and complements existing Bot Management tools. With bots accounting for 57% of web traffic, Cloudflare aims to address the limitations of static checks with this innovative approach.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cloudflare's introduction of Precursor highlights the growing importance of advanced bot defense mechanisms. As bots increasingly dominate web traffic, traditional methods like CAPTCHAs become less effective. F5 must recognize the shift towards session-based analysis and real-time human plausibility checks to stay competitive in bot management solutions.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 Advanced WAF<\/strong>: Needs to incorporate more sophisticated behavioral analysis features.<\/li>\n<li><strong>Bot Defense<\/strong>: Must enhance capabilities to compete with session-wide analysis.<\/li>\n<li><strong>Silverline Managed Security Services<\/strong>: Should consider integrating similar real-time session analysis.<\/li>\n<li><strong>BIG-IP<\/strong>: Potential updates to include advanced bot detection algorithms.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should accelerate the development of its own behavioral analysis capabilities, focusing on session-wide human plausibility checks. Collaborating with partners to integrate advanced bot management features into existing products could provide a competitive edge. Marketing efforts should emphasize F5's comprehensive security suite, highlighting any unique features that differentiate it from Cloudflare's offerings.<\/p>", "c": "Application Security"}, "Citrix Adds MCP Gateway to NetScaler for Unified AI Traffic Governance": {"s": "Citrix has enhanced its NetScaler platform by introducing MCP Gateway capabilities to manage AI traffic governance. This update allows for secure routing, governance, and observation of AI agent traffic to backend Model Context Protocol servers. The platform now includes content-switching-based model routing and token-level usage tracking for LLM traffic. The single-pass architecture integrates authentication, routing, security, rate limiting, and observability, reducing latency. These enhancements are available at no additional cost for Citrix Platform License and Universal Hybrid Multi-Cloud customers.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Citrix's introduction of MCP Gateway to NetScaler highlights a strategic move towards integrating AI traffic governance within their platform, which could influence customer preferences for unified AI solutions. This development underscores the importance of F5's own capabilities in AI data delivery and traffic management, potentially impacting F5's competitive positioning in the AI infrastructure market.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>BIG-IP<\/strong>: As a core product for application delivery, enhancements in AI traffic management by competitors could influence customer choices.<\/li>\n<li><strong>F5 Distributed Cloud Services<\/strong>: The integration of AI traffic governance features in competitor platforms may necessitate similar advancements in F5's cloud offerings.<\/li>\n<li><strong>F5 NGINX<\/strong>: The need for advanced traffic routing and observability features could drive enhancements in NGINX capabilities.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should evaluate the potential integration of similar AI traffic governance features within its product suite to maintain competitive parity. Enhancing AI data delivery capabilities, particularly in terms of traffic management and observability, could be a strategic focus. Additionally, F5 should consider marketing its existing strengths in AI-ready application delivery to reinforce its position in the market.<\/p>", "c": "AI Security"}, "Imperva Cloud Application Security July Release Adds AI Monitoring Dashboard": {"s": "Imperva's July 12 Cloud Application Security release includes a new AI Application Security Monitoring Dashboard for threat visibility, token usage, and policy enforcement. It also introduces Cloud WAF wildcard domain reuse, traffic analytics export in DDoS notifications, ASN organization names in the Account Takeover dashboard, and API Security changes excluding OPTIONS and HEAD requests from Schema Protection. Additionally, a new Imperva Terraform Provider (v3.39.0) and several mitigated CVEs are part of the update.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Imperva's latest release emphasizes enhanced visibility and AI-driven monitoring in application security, areas where F5 is also actively investing. The introduction of an AI Monitoring Dashboard and improvements in WAF and API security directly compete with F5's offerings in application security and traffic management solutions.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 Distributed Cloud Services<\/strong>: Imperva's AI monitoring and WAF enhancements could challenge F5's cloud security solutions.<\/li>\n<li><strong>F5 BIG-IP<\/strong>: The improvements in traffic analytics and API security may impact F5's ADC and WAF offerings.<\/li>\n<li><strong>F5 NGINX<\/strong>: The API security changes could affect F5's API management and security capabilities.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should emphasize its own AI-driven security capabilities and highlight the unique features of its Distributed Cloud Services. Marketing efforts should focus on the comprehensive nature of F5's security solutions, including advanced threat detection and mitigation strategies. Additionally, F5 should consider enhancing its API security offerings to address the changes introduced by Imperva.<\/p>", "c": "AI Security"}};
-var F5_CAT_COLORS = {"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
-var F5_CAT_PRIORITY = {"Platforms": 1, "AI Security": 2, "AI Data Delivery": 3, "Application Delivery": 4, "Application Security": 5};
-var injecting = false;
-
-function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
-
-function toggleDetail(wrap){
-  var detail = wrap.querySelector('.f5-detail');
-  var link = wrap.querySelector('.f5-full-link');
-  var badge = wrap.querySelector('.f5-badge');
-  if(!detail) return;
-  var open = detail.classList.toggle('f5-open');
-  if(link) link.textContent = open ? 'Hide Full Analysis' : 'Read Full Analysis \u2192';
-  if(badge) badge.setAttribute('data-open', open ? '1' : '0');
-}
-
-function buildF5Wrap(entry){
-  var wrap = document.createElement('div');
-  wrap.className = 'f5-wrap';
-  var color = F5_CAT_COLORS[entry.c] || '#555';
-  var badge = document.createElement('span');
-  badge.className = 'f5-badge';
-  badge.textContent = '\u26A0 Why F5 Cares';
-  badge.setAttribute('data-open', '0');
-
-  var pill = document.createElement('span');
-  pill.className = 'f5-cat-pill';
-  pill.style.background = color;
-  pill.textContent = entry.c || '';
-
-  var link = document.createElement('button');
-  link.type = 'button';
-  link.className = 'f5-full-link';
-  link.textContent = 'Read Full Analysis \u2192';
-
-  var summary = document.createElement('div');
-  summary.className = 'f5-summary';
-  summary.textContent = entry.s || '';
-
-  var detail = document.createElement('div');
-  detail.className = 'f5-detail';
-  detail.innerHTML = entry.d || '';
-
-  wrap.appendChild(badge);
-  wrap.appendChild(pill);
-  wrap.appendChild(link);
-  wrap.appendChild(summary);
-  wrap.appendChild(detail);
-
-  badge.addEventListener('click', function(){ toggleDetail(wrap); });
-  link.addEventListener('click', function(){ toggleDetail(wrap); });
-
-  return wrap;
-}
-
-function desiredOrderIndex(card){
-  var titleEl = card.querySelector('.ann-title');
-  var title = titleEl ? titleEl.textContent.trim() : '';
-  var entry = F5D[title];
-  var cat = entry ? entry.c : null;
-  var pri = cat && F5_CAT_PRIORITY[cat] ? F5_CAT_PRIORITY[cat] : 99;
-  return pri;
-}
-
-function injectF5(){
-  if(injecting) return;
-  injecting = true;
-  try{
-    var cards = document.querySelectorAll('.ann-card');
-    if(!cards || cards.length === 0){ return; }
-
-    // Inject F5 analysis wrap into each card missing one.
-    for(var i=0;i<cards.length;i++){
-      var card = cards[i];
-      if(card.querySelector('.f5-wrap')) continue;
-      var titleEl = card.querySelector('.ann-title');
-      if(!titleEl) continue;
-      var title = titleEl.textContent.trim();
-      var entry = F5D[title];
-      if(!entry) continue;
-      var wrap = buildF5Wrap(entry);
-      card.appendChild(wrap);
-    }
-
-    // Re-sort cards by category priority, but ONLY if the order actually
-    // needs to change -- appendChild on an already-correctly-positioned
-    // node still emits a mutation, which would re-trigger this function
-    // via the MutationObserver below and freeze the page (2026-07-02 bug).
-    var container = cards[0] ? cards[0].parentElement : null;
-    if(container){
-      var cardArr = Array.prototype.slice.call(container.querySelectorAll('.ann-card'));
-      var sorted = cardArr.slice().sort(function(a,b){
-        return desiredOrderIndex(a) - desiredOrderIndex(b);
-      });
-      var alreadySorted = true;
-      for(var k=0;k<cardArr.length;k++){
-        if(cardArr[k] !== sorted[k]){ alreadySorted = false; break; }
-      }
-      if(!alreadySorted){
-        for(var j=0;j<sorted.length;j++){
-          container.appendChild(sorted[j]);
-        }
-      }
-    }
-  } finally {
-    setTimeout(function(){ injecting = false; }, 0);
-  }
-}
-
-var mo = new MutationObserver(function(){
-  injectF5();
-});
-mo.observe(document.body, {childList:true, subtree:true});
-
-if(document.readyState === 'loading'){
-  document.addEventListener('DOMContentLoaded', function(){ setTimeout(injectF5, 300); });
-} else {
-  setTimeout(injectF5, 300);
-}
-})();
-</script>
-
 </body>
 </html>
