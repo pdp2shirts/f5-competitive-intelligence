@@ -230,5 +230,156 @@ function showCategory(category){clearStatActive();
 showOverview();
 })();
 </script>
+
+<style>
+.f5-wrap{margin-top:14px;padding-top:12px;border-top:1px dashed #333a47}
+.f5-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(198,40,40,.18);color:#ff5a63;font-size:12px;font-weight:700;padding:4px 12px;border-radius:12px;cursor:pointer;border:1px solid rgba(198,40,40,.35);user-select:none}
+.f5-badge:hover{background:rgba(198,40,40,.28)}
+.f5-cat-pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;margin-left:8px;color:#fff;vertical-align:middle}
+.f5-full-link{display:inline-flex;align-items:center;gap:4px;margin-left:10px;font-size:12px;font-weight:600;color:#4fc3f7;text-decoration:none;cursor:pointer;background:none;border:none;padding:0}
+.f5-full-link:hover{text-decoration:underline}
+.f5-summary{margin-top:8px;color:#d7dae1;font-size:13px;line-height:1.6}
+.f5-detail{display:none;margin-top:10px;padding:14px 16px;background:#20242e;border:1px solid #333a47;border-radius:8px;color:#d7dae1;font-size:13px;line-height:1.65}
+.f5-detail.f5-open{display:block}
+.f5-detail h4{color:#ff5a63;font-size:13px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.03em}
+.f5-detail h4:first-child{margin-top:0}
+.f5-detail p{margin:6px 0}
+.f5-detail ul{margin:6px 0 10px 18px;padding:0}
+.f5-detail li{margin-bottom:4px}
+.f5-detail strong{color:#fff}
+#f5-footer{margin-top:24px;padding:16px 20px;background:#1a1d27;border-top:1px solid #333a47;border-radius:8px;font-size:12px;color:#9aa0ab}
+#f5-footer .f5-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+#f5-footer .f5-legend-item{display:inline-flex;align-items:center;gap:6px}
+#f5-footer .f5-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+</style>
+
+<div id="f5-footer"><strong style="color:#d7dae1">F5 Competitive Intelligence — Strategic Category Legend</strong><div class="f5-legend"><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6"></span>Platforms</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE"></span>AI Security</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B"></span>AI Data Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100"></span>Application Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828"></span>Application Security</span></div></div>
+
+<script>
+(function(){
+"use strict";
+var F5D = {"Palo Alto Networks to Acquire Observability Provider Embrace": {"s": "Palo Alto Networks' acquisition of Embrace enhances its observability platform with Real User Monitoring (RUM) capabilities, expanding into Digital Experience Monitoring. This move strengthens its position in unified end-to-end visibility and automated remediation, posing a competitive challenge to F5's observability and application delivery solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Palo Alto Networks' acquisition of Embrace marks a significant expansion of their observability capabilities, particularly in the realm of Digital Experience Monitoring (DEM). By integrating Real User Monitoring (RUM) with their existing observability platform, Palo Alto is positioning itself as a leader in providing comprehensive visibility across cloud-native environments. This move directly challenges F5's efforts in enhancing its own observability solutions, such as the acquisition of MantisNet, which aimed to bolster F5's cloud-native observability within its Application Delivery and Security Platform. As Palo Alto continues to build out its platform with acquisitions like Chronosphere and now Embrace, F5 must be vigilant in maintaining its competitive edge in application delivery and security.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The primary impact will be on F5's Application Delivery and Security Platform, particularly in areas related to observability and digital experience monitoring. Products like BIG-IP, which are central to F5's application delivery strategy, may face increased competition from Palo Alto's enhanced offerings. Additionally, F5's recent focus on cloud-native observability through acquisitions like MantisNet could be challenged by Palo Alto's expanded capabilities in this domain. The integration of RUM and synthetic monitoring by Palo Alto could also impact F5's positioning in the market for end-to-end application performance visibility.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should accelerate the integration of its recent acquisitions, such as MantisNet, to enhance its observability capabilities. Emphasizing the unique strengths of F5's platform in providing comprehensive application delivery and security solutions will be crucial. Additionally, exploring partnerships or further acquisitions to bolster digital experience monitoring could help counter Palo Alto's growing platform capabilities.<\/p>", "c": "Platforms"}, "Fortinet and Intel Collaborate on Security Processor 6 (SP6)": {"s": "Fortinet's collaboration with Intel to develop the Security Processor 6 (SP6) marks a significant strategic move to enhance performance for encrypted and AI workloads. This partnership could impact F5 by strengthening Fortinet's firewall differentiation and supply chain resilience, potentially challenging F5's competitive position in security and application delivery solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Fortinet's partnership with Intel to develop the SP6 is a strategic move that could enhance Fortinet's competitive edge in the security processor market. By leveraging Intel's design and manufacturing capabilities, Fortinet aims to boost performance for encrypted and AI-related workloads, which are critical areas for F5's application delivery and security solutions. This collaboration also signifies a shift in Fortinet's supply chain strategy, moving away from TSMC to Intel's foundry services, potentially increasing supply chain resilience and reducing dependency on a single supplier. As Fortinet strengthens its ASIC capabilities, F5 may face increased competition in delivering high-performance, secure application services.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The development of Fortinet's SP6 could impact F5's BIG-IP platform, particularly in areas where high-performance encryption and AI workload processing are crucial. F5's application delivery controllers (ADCs) and security solutions, such as WAFs and DDoS protection, may face stiffer competition as Fortinet enhances its firewall differentiation. Additionally, F5's collaborations with Intel, as seen in initiatives like AI inference acceleration, may need to be re-evaluated to ensure continued competitive advantage against Fortinet's evolving offerings.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should closely monitor the development of Fortinet's SP6 and evaluate potential impacts on its product lines. Strengthening partnerships with Intel and other key technology providers could be crucial to maintaining competitive parity. Additionally, F5 should consider enhancing its own ASIC and AI capabilities to ensure its solutions remain at the forefront of performance and security innovation.<\/p>", "c": "Application Security"}, "Check Point Issues Jumbo Hotfix for Actively Exploited SmartConsole Auth Bypass (CVE-2026-16232)": {"s": "Check Point has released a critical security advisory and hotfix for a SmartConsole authentication bypass vulnerability (CVE-2026-16232) with a CVSS score of 9.3. This vulnerability allows attackers to gain full admin privileges without authentication. This development is significant for F5 as it highlights the importance of robust security measures in management interfaces, a key area for F5's application security solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Check Point's recent security advisory underscores the critical nature of securing management interfaces against authentication bypass vulnerabilities. This incident, involving a CVSS 9.3-rated flaw, allows attackers to gain unauthorized admin access, posing significant risks to enterprise security. For F5, this highlights the importance of ensuring that our application delivery and security products, particularly those involving management interfaces, are fortified against similar threats. It also presents an opportunity for F5 to emphasize the robustness of our security solutions, such as our Web Application Firewall (WAF) and bot defense capabilities, in preventing unauthorized access and protecting sensitive management functions.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>While this specific vulnerability pertains to Check Point's SmartConsole, it serves as a reminder of the potential risks associated with management interfaces across the industry. F5's BIG-IP and NGINX products, which include management and configuration interfaces, must be continually assessed for similar vulnerabilities. Additionally, our AI Security products, such as the F5 AI Gateway, should be evaluated to ensure they are not susceptible to authentication bypasses or other critical security flaws.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should issue a communication reinforcing the security of our management interfaces and the proactive measures we take to prevent similar vulnerabilities. We should also consider conducting internal reviews of our management interfaces to ensure they are secure against authentication bypasses. Engaging with customers to educate them on best practices for securing management access, such as using trusted IP restrictions and firewalls, will further enhance our security posture.<\/p>", "c": "Application Security"}, "AWS Turns Security Hub into an AI and Multicloud Security Control Plane": {"s": "AWS has expanded its Security Hub to function as an AI and multicloud security control plane, integrating monitoring for Microsoft Azure and adding AI workload protections. This development positions AWS as a central player in AI security, potentially impacting F5's offerings in AI security and multicloud environments.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>AWS's enhancement of Security Hub into an AI and multicloud security control plane is significant for F5, as it underscores the growing importance of integrated security solutions across cloud environments and AI workloads. By extending monitoring capabilities to Microsoft Azure and introducing AI-specific protections, AWS is positioning itself as a leader in the multicloud and AI security space. This move could influence customer expectations for comprehensive security solutions that span multiple cloud providers and address the unique challenges of AI workloads. F5 must recognize this shift and evaluate its own offerings to ensure they remain competitive in this evolving landscape.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The AWS announcement directly impacts F5's offerings in AI security and multicloud environments. Products such as the F5 AI Gateway and AI Data Fabric, which are designed to secure and optimize AI workloads, may face increased competition from AWS's expanded Security Hub capabilities. Additionally, F5's application security products, including WAFs and API security solutions, could be affected as AWS integrates AI-powered investigations and threat intelligence into its platform. F5's existing collaborations with AWS, such as the F5 WAF support for AWS Security Hub, may need to be revisited to align with these new capabilities.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should enhance its AI security offerings to compete with AWS's expanded capabilities. This includes strengthening partnerships with cloud providers like AWS and Microsoft Azure, and developing integrated solutions that address AI and multicloud security needs. F5 should also focus on differentiating its products by emphasizing unique features and capabilities that AWS does not offer, such as advanced AI model protection and AI-specific API security.<\/p>", "c": "Platforms"}, "Arista Introduces AI-Driven Edge Threat Management for VeloCloud SD-WAN": {"s": "Arista Networks' launch of AI-driven Edge Threat Management for VeloCloud SD-WAN marks its expansion into the SASE market, combining SD-WAN and branch security on a single platform. This development is significant for F5 as it intensifies competition in integrated networking and security solutions, potentially impacting F5's market position in these areas.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Arista's introduction of AI-driven Edge Threat Management (ETM) for VeloCloud SD-WAN signifies a strategic move into the SASE (Secure Access Service Edge) market. This development is crucial for F5 as it highlights a growing trend towards integrated networking and security solutions. Arista's offering combines advanced firewalling, threat prevention, and AI-powered policy insights, which could appeal to enterprises seeking a unified platform for both SD-WAN and security needs. This move could potentially erode the market share of traditional application delivery and security vendors like F5, especially if customers prioritize integrated solutions over standalone products.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>F5's application delivery controllers (ADCs) and security solutions could be impacted by Arista's new offering. The integration of AI-driven security with SD-WAN in a single platform presents a competitive challenge to F5's BIG-IP and NGINX products, which are traditionally strong in application delivery and security. Additionally, F5's efforts in AI application infrastructure, such as the AI Gateway and AI Data Fabric, may face increased competition as Arista leverages AI for policy intelligence and threat management.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider enhancing its integrated platform offerings to compete with Arista's SASE capabilities. Emphasizing the strengths of F5's VELOS chassis and modular ADCs in supporting AI and 5G applications could differentiate F5's solutions. Additionally, F5 could explore partnerships or acquisitions to bolster its AI-driven security capabilities, ensuring it remains competitive in the evolving landscape of integrated networking and security solutions.<\/p>", "c": "Platforms"}, "Barracuda Advances Partner Success Program with New Offerings": {"s": "Barracuda Networks has enhanced its Partner Success Program to support MSPs and channel partners in leveraging the AI-powered BarracudaONE platform. This includes new marketing automation tools, a Partner Locator, and expanded learning programs. This development is significant for F5 as it underscores the competitive landscape in partner ecosystems, particularly around AI platform adoption.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Barracuda's announcement highlights the growing emphasis on partner ecosystems and AI platform adoption. As Barracuda enhances its Partner Success Program, it aims to strengthen its market position by empowering partners with tools and resources to drive AI-powered solutions. This move could attract more partners to Barracuda's ecosystem, potentially diverting attention from F5's offerings. F5 must recognize the competitive pressure this places on its own partner programs and the need to continually innovate and support its partners in similar ways.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The primary impact is on F5's partner programs and platform strategies. The F5 ADSP Partner Program, which focuses on streamlining the adoption of F5 platforms, could face increased competition. Additionally, F5's initiatives in the AWS Marketplace and its efforts to enhance partner engagement through private offers and SaaS customer acquisition may need to be reassessed to ensure they remain competitive and attractive to partners.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider enhancing its partner program offerings by integrating more AI-focused tools and resources, similar to Barracuda's approach. Expanding marketing automation, partner locators, and role-based learning could strengthen F5's partner ecosystem. Additionally, F5 should emphasize the unique value propositions of its AI and application delivery solutions to differentiate from competitors like Barracuda.<\/p>", "c": "Application Security"}, "Cisco Introduces Antares Open-Weight AI Models for Vulnerability Localization": {"s": "Cisco's launch of Antares, open-weight AI models for vulnerability localization, poses a competitive challenge to F5 in AI Security. Antares models offer efficient, cost-effective scanning of code repositories, potentially enhancing Cisco's security portfolio and appealing to organizations prioritizing internal data handling.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cisco's introduction of the Antares models signifies a strategic move into AI-driven security, specifically targeting vulnerability localization within code repositories. This development is significant for F5 as it highlights the growing trend of integrating AI into security operations, a domain where F5 has been actively expanding its capabilities. Cisco's focus on open-weight models that operate within an organization's trust boundary aligns with market demands for secure, efficient, and cost-effective solutions. As these models are positioned to complement Cisco's existing security offerings, they could enhance Cisco's competitive edge, potentially attracting customers seeking integrated AI security solutions.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The primary impact of Cisco's Antares models will be on F5's AI Security initiatives, particularly those related to securing AI workloads and AI model protection. F5's AI Gateway and AI Data Fabric, which are designed to support AI infrastructure and security, could face increased competition as Cisco's models offer a compelling alternative for organizations looking to enhance their security posture with AI-driven tools. Additionally, F5's application security products, such as WAFs and API security solutions, may need to adapt to the evolving landscape where AI plays a more central role in vulnerability management.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider accelerating its AI security roadmap, focusing on enhancing AI model protection and vulnerability localization capabilities. Collaborating with AI research communities and exploring partnerships for AI model development could strengthen F5's position. Emphasizing the integration of AI security with existing F5 solutions will be crucial to maintaining competitive differentiation against Cisco's expanding portfolio.<\/p>", "c": "AI Security"}, "CrowdStrike and Cerebras Partner to Power Falcon AI Detection and Response": {"s": "CrowdStrike's partnership with Cerebras Systems to enhance Falcon AI Detection and Response (AIDR) with Cerebras's inference platform underscores the growing importance of AI-native security solutions. This collaboration could challenge F5's AI security offerings by setting new standards in real-time threat detection and response, emphasizing the need for F5 to strengthen its AI security capabilities.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>The partnership between CrowdStrike and Cerebras Systems highlights a strategic move towards integrating ultra-fast AI inference capabilities with AI-native security solutions. This development is significant for F5 as it underscores the competitive landscape in AI security, where speed and efficiency in threat detection are becoming critical differentiators. As AI-driven threats evolve, the ability to provide real-time, machine-speed responses becomes essential. F5, with its existing AI security solutions like AI Guardrails and AI Red Team, must closely monitor this partnership as it could redefine customer expectations for AI security performance and integration.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The primary impact will be on F5's AI security offerings, specifically products like F5 AI Guardrails and AI Red Team. These products are designed to secure AI workloads and provide governance and compliance tooling. The partnership between CrowdStrike and Cerebras may prompt customers to seek similar high-speed, integrated solutions, potentially affecting F5's market positioning. Additionally, F5's efforts in AI data delivery, such as its collaboration with NVIDIA for AI inference, could face competitive pressure as Cerebras's platform sets new benchmarks for AI inference speed.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should enhance its AI security capabilities by exploring partnerships or technological advancements that improve inference speed and integration. Emphasizing the unique strengths of F5's AI Guardrails and AI Red Team in securing AI workloads can help differentiate its offerings. Additionally, F5 should consider expanding its ecosystem partnerships to ensure comprehensive, cutting-edge AI security solutions that meet evolving market demands.<\/p>", "c": "AI Security"}, "Cloudflare Launches Monetization Gateway to Charge AI Crawlers for Web Access": {"s": "Cloudflare's new Monetization Gateway allows websites to charge AI crawlers for access, potentially transforming AI traffic into a revenue stream. This move, along with AWS's similar efforts, could shift the landscape of AI web access, impacting F5's strategies in AI security and data delivery.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cloudflare's Monetization Gateway represents a significant shift in how AI crawlers and data agents interact with web content. By turning AI traffic into a paid service, Cloudflare is not only creating a new revenue model but also setting a precedent that could influence industry standards. This move could impact F5's positioning in AI security and data delivery, as customers may seek solutions that integrate monetization capabilities with existing security and delivery infrastructures. Additionally, AWS's parallel efforts suggest that major cloud providers are aligning towards a programmatic marketplace for AI web access, which could redefine competitive dynamics and customer expectations.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>F5's AI Gateway and AI Data Fabric are directly impacted by this development. As F5 focuses on AI security and data delivery, integrating monetization features could enhance the value proposition of these products. The AI Gateway's existing capabilities in data leakage detection and prevention could be expanded to include traffic monetization, aligning with industry trends. Furthermore, F5's application delivery controllers (BIG-IP) and multicloud application security offerings (NGINX, WAF) may need to adapt to support these new monetization models, ensuring they remain competitive in a rapidly evolving market.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should explore partnerships or develop capabilities to integrate AI traffic monetization into its existing product suite. This could involve enhancing the AI Gateway to support monetization features or collaborating with cloud providers to offer seamless integration. Additionally, F5 should monitor customer feedback and industry trends to ensure its solutions meet evolving needs in AI security and data delivery.<\/p>", "c": "Application Security"}, "HPE Selected for R&D Projects in U.S. DOE-Led Genesis Mission": {"s": "HPE's selection for the U.S. DOE-led Genesis Mission underscores its strategic focus on AI-driven innovation and cybersecurity, potentially impacting F5's position in AI infrastructure and security. This partnership highlights HPE's capabilities in high-performance AI systems, which could challenge F5's offerings in AI data delivery and security solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>HPE's involvement in the Genesis Mission, particularly in AI-driven projects and cybersecurity, signals a strengthening of its capabilities in areas where F5 is also active, such as AI infrastructure and security. The development of high-performance AI systems like the Lux supercomputer, in collaboration with AMD and Oak Ridge National Laboratory, could set new benchmarks in AI data delivery and processing. This poses a competitive challenge to F5's AI Gateway and AI Data Fabric solutions, which are designed to optimize AI workloads and enhance security. Additionally, HPE's focus on AI model application and performance optimization aligns with F5's strategic initiatives in AI security and data delivery, potentially intensifying competition in these domains.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>The announcement could impact several F5 products, particularly those related to AI data delivery and security. The F5 AI Gateway and AI Data Fabric may face increased competition from HPE's high-performance AI systems and their integration with DOE's Genesis Mission. Furthermore, F5's application security products, such as WAF and bot defense, could be challenged by HPE's advancements in cybersecurity through projects like Spotter-AI. The focus on AI model application and performance optimization also aligns with F5's initiatives to enhance AI infrastructure, potentially affecting its market positioning.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should closely monitor HPE's advancements in AI infrastructure and cybersecurity, particularly their integration with large-scale projects like the Genesis Mission. Strengthening partnerships with key players in AI and high-performance computing, such as NVIDIA, and enhancing the capabilities of F5's AI Gateway and AI Data Fabric, will be crucial. Additionally, F5 should continue to innovate in AI security to maintain a competitive edge.<\/p>", "c": "Application Delivery"}};
+var F5_CAT_COLORS = {"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
+var F5_CAT_PRIORITY = {"Platforms": 1, "AI Security": 2, "AI Data Delivery": 3, "Application Delivery": 4, "Application Security": 5};
+var injecting = false;
+
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
+
+function toggleDetail(wrap){
+  var detail = wrap.querySelector('.f5-detail');
+  var link = wrap.querySelector('.f5-full-link');
+  var badge = wrap.querySelector('.f5-badge');
+  if(!detail) return;
+  var open = detail.classList.toggle('f5-open');
+  if(link) link.textContent = open ? 'Hide Full Analysis' : 'Read Full Analysis \u2192';
+  if(badge) badge.setAttribute('data-open', open ? '1' : '0');
+}
+
+function buildF5Wrap(entry){
+  var wrap = document.createElement('div');
+  wrap.className = 'f5-wrap';
+  var color = F5_CAT_COLORS[entry.c] || '#555';
+  var badge = document.createElement('span');
+  badge.className = 'f5-badge';
+  badge.textContent = '\u26A0 Why F5 Cares';
+  badge.setAttribute('data-open', '0');
+
+  var pill = document.createElement('span');
+  pill.className = 'f5-cat-pill';
+  pill.style.background = color;
+  pill.textContent = entry.c || '';
+
+  var link = document.createElement('button');
+  link.type = 'button';
+  link.className = 'f5-full-link';
+  link.textContent = 'Read Full Analysis \u2192';
+
+  var summary = document.createElement('div');
+  summary.className = 'f5-summary';
+  summary.textContent = entry.s || '';
+
+  var detail = document.createElement('div');
+  detail.className = 'f5-detail';
+  detail.innerHTML = entry.d || '';
+
+  wrap.appendChild(badge);
+  wrap.appendChild(pill);
+  wrap.appendChild(link);
+  wrap.appendChild(summary);
+  wrap.appendChild(detail);
+
+  badge.addEventListener('click', function(){ toggleDetail(wrap); });
+  link.addEventListener('click', function(){ toggleDetail(wrap); });
+
+  return wrap;
+}
+
+function desiredOrderIndex(card){
+  var titleEl = card.querySelector('.ann-title');
+  var title = titleEl ? titleEl.textContent.trim() : '';
+  var entry = F5D[title];
+  var cat = entry ? entry.c : null;
+  var pri = cat && F5_CAT_PRIORITY[cat] ? F5_CAT_PRIORITY[cat] : 99;
+  return pri;
+}
+
+function injectF5(){
+  if(injecting) return;
+  injecting = true;
+  try{
+    var cards = document.querySelectorAll('.ann-card');
+    if(!cards || cards.length === 0){ return; }
+
+    // Inject F5 analysis wrap into each card missing one.
+    for(var i=0;i<cards.length;i++){
+      var card = cards[i];
+      if(card.querySelector('.f5-wrap')) continue;
+      var titleEl = card.querySelector('.ann-title');
+      if(!titleEl) continue;
+      var title = titleEl.textContent.trim();
+      var entry = F5D[title];
+      if(!entry) continue;
+      var wrap = buildF5Wrap(entry);
+      card.appendChild(wrap);
+    }
+
+    // Re-sort cards by category priority, but ONLY if the order actually
+    // needs to change -- appendChild on an already-correctly-positioned
+    // node still emits a mutation, which would re-trigger this function
+    // via the MutationObserver below and freeze the page (2026-07-02 bug).
+    var container = cards[0] ? cards[0].parentElement : null;
+    if(container){
+      var cardArr = Array.prototype.slice.call(container.querySelectorAll('.ann-card'));
+      var sorted = cardArr.slice().sort(function(a,b){
+        return desiredOrderIndex(a) - desiredOrderIndex(b);
+      });
+      var alreadySorted = true;
+      for(var k=0;k<cardArr.length;k++){
+        if(cardArr[k] !== sorted[k]){ alreadySorted = false; break; }
+      }
+      if(!alreadySorted){
+        for(var j=0;j<sorted.length;j++){
+          container.appendChild(sorted[j]);
+        }
+      }
+    }
+  } finally {
+    setTimeout(function(){ injecting = false; }, 0);
+  }
+}
+
+var mo = new MutationObserver(function(){
+  injectF5();
+});
+mo.observe(document.body, {childList:true, subtree:true});
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(injectF5, 300); });
+} else {
+  setTimeout(injectF5, 300);
+}
+})();
+</script>
+
 </body>
 </html>
