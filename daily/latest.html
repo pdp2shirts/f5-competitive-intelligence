@@ -230,5 +230,156 @@ function showCategory(category){clearStatActive();
 showOverview();
 })();
 </script>
+
+<style>
+.f5-wrap{margin-top:14px;padding-top:12px;border-top:1px dashed #333a47}
+.f5-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(198,40,40,.18);color:#ff5a63;font-size:12px;font-weight:700;padding:4px 12px;border-radius:12px;cursor:pointer;border:1px solid rgba(198,40,40,.35);user-select:none}
+.f5-badge:hover{background:rgba(198,40,40,.28)}
+.f5-cat-pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;margin-left:8px;color:#fff;vertical-align:middle}
+.f5-full-link{display:inline-flex;align-items:center;gap:4px;margin-left:10px;font-size:12px;font-weight:600;color:#4fc3f7;text-decoration:none;cursor:pointer;background:none;border:none;padding:0}
+.f5-full-link:hover{text-decoration:underline}
+.f5-summary{margin-top:8px;color:#d7dae1;font-size:13px;line-height:1.6}
+.f5-detail{display:none;margin-top:10px;padding:14px 16px;background:#20242e;border:1px solid #333a47;border-radius:8px;color:#d7dae1;font-size:13px;line-height:1.65}
+.f5-detail.f5-open{display:block}
+.f5-detail h4{color:#ff5a63;font-size:13px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.03em}
+.f5-detail h4:first-child{margin-top:0}
+.f5-detail p{margin:6px 0}
+.f5-detail ul{margin:6px 0 10px 18px;padding:0}
+.f5-detail li{margin-bottom:4px}
+.f5-detail strong{color:#fff}
+#f5-footer{margin-top:24px;padding:16px 20px;background:#1a1d27;border-top:1px solid #333a47;border-radius:8px;font-size:12px;color:#9aa0ab}
+#f5-footer .f5-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+#f5-footer .f5-legend-item{display:inline-flex;align-items:center;gap:6px}
+#f5-footer .f5-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+</style>
+
+<div id="f5-footer"><strong style="color:#d7dae1">F5 Competitive Intelligence — Strategic Category Legend</strong><div class="f5-legend"><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6"></span>Platforms</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE"></span>AI Security</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B"></span>AI Data Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100"></span>Application Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828"></span>Application Security</span></div></div>
+
+<script>
+(function(){
+"use strict";
+var F5D = {"China Targets Palo Alto Networks in Latest Cybersecurity Review": {"s": "China's recent cybersecurity review of Palo Alto Networks highlights the ongoing US-China tech tensions and could impact the company's operations in China. This scrutiny may affect Palo Alto Networks' market position and influence customer trust globally. F5 should monitor these developments as they could alter competitive dynamics in the cybersecurity market, presenting opportunities for F5 to strengthen its position.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>China's cybersecurity review of Palo Alto Networks could disrupt their operations and market confidence, potentially affecting their global market share. This situation may open opportunities for F5 to capture market segments concerned with geopolitical risks and compliance.<\/p>\n<h4>What this means for F5<\/h4>\n<p>This review could lead to reduced trust in Palo Alto Networks, especially in regions sensitive to geopolitical issues. F5 can leverage this to position itself as a stable alternative, emphasizing its compliance and security credentials.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>Monitor the situation closely for any shifts in customer sentiment or market dynamics. Prepare marketing and sales strategies that highlight F5's stability and compliance strengths to attract customers seeking alternatives.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>Application Security<\/p>\n<h4>Recommended Response<\/h4>\n<p>Develop targeted campaigns that emphasize F5's robust security solutions and compliance with international cybersecurity standards. Engage with customers and partners to reassure them of F5's commitment to security and stability.<\/p>", "c": "Application Security"}, "Gunra Ransomware Exploits Fortinet VPN Flaws to Bypass MFA and Steal Enterprise Data": {"s": "F5 should be concerned about the Gunra ransomware exploiting Fortinet VPN vulnerabilities, as it highlights the persistent threat of ransomware targeting edge and VPN infrastructures. This incident underscores the importance of robust security measures for VPNs and multi-factor authentication systems, areas where F5 can enhance its offerings to prevent similar attacks. The focus on Fortinet's weaknesses presents an opportunity for F5 to differentiate its security solutions in the market.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>The exploitation of Fortinet VPN vulnerabilities by the Gunra ransomware group highlights the critical need for secure VPN and edge infrastructure. As a leader in application security, F5 must ensure its solutions are resilient against similar threats to maintain customer trust and market position.<\/p>\n<h4>What this means for F5<\/h4>\n<p>This incident emphasizes the importance of securing VPNs and authentication systems against ransomware attacks. F5 can leverage this opportunity to showcase the robustness of its security solutions and potentially capture market share from competitors like Fortinet.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should reinforce its messaging around the security of its VPN and edge solutions, emphasizing their resilience against ransomware. Consider developing targeted marketing campaigns to highlight these strengths to potential customers concerned about similar vulnerabilities.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>BIG-IP Access Policy Manager (APM)<\/li>\n<li>F5 Advanced WAF<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>Conduct a thorough review of F5's VPN and edge security offerings to ensure they are not susceptible to similar vulnerabilities. Enhance marketing efforts to highlight F5's security strengths and consider offering webinars or whitepapers on securing VPN infrastructures against ransomware.<\/p>", "c": "Application Security"}, "Secure Claude Enterprise with Cisco AI Defense": {"s": "Cisco's launch of AI Defense for Claude Enterprise underscores its commitment to AI security by inspecting prompts for injection and jailbreak attempts. This positions Cisco as a leader in AI security, challenging F5's offerings in securing AI workloads. F5 should monitor this development to ensure its AI security solutions remain competitive and comprehensive.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cisco's new AI Defense product for Claude Enterprise represents a significant move into AI security, an area where F5 is also actively developing solutions. This launch highlights the growing importance of securing AI workloads, which could impact F5's market position if Cisco gains traction.<\/p>\n<h4>What this means for F5<\/h4>\n<p>This development signifies increased competition in the AI security space, particularly in protecting AI models from prompt injection and other threats. F5 must ensure its AI security offerings are robust and competitive to maintain market relevance.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>Evaluate F5's current AI security solutions to identify any gaps compared to Cisco's offerings. Consider enhancing F5's AI security capabilities to address similar threats and ensure comprehensive protection for AI workloads.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>AI security solutions, particularly those related to securing AI workloads and preventing prompt injection.<\/p>\n<h4>Recommended Response<\/h4>\n<p>Strengthen F5's AI security portfolio by focusing on advanced threat detection and prevention mechanisms. Engage with customers to highlight F5's unique value propositions in AI security and consider partnerships or acquisitions to bolster capabilities.<\/p>", "c": "AI Security"}, "Build Agentic Networking Experiences with Meraki and Catalyst Center MCP Servers": {"s": "Cisco's launch of Model Context Protocol (MCP) servers for Meraki and Catalyst Center enhances agentic networking by embedding live network intelligence into AI systems. This development offers three deployment options, including Cisco-managed and open-source servers, catering to various integration and customization needs. F5 should monitor this as it strengthens Cisco's position in network management platforms, potentially impacting F5's competitive landscape.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cisco's integration of MCP servers into Meraki and Catalyst Center enhances their network management capabilities and positions them strongly in the agentic networking space. This could influence market dynamics and customer expectations, impacting F5's competitive positioning.<\/p>\n<h4>What this means for F5<\/h4>\n<p>This development could lead to increased competition in network management and AI integration, areas where F5 also operates. Cisco's move may set new standards for network intelligence and AI integration, prompting F5 to innovate further.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should evaluate its current offerings in network intelligence and AI integration to ensure competitiveness. Monitoring customer feedback and market trends will be crucial to adapt strategies effectively.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>BIG-IP<\/li>\n<li>NGINX<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider enhancing its AI integration capabilities and explore partnerships or developments that align with market trends in agentic networking. Engaging with customers to understand their needs in AI-driven network management will be essential.<\/p>", "c": "AI Data Delivery"}, "CrowdStrike, Palo Alto Hit Records After Black Hat Cyber Conference": {"s": "CrowdStrike and Palo Alto Networks' stocks surged to record highs after Black Hat, driven by analyst optimism around AI-powered security solutions and endpoint modernization. This highlights the growing demand for AI in cybersecurity, a trend F5 must monitor closely as it could influence market dynamics and customer expectations in security solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>The record highs for CrowdStrike and Palo Alto Networks underscore the increasing importance of AI in cybersecurity. As these companies capitalize on AI-driven security demand, F5 must assess its own AI security strategies to remain competitive.<\/p>\n<h4>What this means for F5<\/h4>\n<p>The market's positive response to AI-powered security solutions indicates a shift in customer expectations towards more intelligent and adaptive security measures. F5 should evaluate its AI security offerings to ensure they meet evolving market demands.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should analyze the AI strategies of CrowdStrike and Palo Alto Networks to identify potential gaps or opportunities in its own product offerings. Strengthening partnerships or investing in AI capabilities could be beneficial.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>AI Security solutions, including any AI-driven WAF or API security products.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider enhancing its AI security capabilities and potentially increasing marketing efforts around existing AI-driven security solutions to capture market interest and demand.<\/p>", "c": "Application Security"}, "Check Point Research Publishes 10th August Threat Intelligence Report": {"s": "Check Point Software's latest Threat Intelligence Report highlights vulnerabilities in AI-related services, such as Cloudflare Code Mode and Google Gemini, alongside critical patches for Cisco and WordPress. This report is significant for F5 as it underscores emerging threats and vulnerabilities that could impact F5's security products and services, necessitating vigilance and potential updates to F5's threat intelligence and security measures.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Check Point's report highlights vulnerabilities in AI-related services and critical infrastructure, which are areas of interest for F5's security and application delivery solutions. Understanding these threats helps F5 enhance its own security measures and product offerings.<\/p>\n<h4>What this means for F5<\/h4>\n<p>This report indicates a growing trend of vulnerabilities in AI and critical infrastructure, which F5 must address in its security and application delivery solutions. Staying informed about these threats is crucial for maintaining competitive security offerings.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should analyze the vulnerabilities and threats highlighted in the report to assess potential impacts on its products and services. This includes updating threat intelligence and considering enhancements to security features.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>F5's security and application delivery products, particularly those related to AI and critical infrastructure.<\/p>\n<h4>Recommended Response<\/h4>\n<p>F5 should update its threat intelligence databases, review security protocols, and consider product updates to address the vulnerabilities highlighted in Check Point's report.<\/p>", "c": "Application Security"}, "Cloudflare Announces Proposed Private Offering of $2.175 Billion of Convertible Senior Notes Due 2031": {"s": "Cloudflare's announcement of a $2.175 billion convertible senior notes offering indicates its intention to expand its financial resources for platform and AI investments. This move could enhance Cloudflare's competitive position in integrated networking and security solutions, potentially impacting F5's market share and strategic initiatives.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cloudflare's significant financial maneuver to raise $2.175 billion through convertible senior notes suggests a strategic push towards expanding its platform capabilities and AI investments. This could intensify competition in the integrated networking and security solutions market, where F5 also operates.<\/p>\n<h4>What this means for F5<\/h4>\n<p>Cloudflare's financial expansion could lead to accelerated development and deployment of competitive products, potentially challenging F5's offerings in the market. This move might also attract more customers to Cloudflare's platform, impacting F5's market share.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>Monitor Cloudflare's subsequent investments and product developments closely. Evaluate F5's competitive positioning and consider strategic adjustments to maintain market leadership.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<p>Potential impact on F5's platform and AI-related offerings.<\/p>\n<h4>Recommended Response<\/h4>\n<p>Strengthen F5's platform capabilities and consider strategic partnerships or investments in AI to counter Cloudflare's anticipated advancements.<\/p>", "c": "Application Delivery"}, "Cloudflare Recaps Agents Week: Everything Launched for an Agentic Internet": {"s": "Cloudflare's Agents Week highlights their focus on an \"Agentic Internet,\" introducing tools for agent execution, development, and management, including a unified AI control plane and Zero Trust for agent identity. This positions Cloudflare as a key player in AI data delivery and security, challenging F5's offerings in these areas.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Cloudflare's announcements during Agents Week showcase their commitment to advancing the \"Agentic Internet,\" which could redefine how software agents interact with networks and applications. This poses a competitive threat to F5's market position in AI data delivery and security solutions.<\/p>\n<h4>What this means for F5<\/h4>\n<p>Cloudflare's focus on agent execution, AI control planes, and Zero Trust concepts indicates a strategic move to integrate AI and security more deeply into their platform. This could attract customers looking for comprehensive AI data delivery and security solutions, potentially impacting F5's market share.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should evaluate Cloudflare's new offerings to understand their potential impact on F5's AI and security solutions. Consider enhancing F5's AI data delivery and security capabilities to maintain competitive advantage and address evolving customer needs.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>AI data delivery solutions<\/li>\n<li>Security products with AI integration<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>Monitor customer feedback on Cloudflare's new offerings and assess any shifts in market demand. Strengthen F5's AI and security product messaging to highlight unique capabilities and benefits over Cloudflare's solutions.<\/p>", "c": "AI Data Delivery"}, "AWS Weekly Roundup: Web Search on Amazon Bedrock, Dogwood Agent Verification, Lambda Bandwidth Boost": {"s": "AWS's latest updates enhance its AI infrastructure and networking capabilities, notably with Amazon Bedrock's web search feature for AI models and increased Lambda bandwidth. These developments highlight AWS's focus on optimizing AI data delivery and agent verification, which could impact F5's positioning in AI data delivery and security solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>AWS's advancements in AI infrastructure, particularly in data delivery and agent verification, could influence customer expectations and demand for similar capabilities in F5's offerings. As AWS enhances its AI data delivery and security, F5 needs to ensure its solutions remain competitive in these areas.<\/p>\n<h4>What this means for F5<\/h4>\n<p>AWS's updates in AI data delivery and agent verification could pressure F5 to advance its own AI data delivery solutions. AWS's focus on real-time content fetching and agent security highlights areas where F5 can innovate or enhance its offerings to maintain competitiveness.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>Evaluate F5's current AI data delivery and security offerings to ensure they meet evolving market demands. Consider potential enhancements or partnerships that could strengthen F5's position against AWS's growing capabilities in AI infrastructure.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>NGINX for AI data delivery<\/li>\n<li>F5 Distributed Cloud for AI security<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>Monitor AWS's developments closely and assess potential impacts on F5's market positioning. Explore opportunities to enhance F5's AI data delivery and security solutions to meet or exceed AWS's capabilities, ensuring F5 remains a competitive choice for customers seeking robust AI infrastructure solutions.<\/p>", "c": "AI Data Delivery"}, "Akamai Cloud Keeps Strengthening the Foundation (Updated August 2026)": {"s": "Akamai's latest updates to its cloud platform focus on enhancing AI and agentic application support, with improvements in networking, Kubernetes, and storage. These updates aim to streamline AI inference deployment and scalability, positioning Akamai as a strong competitor in AI infrastructure. F5 should note Akamai's focus on platform maturity and its potential impact on AI workload management.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Akamai's enhancements to its cloud platform, particularly in AI and Kubernetes, indicate a strategic push towards becoming a leader in AI infrastructure. This move could challenge F5's position in the market, especially in areas related to AI workload management and Kubernetes support.<\/p>\n<h4>What this means for F5<\/h4>\n<p>Akamai's focus on platform maturity and AI workload support could impact F5's competitive edge in AI infrastructure solutions. F5 must assess its offerings in Kubernetes and AI workload management to ensure they remain competitive against Akamai's advancements.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>Evaluate F5's current AI and Kubernetes solutions to identify potential gaps or areas for enhancement. Consider strategic partnerships or product updates that can bolster F5's position in AI infrastructure and Kubernetes support.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>F5 BIG-IP<\/li>\n<li>F5 NGINX<\/li>\n<li>F5 Distributed Cloud Services<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>Monitor Akamai's developments closely and analyze customer feedback on their new offerings. Strengthen F5's AI and Kubernetes capabilities through targeted R&D investments and potential collaborations to maintain a competitive edge.<\/p>", "c": "Platforms"}, "Fastly Stock Is Rising Today: What's Driving It, and Are AI-Cloud Peers Moving Too?": {"s": "Fastly's stock surged by 21% following a strong Q2 2026 earnings report, which exceeded revenue expectations and demonstrated significant growth metrics. This financial performance, coupled with analyst upgrades and a rally in AI-cloud sectors, highlights Fastly's competitive positioning in the market. F5 should monitor these developments as they reflect Fastly's strengthening capabilities in areas overlapping with F5's strategic interests, particularly in application delivery and edge computing.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Fastly's impressive financial results and stock surge indicate its growing influence in the application delivery and edge computing markets, areas where F5 also competes. As Fastly continues to strengthen its position, it could pose a competitive threat to F5's market share and strategic initiatives.<\/p>\n<h4>What this means for F5<\/h4>\n<p>Fastly's growth and increased market confidence suggest a competitive landscape that is rapidly evolving. F5 needs to assess its own offerings and market strategies to ensure they remain compelling against Fastly's advancements, particularly in application delivery and edge services.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should conduct a thorough competitive analysis to understand Fastly's recent successes and identify potential areas for differentiation. Consider enhancing F5's product offerings and marketing strategies to better compete in the application delivery space.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>BIG-IP Application Delivery Services<\/li>\n<li>NGINX<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>Monitor Fastly's developments closely and evaluate F5's competitive positioning in application delivery and edge computing. Consider strategic adjustments to product offerings and marketing to maintain a competitive edge.<\/p>", "c": "Application Delivery"}, "As AI Networks Scale In Three Directions, So Does Arista": {"s": "Arista Networks has announced a strategic expansion in AI networking, focusing on scaling across datacenters, scaling up within racks, and scaling out with workgroups. This strategy is expected to significantly boost their AI networking revenue, with projections of reaching $3.6 billion in 2026. This move underscores the growing importance of AI networking infrastructure, posing a competitive challenge for F5 in the AI data delivery space.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Arista's aggressive expansion in AI networking highlights a competitive landscape shift that could impact F5's positioning in AI data delivery. As Arista scales its AI networking capabilities, F5 must assess its own strategies to remain competitive in delivering AI workloads efficiently.<\/p>\n<h4>What this means for F5<\/h4>\n<p>Arista's strategy to scale AI networks in multiple directions signifies a growing demand for robust AI networking solutions. F5 needs to evaluate its AI data delivery offerings to ensure they meet evolving market demands and can compete with Arista's expanding capabilities.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should analyze Arista's scaling strategies and consider enhancing its own AI data delivery solutions. This may involve investing in technologies that improve AI workload efficiency and exploring partnerships that expand F5's reach in the AI networking market.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>AI data delivery solutions<\/li>\n<li>Networking and load balancing products<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should consider conducting a competitive analysis of Arista's AI networking advancements and identify potential gaps in its own offerings. Strengthening partnerships and investing in AI data delivery innovations could help F5 maintain a competitive edge.<\/p>", "c": "AI Data Delivery"}, "HPE Rises as Investors Lean Into AI Networking and Juniper Integration Momentum": {"s": "HPE's stock surged by 4.7% due to strong AI networking momentum and the successful integration of Juniper Networks, enhancing their AI data center and networking strategy. This move expands HPE's enterprise AI capabilities beyond servers, potentially impacting F5's position in AI networking and data delivery markets.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>HPE's integration of Juniper Networks and focus on AI networking directly challenges F5's position in the AI data delivery space. As HPE strengthens its AI data center and networking strategy, F5 must evaluate its competitive stance and potential market share impact.<\/p>\n<h4>What this means for F5<\/h4>\n<p>HPE's advancements in AI networking could pressure F5 to innovate and expand its own AI data delivery capabilities. F5 needs to monitor these developments closely to maintain its competitive edge in AI networking and data delivery.<\/p>\n<h4>What you should do about this news<\/h4>\n<p>F5 should assess its current AI networking strategies and consider partnerships or innovations that can counter HPE's growing influence. Staying ahead in AI data delivery will be crucial to maintaining market leadership.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li>AI data delivery solutions<\/li>\n<li>Networking and data center products<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<p>F5 should enhance its AI data delivery offerings and consider strategic partnerships to strengthen its position against HPE's expanding capabilities. Continuous innovation and market analysis will be key to staying competitive.<\/p>", "c": "Platforms"}};
+var F5_CAT_COLORS = {"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
+var F5_CAT_PRIORITY = {"Platforms": 1, "AI Security": 2, "AI Data Delivery": 3, "Application Delivery": 4, "Application Security": 5};
+var injecting = false;
+
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
+
+function toggleDetail(wrap){
+  var detail = wrap.querySelector('.f5-detail');
+  var link = wrap.querySelector('.f5-full-link');
+  var badge = wrap.querySelector('.f5-badge');
+  if(!detail) return;
+  var open = detail.classList.toggle('f5-open');
+  if(link) link.textContent = open ? 'Hide Full Analysis' : 'Read Full Analysis \u2192';
+  if(badge) badge.setAttribute('data-open', open ? '1' : '0');
+}
+
+function buildF5Wrap(entry){
+  var wrap = document.createElement('div');
+  wrap.className = 'f5-wrap';
+  var color = F5_CAT_COLORS[entry.c] || '#555';
+  var badge = document.createElement('span');
+  badge.className = 'f5-badge';
+  badge.textContent = '\u26A0 Why F5 Cares';
+  badge.setAttribute('data-open', '0');
+
+  var pill = document.createElement('span');
+  pill.className = 'f5-cat-pill';
+  pill.style.background = color;
+  pill.textContent = entry.c || '';
+
+  var link = document.createElement('button');
+  link.type = 'button';
+  link.className = 'f5-full-link';
+  link.textContent = 'Read Full Analysis \u2192';
+
+  var summary = document.createElement('div');
+  summary.className = 'f5-summary';
+  summary.textContent = entry.s || '';
+
+  var detail = document.createElement('div');
+  detail.className = 'f5-detail';
+  detail.innerHTML = entry.d || '';
+
+  wrap.appendChild(badge);
+  wrap.appendChild(pill);
+  wrap.appendChild(link);
+  wrap.appendChild(summary);
+  wrap.appendChild(detail);
+
+  badge.addEventListener('click', function(){ toggleDetail(wrap); });
+  link.addEventListener('click', function(){ toggleDetail(wrap); });
+
+  return wrap;
+}
+
+function desiredOrderIndex(card){
+  var titleEl = card.querySelector('.ann-title');
+  var title = titleEl ? titleEl.textContent.trim() : '';
+  var entry = F5D[title];
+  var cat = entry ? entry.c : null;
+  var pri = cat && F5_CAT_PRIORITY[cat] ? F5_CAT_PRIORITY[cat] : 99;
+  return pri;
+}
+
+function injectF5(){
+  if(injecting) return;
+  injecting = true;
+  try{
+    var cards = document.querySelectorAll('.ann-card');
+    if(!cards || cards.length === 0){ return; }
+
+    // Inject F5 analysis wrap into each card missing one.
+    for(var i=0;i<cards.length;i++){
+      var card = cards[i];
+      if(card.querySelector('.f5-wrap')) continue;
+      var titleEl = card.querySelector('.ann-title');
+      if(!titleEl) continue;
+      var title = titleEl.textContent.trim();
+      var entry = F5D[title];
+      if(!entry) continue;
+      var wrap = buildF5Wrap(entry);
+      card.appendChild(wrap);
+    }
+
+    // Re-sort cards by category priority, but ONLY if the order actually
+    // needs to change -- appendChild on an already-correctly-positioned
+    // node still emits a mutation, which would re-trigger this function
+    // via the MutationObserver below and freeze the page (2026-07-02 bug).
+    var container = cards[0] ? cards[0].parentElement : null;
+    if(container){
+      var cardArr = Array.prototype.slice.call(container.querySelectorAll('.ann-card'));
+      var sorted = cardArr.slice().sort(function(a,b){
+        return desiredOrderIndex(a) - desiredOrderIndex(b);
+      });
+      var alreadySorted = true;
+      for(var k=0;k<cardArr.length;k++){
+        if(cardArr[k] !== sorted[k]){ alreadySorted = false; break; }
+      }
+      if(!alreadySorted){
+        for(var j=0;j<sorted.length;j++){
+          container.appendChild(sorted[j]);
+        }
+      }
+    }
+  } finally {
+    setTimeout(function(){ injecting = false; }, 0);
+  }
+}
+
+var mo = new MutationObserver(function(){
+  injectF5();
+});
+mo.observe(document.body, {childList:true, subtree:true});
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(injectF5, 300); });
+} else {
+  setTimeout(injectF5, 300);
+}
+})();
+</script>
+
 </body>
 </html>
