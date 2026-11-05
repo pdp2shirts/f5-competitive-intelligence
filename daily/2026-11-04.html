@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5 Daily Briefing - November 04, 2026</title>
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<style>
+:root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3347;--text:#e2e4ea;--muted:#8b8fa3;--accent:#76b900;--accent2:#00b4d8;--danger:#ff4d6a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.header{background:linear-gradient(135deg,#1a1d27,#22263a);border-bottom:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+.header-left h1{font-size:26px;font-weight:700;margin-bottom:6px}
+.header-left h1 span{color:var(--accent)}
+.header-left p{color:var(--muted);font-size:14px}
+.header-right{display:flex;gap:10px}
+.export-btn{background:var(--accent);color:#000;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+.export-btn:hover{opacity:.9}
+.stats-bar{display:flex;gap:20px;padding:20px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 24px;min-width:150px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s}
+.stat-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 16px rgba(118,185,0,.15)}
+.stat-card.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(118,185,0,.3)}
+.stat-card .num{font-size:32px;font-weight:700;color:var(--accent)}
+.stat-card .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.stat-card .hint{font-size:10px;color:var(--accent);margin-top:6px;opacity:0;transition:opacity .2s}
+.stat-card:hover .hint{opacity:1}
+.main{display:flex;gap:0;min-height:calc(100vh - 180px)}
+.charts-panel{flex:0 0 50%;padding:24px 20px 24px 40px;display:flex;flex-direction:column;gap:16px}
+.chart-container{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;flex:1;min-height:320px}
+.detail-panel{flex:1;padding:24px 40px 24px 20px;overflow-y:auto;max-height:calc(100vh - 180px)}
+.detail-panel h2{font-size:18px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.detail-panel h2 .badge{background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:13px;color:var(--muted)}
+.breadcrumb a{color:var(--accent);cursor:pointer;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb .sep{color:var(--border)}
+.ann-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:12px;transition:border-color .2s}
+.ann-card:hover{border-color:var(--accent)}
+.ann-card .ann-title{font-size:15px;font-weight:600;margin-bottom:8px}
+.ann-card .ann-type{display:inline-block;background:rgba(118,185,0,.15);color:var(--accent);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px}
+.ann-card .ann-comp-tag{display:inline-block;background:rgba(0,180,216,.15);color:var(--accent2);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px;margin-left:6px}
+.ann-card .ann-date-tag{display:inline-block;background:rgba(255,255,255,.06);color:var(--muted);font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:10px;margin-left:6px}
+.ann-card .ann-summary{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.ann-card .source-link{display:inline-flex;align-items:center;gap:4px;color:var(--accent2);font-size:12px;text-decoration:none;font-weight:500}
+.ann-card .source-link:hover{text-decoration:underline}
+.comp-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,background .2s}
+.comp-card:hover{border-color:var(--accent);background:var(--card)}
+.comp-card .name{font-size:14px;font-weight:600}
+.comp-card .cat{font-size:11px;color:var(--muted);margin-top:2px}
+.comp-card .count{background:var(--accent);color:#000;font-size:12px;font-weight:700;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.comp-card .no-ann{color:var(--muted);font-size:11px;font-style:italic}
+.comp-card.inactive{opacity:.5;cursor:default}
+.comp-card.inactive:hover{border-color:var(--border);background:var(--surface)}
+.cat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,background .2s}
+.cat-card:hover{border-color:var(--accent);background:var(--card)}
+.cat-card .cat-name{font-size:14px;font-weight:600}
+.cat-card .cat-meta{font-size:11px;color:var(--muted);margin-top:2px}
+.cat-card .cat-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
+.pill{font-size:11px;padding:2px 10px;border-radius:12px;font-weight:600}
+.pill-ann{background:rgba(118,185,0,.15);color:var(--accent)}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin:20px 0 8px;font-weight:600}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px}
+.status-active{background:var(--accent)}.status-inactive{background:#444}
+.inactive-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.inactive-chip{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:12px;color:var(--muted)}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state .icon{font-size:48px;margin-bottom:12px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>F5 Daily Briefing &ndash; <span>Wednesday, November 04, 2026</span></h1>
+    <p><a href="../index.html" style="color:var(--accent);text-decoration:none;font-weight:600">&larr; Back to Hub</a> &middot; Daily competitive intelligence covering 22 F5 competitors</p>
+  </div>
+  <div class="header-right">
+    <a class="pdf-btn" href="../daily_pdf/20261104-F5_Dailiy_Competitive_Briefing.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(118,185,0,.13);border:1px solid var(--accent);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;margin-right:8px;transition:background .2s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      View as PDF
+    </a>
+    <button class="export-btn" id="exportBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export CSV
+    </button>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-card" data-action="stat-tracked"><div class="num">22</div><div class="label">Competitors Tracked</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-ann"><div class="num">27</div><div class="label">Announcements Today</div><div class="hint">&#9654; Click to view all</div></div>
+  <div class="stat-card" data-action="stat-active"><div class="num">14</div><div class="label">Active Today</div><div class="hint">&#9654; Click to view</div></div>
+  <div class="stat-card" data-action="stat-cats"><div class="num">5</div><div class="label">Active Categories</div><div class="hint">&#9654; Click to view</div></div>
+</div>
+<div class="main">
+  <div class="charts-panel">
+    <div class="chart-container" id="chart-competitor"></div>
+    <div class="chart-container" id="chart-category"></div>
+  </div>
+  <div class="detail-panel" id="detail-panel"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var DATA={"Akamai": {"category": "Application Delivery (ADCs)", "announcements": []}, "Akamai ~AI": {"category": "AI Security", "announcements": [{"title": "Akamai Research: Synthetic CISOs Call AI Agents the Most Underestimated Risk", "summary": "Akamai surveyed 1,067 synthetic CISOs. Only 10% report mature security controls for AI agents, compared with 48% for APIs. Top worries are non-human identities with too much access, fraud driven by agents, and runaway agents. The study also found that APIs behind AI apps were the most common target of API attacks. Akamai uses this to tie AI agent risk to its API security story, which competes with F5 AI Guardrails and Distributed Cloud API Security.", "type": "Research", "date": "2026-11-04", "source_url": "https://www.akamai.com/blog/ai/synthetic-cisos-call-ai-agents-most-underestimated-risk"}]}, "Akamai ~AS": {"category": "Application Security", "announcements": [{"title": "Akamai Enhances Web Security Analytics for App & API Protector", "summary": "Akamai updated Web Security Analytics. A new panel switches between Edge, Client-Side and App & API Protector Hybrid views. The AI Assistant now says when an insight has expired. The Samples view now groups IP and Geo data to show large DoS events. Fixes restore Botnet IDs and make API operation names searchable. Akamai keeps improving WAAP observability and its hybrid deployment option, which compete with F5 Distributed Cloud WAAP and Advanced WAF analytics.", "type": "Product Update", "date": "2026-11-04", "source_url": "https://techdocs.akamai.com/security-ctr/changelog/nov-4-2026-improvements-to-web-security-analytics"}]}, "Fastly": {"category": "Application Delivery (ADCs)", "announcements": [{"title": "Fastly Reports Record Q3 2026 Revenue of $190.2M, Up 20% Year over Year", "summary": "Fastly reported record Q3 revenue of $190.2M, up 20% year over year. Security revenue grew 32% to $44.7M, and Network Services grew 16% to $138.0M. Net retention reached 119%, RPO rose 24% to $334M, and 74% of large customers now use two or more product suites. Fastly also highlighted its AI Runtime Control, AI Firewall and API Security products, plus an edge partnership with Comcast. Fast security growth and suite bundling make Fastly a stronger competitor to F5 in edge app delivery and security deals.", "type": "Financial", "date": "2026-11-04", "source_url": "https://www.businesswire.com/news/home/20261104512325/en/Fastly-Announces-Third-Quarter-2026-Financial-Results"}, {"title": "Fastly Go-To-Market President Scott Lovett to Retire; CRO Search Begins", "summary": "Fastly said Scott Lovett, President of Go-To-Market, plans to retire in 2027. The company is starting a search for a Chief Revenue Officer, and Lovett will lead sales through the handover before becoming a Senior Advisor. Shares fell more than 15% after hours alongside the Q3 results. A change at the top of Fastly's sales team could slow its large-account growth, which gives F5 field teams an opening at Fastly accounts that are up for renewal or expansion.", "type": "Leadership", "date": "2026-11-04", "source_url": "https://seekingalpha.com/news/4665086-fastly-free-falls-after-q3-earnings-go-to-market-head-lovett-retiring"}, {"title": "Fastly and Jio Platforms Expand Alliance to Offer JioCDN to Indian Enterprises", "summary": "Fastly and Jio Platforms expanded their partnership on JioCDN, a CDN that runs Fastly's edge technology on Jio's network. After large-scale testing, the service is now available to Indian companies and institutions in e-commerce, digital banking, the public sector and media. The deal gives Fastly carrier-scale reach in India, adding to its Comcast partnership in the US. That raises the competition F5 faces for edge delivery and security work with service providers and large enterprises in APAC.", "type": "Partnership", "date": "2026-11-04", "source_url": "https://www.computing.es/noticias/fastly-y-jio-platforms-amplian-su-alianza-estrategica-para-impulsar-la-red-de-distribucion-de-contenidos-jiocdn/"}]}, "Citrix (NetScaler)": {"category": "Application Delivery (ADCs)", "announcements": []}, "Citrix (NetScaler) ~AI": {"category": "AI Security", "announcements": [{"title": "Citrix Adds AI Agent Governance, Agentic Workspaces and Platform Credits", "summary": "Citrix expanded SecurSpaces to run AI agents in a centrally governed workspace, and these updates are available now. SecurAccess gets three governance features by month-end: detection of autonomous browsing activity, limits on what agents can do via Model Context Protocol (MCP), and AI-governed session insights. Citrix also launched consumption-based Platform Credits and a free SecurSpaces Community Edition. This is workspace and access governance rather than a NetScaler update. Even so, Citrix is now pitching MCP-based agent controls, which overlaps with F5's AI Guardrails and AI gateway messaging.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://www.citrix.com/news/announcements/nov-2026/citrix-advances-secure-ai-adoption.html"}]}, "A10 Networks": {"category": "Application Delivery (ADCs)", "announcements": []}, "HiddenLayer": {"category": "AI Security", "announcements": []}, "Lasso Security": {"category": "AI Security", "announcements": []}, "Operant AI": {"category": "AI Security", "announcements": []}, "Pillar Security": {"category": "AI Security", "announcements": []}, "Mindgard": {"category": "AI Security", "announcements": []}, "Palo Alto Networks": {"category": "Platforms", "announcements": []}, "Fortinet": {"category": "Platforms", "announcements": [{"title": "Fortinet Hosts Virtual Security Operations Summit Focused on AI-Native SecOps", "summary": "Fortinet opened a two-day virtual Security Operations Summit on November 4\u20135. It focused on AI-native threat detection, investigation and response using agentic AI across the Fortinet Security Fabric and FortiAIGate. Fortinet executives, IDC and FortiGuard Labs presented, along with customer H-E Parts International. The event shows Fortinet turning its AI message into platform-wide SOC use cases after its Q3 results. Expect platform-consolidation arguments in deals where F5 positions best-of-breed app and AI security.", "type": "Event", "date": "2026-11-04", "source_url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/fortinet-stock-enters-ai-summit-focused-on-ai-native-security/70457867"}]}, "Fortinet ~AI": {"category": "AI Security", "announcements": [{"title": "Fortinet Launches FortiGuard Inline AI Security Service for FortiGate, Expands FortiAIGate", "summary": "Fortinet added cloud-delivered AI guardrails to existing FortiGate firewalls. The service inspects prompts, model calls, MCP tool calls, API activity and agent actions. It also includes DLP that finds more than 35 types of PII and confidential data, model and spend controls with Denial-of-Wallet protection, and shadow AI visibility. Customers can self-host FortiAIGate on NVIDIA GPU Kubernetes for data sovereignty, and its guardrails use technology from Fortinet's Virtue AI acquisition. Fortinet is bundling AI runtime security into firewalls customers already own, which puts direct pressure on F5 AI Guardrails and AI Gateway deals.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://www.appsgadget.com/2026/11/fortinet-fortiguard-inline-ai-security-service-fortaigate.html"}]}, "Cisco": {"category": "Platforms", "announcements": []}, "Cisco ~AI": {"category": "AI Security", "announcements": [{"title": "Cisco Introduces Privileged Infrastructure Access for People and AI Agents", "summary": "Cisco introduced Privileged Infrastructure Access, a just-in-time permission model for administrators, delegated AI agents and automation scripts. It uses cryptographic identity, privileges that expire when the task ends, and session recording, built on existing ISE and TACACS+ policies. Coverage extends to routers, switches, servers, Kubernetes and cloud resources. Cisco is building agent identity and access controls into infrastructure operations, which widens its agentic AI security story against F5's AI security and agent-governance positioning.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://thejournal.com/articles/2026/11/04/cisco-intros-privileged-infrastructure-access-for-people-and-ai-agents.aspx"}]}, "CrowdStrike": {"category": "Platforms", "announcements": [{"title": "CrowdStrike Unveils Agentic Adversary Emulation on the Falcon Platform", "summary": "CrowdStrike launched Agentic Adversary Emulation, powered by SafeMind. Its Red Tempest AI acts as an autonomous attacker that chains vulnerabilities, misconfigurations, and identity gaps into exploitable attack paths. The tool then drives remediation and re-tests to confirm each path is closed. It is in early access through Project QuiltWorks partners. The launch adds continuous, AI-driven exposure validation to the Falcon platform, strengthening CrowdStrike's case for consolidating onto one platform.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-unveils-agentic-adversary-emulation-falcon-platform/"}, {"title": "CrowdStrike Brings Falcon Seraphic Enterprise Browser Security Natively to the Falcon Platform", "summary": "Falcon Seraphic Enterprise Browser is now native to Falcon. It protects sessions in the browsers people already use, on managed and unmanaged devices, with no separate browser and no traffic rerouting. It enforces data and AI-usage policies, manages extensions, and provides secure access to private applications for BYOD users and contractors. This puts CrowdStrike into secure remote access, which overlaps with F5 BIG-IP APM and Distributed Cloud secure access use cases.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-brings-enterprise-browser-security-to-falcon-platform/"}, {"title": "New Falcon Cloud Security Innovations Secure the Cloud AI Runs On", "summary": "CrowdStrike extended Real-Time Cloud Detection and Response to Microsoft Azure and Kubernetes, alongside AWS and Google Cloud. It also added cloud IOAs (indicators of attack) with posture context and AI anomaly detection that spots API misuse and account takeover in AWS CloudTrail. The update unifies supply chain, posture, and runtime protection from build to runtime. CrowdStrike is now pitching protection for the cloud and API layer under AI workloads, an area where F5 Distributed Cloud API security and multicloud delivery compete.", "type": "Product Update", "date": "2026-11-04", "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-cloud-security-innovations-secure-cloud-ai-runs-on/"}, {"title": "CrowdStrike Launches Sovereign Cloud in Saudi Arabia", "summary": "CrowdStrike launched an in-country sovereign cloud in Saudi Arabia, available now. It runs Falcon workloads, telemetry, and management locally to meet Saudi regulations while still drawing on global threat intelligence and AI agent security, and it highlights work with Aramco. Sovereign AI deployments are a growing pursuit for platform vendors. F5 field and cloud alliance teams in the Middle East should be ready to show F5 sovereign and on-premises deployment options.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-launches-sovereign-cloud-saudi-arabia-bringing-ai/"}]}, "CrowdStrike ~AI": {"category": "AI Security", "announcements": [{"title": "CrowdStrike Extends the Agentic SOC to Detect and Stop the Agent Insider Threat, Adds AI Kill Switch", "summary": "CrowdStrike introduced Agent Insider Threat Detection (Q4). It learns the normal behavior of each AI agent and its owner and flags deviations through Falcon Next-Gen SIEM. Multi-agent investigations are now generally available, and the Falcon Guardian AI Kill Switch can stop rogue agents at the gateway and cut off their network access. CrowdStrike is presenting agentic AI governance as a SOC feature, which overlaps with F5's runtime AI security and AI gateway messaging. Sellers should expect agent-containment questions.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-extends-agentic-soc-detect-and-stop-agent-insider/"}]}, "Zscaler": {"category": "Platforms", "announcements": [{"title": "Zscaler Adds Thick-Client Application Isolation to Zero Trust Browser as a VDI Alternative", "summary": "Zscaler announced Application Isolation in its Zero Trust Browser. Thick-client apps such as SAP GUI, IDEs, and database tools run in isolated cloud environments, rendered in the browser, with no endpoint agent or VDI client. Traffic goes through ZIA and ZPA, and browser data protection controls such as clipboard and file-transfer limits and watermarking apply to these sessions. Zscaler is pitching this as a VDI replacement, which pressures F5 BIG-IP APM and Citrix-adjacent secure access and app delivery deals.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://insidecybersec.com/zscaler-adds-thick-client-app-delivery-to-zero-trust-browser/"}]}, "Check Point Software": {"category": "Platforms", "announcements": [{"title": "Check Point Shares Drop ~12% as Q3 2026 Results Signal Slower Recovery", "summary": "Check Point shares fell about 12% in premarket trading after Q3 revenue of about $670M (down ~1% year over year) slightly missed estimates. Legacy product sales fell about 19%, and the CEO said the product recovery will be slower than expected, starting in Q4 2026. The weak firewall refresh and the shift toward cloud and AI security create openings for F5 in security consolidation deals with customers who are re-evaluating Check Point.", "type": "Financial", "date": "2026-11-04", "source_url": "https://www.jpost.com/business-and-innovation/tech-and-start-ups/article-913787"}, {"title": "Check Point Research: HYFLOCK Ransomware Evolves with New Builds and Encryption Weaknesses", "summary": "Check Point Research reports that HYFLOCK ransomware went through four generations in six months, with October 2026 builds changing how it deploys and runs. Researchers also found encryption flaws that allowed partial file recovery without a decryption key. This research supports Check Point's threat intelligence pitch. F5 marketing can use it as context for ransomware and defense-in-depth messaging.", "type": "Research", "date": "2026-11-04", "source_url": "https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/"}]}, "Cloudflare": {"category": "Platforms", "announcements": []}, "Cloudflare ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "Cloudflare AI Gateway Adds Model Aliases for Pooled Routing and Fallback", "summary": "Cloudflare AI Gateway now supports model aliases. One name, such as custom/support-fast, points to a pool of models. The gateway tries the models in a set order, falls back when one fails, and can route each request intelligently. Teams can swap models or change routing without redeploying. This strengthens Cloudflare's AI gateway as a traffic-management layer for AI and competes directly with F5's AI Gateway and AI Data Delivery story on routing and resilience across many models.", "type": "Product Update", "date": "2026-11-04", "source_url": "https://developers.cloudflare.com/changelog/post/2026-11-04-model-aliases/"}]}, "Cloudflare ~AD": {"category": "Application Delivery (ADCs)", "announcements": [{"title": "Cloudflare Private Load Balancers Gain Session Affinity and Hash Steering", "summary": "Cloudflare private load balancers can now keep Cloudflare One users and private-network traffic on the same endpoint. They do this with hash endpoint steering or ip_cookie session affinity, which suits apps that keep session state on the server. Cloudflare One Client users are identified by device, so they stay on the same endpoint even if their IP address changes. These are classic ADC persistence features delivered inside Cloudflare's SASE platform, and they challenge BIG-IP LTM for private and internal app delivery.", "type": "Product Update", "date": "2026-11-04", "source_url": "https://developers.cloudflare.com/changelog/post/2026-11-04-private-lb-session-affinity/"}]}, "Cloudflare ~AS": {"category": "Application Security", "announcements": [{"title": "Cloudflare Adds Personal Agent Analytics and Per-Agent Access Policies", "summary": "Cloudflare added a Personal Assistants category to Security Analytics. It shows which AI agents visit a site, how many requests they send, and which paths, logins and errors they touch. Site owners can now set a separate policy for each agent: Allow, Block on pages with ads, or Block. This takes Cloudflare's bot management into control of agentic traffic, which overlaps with F5 Distributed Cloud Bot Defense. F5 should be ready to explain how it tells agents apart and applies policy to each one.", "type": "Product Update", "date": "2026-11-04", "source_url": "https://blog.cloudflare.com/personal-agents-visibility-control/"}]}, "AWS": {"category": "Platforms", "announcements": []}, "AWS ~AI": {"category": "AI Security", "announcements": [{"title": "Bedrock AgentCore Gateway Adds On-Behalf-Of Identity Pattern with ServiceNow", "summary": "AWS described an on-behalf-of token exchange in Bedrock AgentCore Gateway. An agent signs in with a Microsoft Entra ID token, and the gateway swaps it for a token scoped to a ServiceNow connector. Agents then act as the signed-in user, with that user's permissions and an audit trail, and no custom code is needed. This puts identity and authorization for agents inside AWS's own gateway. F5 should stress authorization for agent and MCP traffic that works across clouds.", "type": "Product Update", "date": "2026-11-04", "source_url": "https://securitynews.com/business-perspectives/aws-bedrock-integrates-with-servicenow-for-secure-ai-identity/"}]}, "AWS ~AID": {"category": "AI Data Delivery", "announcements": [{"title": "OpenAI Daybreak Red and GPT-5.6 Cyber Available in AWS GovCloud via Bedrock", "summary": "OpenAI's Daybreak Red and GPT-5.6 Cyber are now available to approved government customers in AWS GovCloud (US-East) through Amazon Bedrock. They support vulnerability research, exploit validation and defensive workflows, with strict identity checks, and inference data is not used for training. Bedrock keeps growing as the channel for frontier-model inference in the US public sector. F5 public-sector teams should position AI security and traffic controls around Bedrock-hosted model use.", "type": "Partnership", "date": "2026-11-04", "source_url": "https://openai.com/index/daybreak-red-aws-govcloud"}]}, "AWS ~AD": {"category": "Application Delivery (ADCs)", "announcements": [{"title": "AWS Interconnect \u2013 Last Mile Preview with Equinix", "summary": "AWS released a preview of AWS Interconnect \u2013 last mile with Equinix. It gives private, managed connections from Equinix Fabric One to AWS, with four redundant links, MACsec encryption on by default and a 99.99% SLA. The preview offers free 1 Gbps links in N. California and N. Virginia, and general availability will scale to 100 Gbps. Hybrid connectivity is getting easier, so F5 alliance and services teams should position F5 traffic management and security across these AWS\u2013Equinix paths.", "type": "Partnership", "date": "2026-11-04", "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/"}]}, "Arista Networks": {"category": "AI Data Delivery", "announcements": [{"title": "Arista's Record Q3 2026: $3.66B Revenue, Up 58.5%, as the Network Becomes Central to AI", "summary": "Arista reported Q3 revenue of $3.66B, up 58.5% year over year, with a 49.1% non-GAAP operating margin. It guided Q4 to $3.9\u2013$4.0B, raised full-year 2026 to about $13.3B, and expects 2027 to reach about $18.5B. CEO Jayshree Ullal says AI is moving from compute-centric to network-centric, with inference spread across different accelerators and over 100 Etherlink AI customers. Arista's pitch of multi-vendor AI fabrics is getting stronger in the same AI factory accounts where F5 sells AI traffic management and inference delivery. F5 should position the application and inference layer above Arista's fabric.", "type": "Financial", "date": "2026-11-04", "source_url": "https://siliconangle.com/2026/11/04/aristas-record-quarter-shows-the-network-has-become-central-to-ai/"}]}, "HPE / Juniper Networks": {"category": "AI Data Delivery", "announcements": [{"title": "HPE Launches Four ProLiant Gen13 Servers for Enterprise AI Inference and Agentic Workloads", "summary": "HPE announced four ProLiant Gen13 servers (DL525, DL585a, XD245, XD285) with 6th-gen AMD EPYC processors. They are built for AI inference, analytics, simulation and agentic AI. Security features include self-encrypting drives, automated key management through iLO 8, multi-person approvals and post-quantum cryptography. The DL525 ships in late 2026 and the others in 2027. HPE is growing its full-stack on-prem AI infrastructure offer, which it pairs with Juniper networking. That could pull inference delivery and security decisions into HPE-led bundles. F5 sellers and alliances should push F5 for AI traffic management and protection on HPE-based AI factories.", "type": "Product Launch", "date": "2026-11-04", "source_url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/hewlett-packard-enterprise-aktie-hpe-setzt-auf-gen13-fuer-ki-lasten/70456400"}]}, "Radware": {"category": "Application Security", "announcements": [{"title": "Radware Details How Bot Manager Detects Anti-Detect Browser Automation Frameworks", "summary": "A Radware research blog post says attackers now combine AI-driven agents, residential proxies, CAPTCHA-solving services and anti-detect frameworks to make bot traffic look human. Radware describes a two-layer defense in Bot Manager: hard signatures for known tools, plus client-side composite scoring based on behavioral signals. It argues that judging behavior and intent beats static fingerprinting. This is a direct bot-defense thought-leadership play against F5 Distributed Cloud Bot Defense. F5 PMM and marketing should refresh F5's content on AI-agent and anti-detect bot evasion.", "type": "Research", "date": "2026-11-04", "source_url": "https://www.radware.com/blog/anti-detect-browser-automation-frameworks/"}]}, "Barracuda Networks": {"category": "Application Security", "announcements": [{"title": "Barracuda Research: Future MSP Growth Will Be Driven by AI Expertise and Cyber Resilience", "summary": "Barracuda released a survey of 2,000 IT and security decision makers, conducted by Arlington Research. It found 66% of organizations already use an MSP and 29% more are evaluating one. 59% worry about AI-enabled threats such as AI phishing and shadow AI. Only 29% of organizations seeking MSP support can secure compromised accounts and restore operations within hours. Barracuda is building its MSP channel story around AI security and resilience. F5 channel and alliance teams should use this as a benchmark for MSP and MSSP messaging on F5 AI security and app protection services.", "type": "Research", "date": "2026-11-04", "source_url": "https://www.businesswire.com/news/home/20261104572040/en/Barracuda-Research-Survey-Future-MSP-Growth-Will-Be-Driven-by-AI-Expertise-and-Cyber-Resilience"}]}, "Imperva (Thales)": {"category": "Application Security", "announcements": []}};
+var catColors={"Platforms":"#636efa","AI Security":"#ef553b","AI Data Delivery":"#00cc96","Application Delivery (ADCs)":"#ab63fa","Application Security":"#ffa15a"};
+var cCL=["#76b900","#00b4d8","#ef553b","#ab63fa","#ffa15a","#19d3f3","#ff6692","#636efa","#00cc96","#b6e880","#ff97ff"];
+function baseName(s){return s.replace(/ ~(AI|AID|AD|AS|P)$/,"");}
+var ALL_ANN=[],names=Object.keys(DATA),compCounts={},catCounts={};
+var baseSet={},baseActive={},baseCatMap={};
+for(var i=0;i<names.length;i++){var nm=names[i],bn=baseName(nm),info=DATA[nm],n=info.announcements.length;
+  baseSet[bn]=1;
+  if(!baseCatMap[bn])baseCatMap[bn]=[];
+  if(baseCatMap[bn].indexOf(info.category)<0)baseCatMap[bn].push(info.category);
+  if(n>0){compCounts[bn]=(compCounts[bn]||0)+n;baseActive[bn]=1;}
+  if(!catCounts[info.category])catCounts[info.category]=0;
+  catCounts[info.category]+=n;
+  for(var j=0;j<n;j++){var a=info.announcements[j];ALL_ANN.push({title:a.title,summary:a.summary,source_url:a.source_url,type:a.type,date:a.date,competitor:bn,category:info.category});}}
+var baseNames=Object.keys(baseSet);
+ALL_ANN.sort(function(a,b){if(a.date<b.date)return 1;if(a.date>b.date)return -1;return 0;});
+
+document.getElementById("exportBtn").addEventListener("click",function(){
+  var rows=["Date,Competitor,Category,Type,Title,Summary,Source URL"];
+  for(var i=0;i<ALL_ANN.length;i++){var a=ALL_ANN[i];rows.push([a.date,q(a.competitor),q(a.category),q(a.type),q(a.title),q(a.summary),a.source_url].join(","));}
+  var blob=new Blob([rows.join("\n")],{type:"text/csv"});var lnk=document.createElement("a");lnk.href=URL.createObjectURL(blob);lnk.download="f5_daily_2026-11-04.csv";lnk.click();
+});
+function q(s){return '"'+String(s).replace(/"/g,'""')+'"';}
+
+var pL={paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{family:"Segoe UI,system-ui,sans-serif",color:"#e2e4ea",size:12},margin:{t:40,b:10,l:10,r:10},showlegend:true,legend:{font:{size:11},orientation:"v",x:1.02,y:0.5}};
+var cl=Object.keys(compCounts),cv=[];for(var i=0;i<cl.length;i++)cv.push(compCounts[cl[i]]);
+if(cl.length>0){
+  Plotly.newPlot("chart-competitor",[{type:"pie",labels:cl,values:cv,textinfo:"label+value",textposition:"inside",hoverinfo:"label+value+percent",marker:{colors:cCL.slice(0,cl.length),line:{color:"#0f1117",width:2}},hole:.35,sort:false}],Object.assign({},pL,{title:{text:"Announcements by Competitor",font:{size:15,color:"#e2e4ea"},x:.01}}),{responsive:true,displayModeBar:false});
+  document.getElementById("chart-competitor").on("plotly_click",function(d){showCompetitor(d.points[0].label);});
+}else{document.getElementById("chart-competitor").innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8b8fa3">No competitor announcements today</div>';}
+
+var catL=[],catV=[],catC=[];var ck=Object.keys(catCounts);
+for(var i=0;i<ck.length;i++){if(catCounts[ck[i]]>0){catL.push(ck[i]);catV.push(catCounts[ck[i]]);catC.push(catColors[ck[i]]||"#888");}}
+if(catL.length>0){
+  Plotly.newPlot("chart-category",[{type:"pie",labels:catL,values:catV,textinfo:"label+value",textposition:"inside",hoverinfo:"label+value+percent",marker:{colors:catC,line:{color:"#0f1117",width:2}},hole:.35,sort:false}],Object.assign({},pL,{title:{text:"Announcements by Category",font:{size:15,color:"#e2e4ea"},x:.01}}),{responsive:true,displayModeBar:false});
+  document.getElementById("chart-category").on("plotly_click",function(d){showCategory(d.points[0].label);});
+}else{document.getElementById("chart-category").innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8b8fa3">No category data today</div>';}
+
+var panel=document.getElementById("detail-panel");
+function clearStatActive(){document.querySelectorAll(".stat-card").forEach(function(e){e.classList.remove("active");});}
+function fmtDate(d){var dt=new Date(d+"T12:00:00");return dt.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"});}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+function annCardHTML(a,showComp){
+  var t='<span class="ann-type">'+esc(a.type)+'</span>';
+  if(showComp)t+='<span class="ann-comp-tag">'+esc(a.competitor)+'</span>';
+  t+='<span class="ann-date-tag">'+fmtDate(a.date)+'</span>';
+  return '<div class="ann-card"><div>'+t+'</div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';
+}
+
+document.querySelectorAll(".stat-card").forEach(function(el){el.addEventListener("click",function(){var a=this.dataset.action;if(a==="stat-tracked")showStatTracked();else if(a==="stat-ann")showStatAnn();else if(a==="stat-active")showStatActive();else if(a==="stat-cats")showStatCats();});});
+panel.addEventListener("click",function(e){
+  var c=e.target.closest(".comp-card:not(.inactive)");if(c&&c.dataset.comp){showCompetitor(c.dataset.comp);return;}
+  var cc=e.target.closest(".cat-card");if(cc&&cc.dataset.cat){showCategory(cc.dataset.cat);return;}
+  var cl2=e.target.closest("[data-showcomp]");if(cl2){showCompetitor(cl2.dataset.showcomp);return;}
+  var bc=e.target.closest("[data-nav]");if(bc){if(bc.dataset.nav==="overview")showOverview();else if(bc.dataset.nav==="categories")showStatCats();}
+});
+
+function annsForBase(bn){var arr=[];for(var k=0;k<names.length;k++){if(baseName(names[k])===bn){var inf=DATA[names[k]];for(var m=0;m<inf.announcements.length;m++)arr.push(inf.announcements[m]);}}return arr;}
+
+function showOverview(){clearStatActive();
+  var h='<h2>Daily Briefing <span class="badge">'+ALL_ANN.length+' announcements</span></h2>';
+  h+='<div class="section-label">Competitors with News Today</div>';
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i];if(baseActive[bn]){h+='<div class="comp-card" data-comp="'+esc(bn)+'"><div><div class="name">'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div><div class="count">'+compCounts[bn]+'</div></div>';}}
+  h+='<div class="section-label">No News Today</div>';
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i];if(!baseActive[bn]){h+='<div class="comp-card inactive"><div><div class="name">'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div><div class="no-ann">none</div></div>';}}
+  panel.innerHTML=h;
+}
+
+function showStatTracked(){clearStatActive();document.querySelector("[data-action=stat-tracked]").classList.add("active");
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Competitors</span></div><h2>Competitors Tracked <span class="badge">'+baseNames.length+'</span></h2>';
+  for(var i=0;i<baseNames.length;i++){var bn=baseNames[i],act=!!baseActive[bn],cnt=compCounts[bn]||0,cls=act?"comp-card":"comp-card inactive";
+    h+='<div class="'+cls+'" data-comp="'+esc(bn)+'"><div><div class="name"><span class="status-dot '+(act?"status-active":"status-inactive")+'"></span>'+esc(bn)+'</div><div class="cat">'+esc(baseCatMap[bn].join(", "))+'</div></div>'+(act?'<div class="count">'+cnt+'</div>':'<div class="no-ann">0</div>')+'</div>';}
+  panel.innerHTML=h;
+}
+
+function showStatAnn(){clearStatActive();document.querySelector("[data-action=stat-ann]").classList.add("active");
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>All Announcements</span></div><h2>All Announcements <span class="badge">'+ALL_ANN.length+'</span></h2>';
+  for(var i=0;i<ALL_ANN.length;i++)h+=annCardHTML(ALL_ANN[i],true);
+  if(ALL_ANN.length===0)h+='<div class="empty-state"><div class="icon">&#128240;</div><p>No competitor announcements found today.</p></div>';
+  panel.innerHTML=h;
+}
+
+function showStatActive(){clearStatActive();document.querySelector("[data-action=stat-active]").classList.add("active");
+  var sorted=[];for(var i=0;i<baseNames.length;i++){if(baseActive[baseNames[i]])sorted.push([baseNames[i],compCounts[baseNames[i]]]);}
+  sorted.sort(function(a,b){return b[1]-a[1];});
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Active Today</span></div><h2>Active Today <span class="badge">'+sorted.length+'</span></h2>';
+  for(var i=0;i<sorted.length;i++)h+='<div class="comp-card" data-comp="'+esc(sorted[i][0])+'"><div><div class="name"><span class="status-dot status-active"></span>'+esc(sorted[i][0])+'</div><div class="cat">'+esc(baseCatMap[sorted[i][0]].join(", "))+'</div></div><div class="count">'+sorted[i][1]+'</div></div>';
+  h+='<div class="section-label" style="margin-top:24px">No News Today</div><div class="inactive-chips">';
+  for(var i=0;i<baseNames.length;i++){if(!baseActive[baseNames[i]])h+='<span class="inactive-chip">'+esc(baseNames[i])+'</span>';}
+  h+='</div>';panel.innerHTML=h;
+}
+
+function showStatCats(){clearStatActive();document.querySelector("[data-action=stat-cats]").classList.add("active");
+  var allCats={};for(var i=0;i<names.length;i++){var cat=DATA[names[i]].category,bn=baseName(names[i]);if(!allCats[cat])allCats[cat]={comps:{},ann:0};if(DATA[names[i]].announcements.length>0)allCats[cat].comps[bn]=1;allCats[cat].ann+=DATA[names[i]].announcements.length;}
+  var co=Object.keys(allCats).sort(function(a,b){return allCats[b].ann-allCats[a].ann;});
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>Categories</span></div><h2>Categories <span class="badge">'+co.length+'</span></h2>';
+  for(var ci=0;ci<co.length;ci++){var cat=co[ci],d=allCats[cat],color=catColors[cat]||"#888",ncomp=Object.keys(d.comps).length;
+    h+='<div class="cat-card" data-cat="'+esc(cat)+'"><div><div class="cat-name"><span class="cat-dot" style="background:'+color+'"></span>'+esc(cat)+'</div><div class="cat-meta">'+ncomp+' competitors &middot; '+d.ann+' announcements</div></div><div><span class="pill pill-ann">'+d.ann+'</span></div></div>';}
+  panel.innerHTML=h;
+}
+
+function showCompetitor(name){clearStatActive();var bn=baseName(name);if(baseSet[bn]!==1)return;
+  var anns=annsForBase(bn),cats=baseCatMap[bn]||[];
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><span>'+esc(bn)+'</span></div>';
+  h+='<h2>'+esc(bn)+' <span class="badge">'+anns.length+' announcement'+(anns.length!==1?"s":"")+'</span></h2>';
+  h+='<p style="color:var(--muted);font-size:13px;margin-bottom:18px">Category: <strong style="color:var(--text)">'+esc(cats.join(", "))+'</strong></p>';
+  if(anns.length===0){h+='<div class="empty-state"><div class="icon">&#128236;</div><p>No announcements from this competitor today.</p></div>';}
+  else{for(var i=0;i<anns.length;i++){var a=anns[i];
+    h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
+  panel.innerHTML=h;
+}
+
+function showCategory(category){clearStatActive();
+  var actMap={},inactMap={};
+  for(var i=0;i<names.length;i++){if(DATA[names[i]].category===category){var bn=baseName(names[i]);if(DATA[names[i]].announcements.length>0){if(!actMap[bn])actMap[bn]=[];for(var m=0;m<DATA[names[i]].announcements.length;m++)actMap[bn].push(DATA[names[i]].announcements[m]);}else{inactMap[bn]=1;}}}
+  var actKeys=Object.keys(actMap);var total=0;for(var i=0;i<actKeys.length;i++)total+=actMap[actKeys[i]].length;
+  var h='<div class="breadcrumb"><a data-nav="overview">Overview</a><span class="sep">&rsaquo;</span><a data-nav="categories">Categories</a><span class="sep">&rsaquo;</span><span>'+esc(category)+'</span></div>';
+  h+='<h2>'+esc(category)+' <span class="badge">'+total+' announcement'+(total!==1?"s":"")+'</span></h2>';
+  for(var i=0;i<actKeys.length;i++){var bn=actKeys[i],list=actMap[bn];
+    h+='<div class="section-label" style="margin-top:24px;cursor:pointer;color:var(--accent)" data-showcomp="'+esc(bn)+'">'+esc(bn)+' ('+list.length+') &#8599;</div>';
+    for(var j=0;j<list.length;j++){var a=list[j];
+      h+='<div class="ann-card"><div><span class="ann-type">'+esc(a.type)+'</span><span class="ann-date-tag">'+fmtDate(a.date)+'</span></div><div class="ann-title">'+esc(a.title)+'</div><div class="ann-summary">'+esc(a.summary)+'</div><a class="source-link" href="'+a.source_url+'" target="_blank" rel="noopener">&#8599; View Full Source</a></div>';}}
+  var inactKeys=Object.keys(inactMap);
+  if(inactKeys.length>0){h+='<div class="section-label" style="margin-top:20px">No News Today</div><div class="inactive-chips">';for(var i=0;i<inactKeys.length;i++)h+='<span class="inactive-chip">'+esc(inactKeys[i])+'</span>';h+='</div>';}
+  panel.innerHTML=h;
+}
+showOverview();
+})();
+</script>
+</body>
+</html>
