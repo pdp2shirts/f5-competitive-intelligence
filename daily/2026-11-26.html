@@ -230,5 +230,156 @@ function showCategory(category){clearStatActive();
 showOverview();
 })();
 </script>
+
+<style>
+.f5-wrap{margin-top:14px;padding-top:12px;border-top:1px dashed #333a47}
+.f5-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(198,40,40,.18);color:#ff5a63;font-size:12px;font-weight:700;padding:4px 12px;border-radius:12px;cursor:pointer;border:1px solid rgba(198,40,40,.35);user-select:none}
+.f5-badge:hover{background:rgba(198,40,40,.28)}
+.f5-cat-pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;margin-left:8px;color:#fff;vertical-align:middle}
+.f5-full-link{display:inline-flex;align-items:center;gap:4px;margin-left:10px;font-size:12px;font-weight:600;color:#4fc3f7;text-decoration:none;cursor:pointer;background:none;border:none;padding:0}
+.f5-full-link:hover{text-decoration:underline}
+.f5-summary{margin-top:8px;color:#d7dae1;font-size:13px;line-height:1.6}
+.f5-detail{display:none;margin-top:10px;padding:14px 16px;background:#20242e;border:1px solid #333a47;border-radius:8px;color:#d7dae1;font-size:13px;line-height:1.65}
+.f5-detail.f5-open{display:block}
+.f5-detail h4{color:#ff5a63;font-size:13px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.03em}
+.f5-detail h4:first-child{margin-top:0}
+.f5-detail p{margin:6px 0}
+.f5-detail ul{margin:6px 0 10px 18px;padding:0}
+.f5-detail li{margin-bottom:4px}
+.f5-detail strong{color:#fff}
+#f5-footer{margin-top:24px;padding:16px 20px;background:#1a1d27;border-top:1px solid #333a47;border-radius:8px;font-size:12px;color:#9aa0ab}
+#f5-footer .f5-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+#f5-footer .f5-legend-item{display:inline-flex;align-items:center;gap:6px}
+#f5-footer .f5-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+</style>
+
+<div id="f5-footer"><strong style="color:#d7dae1">F5 Competitive Intelligence — Strategic Category Legend</strong><div class="f5-legend"><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#0072C6"></span>Platforms</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#7B2FBE"></span>AI Security</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#00897B"></span>AI Data Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#E65100"></span>Application Delivery</span><span class="f5-legend-item"><span class="f5-legend-dot" style="background:#C62828"></span>Application Security</span></div></div>
+
+<script>
+(function(){
+"use strict";
+var F5D = {"Fortinet Pitches SASE's Next Job as Governing AI Agent Traffic": {"s": "Fortinet's push to extend SASE capabilities to govern AI agent traffic highlights the growing importance of AI security. This development underscores the need for F5 to emphasize its AI Guardrails and AI Gateway solutions, which offer comprehensive AI governance and security.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Fortinet's strategic move to incorporate AI governance into their SASE offerings represents a significant competitive challenge in the domain of AI security, where F5 has already established a strong foothold. As AI agents become increasingly integral to enterprise operations, F5 must reinforce its market position by emphasizing the comprehensive capabilities of its AI Security Platform. This includes showcasing how F5's solutions provide continuous control and governance over AI models, agents, and APIs, ensuring they remain secure and compliant in dynamic environments.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 AI Security Platform<\/strong>: Fortinet's integration of AI governance within SASE directly challenges F5's AI Security Platform. F5's platform offers a robust framework for continuous control over AI models, agents, and APIs, ensuring security and compliance. Unlike Fortinet's network-centric approach, F5 provides a holistic security lifecycle that integrates governance, testing, and runtime protection, aligning with enterprise needs for comprehensive AI oversight.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 AI Gateway<\/strong>: As Fortinet targets AI agent traffic, F5's AI Gateway differentiates itself with a unified control plane for AI governance. It offers visibility and control over AI costs and operations, featuring token metering and smart-routing optimization. These capabilities allow enterprises to manage AI economics effectively, contrasting with Fortinet's focus on network-level policy enforcement.<\/li>\n<\/ul>\n<ul>\n<li><strong>SurePath AI<\/strong>: Fortinet's approach to AI traffic governance competes with SurePath AI's capabilities in continuous discovery and classification. SurePath AI integrates seamlessly with existing security systems, providing comprehensive visibility and intent-based classification of AI activity. This integration ensures that AI usage aligns with enterprise policies, offering a distinct advantage over Fortinet's SASE-centric strategy.<\/li>\n<\/ul>\n<ul>\n<li><strong>AI Guardrails<\/strong>: Fortinet's emphasis on policy enforcement aligns with F5's AI Guardrails, which provide runtime protection and telemetry to validate AI behavior. F5's AI Guardrails ensure that AI systems operate safely and predictably, preventing data exfiltration and prompt abuse. This proactive approach to AI security sets F5 apart in ensuring the safe operation of AI systems.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Distributed Cloud Services<\/strong>: Fortinet's SASE narrative overlaps with F5's Distributed Cloud Services, which include WAAP and API security. F5's services offer robust security for AI-driven interactions across cloud environments, emphasizing scalability and integration capabilities. This positions F5 as a leader in securing complex, multi-cloud AI deployments.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<ul>\n<li>Emphasize F5's comprehensive AI Security Platform capabilities, highlighting its integrated governance and protection features.<\/li>\n<li>Showcase the unique benefits of F5 AI Gateway in managing AI costs and operations, contrasting with network-centric SASE solutions.<\/li>\n<li>Highlight SurePath AI's intent-based classification and integration with existing security systems as a differentiator.<\/li>\n<li>Reinforce the importance of AI Guardrails in providing runtime protection and ensuring AI systems' safe operation.<\/li>\n<\/ul>", "c": "AI Security"}, "Barracuda Finds Script-Free HTML Voicemail Phishing That Evades Email Defenses": {"s": "Barracuda's research on script-free HTML voicemail phishing highlights the evolving tactics in phishing attacks. For F5, this underscores the importance of maintaining visibility for its credential-stuffing, account-takeover, and bot-defense capabilities, ensuring they remain top-of-mind for customers seeking comprehensive security solutions.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Phishing attacks continue to pose a significant threat to application security, as demonstrated by Barracuda's recent research on sophisticated phishing tactics. This highlights the need for F5 to ensure its security solutions, particularly those targeting credential theft and bot defense, remain robust and well-publicized. Staying competitive and relevant in the market requires F5 to protect customers against increasingly complex threats, reinforcing its position as a leader in application security.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 Advanced WAF<\/strong>: F5 Advanced WAF offers comprehensive protection against web application attacks, including sophisticated phishing attempts. Its capabilities in detecting and mitigating threats like credential stuffing and account takeover are crucial in countering evolving phishing tactics. The product's advanced threat intelligence and machine learning capabilities allow it to adapt to new phishing strategies, providing a robust defense for web applications.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Distributed Cloud Bot Defense<\/strong>: This solution is designed to identify and block malicious bots that could be used in phishing campaigns. By leveraging advanced machine learning algorithms, it differentiates between legitimate and malicious traffic, offering a strong defense against automated phishing attacks. Its ability to continuously learn and adapt to new bot behaviors sets it apart from competitors, ensuring ongoing protection against bot-driven phishing threats.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 AI Guardrails<\/strong>: While primarily focused on AI security, F5 AI Guardrails can enhance phishing detection capabilities by applying AI-driven threat detection principles. This product leverages AI to identify anomalous patterns in email traffic, preemptively blocking phishing attempts. Its integration with existing security frameworks allows for seamless enhancement of phishing defenses, making it a valuable component of a comprehensive security strategy.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 SSL Orchestrator<\/strong>: F5 SSL Orchestrator decrypts and inspects SSL/TLS traffic, which is crucial for identifying phishing attempts hidden within encrypted traffic. Its ability to provide visibility into encrypted communications is a key differentiator in phishing defense, enabling organizations to detect and mitigate threats that would otherwise go unnoticed.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Labs<\/strong>: As the research arm of F5, F5 Labs plays a pivotal role in keeping F5's threat intelligence up to date. By continuously researching and publishing findings on phishing trends, F5 Labs helps position F5 as a thought leader in application security. Its insights into evolving phishing tactics inform product development and enhance the effectiveness of F5's security solutions.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<ul>\n<li>Highlight F5's comprehensive security suite, emphasizing its ability to defend against sophisticated phishing tactics.<\/li>\n<li>Promote F5 Labs' research capabilities to demonstrate F5's thought leadership in identifying and mitigating emerging threats.<\/li>\n<li>Educate customers on the importance of full-chain visibility and phishing-resistant MFA, leveraging F5's solutions to achieve these goals.<\/li>\n<\/ul>", "c": "Application Security"}, "Barracuda Warns of Sneaky 2FA Phishing Kit Stealing Post-MFA Session Cookies": {"s": "This Barracuda research highlights the persistent threat of phishing attacks that bypass MFA, emphasizing the need for robust session protection and anomaly detection. F5 can leverage its capabilities in bot defense and session security to address these vulnerabilities and differentiate its offerings in the competitive landscape.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>The Barracuda research highlights the growing sophistication of phishing attacks that can bypass multifactor authentication (MFA), a critical component of application security. As these threats evolve, F5 must ensure its security solutions remain robust and adaptive to protect customer applications and data effectively. This underscores the importance of F5's commitment to providing comprehensive security measures that address both current and emerging threats in the application security landscape.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 BIG-IP Access Policy Manager (APM):<\/strong> APM is pivotal in enhancing session security by integrating with F5 Distributed Cloud Bot Defense to counter real-time phishing proxy attacks. APM's ability to enforce adaptive authentication policies and manage sessions provides a robust defense against session hijacking, ensuring that user identities and data remain secure even in the face of sophisticated phishing techniques. This competitive edge is bolstered by its seamless integration capabilities, which allow for a unified security approach.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Distributed Cloud Bot Defense:<\/strong> This product is essential in detecting and mitigating automated attacks that aim to bypass MFA. By employing advanced bot detection techniques, F5 Distributed Cloud Bot Defense can identify and block malicious activities that exploit session cookies. Its capability to differentiate between legitimate and malicious traffic ensures that applications remain protected against unauthorized access attempts, a critical advantage in the evolving threat landscape.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Shape Security:<\/strong> Shape Security's capabilities in fraud prevention and anomaly detection are vital in identifying and mitigating sophisticated phishing attacks. Utilizing machine learning algorithms, Shape Security can detect unusual patterns indicative of phishing attempts, providing an additional layer of security. This proactive approach to threat detection helps safeguard applications from evolving phishing tactics, setting F5 apart in the market.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Advanced WAF:<\/strong> The Advanced Web Application Firewall (WAF) offers protection against various application-layer attacks, including those targeting session cookies. Its ability to analyze traffic patterns and enforce security policies helps prevent unauthorized access, ensuring that applications remain resilient against session hijacking and other security threats. This comprehensive protection is a key differentiator for F5.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Distributed Cloud WAAP:<\/strong> This Web Application and API Protection service delivers comprehensive security for web applications and APIs, including protection against phishing attacks. By integrating with other F5 security solutions, F5 Distributed Cloud WAAP enhances its ability to detect and respond to threats, providing a unified defense against sophisticated phishing campaigns. This integration capability is a significant competitive advantage.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<ul>\n<li>Emphasize F5's comprehensive security suite that includes bot defense, WAF, and session management to protect against MFA bypass attacks.<\/li>\n<li>Highlight F5's ability to integrate security solutions across platforms, providing a unified defense against sophisticated phishing campaigns.<\/li>\n<li>Showcase customer success stories where F5's security solutions have effectively mitigated similar threats, reinforcing trust in F5's capabilities.<\/li>\n<\/ul>", "c": "Application Security"}, "Imperva Exec: Black Friday AI Shopping Agents Will Compete for Inventory": {"s": "Imperva's focus on AI shopping agents highlights the growing need for advanced security measures to distinguish between legitimate and malicious AI traffic. This aligns with F5's AI security capabilities, particularly in protecting agentic commerce and ensuring safe interactions with AI agents.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>The rise of AI shopping agents in digital commerce introduces both challenges and opportunities for security providers like F5. As these agents become more integrated into e-commerce, distinguishing between legitimate and malicious AI traffic is crucial for maintaining secure and efficient operations. F5's expertise in AI security positions it to effectively address these challenges, ensuring that retailers can leverage AI agents safely without compromising security or customer experience.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 Distributed Cloud Bot Defense<\/strong>: This product is essential for identifying and mitigating malicious bot traffic while allowing legitimate AI agents to operate seamlessly. Leveraging advanced behavioral analysis and telemetry capabilities, F5 Distributed Cloud Bot Defense provides a competitive edge in managing agentic traffic, ensuring that only authorized AI agents can access e-commerce platforms without disrupting legitimate user experiences. This aligns with F5's strategy to protect digital commerce environments from abusive automation while enabling growth through verified AI agents.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 AI Guardrails<\/strong>: F5 AI Guardrails play a critical role in securing AI-powered interactions against prompt injection and unsafe inputs. By ensuring that AI agents operate within safe parameters, F5 AI Guardrails protect both retailers and consumers from potential threats, enhancing trust in AI-driven commerce activities. This capability is crucial in maintaining the integrity of AI interactions and preventing unauthorized actions that could compromise security.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Distributed Cloud API Security<\/strong>: As AI agents heavily rely on APIs for conducting commerce activities, F5's API Security offers robust API discovery, posture management, and protection. This ensures that only authorized agents can access sensitive data and services, safeguarding the integrity of e-commerce operations against unauthorized access and data breaches. F5's API Security is critical in managing the complex API interactions that AI agents introduce, providing a secure foundation for agentic commerce.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Application Delivery and Security Platform<\/strong>: This integrated platform supports consistent security policies across hybrid environments, which is crucial for managing the complex traffic patterns introduced by AI agents. By providing a unified approach to application delivery and security, F5 ensures that retailers can maintain control over their digital commerce environments. This platform's ability to integrate security and delivery capabilities offers a comprehensive solution for the evolving needs of e-commerce.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Insight/AI Assistant<\/strong>: Providing actionable insights and context, F5 Insight/AI Assistant helps retailers adapt their security strategies to the evolving threat landscape posed by AI agents. By offering real-time analysis and recommendations, this tool ensures that retailers can respond efficiently to potential threats, maintaining the security and performance of their e-commerce platforms. This capability is vital for staying ahead of emerging threats and optimizing security measures.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<ul>\n<li>Highlight F5's comprehensive AI security capabilities in discussions with clients concerned about AI agent traffic.<\/li>\n<li>Emphasize the importance of distinguishing between legitimate and malicious AI agents to protect commerce operations.<\/li>\n<li>Showcase F5's advanced telemetry and behavioral analysis as differentiators in managing agentic traffic.<\/li>\n<\/ul>", "c": "Application Security"}, "Check Point adds Google AI Mode to Workforce AI Security app catalog": {"s": "Check Point's integration of Google AI Mode into its Workforce AI Security app catalog highlights the growing importance of AI-specific security measures. This development underscores the need for robust AI governance, a domain where F5's AI Guardrails provides comprehensive protection for AI models and applications, ensuring consistent policy enforcement and threat management.", "d": "<h4>Why F5 Should Care<\/h4>\n<p>Check Point's integration of Google AI Mode into its Workforce AI Security app catalog highlights the increasing demand for AI-specific security solutions. This move underscores the importance of robust AI security measures, aligning with F5's strategic focus on securing AI workloads and models. F5 AI Guardrails is well-positioned to address these needs by offering comprehensive AI security capabilities, reinforcing its relevance in the market. This competitive development serves as a reminder of the intensifying competition in the AI security space and the need for F5 to differentiate its offerings effectively.<\/p>\n<h4>F5 Products Impacted<\/h4>\n<ul>\n<li><strong>F5 AI Guardrails<\/strong>: This product is directly relevant as it provides agile threat management, data security, and governance for AI models, apps, and agents. F5 AI Guardrails ensures consistent policy enforcement across all models, offering a robust alternative to Check Point's solution. Its integration with Google Cloud for centralized enforcement is a key differentiator, allowing organizations to govern AI interactions effectively.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 AI Gateway<\/strong>: F5 AI Gateway offers real-time inspection of prompts and responses, enabling adaptive controls to mitigate risks such as prompt injection. This capability is crucial for enterprises looking to secure AI interactions, positioning F5 as a leader in AI runtime security. The dynamic filtering and automated threat response features of F5 AI Gateway provide a competitive edge in addressing emerging AI security challenges.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Application Delivery and Security Platform (ADSP)<\/strong>: The platform consolidates security and delivery capabilities for AI applications, simplifying management for IT and security teams. It offers a comprehensive solution that includes API security and protected AI data delivery, differentiating F5 from competitors by providing a holistic approach to AI security.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Distributed Cloud Services<\/strong>: These services, including WAAP and API Security, complement AI security by providing additional layers of protection against threats like DDoS and bot attacks. This ensures a holistic security posture, enhancing F5's competitive position in the market.<\/li>\n<\/ul>\n<ul>\n<li><strong>F5 Insight/AI Assistant<\/strong>: This tool enhances F5's AI security offerings by providing insights and assistance in managing AI security policies and threats. It supports enterprises in navigating the complexities of AI security, offering a unique value proposition that complements F5's other AI security solutions.<\/li>\n<\/ul>\n<h4>Recommended Response<\/h4>\n<ul>\n<li>Highlight F5 AI Guardrails' ability to provide comprehensive AI security across models and applications.<\/li>\n<li>Emphasize the integration with Google Cloud for centralized policy enforcement and threat protection.<\/li>\n<li>Showcase F5's holistic approach to AI security, combining runtime security, data delivery, and application protection.<\/li>\n<li>Position F5 as a leader in AI security by leveraging its comprehensive product suite and integration capabilities.<\/li>\n<\/ul>", "c": "AI Security"}};
+var F5_CAT_COLORS = {"Platforms": "#0072C6", "AI Security": "#7B2FBE", "AI Data Delivery": "#00897B", "Application Delivery": "#E65100", "Application Security": "#C62828"};
+var F5_CAT_PRIORITY = {"Platforms": 1, "AI Security": 2, "AI Data Delivery": 3, "Application Delivery": 4, "Application Security": 5};
+var injecting = false;
+
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
+
+function toggleDetail(wrap){
+  var detail = wrap.querySelector('.f5-detail');
+  var link = wrap.querySelector('.f5-full-link');
+  var badge = wrap.querySelector('.f5-badge');
+  if(!detail) return;
+  var open = detail.classList.toggle('f5-open');
+  if(link) link.textContent = open ? 'Hide Full Analysis' : 'Read Full Analysis \u2192';
+  if(badge) badge.setAttribute('data-open', open ? '1' : '0');
+}
+
+function buildF5Wrap(entry){
+  var wrap = document.createElement('div');
+  wrap.className = 'f5-wrap';
+  var color = F5_CAT_COLORS[entry.c] || '#555';
+  var badge = document.createElement('span');
+  badge.className = 'f5-badge';
+  badge.textContent = '\u26A0 Why F5 Cares';
+  badge.setAttribute('data-open', '0');
+
+  var pill = document.createElement('span');
+  pill.className = 'f5-cat-pill';
+  pill.style.background = color;
+  pill.textContent = entry.c || '';
+
+  var link = document.createElement('button');
+  link.type = 'button';
+  link.className = 'f5-full-link';
+  link.textContent = 'Read Full Analysis \u2192';
+
+  var summary = document.createElement('div');
+  summary.className = 'f5-summary';
+  summary.textContent = entry.s || '';
+
+  var detail = document.createElement('div');
+  detail.className = 'f5-detail';
+  detail.innerHTML = entry.d || '';
+
+  wrap.appendChild(badge);
+  wrap.appendChild(pill);
+  wrap.appendChild(link);
+  wrap.appendChild(summary);
+  wrap.appendChild(detail);
+
+  badge.addEventListener('click', function(){ toggleDetail(wrap); });
+  link.addEventListener('click', function(){ toggleDetail(wrap); });
+
+  return wrap;
+}
+
+function desiredOrderIndex(card){
+  var titleEl = card.querySelector('.ann-title');
+  var title = titleEl ? titleEl.textContent.trim() : '';
+  var entry = F5D[title];
+  var cat = entry ? entry.c : null;
+  var pri = cat && F5_CAT_PRIORITY[cat] ? F5_CAT_PRIORITY[cat] : 99;
+  return pri;
+}
+
+function injectF5(){
+  if(injecting) return;
+  injecting = true;
+  try{
+    var cards = document.querySelectorAll('.ann-card');
+    if(!cards || cards.length === 0){ return; }
+
+    // Inject F5 analysis wrap into each card missing one.
+    for(var i=0;i<cards.length;i++){
+      var card = cards[i];
+      if(card.querySelector('.f5-wrap')) continue;
+      var titleEl = card.querySelector('.ann-title');
+      if(!titleEl) continue;
+      var title = titleEl.textContent.trim();
+      var entry = F5D[title];
+      if(!entry) continue;
+      var wrap = buildF5Wrap(entry);
+      card.appendChild(wrap);
+    }
+
+    // Re-sort cards by category priority, but ONLY if the order actually
+    // needs to change -- appendChild on an already-correctly-positioned
+    // node still emits a mutation, which would re-trigger this function
+    // via the MutationObserver below and freeze the page (2026-07-02 bug).
+    var container = cards[0] ? cards[0].parentElement : null;
+    if(container){
+      var cardArr = Array.prototype.slice.call(container.querySelectorAll('.ann-card'));
+      var sorted = cardArr.slice().sort(function(a,b){
+        return desiredOrderIndex(a) - desiredOrderIndex(b);
+      });
+      var alreadySorted = true;
+      for(var k=0;k<cardArr.length;k++){
+        if(cardArr[k] !== sorted[k]){ alreadySorted = false; break; }
+      }
+      if(!alreadySorted){
+        for(var j=0;j<sorted.length;j++){
+          container.appendChild(sorted[j]);
+        }
+      }
+    }
+  } finally {
+    setTimeout(function(){ injecting = false; }, 0);
+  }
+}
+
+var mo = new MutationObserver(function(){
+  injectF5();
+});
+mo.observe(document.body, {childList:true, subtree:true});
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(injectF5, 300); });
+} else {
+  setTimeout(injectF5, 300);
+}
+})();
+</script>
+
 </body>
 </html>
